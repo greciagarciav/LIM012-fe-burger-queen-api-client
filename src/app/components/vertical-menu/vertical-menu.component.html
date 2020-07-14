@@ -1,0 +1,12 @@
+<aside>
+    <div>
+        <img src="../../../assets/images/BQ.png" alt="logoBQ">
+    </div>
+    <div *ngFor="let option of menuAdmin">
+        <a routerLink={{option.key}} routerLinkActive="active">
+            <img src={{option.icon}} alt="">
+            <h2>{{option.title}}</h2>
+        </a>
+    </div>
+    
+</aside>

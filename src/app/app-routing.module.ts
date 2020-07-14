@@ -11,7 +11,7 @@ const routes: Routes = [
  
   { path: 'second-component', component: ViewChefsComponent },
   { path: 'home', component: ViewHomeComponent,  pathMatch: 'full' } ,
-  { path: '',   redirectTo: '/home', pathMatch: 'full' },
+ { path: '',   redirectTo: '/home', pathMatch: 'full' },
 //  { path: '**', component: ViewHomeComponent },
 ];
 

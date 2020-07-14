@@ -22,6 +22,7 @@ import { ButtonReportComponent } from './components/button-report/button-report.
 import { ViewInventaryComponent } from './views/admin/view-inventary/view-inventary.component';
 import { ViewChefsComponent } from './views/admin/view-chefs/view-chefs.component';
 import { ViewWaitersComponent } from './views/admin/view-waiters/view-waiters.component';
+import { UserLoggedComponent } from './components/user-logged/user-logged.component';
 
 @NgModule({
   declarations: [
@@ -45,6 +46,7 @@ import { ViewWaitersComponent } from './views/admin/view-waiters/view-waiters.co
     ViewInventaryComponent,
     ViewChefsComponent,
     ViewWaitersComponent,
+    UserLoggedComponent,
   ],
   imports: [
     BrowserModule,

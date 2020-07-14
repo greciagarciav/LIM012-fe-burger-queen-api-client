@@ -1,11 +1,22 @@
-aside{
-    background: red;
-    width: 15%;
+$color-primary: #FC9631;
+
+aside {
+    background: FontRegular;
+    width: 12%;
     height: 100vh;
-    div{
-        background:yellowgreen;
-        img{
-            width: 70%;
+    .logo {
+        img {
+            width: 59%;
+        }
+    }
+    div {
+        background: $color-primary;
+
+        .each-icon {
+            a {text-decoration: none;}
+            img {width: 60%;}
+            h2 {font-size: 13px;}
+            
         }
     }
 }

@@ -6,7 +6,17 @@
     <li><a routerLink="/second-component" routerLinkActive="active">Second Component</a></li>
   </ul>
 </nav> -->
-<app-header></app-header>
+<div class="main-container">
+  <div class="right-side">
+  <app-vertical-menu></app-vertical-menu>
+  </div>
+
+  <div class="left-side">
+    <app-header></app-header>
+    <router-outlet></router-outlet>
+  </div>
+</div>
+<!-- <app-header></app-header> -->
 <!-- The routed views render in the <router-outlet>-->
-<router-outlet></router-outlet>
+<!-- <router-outlet></router-outlet> -->
 

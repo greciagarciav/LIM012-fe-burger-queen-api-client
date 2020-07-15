@@ -1,1 +1,16 @@
+div.main-container {
+  display: flex;
+  flex-direction: row;
+  width: 100%;
 
+  div.right-side {
+    width: 12%;
+  }
+
+  div.left-side {
+    width: 88%;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+  }
+}

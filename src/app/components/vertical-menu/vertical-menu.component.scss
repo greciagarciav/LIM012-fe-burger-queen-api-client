@@ -10,15 +10,6 @@ $color-secondary: #FFFFFF;
   align-items: $align-items;
 }
 
-// aside {
-//   @include flex(flex, _, center );
-//     width: 12%;
-//     height: 768px;
-//     flex-direction: column;
-//     background: $color-primary;
-
-@import '../../app.component';
-
 aside {
     background: FontRegular;
     width: 11%;

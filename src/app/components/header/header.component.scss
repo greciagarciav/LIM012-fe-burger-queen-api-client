@@ -5,11 +5,15 @@ header {
     @include flex(center);
     color: map-get($colors, 'letter');
     position: absolute;
-    right: 0;
+    top: 0;
     font-family: FonBold;
     justify-content: space-between;
-    
+
     &-title {
         display: flex;
+    }
+
+    h1 {
+      margin-left: 25px;
     }
 }

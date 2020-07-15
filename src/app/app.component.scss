@@ -1,7 +1,23 @@
-//maps para hacer keys:values
-// 
+
+div.main-container {
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+
+  div.left-side {
+    width: 12%;
+  }
+
+  div.right-side {
+    width: 88%;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+  }
+}
+
 html{
-	height:100%;	
+	height:100%;
 }
 body{
     background-position:top;

@@ -1,0 +1,50 @@
+@import '../../app.component';
+
+div {
+    @include size(247px, 100%);
+    // @include size(285px, 105px);
+    @include flex(center);
+    justify-content: center;
+    font-family: FontLight;
+
+    .container-img {
+        @include size(40%, 105px);
+
+        &-admin {
+            @include circle(69px, map-get($colors, 'primary'));
+        };
+
+        &-icon {
+            width: 60%;
+        }
+    }
+
+    .div-admin-content {
+        @include size(60%, 105px);
+        @include flex(flex-start);
+        flex-direction: column;
+    }
+}
+
+
+//transalada el nombre de este componente al scss gloabl
+// :host::ng-deep div{
+//     color: yellowgreen;
+// }
+
+//anidar por familias
+// font: {
+//   family: fantasy;
+//   size: 30em;
+//   weight: bold;
+// }
+
+//extender propiedades 
+/*.error {
+  border: 1px #f00;
+  background-color: #fdd;
+}
+.seriousError {
+  @extend .error;
+  border-width: 3px;
+}*/

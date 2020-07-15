@@ -10,13 +10,19 @@ $color-secondary: #FFFFFF;
   align-items: $align-items;
 }
 
-aside {
-  @include flex(flex, _, center );
-    width: 12%;
-    height: 768px;
-    flex-direction: column;
-    background: $color-primary;
+// aside {
+//   @include flex(flex, _, center );
+//     width: 12%;
+//     height: 768px;
+//     flex-direction: column;
+//     background: $color-primary;
 
+@import '../../app.component';
+
+aside {
+    background: FontRegular;
+    width: 11%;
+    // height: 100vh;
     .logo {
       @include size( 100%, _);
       @include flex(flex, center, center );
@@ -31,6 +37,8 @@ aside {
         margin-top: 5px;
         @include size( 100%, _);
         @include flex(flex, center, center );
+    div {
+        background: map-get($colors, 'primary');
 
         .each-icon {
           margin-top: 15px;
@@ -61,4 +69,5 @@ aside {
             }
         }
     }
+}
 }

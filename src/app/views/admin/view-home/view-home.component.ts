@@ -6,7 +6,7 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./view-home.component.scss']
 })
 export class ViewHomeComponent implements OnInit {
-
+listName:string='Reportes';
   constructor() { }
 
   ngOnInit(): void {

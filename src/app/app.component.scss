@@ -1,1 +1,32 @@
+//maps para hacer keys:values
+// 
+html{
+	height:100%;	
+}
+body{
+    background-position:top;
+	// background-repeat:repeat-x;
+	margin:0;
+}
+$colors: (
+    primary: #FC9631,
+    secundary: #FFF,
+    letter: #47382B,
+    add:#00A355,
+);
 
+@mixin flex($align-items) {
+    display: flex;
+    align-items: $align-items;
+}
+
+@mixin size($width, $height) {
+    width: $width;
+    height: $height;
+}
+
+@mixin circle($width, $color) {
+    border-radius: 50%;
+    @include size($width, $width);
+    background: $color;
+}

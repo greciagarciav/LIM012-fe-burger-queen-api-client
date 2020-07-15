@@ -23,6 +23,7 @@ import { ViewInventaryComponent } from './views/admin/view-inventary/view-invent
 import { ViewChefsComponent } from './views/admin/view-chefs/view-chefs.component';
 import { ViewWaitersComponent } from './views/admin/view-waiters/view-waiters.component';
 import { UserLoggedComponent } from './components/user-logged/user-logged.component';
+import { ViewMenuComponent } from './views/admin/view-menu/view-menu.component';
 
 @NgModule({
   declarations: [
@@ -47,6 +48,7 @@ import { UserLoggedComponent } from './components/user-logged/user-logged.compon
     ViewChefsComponent,
     ViewWaitersComponent,
     UserLoggedComponent,
+    ViewMenuComponent,
   ],
   imports: [
     BrowserModule,

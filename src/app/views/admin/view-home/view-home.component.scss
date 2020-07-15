@@ -1,13 +1,17 @@
 div {
 
-    position: fixed;
-    width: 100%;
-    height: 100%;
-    // background-color: #000;
-    z-index: -1;
-
+        
+        width: 100%;
+        height: 100%;
+        /* z-index: -1; */
+        /* display: flex; */
+        .menu{
+               /* display: flex; */
+    // position: absolute;
+        }
     .container-view {
-
+        // position: fixed; 
+        margin-top: -62%;
         app-estadistics {
             width: 100%;
             justify-content: center;

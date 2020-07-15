@@ -25,7 +25,7 @@ menuAdmin:any[] = [
 {
   title: 'Menu',
   icon:'assets/images/icon-white/menu.png',
-  href: '/second-component'
+  href: '/menu'
 },
 {
   title: 'Inventario',

@@ -30,3 +30,7 @@ $colors: (
     @include size($width, $width);
     background: $color;
 }
+.app-view-home{
+    display: flex;
+    position: absolute
+}

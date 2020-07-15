@@ -1,16 +1,16 @@
-$color-primary: #FC9631;
+@import '../../app.component';
 
 aside {
     background: FontRegular;
-    width: 12%;
-    height: 100vh;
+    width: 11%;
+    // height: 100vh;
     .logo {
         img {
             width: 59%;
         }
     }
     div {
-        background: $color-primary;
+        background: map-get($colors, 'primary');
 
         .each-icon {
             a {text-decoration: none;}

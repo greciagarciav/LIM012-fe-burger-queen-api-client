@@ -29,7 +29,7 @@ aside {
         @include size( 100%, _);
         @include flex(flex, center, center );
     div {
-        background: map-get($colors, 'primary');
+        background: $color-primary;
 
         .each-icon {
           margin-top: 15px;

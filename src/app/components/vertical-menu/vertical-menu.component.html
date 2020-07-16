@@ -3,7 +3,7 @@
         <img src="../../../assets/images/BQ.png" alt="logoBQ">
     </div>
     <div class='icons' *ngFor="let option of menuAdmin">
-       <div class='each-icon'>
+       <div class='each-icon' (click)='changeImage()'>
             <a routerLink={{option.href}} routerLinkActive="active">
                 <img src={{option.icon}} alt="">
                 <h2>{{option.title}}</h2>

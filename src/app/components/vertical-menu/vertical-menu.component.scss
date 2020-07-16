@@ -1,100 +1,64 @@
-// @mixin size($width, $height) {
-//   width: $width;
-//   height: $height;
-// }
-
-@mixin flex-content($display, $justify-content, $align-items) {
+$color-primary: #FC9631;
+$color-secondary: #FFFFFF;
+@mixin size($width, $height) {
+  width: $width;
+  height: $height;
+}
+@mixin flex($display, $justify-content, $align-items) {
   display: $display;
   justify-content: $justify-content;
   align-items: $align-items;
 }
 
-// aside {
-//   @include flex(flex, _, center );
-//     width: 12%;
-//     height: 768px;
-//     flex-direction: column;
-//     background: $color-primary;
-
-@import '../../app.component';
-
-// aside {
-//   font-family: FontRegular;
-//   width: 11%;
-//   // height: 100vh;
-//   .logo {
-//     @include size(100%, _);
-//     @include flex-content(flex, center, center );
-
-//     img {
-//       margin-top: 20px;
-//       width: 75%;
-//     }
-//   }
-
-// .icons {
-//   // margin-top: 5px;
-//   // @include size(100%, _);
-//   // @include flex-content(flex, center, center);
-
-//   div {
-//     background: map-get($colors, 'primary');
-
-//     .each-icon {
-//       margin-top: 15px;
-//       // @include size(66%, _);
-//       width: 500px;
-//       height: 500px;
-//       @include flex-content(flex, center, center);
-//       border-radius: 10px;
-
-//       .active {
-//         background: map-get($colors, 'secundary');
-//         color: map-get($colors, 'primary');
-//         border-radius: 10px;
-//       }
-
-//       a {
-//         text-decoration: none;
-//         text-align: center;
-//         color: map-get($colors, 'secundary');
-
-//         img {
-//         width: 120px;
-//         }
-
-//         h2 {
-//           font-size: 13px;
-//           margin: 0 0 5px;
-//         }
-//       }
-//     }
-//     }
-//   }
-// }
 aside {
-  background: FontRegular;
-  width: 11%;
-  
-  // height: 100vh;
-  .logo {
-        @include size(100%, _);
-        @include flex-content(flex, center, center );
-    
-        img {
-          margin-top: 20px;
-          width: 75%;
-        }
-      }
-      
-  div {
-      background: map-get($colors, 'primary');
+    background: FontRegular;
+    width: 11%;
+    // height: 100vh;
+    .logo {
+      @include size( 100%, _);
+      @include flex(flex, center, center );
 
-      .each-icon {
-          a {text-decoration: none;}
-          img {width: 60%;}
-          h2 {font-size: 13px;}
-          
-      }
-  }
+        img {
+            margin-top: 20px;
+            width: 75%;
+        }
+    }
+
+    .icons {
+        margin-top: 5px;
+        @include size( 100%, _);
+        @include flex(flex, center, center );
+    div {
+        background: $color-primary;
+
+        .each-icon {
+          margin-top: 15px;
+          @include size(66%, _);
+          @include flex(flex, center, center );
+          border-radius: 10px;
+
+            .active {
+              background: $color-secondary;
+              color: $color-primary;
+              border-radius: 10px;
+            }
+
+            a {
+              text-decoration: none;
+              text-align: center;
+              color: $color-secondary;
+              cursor: pointer;
+
+              img {
+                width: 75%;
+              }
+
+              h2 {
+                font-size: 13px;
+                margin: 0 0 5px;
+              }
+            }
+        }
+    }
+}
 }

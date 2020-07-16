@@ -7,8 +7,6 @@ import { Component, OnInit, Input } from '@angular/core';
 })
 export class UserLoggedComponent implements OnInit {
 
-// name:string= 'Paulina Sail';
-
 img:string="../assets/images/admin.png";
  @Input() nombreHijo:string='Paulina Sail';
  @Input() rolHijo:string='admin';

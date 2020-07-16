@@ -2,9 +2,6 @@
 
 .div-estadistics {
     @include size(100%, 145px);
-    margin-left: 6%;
-    margin-top: 109px;
-    margin-bottom: 0.6%;
     @include flex(center);
     justify-content: center;
 
@@ -40,11 +37,6 @@
         }
 
         &-graphic {
-
-            // @include flex(center);
-            // background: rgba(196, 196, 196, 0.26);
-            // border-radius: 9px;
-            // margin-right: 2%;
             @extend .card-estadistics;
             @include size(350px, 124px);
             justify-content: center;

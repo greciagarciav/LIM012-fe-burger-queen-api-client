@@ -23,11 +23,6 @@ menuAdmin:any[] = [
   href: '/chefs-list'
 },
 {
-  title: 'Menu',
-  icon:'assets/images/icon-white/menu.png',
-  href: '/second-component'
-},
-{
   title: 'Inventario',
   icon:'assets/images/icon-white/inventory.png',
   href: '/second-component'

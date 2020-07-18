@@ -7,16 +7,16 @@
       <p class="name">{{details.nombres}}</p>
       <p>{{details.email}}</p>
     </div>
-    <div class="change-state">
+    <!-- <div class="change-state">
       <button class="out">Fuera de turno</button>
       <button class="in">En turno</button>
-    </div>
+    </div> -->
     <div class="birth-cel">
       <p>{{details.birthday}}</p>
       <p>{{details.cellphone}}</p>
     </div>
     <div class="edit-delete">
-      <button class="edit"><img src="assets/images/edit.png" alt=""> Editar</button>
+    <button class="edit"><img src="assets/images/edit.png" alt=""> <a [routerLink]="['/waiters-list', details.nombres]">Editar</a></button>
       <button class="delete"><img src="assets/images/icon-white/delete.png" alt=""> Eliminar</button>
     </div>
   </div>

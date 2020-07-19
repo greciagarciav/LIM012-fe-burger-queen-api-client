@@ -1,18 +1,14 @@
-<div class="card" *ngFor="let details of waitersStaff">
+<div class="card" *ngFor="let details of data ">
   <div class="card-details">
     <div class="img-container">
       <img src={{details.photo}} alt="">
     </div>
     <div class="name-email">
-      <p class="name">{{details.nombres}}</p>
+      <p class="name">{{details.name}}</p>
       <p>{{details.email}}</p>
     </div>
-    <div class="change-state">
-      <button class="out">Fuera de turno</button>
-      <button class="in">En turno</button>
-    </div>
     <div class="birth-cel">
-      <p>{{details.birthday}}</p>
+      <p>{{details.dateBirth}}</p>
       <p>{{details.cellphone}}</p>
     </div>
     <div class="edit-delete">

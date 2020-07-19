@@ -23,6 +23,8 @@ import { ViewInventaryComponent } from './views/admin/view-inventary/view-invent
 import { ViewChefsComponent } from './views/admin/view-chefs/view-chefs.component';
 import { ViewWaitersComponent } from './views/admin/view-waiters/view-waiters.component';
 import { UserLoggedComponent } from './components/user-logged/user-logged.component';
+import {HttpClientModule}  from '@angular/common/http';
+
 
 @NgModule({
   declarations: [
@@ -50,7 +52,8 @@ import { UserLoggedComponent } from './components/user-logged/user-logged.compon
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    HttpClientModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

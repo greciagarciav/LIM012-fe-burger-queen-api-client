@@ -1,0 +1,79 @@
+{
+    "users": [
+        {
+            "id": "u_admin1",
+            "photo": "stringAdmin.png",
+            "email": "paula@gmail.com",
+            "roles": {
+                "admin": true
+            },
+            "name": "Admin",
+            "password": "sdkmc#3"
+        },
+        {
+            "id": "1",
+            "email": "logan@gmail.com",
+            "roles": {
+                "admin": false
+            },
+            "photo": "assets/images/person.png",
+            "name": "Logan Mitchell",
+            "dateBirth": "01/10/1996",
+            "cellphone": "911111111"
+        },
+        {
+            "id": "2",
+            "email": "james@gmail.com",
+            "roles": {
+                "admin": false
+            },
+            "photo": "assets/images/person.png",
+            "name": "James Diamond",
+            "dateBirth": "02/10/1996",
+            "cellphone": "92222222"
+        },
+        {
+            "id": "3",
+            "email": "kendall@gmail.com",
+            "roles": {
+                "admin": false
+            },
+            "photo": "assets/images/person.png",
+            "name": "Kendall Night",
+            "dateBirth": "03/10/1996",
+            "cellphone": "933333333"
+        },
+        {
+            "id": "4",
+            "email": "carlos@gmail.com",
+            "roles": {
+                "admin": false
+            },
+            "photo": "assets/images/person.png",
+            "name": "Carlos Garcia",
+            "dateBirth": "04/10/1996",
+            "cellphone": "944444444"
+        },
+       {
+            "id": "5",
+            "email": "jhon@gmail.com",
+            "roles": {
+                "admin": false
+            },
+            "photo": "assets/images/person.png",
+            "name": "Jhon Spencer",
+            "dateBirth": "05/10/1996",
+            "cellphone": "95555555"
+        },{
+            "id": "6",
+            "email": "austin12gmail.com",
+            "roles": {
+                "admin": false
+            },
+            "photo": "assets/images/person.png",
+            "name": "Austin Perez",
+            "dateBirth": "05/10/1996",
+            "cellphone": "95555555"
+        } 
+    ]
+}

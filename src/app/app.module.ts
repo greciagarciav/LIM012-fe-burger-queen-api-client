@@ -24,6 +24,7 @@ import { ViewChefsComponent } from './views/admin/view-chefs/view-chefs.componen
 import { ViewWaitersComponent } from './views/admin/view-waiters/view-waiters.component';
 import { UserLoggedComponent } from './components/user-logged/user-logged.component';
 import { ModalComponent } from './components/modal/modal.component';
+import { EditUser } from './components/edit-user/edit-user.component';
 import {HttpClientModule}  from '@angular/common/http';
 
 
@@ -50,7 +51,8 @@ import {HttpClientModule}  from '@angular/common/http';
     ViewChefsComponent,
     ViewWaitersComponent,
     UserLoggedComponent,
-    ModalComponent
+    ModalComponent,
+    EditUser
   ],
   imports: [
     BrowserModule,

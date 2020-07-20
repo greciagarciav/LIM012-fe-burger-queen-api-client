@@ -8,7 +8,7 @@ import { Component, OnInit } from '@angular/core';
 export class ViewChefsComponent implements OnInit {
 
 
-
+datoHijo:number =444;
  constructor(){
 
  }
@@ -16,6 +16,10 @@ export class ViewChefsComponent implements OnInit {
   //   console.log(route.snapshot.params['id'])
   // }
   ngOnInit(): void {
+  }
+  funcambiar(e){
+    console.log(e)
+    this.datoHijo=e;
   }
 
 }

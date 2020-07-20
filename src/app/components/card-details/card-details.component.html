@@ -12,8 +12,10 @@
       <p>{{details.cellphone}}</p>
     </div>
     <div class="edit-delete">
+      <button (click)="addEmployed()"><img src="assets/images/edit.png" alt=""> agregar</button>
       <button class="edit modal_opener" (click)="toggleModal()"><img src="assets/images/edit.png" alt=""> <a [routerLink]="['/waiters-list', details.id]">Editar</a></button>
-      <button class="delete"><img src="assets/images/icon-white/delete.png" alt=""> Eliminar</button>
+      <button (click)="lessEmployed()"  class="delete"><img src="assets/images/icon-white/delete.png" alt=""> Eliminar</button>
+
     </div>
   </div>
 </div>

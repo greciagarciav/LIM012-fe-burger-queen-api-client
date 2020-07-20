@@ -11,7 +11,7 @@ export class ViewChefsComponent implements OnInit {
 datoHijo:number =444;
  constructor(){
 
- } 
+ }
   // constructor(private route: ActivatedRoute) {
   //   console.log(route.snapshot.params['id'])
   // }

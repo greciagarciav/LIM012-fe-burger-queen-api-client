@@ -25,12 +25,12 @@ menuAdmin:any[] = [
 {
   title: 'Inventario',
   icon:'assets/images/icon-white/inventory.png',
-  href: '/second-component'
+  href: '/inventary'
 },
 {
   title: 'Salir',
   icon:'assets/images/icon-white/logout.png',
-  href: '/second-component'
+  href: '/logout'
 }
 ]
 

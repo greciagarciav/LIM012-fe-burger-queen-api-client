@@ -1,6 +1,7 @@
-import { Component, OnInit, Output, EventEmitter } from '@angular/core';
+
+import { Component, OnInit, Input, Output, EventEmitter  } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
 import { JsonApiService } from '../../JsonApiService.service'
-import { Observable } from 'rxjs';
 
 @Component({
   selector: 'app-card-details',
@@ -8,6 +9,12 @@ import { Observable } from 'rxjs';
   styleUrls: ['./card-details.component.scss']
 })
 export class CardDetailsComponent implements OnInit {
+  @Input() data: any;
+
+  showModal = false;
+  toggleModal = () => {
+    this.showModal = !this.showModal;
+  }
 
   //variable que se va a ir al componente padre
   // @Output() cambio = new EventEmitter<number>();
@@ -21,9 +28,9 @@ export class CardDetailsComponent implements OnInit {
 
 
   
-data: any; // varialbe data almacena array de los meseros
+  data: any; // varialbe data almacena array de los meseros
   url: string = 'http://localhost:3000/users#'
-  constructor(public json: JsonApiService) {
+  constructor(public json: JsonApiService, private route: ActivatedRoute) {
   }
   newPerson: any = {
     "id": "85",
@@ -58,6 +65,7 @@ data: any; // varialbe data almacena array de los meseros
       this.data = response.filter(this.findEmployer)
       console.log(this.data)
     })
+      let id = +this.route.snapshot.paramMap.get('id');
   }
 
 

@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { JsonApiServiceService } from '../../../JsonApiService.service'
+import { JsonApiService} from '../../../JsonApiService.service'
 
 
 @Component({
@@ -9,18 +9,18 @@ import { JsonApiServiceService } from '../../../JsonApiService.service'
 })
 export class ViewWaitersComponent implements OnInit {
 
-    //funcion para obtener no admnistrador
-    findEmployer = (employer: any): any => employer.roles.admin === false
-    // varialbe data almacena array de los meseros
-    data: any;
+    // //funcion para obtener no admnistrador
+    // findEmployer = (employer: any): any => employer.roles.admin === false
+    // // varialbe data almacena array de los meseros
+    // data: any;
 
-    constructor(public json: JsonApiServiceService) {
-      this.json.getJson('http://localhost:3000/users#').subscribe((response: any) => {
+    // constructor(public json: JsonApiService) {
+    //   this.json.getEmployed('http://localhost:3000/users#').subscribe((response: any) => {
 
-        this.data = response.filter(this.findEmployer)
-        console.log(this.data)
-      })
-    }
+    //     this.data = response.filter(this.findEmployer)
+    //     console.log(this.data + 'desde waiters')
+    //   })
+    // }
 
   ngOnInit(): void {
   }

@@ -9,7 +9,7 @@ import { JsonApiService } from '../../JsonApiService.service'
   styleUrls: ['./card-details.component.scss']
 })
 export class CardDetailsComponent implements OnInit {
-  @Input() data: any;
+  // @Input() data: any;
 
   showModal = false;
   toggleModal = () => {
@@ -43,7 +43,7 @@ export class CardDetailsComponent implements OnInit {
     "dateBirth": "04/10/1996",
     "cellphone": "944444444"
   }
-  id= "85821"
+  idu= "85821"
   findEmployer = (employer: any): any => employer.roles.admin === false//funcion para obtener no admnistrador
   
   addEmployed() {
@@ -53,17 +53,17 @@ export class CardDetailsComponent implements OnInit {
   }
 
   lessEmployed():void{
-      this.json.deleteEmployed(this.url, this.id).subscribe((response: any) => {
+      this.json.deleteEmployed(this.url, this.idu).subscribe((response: any) => {
       console.log(response);
       
       }); 
-      this.data = this.data.filter(e=>e.id !==this.id)
+      this.data = this.data.filter(e=>e.id !==this.idu)
   }
 
   ngOnInit(): void {
     this.json.getEmployed(this.url).subscribe((response: any) => {
       this.data = response.filter(this.findEmployer)
-      console.log(this.data)
+      console.log(this.data+ 'desde card')
     })
       let id = +this.route.snapshot.paramMap.get('id');
   }

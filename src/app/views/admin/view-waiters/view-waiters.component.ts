@@ -6,7 +6,7 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./view-waiters.component.scss']
 })
 export class ViewWaitersComponent implements OnInit {
-
+  
   constructor() { }
 
   ngOnInit(): void {

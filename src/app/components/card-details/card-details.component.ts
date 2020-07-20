@@ -8,7 +8,11 @@ import { JsonApiServiceService } from '../../JsonApiService.service'
   styleUrls: ['./card-details.component.scss']
 })
 export class CardDetailsComponent implements OnInit {
+  showModal = false;
 
+  toggleModal = () => {
+    this.showModal = !this.showModal;
+  }
   //funcion para obtener no admnistrador
   findEmployer = (employer: any): any => employer.roles.admin === false
   // varialbe data almacena array de los meseros

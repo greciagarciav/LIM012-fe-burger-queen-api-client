@@ -12,8 +12,18 @@
       <p>{{details.cellphone}}</p>
     </div>
     <div class="edit-delete">
-    <button class="edit"><img src="assets/images/edit.png" alt=""> <a [routerLink]="['/waiters-list', details.nombres]">Editar</a></button>
+      <button class="edit modal_opener" (click)="toggleModal()"><img src="assets/images/edit.png" alt=""> <a [routerLink]="['/waiters-list', details.id]">Editar</a></button>
       <button class="delete"><img src="assets/images/icon-white/delete.png" alt=""> Eliminar</button>
     </div>
   </div>
+</div>
+
+<div class="app">
+  <app-modal
+    [show]="showModal"
+    [customClass]="'custom_modal_class'"
+    [closeCallback]="toggleModal">
+    <h2>Told Ya!</h2>
+    <iframe title="giphy" src="https://giphy.com/embed/l52CGyJ4LZPa0" width="480" height="273" frameBorder="0" className="giphy-embed" allowFullScreen></iframe><p><a href="https://giphy.com/gifs/sandler-sentences-sounding-l52CGyJ4LZPa0">via GIPHY</a></p>
+  </app-modal>
 </div>

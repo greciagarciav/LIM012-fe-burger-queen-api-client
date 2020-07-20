@@ -23,7 +23,8 @@ import { ViewInventaryComponent } from './views/admin/view-inventary/view-invent
 import { ViewChefsComponent } from './views/admin/view-chefs/view-chefs.component';
 import { ViewWaitersComponent } from './views/admin/view-waiters/view-waiters.component';
 import { UserLoggedComponent } from './components/user-logged/user-logged.component';
-import { ViewMenuComponent } from './views/admin/view-menu/view-menu.component';
+import {HttpClientModule}  from '@angular/common/http';
+
 
 @NgModule({
   declarations: [
@@ -48,11 +49,12 @@ import { ViewMenuComponent } from './views/admin/view-menu/view-menu.component';
     ViewChefsComponent,
     ViewWaitersComponent,
     UserLoggedComponent,
-    ViewMenuComponent,
+    ViewHomeComponent,
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    HttpClientModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

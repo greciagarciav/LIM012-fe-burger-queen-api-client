@@ -23,11 +23,6 @@ menuAdmin:any[] = [
   href: '/chefs-list'
 },
 {
-  title: 'Menu',
-  icon:'assets/images/icon-white/menu.png',
-  href: '/menu'
-},
-{
   title: 'Inventario',
   icon:'assets/images/icon-white/inventory.png',
   href: '/second-component'
@@ -40,6 +35,15 @@ menuAdmin:any[] = [
 ]
 
   constructor() { }
+
+  changeImage(){
+    // this.menuAdmin[0].icon='assets/images/icon-yellow/waiter.png'
+    this.menuAdmin[1].icon='assets/images/icon-yellow/waiter.png'
+    // this.menuAdmin[2].icon='assets/images/icon-yellow/chef.png'
+    // this.menuAdmin[3].icon='assets/images/icon-yellow/inventary.png'
+    // this.menuAdmin[4].icon='assets/images/icon-yellow/logout.png'
+    
+  }
 
   ngOnInit(): void {
   }

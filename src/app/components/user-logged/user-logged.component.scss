@@ -2,8 +2,8 @@
 
 div {
     @include size(247px, 100%);
-    @include flex(center);
-    justify-content: center;
+    @include flex(center,center);
+    // justify-content: center;
     font-family: FontLight;
 
     .container-img {
@@ -20,7 +20,7 @@ div {
 
     .div-admin-content {
         @include size(60%, 105px);
-        @include flex(flex-start);
+        @include flex(flex-start,_);
         flex-direction: column;
     }
 }

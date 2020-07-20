@@ -2,11 +2,11 @@
 
 .div-estadistics {
     @include size(100%, 145px);
-    @include flex(center);
-    justify-content: center;
+    @include flex(center,center);
+    // justify-content: center;
 
     .card-estadistics {
-        @include flex(center);
+        @include flex(center,_);
         @include size(245px, 124px);
         background: rgba(196, 196, 196, 0.26);
         border-radius: 9px;
@@ -18,7 +18,7 @@
         }
 
         &-item {
-            @include flex(center);
+            @include flex(center,_);
             width: 135px;
             height: 102px;
             border-radius:50% ;

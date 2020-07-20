@@ -17,6 +17,9 @@ div.container-chefs {
     border-radius: 10px;
 
     div.ctn-cards {
+      overflow-y: scroll;
+      height: 26em;
+      width: 99%;
       .component {
         display: flex;
         flex-wrap: wrap;

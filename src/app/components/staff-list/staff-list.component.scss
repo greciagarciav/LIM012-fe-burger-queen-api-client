@@ -20,7 +20,7 @@
         padding: 1%;
 
         .card-staff {
-            @include flex(center);
+            @include flex(center,_);
             @include size(379px, 80px);
             background: #FFFFFF;
             border: 1px solid #C4C4C4;
@@ -29,7 +29,7 @@
             font-size: 0.8em;
             margin: 2%;
             .turn {
-                @include flex(center);
+                @include flex(center,_);
                 font-family: FonBold;
                 font-size: 1em;
                 color: map-get($colors, $key: add);

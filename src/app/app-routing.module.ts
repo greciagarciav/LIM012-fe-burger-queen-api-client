@@ -12,7 +12,7 @@ const routes: Routes = [
   { path: 'logout', component: ViewHomeComponent },
   // { path: 'inventary/:id', component: CardDetailsComponent },
   { path: 'inventary', component: ViewInventaryComponent },
-  // { path: 'waiters-list/:id', component: ModalComponent },
+  // { path: 'waiters-list/:id', component: CardDetailsComponent},
   { path: 'waiters-list', component: ViewWaitersComponent },
   { path: 'chefs-list/:id', component: ModalComponent },
   { path: 'chefs-list', component: ViewChefsComponent },

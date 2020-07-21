@@ -20,8 +20,8 @@
         <td>{{details.name}}</td>
         <td>{{details.cellphone}}</td>
         <td class="edit-delete">
-          <button class="edit" (click)="toggleModal()" class="edit modal_opener"><img src="assets/images/edit.png" alt=""> <a [routerLink]="['/staff', details.id]">Editar</a></button>
-          <button class="delete" (click)="lessEmployed()" class="delete"><img src="assets/images/delete.png" alt=""> Eliminar</button>
+          <button class="edit" (click)="toggleModal()" class="edit"><img src="assets/images/edit.png" alt="">Editar</button>
+          <button class="delete" (click)="lessEmployed()" class="delete"><img src="assets/images/delete.png" alt="">Eliminar</button>
         </td>
       </tr>
     </tbody>

@@ -1,4 +1,4 @@
-<div class="card" *ngFor="let details of data">
+<div class="card" (click)='cambiar()'*ngFor="let details of data ">
   <div class="card-details">
     <div class="img-container">
       <img src={{details.photo}} alt="">

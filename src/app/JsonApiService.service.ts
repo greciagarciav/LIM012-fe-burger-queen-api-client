@@ -13,7 +13,12 @@ export class JsonApiService {
      return this.http.get(url)
   }
   postEmployed(url:string,object:any){
-    return this.http.post(url,object)
+    return this.http.post(url,object,)
+    //   {
+    //   header:{
+    //     Authorization: Bearer <token>
+    //   }
+    // })
  }
  deleteEmployed(url:string,id:any){
   return this.http.delete(url,id)

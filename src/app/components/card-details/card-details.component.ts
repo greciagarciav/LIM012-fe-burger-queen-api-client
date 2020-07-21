@@ -17,10 +17,10 @@ export class CardDetailsComponent implements OnInit {
   }
 
   //variable que se va a ir al componente padre
-  // @Output() cambio = new EventEmitter<number>();
-  // cambiar() {
-  //   this.cambio.emit(5)
-  // }
+  @Output() cambio = new EventEmitter<number>();
+  cambiar() {
+    this.cambio.emit(5)
+  }
   
   // cambiar(){
   //   this.cambio.emit({"dato"})
@@ -33,7 +33,7 @@ export class CardDetailsComponent implements OnInit {
   constructor(public json: JsonApiService, private route: ActivatedRoute) {
   }
   newPerson: any = {
-    "id": "85",
+    "id": "845",
     "email": "carlos@gmail.com",
     "roles": {
       "admin": false
@@ -43,7 +43,7 @@ export class CardDetailsComponent implements OnInit {
     "dateBirth": "04/10/1996",
     "cellphone": "944444444"
   }
-  idu= "85821"
+  id= "8445"
   findEmployer = (employer: any): any => employer.roles.admin === false//funcion para obtener no admnistrador
   
   addEmployed() {
@@ -53,11 +53,11 @@ export class CardDetailsComponent implements OnInit {
   }
 
   lessEmployed():void{
-      this.json.deleteEmployed(this.url, this.idu).subscribe((response: any) => {
-      console.log(response);
+      this.json.deleteEmployed('http://localhost:3000/users#', this.id).subscribe((response: any) => {
+      console.log( this.id);
       
       }); 
-      this.data = this.data.filter(e=>e.id !==this.idu)
+      this.data = this.data.filter(e=>e.id !==this.id)
   }
 
   ngOnInit(): void {

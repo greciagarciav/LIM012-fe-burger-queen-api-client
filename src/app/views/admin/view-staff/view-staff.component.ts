@@ -3,11 +3,11 @@ import { JsonApiService} from '../../../JsonApiService.service'
 
 
 @Component({
-  selector: 'app-view-waiters',
-  templateUrl: './view-waiters.component.html',
-  styleUrls: ['./view-waiters.component.scss']
+  selector: 'app-view-staff',
+  templateUrl: './view-staff.component.html',
+  styleUrls: ['./view-staff.component.scss']
 })
-export class ViewWaitersComponent implements OnInit {
+export class ViewStaffComponent implements OnInit {
 
     // //funcion para obtener no admnistrador
     // findEmployer = (employer: any): any => employer.roles.admin === false

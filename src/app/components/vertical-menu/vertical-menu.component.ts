@@ -8,24 +8,19 @@ import { Component, OnInit } from '@angular/core';
 export class VerticalMenuComponent implements OnInit {
 menuAdmin:any[] = [
 {
-  title: 'Home',
-  icon:'assets/images/icon-yellow/home.png',
-  href: '/home'
-},
-{
-  title: 'Meseros',
+  title: 'Admin',
   icon:'assets/images/icon-white/waiter.png',
-  href: '/waiters-list'
+  href: '/staff-list'
 },
 {
-  title: 'Cocineros',
-  icon:'assets/images/icon-white/chef.png',
-  href: '/chefs-list'
-},
-{
-  title: 'Inventario',
+  title: 'Mesero',
   icon:'assets/images/icon-white/inventory.png',
   href: '/inventary'
+},
+{
+  title: 'Jefe de cocina',
+  icon:'assets/images/icon-white/chef.png',
+  href: '/logout'
 },
 {
   title: 'Salir',

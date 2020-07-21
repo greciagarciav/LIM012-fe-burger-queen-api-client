@@ -10,7 +10,7 @@ menuAdmin:any[] = [
 {
   title: 'Admin',
   icon:'assets/images/icon-white/waiter.png',
-  href: '/staff-list'
+  href: '/staff'
 },
 {
   title: 'Mesero',
@@ -37,7 +37,7 @@ menuAdmin:any[] = [
     // this.menuAdmin[2].icon='assets/images/icon-yellow/chef.png'
     // this.menuAdmin[3].icon='assets/images/icon-yellow/inventary.png'
     // this.menuAdmin[4].icon='assets/images/icon-yellow/logout.png'
-    
+
   }
 
   ngOnInit(): void {

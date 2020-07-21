@@ -1,5 +1,5 @@
 <div class="card" (click)='cambiar()'*ngFor="let details of data ">
-  <div class="card-details">
+  <div class="staff-list">
     <div class="img-container">
       <img src={{details.photo}} alt="">
     </div>
@@ -13,7 +13,7 @@
     </div>
     <div class="edit-delete">
       <button (click)="addEmployed()"><img src="assets/images/edit.png" alt=""> agregar</button>
-      <button class="edit modal_opener" (click)="toggleModal()"><img src="assets/images/edit.png" alt=""> <a [routerLink]="['/staff-list', details.id]">Editar</a></button>
+      <button class="edit modal_opener" (click)="toggleModal()"><img src="assets/images/edit.png" alt=""> <a [routerLink]="['/staff', details.id]">Editar</a></button>
       <button (click)="lessEmployed()"  class="delete"><img src="assets/images/icon-white/delete.png" alt=""> Eliminar</button>
 
     </div>

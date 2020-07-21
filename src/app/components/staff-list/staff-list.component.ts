@@ -4,11 +4,11 @@ import { ActivatedRoute } from '@angular/router';
 import { JsonApiService } from '../../JsonApiService.service'
 
 @Component({
-  selector: 'app-card-details',
-  templateUrl: './card-details.component.html',
-  styleUrls: ['./card-details.component.scss']
+  selector: 'app-staff-list',
+  templateUrl: './staff-list.component.html',
+  styleUrls: ['./staff-list.component.scss']
 })
-export class CardDetailsComponent implements OnInit {
+export class StaffList implements OnInit {
   // @Input() data: any;
 
   showModal = false;
@@ -21,13 +21,13 @@ export class CardDetailsComponent implements OnInit {
   cambiar() {
     this.cambio.emit(5)
   }
-  
+
   // cambiar(){
   //   this.cambio.emit({"dato"})
   // }
 
 
-  
+
   data: any; // varialbe data almacena array de los meseros
   url: string = 'http://localhost:3000/users#'
   constructor(public json: JsonApiService, private route: ActivatedRoute) {
@@ -45,7 +45,7 @@ export class CardDetailsComponent implements OnInit {
   }
   id= "8445"
   findEmployer = (employer: any): any => employer.roles.admin === false//funcion para obtener no admnistrador
-  
+
   addEmployed() {
     this.json.postEmployed(this.url, this.newPerson).subscribe((response: any) => {
       this.data.push(response)
@@ -55,8 +55,8 @@ export class CardDetailsComponent implements OnInit {
   lessEmployed():void{
       this.json.deleteEmployed('http://localhost:3000/users#', this.id).subscribe((response: any) => {
       console.log( this.id);
-      
-      }); 
+
+      });
       this.data = this.data.filter(e=>e.id !==this.id)
   }
 

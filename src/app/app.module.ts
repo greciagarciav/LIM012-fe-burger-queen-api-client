@@ -6,7 +6,7 @@ import { AppComponent } from './app.component';
 import { HeaderComponent } from './components/header/header.component';
 import { VerticalMenuComponent } from './components/vertical-menu/vertical-menu.component';
 import { NavSearchComponent } from './components/nav-search/nav-search.component';
-import { CardDetailsComponent } from './components/card-details/card-details.component';
+import { StaffList } from './components/staff-list/staff-list.component';
 import { ConteinerListCardsComponent } from './components/conteiner-list-cards/conteiner-list-cards.component';
 import { MenuCardComponent } from './components/menu-card/menu-card.component';
 import { MenuListCardsComponent } from './components/menu-list-cards/menu-list-cards.component';
@@ -26,7 +26,7 @@ import {HttpClientModule}  from '@angular/common/http';
     HeaderComponent,
     VerticalMenuComponent,
     NavSearchComponent,
-    CardDetailsComponent,
+    StaffList,
     ConteinerListCardsComponent,
     MenuCardComponent,
     MenuListCardsComponent,

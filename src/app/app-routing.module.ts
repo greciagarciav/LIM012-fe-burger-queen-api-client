@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
+import { AdminComponent } from "../app/views/admin/admin.component";
 import { ViewStaffComponent } from "../app/views/admin/view-staff/view-staff.component";
 import { ViewInventaryComponent } from "../app/views/admin/view-inventary/view-inventary.component";
 import { StaffList } from "../app/components/staff-list/staff-list.component";
@@ -12,11 +13,11 @@ const routes: Routes = [
   // { path: 'inventary/:id', component: StaffList },
   { path: 'inventary', component: ViewInventaryComponent },
   // { path: 'waiters-list/:id', component: EditUser},
-  { path: 'staff', component: ViewStaffComponent },
+  { path: 'admin/:id', component: AdminComponent },
   // { path: 'chefs-list/:id', component: ModalComponent },
   // { path: 'chefs-list', component: ViewChefsComponent },
   // { path: 'home', component: ViewHomeComponent,  pathMatch: 'full' } ,
- { path: '',   redirectTo: '/staff', pathMatch: 'full' },
+ { path: '',   redirectTo: 'admin/staff', pathMatch: 'full' },
 
 ];
 

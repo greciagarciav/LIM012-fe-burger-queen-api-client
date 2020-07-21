@@ -10,17 +10,17 @@ menuAdmin:any[] = [
 {
   title: 'Admin',
   icon:'assets/images/icon-white/waiter.png',
-  href: '/staff'
+  href: '/admin'
 },
 {
   title: 'Mesero',
   icon:'assets/images/icon-white/inventory.png',
-  href: '/inventary'
+  href: '/mesero'
 },
 {
   title: 'Jefe de cocina',
   icon:'assets/images/icon-white/chef.png',
-  href: '/logout'
+  href: '/cocinero'
 },
 {
   title: 'Salir',

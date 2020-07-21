@@ -3,6 +3,7 @@ import { NgModule } from '@angular/core';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
+import { AdminComponent } from './views/admin/admin.component';
 import { HeaderComponent } from './components/header/header.component';
 import { VerticalMenuComponent } from './components/vertical-menu/vertical-menu.component';
 import { NavSearchComponent } from './components/nav-search/nav-search.component';
@@ -25,6 +26,7 @@ import {HttpClientModule}  from '@angular/common/http';
     AppComponent,
     HeaderComponent,
     VerticalMenuComponent,
+    AdminComponent,
     NavSearchComponent,
     StaffList,
     ConteinerListCardsComponent,

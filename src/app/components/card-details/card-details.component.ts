@@ -10,10 +10,10 @@ import { Observable } from 'rxjs';
 export class CardDetailsComponent implements OnInit {
 
   //variable que se va a ir al componente padre
-  // @Output() cambio = new EventEmitter<number>();
-  // cambiar() {
-  //   this.cambio.emit(5)
-  // }
+  @Output() cambio = new EventEmitter<number>();
+  cambiar() {
+    this.cambio.emit(5)
+  }
   
   // cambiar(){
   //   this.cambio.emit({"dato"})
@@ -26,7 +26,7 @@ data: any; // varialbe data almacena array de los meseros
   constructor(public json: JsonApiService) {
   }
   newPerson: any = {
-    "id": "85",
+    "id": "845",
     "email": "carlos@gmail.com",
     "roles": {
       "admin": false
@@ -36,7 +36,7 @@ data: any; // varialbe data almacena array de los meseros
     "dateBirth": "04/10/1996",
     "cellphone": "944444444"
   }
-  id= "85821"
+  id= "8445"
   findEmployer = (employer: any): any => employer.roles.admin === false//funcion para obtener no admnistrador
   
   addEmployed() {
@@ -46,8 +46,8 @@ data: any; // varialbe data almacena array de los meseros
   }
 
   lessEmployed():void{
-      this.json.deleteEmployed(this.url, this.id).subscribe((response: any) => {
-      console.log(response);
+      this.json.deleteEmployed('http://localhost:3000/users#', this.id).subscribe((response: any) => {
+      console.log( this.id);
       
       }); 
       this.data = this.data.filter(e=>e.id !==this.id)

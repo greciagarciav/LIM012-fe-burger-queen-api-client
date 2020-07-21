@@ -1,4 +1,4 @@
-div.container-waiters {
+div.container-staff-section {
   width: 100%;
   margin-top: 60px;
   display: flex;
@@ -6,25 +6,14 @@ div.container-waiters {
   flex-direction: column;
   align-items: center;
 
-  div.ctn-form-commponent {
-    width: 90%;
-
-  }
-  div.ctn-list-commponent {
-    width: 95%;
-    background: #c1aa98;
-    height: 526px;
-    border-radius: 10px;
-
-    div.ctn-cards {
+    div.container-staff-list-component {
       overflow-y: scroll;
-      height: 26em;
-      width: 99%;
-      .component {
+      width: 90%;
+
+      .staff-list-component {
         display: flex;
-        flex-wrap: wrap;
         justify-content: center;
+        width: 100%;
       }
-    }
   }
 }

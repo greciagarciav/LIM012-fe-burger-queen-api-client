@@ -1,94 +1,89 @@
-div.card {
-  width: 30%;
-  height: 255px;
-  display: flex;
-  justify-content: center;
-  background: #f6f1ed;
-  border-radius: 10px;
-  margin: 10px;
-  div.staff-list {
-    display: flex;
-    justify-content: center;
-    flex-direction: column;
-    align-items: center;
+div.table-staff {
+  width: 100%;
+  .table {
     text-align: center;
-    width: 90%;
-
-    div.img-container {
-      width: 30%;
-      border-radius: 50%;
-      border: 1px solid #47382b;
-      background: #f0f0f0;
-
-      img {
-        width: 90%;
-        border-radius: 50%;
-      }
-    }
-
-    div.name-email {
-      color: #47382b;
-      .name {
-        font-size: 18px;
-      }
-      p {
-        font-size: 14px;
-      }
-    }
-
-    div.change-state {
-      width: 81%;
-      margin: 10px 0;
-      button {
-        width: 45%;
-        height: 39px;
-        border: none;
-        cursor: pointer;
-        border-radius: 10px;
-      }
-      button.out {
-        background: #f0f0f0;
-        border: 1px solid #c1aa98;
-        color: #47382b;
-      }
-      button.in {
-        background: #36af5a;
-        border: 1px solid #c1aa98;
-        color: #ffffff;
-      }
-    }
-
-    div.birth-cel {
-      color: #47382b;
-      display: flex;
-       p {
-         margin: 0 10px;
-       }
-    }
-
-    div.edit-delete {
-      margin: 10px;
-      width: 100%;
-
-      button {
-        height: 20px;
-        cursor: pointer;
-        width: 40%;
-        margin: 0 10px;
-        border-radius: 9px;
-        border: none;
-        img {
-            height: 12px;
+    width: 100%;
+    border: 1px solid #C4C4C4;
+    border-collapse: collapse;
+    thead {
+      font-size: 18px;
+      tr {
+        height: 45px;
+        th {
+          border: 0;
+          p {
+            font-size: 14px;
+          }
         }
       }
-
-      button.edit {
-        background: #d2eaf8;
-        color: #47382b;
-      }
-      button.delete {
-        background: #e35151;
+      .titles {
+        background: #47382b;
         color: #ffffff;
+        height: 50px;
+        .num {
+          width: 100px;
+        }
+      }
+      .form {
+        height: 60px;
+        background: #F6F1ED;
+        th {
+          input {
+            height: 25px;
+            border-radius: 8px;
+            border: 1px solid #47382b;
+          }
+          button {
+            background: #36af5a;
+            border: none;
+            color: #ffffff;
+            width: 180px;
+            height: 25px;
+            border-radius: 5px;
+            align-self: flex-end;
+            img {
+              width: 10px;
+              margin-right: 10px;
+            }
+          }
+        }
+      }
+    }
+    tbody {
+      tr {
+        height: 45px;
+        border-top: 1px solid #C4C4C4;
+        background: #F6F1ED;
+        td.edit-delete {
+          button {
+            height: 20px;
+            width: 80px;
+            border-radius: 5px;
+            margin: 10px;
+            border: none;
+          }
+          button.edit {
+            background: #d2eaf8;
+            color: #47382b;
+            text-decoration: none;
+            img {
+              width: 12px;
+              margin-right: 5px;
+            }
+            a {
+              text-decoration: none;
+              color: #47382b;
+            }
+          }
+          button.delete {
+            background: #e35151;
+            color: #ffffff;
+            img {
+              width: 12px;
+              margin-right: 2px;
+            }
+          }
+        }
       }
     }
   }

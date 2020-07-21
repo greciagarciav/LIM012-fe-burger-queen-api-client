@@ -1,24 +1,33 @@
-<div class="card" (click)='cambiar()'*ngFor="let details of data ">
-  <div class="staff-list">
-    <div class="img-container">
-      <img src={{details.photo}} alt="">
-    </div>
-    <div class="name-email">
-    <p class="name">{{details.name}}</p>
-      <p >{{details.email}}</p>
-    </div>
-    <div class="birth-cel">
-    <p>{{details.dateBirth}}</p>
-      <p>{{details.cellphone}}</p>
-    </div>
-    <div class="edit-delete">
-      <button (click)="addEmployed()"><img src="assets/images/edit.png" alt=""> agregar</button>
-      <button class="edit modal_opener" (click)="toggleModal()"><img src="assets/images/edit.png" alt=""> <a [routerLink]="['/staff', details.id]">Editar</a></button>
-      <button (click)="lessEmployed()"  class="delete"><img src="assets/images/icon-white/delete.png" alt=""> Eliminar</button>
-
-    </div>
-  </div>
+<div class="table-staff">
+  <table class="table">
+    <thead>
+      <tr class="titles">
+        <th class="num">N°</th>
+        <th>Email</th>
+        <th>Contraseña</th>
+        <th>opciones</th>
+      </tr>
+      <tr class="form">
+        <th><p>Agregar <br> empleado</p></th>
+        <th><input class="" type="text" placeholder="Email"></th>
+        <th><input type="password" placeholder="Contraseña"></th>
+        <th><button (click)="addEmployed()"><img src="assets/images/icon-white/add.png" alt="">Agregar</button></th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr (click)='cambiar()' *ngFor="let details of data">
+        <td >{{details.id}}</td>
+        <td>{{details.name}}</td>
+        <td>{{details.cellphone}}</td>
+        <td class="edit-delete">
+          <button class="edit" (click)="toggleModal()" class="edit modal_opener"><img src="assets/images/edit.png" alt=""> <a [routerLink]="['/staff', details.id]">Editar</a></button>
+          <button class="delete" (click)="lessEmployed()" class="delete"><img src="assets/images/delete.png" alt=""> Eliminar</button>
+        </td>
+      </tr>
+    </tbody>
+  </table>
 </div>
+
 <div class="app">
   <app-modal
     [show]="showModal"

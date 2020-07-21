@@ -1,17 +1,5 @@
 @import '../../app.component';
 
-// @mixin size($width, $height) {
-//   width: $width;
-//   height: $height;
-// }
-
-// @mixin flex($display, $justify-content, $align-items) {
-//   display: $display;
-//   justify-content: $justify-content;
-//   align-items: $align-items;
-// }
-
-
 aside {
   @include flex(center, _);
   width: 100%;
@@ -53,8 +41,9 @@ aside {
         color: map-get($colors , 'secundary');
         cursor: pointer;
 
-        img {
-          width: 75%;
+        i {
+          font-size: 35px;
+          margin: 10px 20px;
         }
 
         h2 {

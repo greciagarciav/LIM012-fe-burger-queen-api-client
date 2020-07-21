@@ -9,22 +9,22 @@ export class VerticalMenuComponent implements OnInit {
 menuAdmin:any[] = [
 {
   title: 'Admin',
-  icon:'assets/images/icon-white/waiter.png',
-  href: '/admin'
+  icon:'fas fa-user-cog',
+  href: '/admin/staff'
 },
 {
   title: 'Mesero',
-  icon:'assets/images/icon-white/inventory.png',
+  icon:'fas fa-user-tie',
   href: '/mesero'
 },
 {
   title: 'Jefe de cocina',
-  icon:'assets/images/icon-white/chef.png',
+  icon:'fas fa-bread-slice',
   href: '/cocinero'
 },
 {
   title: 'Salir',
-  icon:'assets/images/icon-white/logout.png',
+  icon:'fa fa-sign-out',
   href: '/logout'
 }
 ]

@@ -5,7 +5,8 @@
     <div class='icons' *ngFor="let option of menuAdmin">
        <div class='each-icon' (click)='changeImage()'>
             <a routerLink={{option.href}} routerLinkActive="active">
-                <img src={{option.icon}} alt="">
+                <i class={{option.icon}}></i>
+              <!-- <img src={{option.icon}} alt=""> -->
                 <h2>{{option.title}}</h2>
             </a>
        </div>

@@ -87,6 +87,17 @@
       },
       "password": "958785781",
       "id": "2ZhJ6Ky"
+    },
+    {
+      "id": "848",
+      "email": "carlos@gmail.com",
+      "roles": {
+        "admin": false
+      },
+      "photo": "string.png",
+      "name": " Garcia",
+      "dateBirth": "04/10/1996",
+      "cellphone": "944444444"
     }
   ]
 }

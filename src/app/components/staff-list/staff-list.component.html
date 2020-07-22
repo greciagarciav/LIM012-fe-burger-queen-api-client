@@ -35,6 +35,8 @@
     [show]="showModal"
     [customClass]="'custom_modal_class'"
     [closeCallback]="toggleModal">
-    <app-edit-user></app-edit-user>
+    <app-edit-user
+    [closeCallback]="toggleModal">
+  </app-edit-user>
   </app-modal>
 </div>

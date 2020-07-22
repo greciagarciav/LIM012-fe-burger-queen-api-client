@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 
 @Component({
   selector: 'app-edit-user',
@@ -6,8 +6,10 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./edit-user.component.scss']
 })
 export class EditUser implements OnInit {
+  @Input() closeCallback = () => (false);
+
   datoHijo:string='sinDato'
-  
+
   constructor() { }
 
   ngOnInit(): void {

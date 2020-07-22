@@ -33,6 +33,10 @@ div.table-staff {
             border-radius: 8px;
             border: 1px solid #47382b;
           }
+          ::placeholder {
+            padding: 10px;
+            background: #F6F1ED;
+          }
           button {
             background: #36af5a;
             border: none;

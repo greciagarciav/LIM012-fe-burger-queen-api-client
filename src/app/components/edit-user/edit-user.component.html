@@ -1,22 +1,16 @@
 <div  (cambio)="funcambiarDatos($event)"  class="ctn-edit-user">
   <div class="img-container">
-    <img src="assets/images/icon-yellow/home.png" alt="">
+    <img src="assets/images/BQ.png" alt="">
   </div>
   <form class="form" action="">
     <div class="inputs">
-      <label for="names">Nombres</label>
-      <input type="text" name="names">
-      <label for="email">Correo</label>
-      <input type="text" name="email">
-      <label for="birthday">Cumpleaños</label>
-      <input type="text" name="birthday">
-      <label for="cellphone">Celular</label>
-      <input type="text" name="cellphone">
+      <input type="text" placeholder="Email">
+      <input type="text" placeholder="Contraseña">
     </div>
     <p>{{datoHijo}}</p>
     <div class="cancel-save">
-      <button>Cancelar</button>
-      <button>Guardar</button>
+      <button type='button' class="cancel" (click)="closeCallback()">Cancelar</button>
+      <button type='button' class="save">Guardar</button>
     </div>
   </form>
 </div>

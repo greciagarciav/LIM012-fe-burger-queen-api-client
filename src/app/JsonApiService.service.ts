@@ -6,7 +6,7 @@ import {HttpClient}  from '@angular/common/http';
   providedIn: 'root'
 })
 export class JsonApiService {
-  
+    url: string = 'http://localhost:3000/users#'
   constructor(private http: HttpClient){}
 
   getEmployed(url:string){

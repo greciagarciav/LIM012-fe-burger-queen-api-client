@@ -10,9 +10,13 @@ export class ModalComponent implements OnInit {
   @Input() customClass = '';
   @Input() closeCallback = () => (false);
 
+
+
   constructor() { }
 
   ngOnInit() {
   }
+
+ 
 
 }

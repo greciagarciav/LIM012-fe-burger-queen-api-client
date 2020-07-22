@@ -8,9 +8,14 @@ import { Component, OnInit, Input } from '@angular/core';
 export class EditUser implements OnInit {
   @Input() closeCallback = () => (false);
 
+  datoHijo:string='sinDato'
+
   constructor() { }
 
   ngOnInit(): void {
   }
-
+funcambiarDatos(e){
+     console.log(e)
+ this.datoHijo=e
+   }
 }

@@ -30,10 +30,10 @@ menuAdmin:any[] = [
 }
 ]
 currentUrl: any;
-
 desactivado:boolean=false;
 changeImage(){
     this.desactivado = !this.desactivado
+
   }
 
   constructor(public router: Router) { 

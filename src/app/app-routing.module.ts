@@ -16,7 +16,7 @@ const routes: Routes = [
   // { path: 'chefs-list/:id', component: ModalComponent },
   // { path: 'chefs-list', component: ViewChefsComponent },
   // { path: 'home', component: ViewHomeComponent,  pathMatch: 'full' } ,
- { path: '',   redirectTo: '/staff-list', pathMatch: 'full' },
+//  { path: '',   redirectTo: '/staff-list', pathMatch: 'full' },
 
 ];
 

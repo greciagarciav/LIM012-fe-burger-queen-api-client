@@ -22,15 +22,12 @@ export class CardDetailsComponent implements OnInit {
     this.cambio.emit(5)
   }
   
-  // cambiar(){
-  //   this.cambio.emit({"dato"})
-  // }
-
-
-  
   data: any; // varialbe data almacena array de los meseros
   url: string = 'http://localhost:3000/users#'
   constructor(public json: JsonApiService, private route: ActivatedRoute) {
+    this.cambiar()
+    console.log('aqui');
+    
   }
   newPerson: any = {
     "id": "845",

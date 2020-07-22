@@ -6,10 +6,14 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./edit-user.component.scss']
 })
 export class EditUser implements OnInit {
-
+  datoHijo:string='sinDato'
+  
   constructor() { }
 
   ngOnInit(): void {
   }
-
+funcambiarDatos(e){
+     console.log(e)
+ this.datoHijo=e
+   }
 }

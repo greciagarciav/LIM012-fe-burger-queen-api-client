@@ -1,4 +1,4 @@
-<div class="ctn-edit-user">
+<div  (cambio)="funcambiarDatos($event)"  class="ctn-edit-user">
   <div class="img-container">
     <img src="assets/images/icon-yellow/home.png" alt="">
   </div>
@@ -13,6 +13,7 @@
       <label for="cellphone">Celular</label>
       <input type="text" name="cellphone">
     </div>
+    <p>{{datoHijo}}</p>
     <div class="cancel-save">
       <button>Cancelar</button>
       <button>Guardar</button>

@@ -1,5 +1,5 @@
 
-import { Component, OnInit, Input, Output, EventEmitter  } from '@angular/core';
+import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { JsonApiService } from '../../JsonApiService.service'
 
@@ -15,19 +15,21 @@ export class StaffList implements OnInit {
   toggleModal = () => {
     this.showModal = !this.showModal;
   }
-
+  datos: any =''
   //variable que se va a ir al componente padre
-  @Output() cambio = new EventEmitter<number>();
+  @Output() cambio = new EventEmitter<any>();
   cambiar() {
-    this.cambio.emit(5)
+    // this.datos = 'austin12gmail.com'
+    this.cambio.emit('austin12gmail.com')
+ 
   }
+
 
   data: any; // varialbe data almacena array de los meseros
   url: string = 'http://localhost:3000/users#'
   constructor(public json: JsonApiService, private route: ActivatedRoute) {
     this.cambiar()
-    console.log('aqui');
-    
+    console.log('aqui'); 
 
   }
   newPerson: any = {
@@ -41,7 +43,7 @@ export class StaffList implements OnInit {
     "dateBirth": "04/10/1996",
     "cellphone": "944444444"
   }
-  id= "2"
+  id = "2"
   findEmployer = (employer: any): any => employer.roles.admin === false//funcion para obtener no admnistrador
 
   addEmployed() {
@@ -50,20 +52,21 @@ export class StaffList implements OnInit {
     });
   }
 
-  lessEmployed():void{
-      this.json.deleteEmployed('http://localhost:3000/users#', this.id).subscribe((response: any) => {
-      console.log( this.id);
+  lessEmployed(): void {
+    this.json.deleteEmployed('http://localhost:3000/users#', this.id).subscribe((response: any) => {
+      console.log(this.id);
 
-      });
-      this.data = this.data.filter(e=>e.id !==this.id)
+    });
+    this.data = this.data.filter(e => e.id !== this.id)
   }
 
   ngOnInit(): void {
     this.json.getEmployed(this.url).subscribe((response: any) => {
       this.data = response.filter(this.findEmployer)
-      console.log(this.data+ 'desde card')
+      console.log(this.data + 'desde card')
     })
-      let id = +this.route.snapshot.paramMap.get('id');
+    let id = +this.route.snapshot.paramMap.get('id');
+
   }
 
 

@@ -33,7 +33,7 @@ export class StaffList implements OnInit {
   constructor(public json: JsonApiService, private route: ActivatedRoute) {
   }
   newPerson: any = {
-    "id": "845",
+    "id": "848",
     "email": "carlos@gmail.com",
     "roles": {
       "admin": false
@@ -43,7 +43,7 @@ export class StaffList implements OnInit {
     "dateBirth": "04/10/1996",
     "cellphone": "944444444"
   }
-  id= "8445"
+  id= "2"
   findEmployer = (employer: any): any => employer.roles.admin === false//funcion para obtener no admnistrador
 
   addEmployed() {

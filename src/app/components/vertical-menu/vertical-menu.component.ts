@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-
+import { Router, ActivatedRouteSnapshot, ActivatedRoute,NavigationEnd } from '@angular/router';
+import {filter} from 'rxjs/operators';
 @Component({
   selector: 'app-vertical-menu',
   templateUrl: './vertical-menu.component.html',
@@ -28,19 +29,30 @@ menuAdmin:any[] = [
   href: '/logout'
 }
 ]
-
-  constructor() { }
-
-  changeImage(){
-    // this.menuAdmin[0].icon='assets/images/icon-yellow/waiter.png'
-    this.menuAdmin[1].icon='assets/images/icon-yellow/waiter.png'
-    // this.menuAdmin[2].icon='assets/images/icon-yellow/chef.png'
-    // this.menuAdmin[3].icon='assets/images/icon-yellow/inventary.png'
-    // this.menuAdmin[4].icon='assets/images/icon-yellow/logout.png'
+currentUrl: any;
+desactivado:boolean=false;
+changeImage(){
+    this.desactivado = !this.desactivado
 
   }
 
-  ngOnInit(): void {
+  constructor(public router: Router) { 
+   router.events.pipe(filter(event => event instanceof NavigationEnd))
+        .subscribe(event => {
+            this.currentUrl = Object.values(event)[1];
+            
+            // this.menuAdmin.forEach(i=>{
+            //   if(this.currentUrl===i.href){
+            //     console.log(i.icon)
+            //     i.icon =i.iconSelect;
+            //     i.iconSelect= i.icon;
+            //     console.log(i.icon)
+            // }
+          // })
+        });  
+} ;
+
+  ngOnInit(): void { 
   }
 
 }

@@ -7,6 +7,7 @@ import { StaffList } from "../app/components/staff-list/staff-list.component";
 import { ModalComponent } from "../app/components/modal/modal.component";
 import { EditUser } from "../app/components/edit-user/edit-user.component";
 
+
 const routes: Routes = [
 
   // { path: 'logout', component: ViewHomeComponent },
@@ -16,8 +17,6 @@ const routes: Routes = [
   { path: 'mesero', component: AdminComponent},
   { path: 'admin/:id', component: AdminComponent },
   // { path: 'meser0/:id', component: ModalComponent },
-  // { path: 'chefs-list', component: ViewChefsComponent },
-  // { path: 'home', component: ViewHomeComponent,  pathMatch: 'full' } ,
  { path: '',   redirectTo: 'admin/staff', pathMatch: 'full' },
 
 ];

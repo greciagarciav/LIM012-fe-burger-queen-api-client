@@ -5,10 +5,6 @@ $colors: (
   add:#00A355,
 );
 
-// @mixin flex($align-items) {
-//   display: flex;
-//   align-items: $align-items;
-// }
 
 @mixin size($width, $height) {
   width: $width;
@@ -32,7 +28,6 @@ html {
 
 body {
   background-position: top;
-  // background-repeat:repeat-x;
   margin: 0;
 }
 

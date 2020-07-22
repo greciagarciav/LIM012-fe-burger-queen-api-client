@@ -10,26 +10,22 @@ export class VerticalMenuComponent implements OnInit {
 menuAdmin:any[] = [
 {
   title: 'Admin',
-  icon:'assets/images/icon-white/user-icon.png',
-  iconSelect:'assets/images/icon-yellow/user-icon.png',
-  href: '/staff-list'
+  icon:'fas fa-user-cog',
+  href: '/admin/staff'
 },
 {
   title: 'Mesero',
-  icon:'assets/images/icon-white/waiter.png',
-  iconSelect:'assets/images/icon-yellow/waiter.png',
-  href: '/inventary'
+  icon:'fas fa-user-tie',
+  href: '/mesero'
 },
 {
   title: 'Jefe de cocina',
-  icon:'assets/images/icon-white/chef.png',
-  iconSelect:'assets/images/icon-yellow/chef.png',
-  href: '/logout'
+  icon:'fas fa-bread-slice',
+  href: '/cocinero'
 },
 {
   title: 'Salir',
-  icon:'assets/images/icon-white/logout.png',
-  iconSelect:'assets/images/icon-yellow/user-icon.png',
+  icon:'fa fa-sign-out',
   href: '/logout'
 }
 ]
@@ -55,16 +51,6 @@ changeImage(){
           // })
         });  
 } ;
-
- 
- // router.events.subscribe((data:any) => {
-    //  if(data.url){
-    //  console.log(data.filter(e => e !== undefined)) }
-    // console.log(router.location.path());
-    // console.log(route.snapshot.params['id'])
-
-    
-  
 
   ngOnInit(): void { 
   }

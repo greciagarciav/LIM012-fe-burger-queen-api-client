@@ -3,13 +3,9 @@
         <img src="../../../assets/images/BQ.png" alt="logoBQ">
     </div>
     <div class='icons' *ngFor="let option of menuAdmin">
-       <div class='each-icon' >
-           <!--  (click)= "fondo = 'each-icon-selected'" [ngClass]="fondo" -->
-           <!-- remplaza al href y le dice al servidor que es parte de una ruta local -->
-           <!-- *ngIf= "active?'each-icon-select':'each-icon-no-select'" -->
-            <a routerLink={{option.href}} routerLinkActive="active" >
-                <img src={{option.iconSelect}} alt="">
-                <img (click)='changeImage()'[ngClass]="desactivado?'each-icon-no-select':'each-icon-select'" src={{option.icon}} alt="">
+       <div class='each-icon' (click)='changeImage()'>
+            <a routerLink={{option.href}} routerLinkActive="active">
+                <i class={{option.icon}}></i>
                 <h2>{{option.title}}</h2>
             </a>
        </div>

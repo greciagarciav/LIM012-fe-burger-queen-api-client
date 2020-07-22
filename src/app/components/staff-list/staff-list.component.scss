@@ -1,0 +1,86 @@
+div.table-staff {
+  width: 100%;
+  .table {
+    text-align: center;
+    width: 100%;
+    border: 1px solid #C4C4C4;
+    border-collapse: collapse;
+    thead {
+      font-size: 18px;
+      tr {
+        height: 45px;
+        th {
+          border: 0;
+          p {
+            font-size: 14px;
+          }
+        }
+      }
+      .titles {
+        background: #47382b;
+        color: #ffffff;
+        height: 50px;
+        .num {
+          width: 100px;
+        }
+      }
+      .form {
+        height: 60px;
+        background: #F6F1ED;
+        th {
+          input {
+            height: 25px;
+            border-radius: 8px;
+            border: 1px solid #47382b;
+          }
+          button {
+            background: #36af5a;
+            border: none;
+            color: #ffffff;
+            width: 180px;
+            height: 25px;
+            border-radius: 5px;
+            align-self: flex-end;
+            img {
+              width: 10px;
+              margin-right: 10px;
+            }
+          }
+        }
+      }
+    }
+    tbody {
+      tr {
+        height: 45px;
+        border-top: 1px solid #C4C4C4;
+        background: #F6F1ED;
+        td.edit-delete {
+          button {
+            height: 20px;
+            width: 80px;
+            border-radius: 5px;
+            margin: 10px;
+            border: none;
+          }
+          button.edit {
+            background: #d2eaf8;
+            color: #47382b;
+            text-decoration: none;
+            img {
+              width: 12px;
+              margin-right: 5px;
+            }
+          }
+          button.delete {
+            background: #e35151;
+            color: #ffffff;
+            img {
+              width: 12px;
+              margin-right: 5px;
+            }
+          }
+        }
+      }
+    }
+  }
+}

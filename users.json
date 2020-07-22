@@ -130,6 +130,30 @@
       "name": " Garcia",
       "dateBirth": "04/10/1996",
       "cellphone": "944444444"
+    },
+    {
+      "email": "maria@gmail.com",
+      "roles": {
+        "admin": false
+      },
+      "password": "123456",
+      "id": "SIDVjWO"
+    },
+    {
+      "email": "alejandra@gmail.com",
+      "roles": {
+        "admin": false
+      },
+      "password": "hdjhjjsfhjhks",
+      "id": "TzeKCLu"
+    },
+    {
+      "email": "alejandra@gmail.com",
+      "roles": {
+        "admin": false
+      },
+      "password": "hdjhjjsfhjhks",
+      "id": "y71d6tR"
     }
   ]
 }

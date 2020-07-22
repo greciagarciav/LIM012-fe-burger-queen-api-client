@@ -1,0 +1,38 @@
+<div class="table-staff">
+  <table class="table">
+    <thead>
+      <tr class="titles">
+        <th class="num">N°</th>
+        <th>Email</th>
+        <th>Contraseña</th>
+        <th>opciones</th>
+      </tr>
+      <tr class="form">
+        <th><p>Agregar <br> empleado</p></th>
+        <th><input class="" type="text" placeholder="Email"></th>
+        <th><input type="password" placeholder="Contraseña"></th>
+        <th><button (click)="addEmployed()"><img src="assets/images/icon-white/add.png" alt="">Agregar</button></th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr (click)='cambiar()' *ngFor="let details of data">
+        <td >{{details.id}}</td>
+        <td>{{details.name}}</td>
+        <td>{{details.cellphone}}</td>
+        <td class="edit-delete">
+          <button class="edit" (click)="toggleModal()" class="edit"><img src="assets/images/edit.png" alt="">Editar</button>
+          <button class="delete" (click)="lessEmployed()" class="delete"><img src="assets/images/delete.png" alt="">Eliminar</button>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+
+<div class="app">
+  <app-modal
+    [show]="showModal"
+    [customClass]="'custom_modal_class'"
+    [closeCallback]="toggleModal">
+    <app-edit-user></app-edit-user>
+  </app-modal>
+</div>

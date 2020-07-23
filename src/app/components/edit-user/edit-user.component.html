@@ -1,4 +1,4 @@
-<div class="ctn-edit-user">
+<div  (cambio)="funcambiarDatos($event)"  class="ctn-edit-user">
   <div class="img-container">
     <img src="assets/images/BQ.png" alt="">
   </div>
@@ -9,6 +9,7 @@
       <p>{{email}}</p>
       <p>{{password}}</p>
     </div>
+    <p>{{datoHijo}}</p>
     <div class="cancel-save">
       <button type='button' class="cancel" (click)="closeCallback()">Cancelar</button>
       <button type='button' class="save">Guardar</button>

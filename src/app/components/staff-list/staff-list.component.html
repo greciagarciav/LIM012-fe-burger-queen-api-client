@@ -15,12 +15,14 @@
       </tr>
     </thead>
     <tbody>
-      <tr (click)='cambiar()' *ngFor="let details of data">
-        <td >{{details.id}}</td>
+      <tr  *ngFor="let details of data;index as i">
+        <td >{{i+1}}</td>
         <td>{{details.email}}</td>
         <td>{{details.password}}</td>
         <td class="edit-delete">
-          <button class="edit" (click)="toggleModal()" class="edit"><img src="assets/images/edit.png" alt="">Editar</button>
+          <button class="edit" (click)='cambiar()'(click)=" toggleModal()"  class="edit">
+            <img src="assets/images/edit.png" alt="">Editar
+          </button>
           <button class="delete" (click)="lessEmployed()" class="delete"><img src="assets/images/delete.png" alt="">Eliminar</button>
         </td>
         <div class="app">

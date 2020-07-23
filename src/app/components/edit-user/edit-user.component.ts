@@ -10,9 +10,14 @@ export class EditUser implements OnInit {
   @Input() email: string;
   @Input() password: string;
 
+  datoHijo:string='sinDato'
+
   constructor() { }
 
   ngOnInit(): void {
   }
-
+funcambiarDatos(e){
+     console.log(e)
+ this.datoHijo=e
+   }
 }

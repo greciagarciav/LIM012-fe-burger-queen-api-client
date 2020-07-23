@@ -27,7 +27,7 @@ export class StaffList implements OnInit {
   constructor(public json: JsonApiService, private route: ActivatedRoute) {
     this.cambiar()
     console.log('aqui');
-    
+
 
   }
   newPerson: any = {

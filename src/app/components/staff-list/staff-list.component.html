@@ -23,18 +23,19 @@
           <button class="edit" (click)="toggleModal()" class="edit"><img src="assets/images/edit.png" alt="">Editar</button>
           <button class="delete" (click)="lessEmployed()" class="delete"><img src="assets/images/delete.png" alt="">Eliminar</button>
         </td>
+        <div class="app">
+          <app-modal
+            [show]="showModal"
+            [customClass]="'custom_modal_class'"
+            [closeCallback]="toggleModal">
+            <app-edit-user
+            [closeCallback]="toggleModal"
+            [email]="details.email"
+            [password]="details.password">
+          </app-edit-user>
+          </app-modal>
+        </div>
       </tr>
     </tbody>
   </table>
-</div>
-
-<div class="app">
-  <app-modal
-    [show]="showModal"
-    [customClass]="'custom_modal_class'"
-    [closeCallback]="toggleModal">
-    <app-edit-user
-    [closeCallback]="toggleModal">
-  </app-edit-user>
-  </app-modal>
 </div>

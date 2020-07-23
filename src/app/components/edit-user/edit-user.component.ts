@@ -7,6 +7,8 @@ import { Component, OnInit, Input } from '@angular/core';
 })
 export class EditUser implements OnInit {
   @Input() closeCallback = () => (false);
+  @Input() email: string;
+  @Input() password: string;
 
   constructor() { }
 

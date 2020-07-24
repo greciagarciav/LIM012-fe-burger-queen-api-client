@@ -14,7 +14,7 @@ const routes: Routes = [
   // { path: 'inventary/:id', component: StaffList },
   // { path: 'inventary', component: ViewInventaryComponent },
   { path: 'cocinero', component: AdminComponent},
-  { path: 'mesero', component: AdminComponent},
+  { path: 'mesero', component: ModalComponent},
   { path: 'admin/:id', component: AdminComponent },
   // { path: 'meser0/:id', component: ModalComponent },
  { path: '',   redirectTo: 'admin/staff', pathMatch: 'full' },

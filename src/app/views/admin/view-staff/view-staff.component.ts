@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { JsonApiService } from '../../../JsonApiService.service'
+
 
 @Component({
   selector: 'app-view-staff',
@@ -7,20 +9,18 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ViewStaffComponent implements OnInit {
 
-    // //funcion para obtener no admnistrador
-    // findEmployer = (employer: any): any => employer.roles.admin === false
-    // // varialbe data almacena array de los meseros
-    // data: any;
+  data: any;
+  // url: string = 'http://localhost:3000/users#'
 
-    // constructor(public json: JsonApiService) {
-    //   this.json.getEmployed('http://localhost:3000/users#').subscribe((response: any) => {
+  constructor(public json: JsonApiService) {
 
-    //     this.data = response.filter(this.findEmployer)
-    //     console.log(this.data + 'desde waiters')
-    //   })
-    // }
+  }
 
   ngOnInit(): void {
+    // this.json.getEmployed(this.url).subscribe((response: any) => {
+    //   this.data = response.filter((employer: any): any => employer.roles.admin === false)
+    //   console.log(JSON.stringify(this.data) + 'desde waiters')
+    // })
   }
 
 }

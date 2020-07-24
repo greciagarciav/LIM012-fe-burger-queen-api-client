@@ -19,8 +19,8 @@ import { UserLoggedComponent } from './components/user-logged/user-logged.compon
 import { ModalComponent } from './components/modal/modal.component';
 import { EditUser } from './components/edit-user/edit-user.component';
 import {HttpClientModule}  from '@angular/common/http';
-
-
+import { JsonApiService } from "./JsonApiService.service";
+import { ReactiveFormsModule, FormsModule } from '@angular/forms';
 @NgModule({
   declarations: [
     AppComponent,
@@ -44,8 +44,10 @@ import {HttpClientModule}  from '@angular/common/http';
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
+    ReactiveFormsModule,
+    FormsModule
   ],
-  providers: [],
+  providers: [JsonApiService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

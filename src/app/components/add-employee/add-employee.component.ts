@@ -1,63 +1,31 @@
-
-import { Component, OnInit, Input, Output } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
+import { FormControl, Validators, FormGroup, FormBuilder } from '@angular/forms';
+import { User } from '../../model/user';
 import { ActivatedRoute, Router } from '@angular/router';
 import { JsonApiService } from '../../JsonApiService.service'
-import { User } from '../../model/user';
-import { Subscription, Subject } from 'rxjs';
-import { FormControl, Validators, FormGroup, FormBuilder } from '@angular/forms';
+
 
 @Component({
-  selector: 'app-staff-list',
-  templateUrl: './staff-list.component.html',
-  styleUrls: ['./staff-list.component.scss']
+  selector: 'app-add-employee',
+  templateUrl: './add-employee.component.html',
+  styleUrls: ['./add-employee.component.scss']
 })
-export class StaffList implements OnInit {
 
-  // destroy$: Subject<boolean> = new Subject<boolean>()
-
+export class AddEmployee implements OnInit {
   users: User[];
-  // employed: any = {
-  //   "email": "mir@gmail.com",
-  //   "roles": {
-  //     "admin": false
-  //   },
-  //   "password": '123456'
-  // }
-  // nombreSuscripcion: Subscription
-
   emailCtrl = new FormControl('');
   passwordCtrl = new FormControl('');
-
-
-  // form: FormGroup;
-
-  // buildForm(){
-  //   this.form = new FormGroup({
-  //     email: new FormControl(''),
-  //     password: new FormControl(''),
-  //   })
-  // }
-
-  // send(event: Event) {
-  //   event.preventDefault();
-  //   const value = this.form.value;
-  //   console.log(value);
-  // }
 
   constructor(
     private json: JsonApiService,
     public route: ActivatedRoute,
     private router: Router
-  ) {
-    // this.buildForm
-  }
-  //variable que almacena errores
-  errorMessage: string = 'default'
+    ) {  }
 
-  // encontrar solo empleados
+  errorMessage: string = 'default';
+
   findEmployer = (employer: User): boolean => employer.roles.admin === false;
-
-  //traer usuarios
+ 
   receiveUsers() {
     this.json.getUser()
       // .pipe(takeUntil(this.destroy$))
@@ -94,7 +62,7 @@ export class StaffList implements OnInit {
       console.log('data', data);
       if(data.status >= 200){
       console.log(data.status);
-      this.users.push(data.body)
+      this.users.push(data.body);
     }},
       err => {
         switch (err.status) {
@@ -113,38 +81,11 @@ export class StaffList implements OnInit {
         }
 
       })
-    // }
   }
-
-
-  //agregar nuevo usuario
 
 
   ngOnInit(): void {
     this.receiveUsers()
-    // let id = +this.route.snapshot.paramMap.get('id');
-    // console.log(id);
-
-    // lessEmployed(): void {
-    //   this.json.deleteEmployed('', this.id).subscribe((response: any) => {
-    //     console.log(this.id);
-    //   });
-    //   this.dataLocal = this.dataLocal.filter(e => e.id !== this.id)
-
   }
 
-  //modal
-
-  showModal = false;
-  toggleModal = () => {
-    this.showModal = !this.showModal;
-  }
-
-  // ngOnDestroy(): void {
-
-  //   // this.nombreSuscripcion.unsubscribe()
-  //   this.destroy$.next(true);
-  //   // Unsubscribe from the subject
-  //   this.destroy$.unsubscribe();console.log('this.ngOnDestroy')
-  // }
 }

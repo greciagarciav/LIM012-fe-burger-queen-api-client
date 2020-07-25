@@ -2,7 +2,8 @@
 
 
 section {
-  padding: 1%;
+  width: 100%;
+  
   h2 {
     color: map-get($colors, 'letter')
   }
@@ -25,7 +26,7 @@ section {
     }
 
     button {
-      @include size(180px, 25px);
+      @include size(200px, 35px);
       background: map-get($colors, 'add');
       border: none;
       color: map-get($colors, 'secundary');
@@ -80,6 +81,7 @@ section {
   }
 
   tbody {
+    overflow-y: scroll;
     tr {
       height: 45px;
       border-top: 1px solid map-get($colors, 'secundary');

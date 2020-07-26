@@ -1,6 +1,6 @@
 <div class="table-staff">
   <!-- <form class="form" [formGroup]="form" (ngSubmit)="send($event)"> -->  
-  <section>
+  <!-- <section>
     <div class="form" >
       <h2>Agregar Empleado</h2>
       <input class="" type="email" placeholder="Email" [formControl]="emailCtrl">
@@ -9,7 +9,7 @@
         <img src="assets/images/icon-white/add.png" alt="">
         Agregar</button>
     </div>
-  </section>
+  </section> -->
   <!-- End </form>  -->
   <table class="table" *ngIf="errorMessage == 'default'; else errorView">
     <thead>
@@ -27,7 +27,7 @@
         <td>{{details.password}}</td>
         <td class="edit-delete">
           <button class="edit" (click)="toggleModal()" class="edit" id={{details.id}}>
-            <img src="assets/images/edit.png" alt="">Editar
+            <img src="assets/images/edit.png" alt=""> <a [routerLink]="['/admin/staff', details.id]">Editar</a>
           </button>
           <button class="delete" class="delete">
             <!-- (click)="lessEmployed()"  -->

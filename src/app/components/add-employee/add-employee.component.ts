@@ -1,9 +1,8 @@
 import { Component, OnInit } from '@angular/core';
-import { FormControl, Validators, FormGroup, FormBuilder } from '@angular/forms';
+import { FormControl } from '@angular/forms';
 import { User } from '../../model/user';
 import { ActivatedRoute, Router } from '@angular/router';
-import { JsonApiService } from '../../JsonApiService.service'
-
+import { JsonApiService } from '../../JsonApiService.service';
 
 @Component({
   selector: 'app-add-employee',
@@ -24,30 +23,6 @@ export class AddEmployee implements OnInit {
 
   errorMessage: string = 'default';
 
-  findEmployer = (employer: User): boolean => employer.roles.admin === false;
- 
-  receiveUsers() {
-    this.json.getUser()
-      // .pipe(takeUntil(this.destroy$))
-      .subscribe((data: User[]) => { //se le da el tipo de dato que va  a recibir
-        this.users = data.filter(this.findEmployer)
-        console.log(data)
-      },
-        err => {
-          switch (err.status) {
-            case 401:
-              this.errorMessage = 'no hay cabecera de autenticación'
-              break;
-            case 403:
-              this.errorMessage = 'no es admin'
-              break;
-            default:
-              this.errorMessage = 'se produjo un error, intente de nuevo'
-              break;
-          }
-        })
-  }
-
   addUser(): any {
     console.log(this.emailCtrl.value);
     const newUser: object = {
@@ -58,11 +33,9 @@ export class AddEmployee implements OnInit {
       "password": this.passwordCtrl.value
     }
     this.json.postUser(newUser).subscribe((data: any) => {
-      // console.log(data.statusText);
-      console.log('data', data);
+      console.log('data - add-employee', data);
       if(data.status >= 200){
       console.log(data.status);
-      this.users.push(data.body);
     }},
       err => {
         switch (err.status) {
@@ -85,7 +58,7 @@ export class AddEmployee implements OnInit {
 
 
   ngOnInit(): void {
-    this.receiveUsers()
+
   }
 
 }

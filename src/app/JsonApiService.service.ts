@@ -3,11 +3,12 @@ import {
   HttpClient, HttpHeaders, HttpErrorResponse,} from '@angular/common/http';
 import { User } from './model/user'
 import { catchError, tap, map } from 'rxjs/operators';
-import { throwError, Observable } from 'rxjs';
+import { throwError, Observable, Subject } from 'rxjs';
 
-@Injectable({
-  providedIn: 'root'
-})
+// @Injectable({
+//   providedIn: 'root'
+// })
+@Injectable()
 export class JsonApiService {
 
   headers = new HttpHeaders(
@@ -20,6 +21,13 @@ export class JsonApiService {
 
   url: string = 'http://localhost:3000/users#'
 
+  private _refreshList$ = new Subject<void>();
+
+//   get refreshList$(){
+//     return this._refreshList$;
+// }
+  refreshList$ = this._refreshList$.asObservable();
+
   getUser(): Observable<any> {
     return this.http.get(this.url, { headers: this.headers })
       .pipe(
@@ -30,10 +38,13 @@ export class JsonApiService {
   postUser(user) {
     return this.http.post(this.url, (user), { headers: this.headers,observe: 'response'})
     .pipe( 
-      map(resp=>resp),
-      catchError(this.handleError)
+      // map(resp=>resp),
+      // catchError(this.handleError)
       // tap(resp => resp)
-    )
+      tap(() => {
+          this._refreshList$.next();
+      })
+    );
   }
 
   handleError(errorRes: HttpErrorResponse) {

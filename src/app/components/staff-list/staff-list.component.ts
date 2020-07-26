@@ -3,7 +3,7 @@ import { Component, OnInit, Input, Output } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { JsonApiService } from '../../JsonApiService.service'
 import { User } from '../../model/user';
-import { Subscription, Subject } from 'rxjs';
+// import { Subscription, Subject } from 'rxjs';
 import { FormControl, Validators, FormGroup, FormBuilder } from '@angular/forms';
 
 @Component({
@@ -25,8 +25,8 @@ export class StaffList implements OnInit {
   // }
   // nombreSuscripcion: Subscription
 
-  emailCtrl = new FormControl('');
-  passwordCtrl = new FormControl('');
+  // emailCtrl = new FormControl('');
+  // passwordCtrl = new FormControl('');
 
 
   // form: FormGroup;
@@ -80,47 +80,54 @@ export class StaffList implements OnInit {
         })
   }
 
-  addUser(): any {
-    console.log(this.emailCtrl.value);
-    const newUser: object = {
-      "email": this.emailCtrl.value,
-      "roles": {
-        "admin": false
-      },
-      "password": this.passwordCtrl.value
-    }
-    this.json.postUser(newUser).subscribe((data: any) => {
-      // console.log(data.statusText);
-      console.log('data', data);
-      if(data.status >= 200){
-      console.log(data.status);
-      this.users.push(data.body)
-    }},
-      err => {
-        switch (err.status) {
-          case 400:
-            this.errorMessage = 'no hay no se proveen `email` o `password` o ninguno de los dos'
-            break;
-          case 401:
-            this.errorMessage = 'no hay cabecera de autenticación'
-            break;
-          case 403:
-            this.errorMessage = 'ya existe usuaria con ese `email`'
-            break;
-          default:
-            this.errorMessage = 'se produjo un error, intente de nuevo'
-            break;
-        }
+  // addUser(): any {
+  //   console.log(this.emailCtrl.value);
+  //   const newUser: object = {
+  //     "email": this.emailCtrl.value,
+  //     "roles": {
+  //       "admin": false
+  //     },
+  //     "password": this.passwordCtrl.value
+  //   }
+  //   this.json.postUser(newUser).subscribe((data: any) => {
+  //     // console.log(data.statusText);
+  //     console.log('data', data);
+  //     if(data.status >= 200){
+  //     console.log(data.status);
+  //     this.users.push(data.body)
+  //   }},
+  //     err => {
+  //       switch (err.status) {
+  //         case 400:
+  //           this.errorMessage = 'no hay no se proveen `email` o `password` o ninguno de los dos'
+  //           break;
+  //         case 401:
+  //           this.errorMessage = 'no hay cabecera de autenticación'
+  //           break;
+  //         case 403:
+  //           this.errorMessage = 'ya existe usuaria con ese `email`'
+  //           break;
+  //         default:
+  //           this.errorMessage = 'se produjo un error, intente de nuevo'
+  //           break;
+  //       }
 
-      })
-    // }
-  }
+  //     })
+  //   // }
+  // }
 
 
   //agregar nuevo usuario
 
 
   ngOnInit(): void {
+
+    this.json.refreshList$.
+    subscribe(() => {
+        this.receiveUsers();
+        console.log('ngOnInit Subscribe!')
+    });
+
     this.receiveUsers()
     // let id = +this.route.snapshot.paramMap.get('id');
     // console.log(id);

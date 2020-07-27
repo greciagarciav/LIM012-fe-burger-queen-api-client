@@ -26,7 +26,7 @@
         <td>{{details.email}}</td>
         <td>{{details.password}}</td>
         <td class="edit-delete">
-          <button class="edit" (click)="toggleModal()" class="edit" id={{details.id}}>
+          <button class="edit" (click)="toggleModal()" (click)="dataEmployee(details)" class="edit">
             <img src="assets/images/edit.png" alt=""> <a [routerLink]="['/admin/staff', details.id]">Editar</a>
           </button>
           <button class="delete" class="delete">
@@ -39,11 +39,11 @@
             [show]="showModal"
             [customClass]="'custom_modal_class'"
             [closeCallback]="toggleModal">
-            <app-edit-user
-            [closeCallback]="toggleModal"
+            <app-edit-user [closeCallback]="toggleModal"
             [email]="details.email"
-            [password]="details.password">
-          </app-edit-user>
+            [password]="details.password"
+            >
+            </app-edit-user>
           </app-modal>
         </div>
       </tr>

@@ -4,13 +4,13 @@
   </div>
   <form class="form" action="">
     <div class="inputs">
-      <input type="text" placeholder="Email" value={{email}}>
-      <input type="text" placeholder="Contraseña" value={{password}}>
+      <input type="text" placeholder="Email" [formControl]="emailCtrl" value={{email}}>
+      <input type="text" placeholder="Contraseña" [formControl]="passwordCtrl" value={{password}}>
     </div>
     <!-- <p>{{datoHijo}}</p> -->
     <div class="cancel-save">
       <button type='button' class="cancel" (click)="closeCallback()">Cancelar</button>
-      <button type='button' class="save">Guardar</button>
+      <button type='button' class="save" (click)="editUser()">Guardar</button>
     </div>
   </form>
 </div>

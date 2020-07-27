@@ -19,7 +19,7 @@ export class JsonApiService {
 
   constructor(private http: HttpClient) { }
 
-  url: string = 'http://localhost:3000/users#'
+  url: string = 'http://localhost:3000/users/'
 
   private _refreshList$ = new Subject<void>();
 
@@ -35,7 +35,14 @@ export class JsonApiService {
       )
   }
 
-  postUser(user) {
+  getUserById(id:string): Observable<any> {
+    return this.http.get(this.url + id, { headers: this.headers})
+    .pipe(
+      catchError(this.handleError)
+    )
+  }
+
+  postUser(user: any) {
     return this.http.post(this.url, (user), { headers: this.headers,observe: 'response'})
     .pipe( 
       // map(resp=>resp),
@@ -43,6 +50,15 @@ export class JsonApiService {
       // tap(resp => resp)
       tap(() => {
           this._refreshList$.next();
+      })
+    );
+  }
+
+  putUser(user: any, userId: any) {
+    return this.http.put(this.url + userId, (user), { headers: this.headers, observe: 'response' })
+    .pipe(
+      tap(() => {
+        this._refreshList$.next();
       })
     );
   }

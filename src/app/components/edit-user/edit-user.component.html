@@ -2,10 +2,14 @@
   <div class="img-container">
     <img src="assets/images/BQ.png" alt="">
   </div>
-  <form class="form" action="">
+  <form class="form" action="" #form="ngForm">
     <div class="inputs">
-      <input type="text" placeholder="Email" [formControl]="emailCtrl" value={{email}}>
-      <input type="text" placeholder="Contraseña" [formControl]="passwordCtrl" value={{password}}>
+      <!-- <input type="text" placeholder="Email" [title]="email"  value={{email}} [formControl]="emailCtrl">
+      <input type="text" placeholder="Contraseña" [formControl]="passwordCtrl" value={{password}}> -->
+      <input type="text" placeholder="Email" 
+        name="email" 
+>
+      <!-- <input type="text" placeholder="Contraseña" > -->
     </div>
     <!-- <p>{{datoHijo}}</p> -->
     <div class="cancel-save">

@@ -147,17 +147,19 @@ export class StaffList implements OnInit {
     this.showModal = !this.showModal;
   }
 
-  dataEmployee(selectedUser: any): any {
+  dataEmployee(selectedUser: User): any {
     console.log('Usuario seleccionado:', selectedUser)
+    this.json.userFormData = selectedUser;
+    console.log("Set UserFormData", this.json.userFormData);
     // const userId = "bPkvR8t";
-       const userId = selectedUser.id;
-      this.json.getUserById(userId).subscribe((data: User[]) => {
-        console.log('data - employee', data);
+    //    const userId = selectedUser.id;
+    //   this.json.getUserById(userId).subscribe((data: User[]) => {
+    //     console.log('data - employee', data);
         
-        // if(data.status >= 200){
-        // console.log(data.status);
-      // }
-    })
+    //     // if(data.status >= 200){
+    //     // console.log(data.status);
+    //   // }
+    // })
   }
 
   // ngOnDestroy(): void {

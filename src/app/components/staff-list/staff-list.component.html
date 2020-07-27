@@ -39,11 +39,8 @@
             [show]="showModal"
             [customClass]="'custom_modal_class'"
             [closeCallback]="toggleModal">
-            <app-edit-user [closeCallback]="toggleModal"
-            [email]="details.email"
-            [password]="details.password"
-            >
-            </app-edit-user>
+              <app-edit-user [closeCallback]="toggleModal" [email]="details.email" [password]="details.password">
+              </app-edit-user>
           </app-modal>
         </div>
       </tr>

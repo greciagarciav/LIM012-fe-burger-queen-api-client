@@ -22,6 +22,7 @@ export class JsonApiService {
   url: string = 'http://localhost:3000/users/'
 
   private _refreshList$ = new Subject<void>();
+  userFormData: User;
 
 //   get refreshList$(){
 //     return this._refreshList$;

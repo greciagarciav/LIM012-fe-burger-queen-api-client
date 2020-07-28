@@ -1,69 +1,51 @@
 
-import { Component, OnInit, Input, Output } from '@angular/core';
+import { Component, OnInit, Input, Output, OnDestroy } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
-import { JsonApiService } from '../../JsonApiService.service'
+import { JsonApiService } from '../../JsonApiService.service';
 import { User } from '../../model/user';
-// import { Subscription, Subject } from 'rxjs';
+import { Subscription, Subject, Observable, SubscriptionLike } from 'rxjs';
 import { FormControl, Validators, FormGroup, FormBuilder } from '@angular/forms';
+import { retry } from 'rxjs/operators';
 
 @Component({
   selector: 'app-staff-list',
   templateUrl: './staff-list.component.html',
   styleUrls: ['./staff-list.component.scss']
 })
-export class StaffList implements OnInit {
+export class StaffList implements OnInit, OnDestroy {
 
   // destroy$: Subject<boolean> = new Subject<boolean>()
-
+  // .pipe(takeUntil(this.destroy$))
   users: User[];
-  // employed: any = {
-  //   "email": "mir@gmail.com",
-  //   "roles": {
-  //     "admin": false
-  //   },
-  //   "password": '123456'
-  // }
-  // nombreSuscripcion: Subscription
-
-  // emailCtrl = new FormControl('');
-  // passwordCtrl = new FormControl('');
-
-
-  // form: FormGroup;
-
-  // buildForm(){
-  //   this.form = new FormGroup({
-  //     email: new FormControl(''),
-  //     password: new FormControl(''),
-  //   })
-  // }
-
-  // send(event: Event) {
-  //   event.preventDefault();
-  //   const value = this.form.value;
-  //   console.log(value);
-  // }
-
-  constructor(
-    private json: JsonApiService,
-    public route: ActivatedRoute,
-    private router: Router
-  ) {
-    // this.buildForm
+  //modal
+  showModal = false;
+  toggleModal = () => {
+    this.showModal = !this.showModal;
   }
+  // confirmacion de eliminar 
+  popoverTitle = 'Eliminar';
+  popoverMessage = 'Desea eliminar este usuario?';
+  confirmClicked = false;
+  cancelClicked = false;
+
+
+  // controladores de los input de formulario
+  emailCtrl = new FormControl('');
+  passwordCtrl = new FormControl('');
+
   //variable que almacena errores
   errorMessage: string = 'default'
 
   // encontrar solo empleados
   findEmployer = (employer: User): boolean => employer.roles.admin === false;
 
+  
+
   //traer usuarios
   receiveUsers() {
-    this.json.getUser()
-      // .pipe(takeUntil(this.destroy$))
-      .subscribe((data: User[]) => { //se le da el tipo de dato que va  a recibir
+   return this.json.getUser().subscribe((data: User[]) => {
+     console.log('onsuscribe');
         this.users = data.filter(this.findEmployer)
-        console.log("receive User",data)
       },
         err => {
           switch (err.status) {
@@ -80,72 +62,78 @@ export class StaffList implements OnInit {
         })
   }
 
-  // addUser(): any {
-  //   console.log(this.emailCtrl.value);
-  //   const newUser: object = {
-  //     "email": this.emailCtrl.value,
-  //     "roles": {
-  //       "admin": false
-  //     },
-  //     "password": this.passwordCtrl.value
-  //   }
-  //   this.json.postUser(newUser).subscribe((data: any) => {
-  //     // console.log(data.statusText);
-  //     console.log('data', data);
-  //     if(data.status >= 200){
-  //     console.log(data.status);
-  //     this.users.push(data.body)
-  //   }},
-  //     err => {
-  //       switch (err.status) {
-  //         case 400:
-  //           this.errorMessage = 'no hay no se proveen `email` o `password` o ninguno de los dos'
-  //           break;
-  //         case 401:
-  //           this.errorMessage = 'no hay cabecera de autenticación'
-  //           break;
-  //         case 403:
-  //           this.errorMessage = 'ya existe usuaria con ese `email`'
-  //           break;
-  //         default:
-  //           this.errorMessage = 'se produjo un error, intente de nuevo'
-  //           break;
-  //       }
-
-  //     })
-  //   // }
-  // }
-
-
   //agregar nuevo usuario
+//   addUser(): any {
+//     const newUser: object = {
+//       "email": this.emailCtrl.value, "roles": { "admin": false }, "password": this.passwordCtrl.value,
+//     }
+//     this.json.postUser(newUser).subscribe((data: any) => {
+//       // if(data.status >= 200){// this.users.push(data.body)// }
+//       this.receiveUsers()
+//     },
+//       err => {
+//         switch (err.status) {
+//           case 400:
+//             this.errorMessage = 'no hay no se proveen `email` o `password` o ninguno de los dos'
+//             break;
+//           case 401:
+//             this.errorMessage = 'no hay cabecera de autenticación'
+//             break;
+//           case 403:
+//             this.errorMessage = 'ya existe usuaria con ese `email`'
+//             break;
+//           default:
+//             this.errorMessage = 'se produjo un error, intente de nuevo'
+//             break;
+//         }
 
+//       })
+//   }
+
+  //eliminar un usuario
+  lessUser(idUser): void {
+    this.json.deleteUser(idUser).subscribe((response: any) => {
+      this.users = this.users.filter(e => e.id !== idUser)
+      //  this.users.slice(i,1)// this.receiveUsers()
+      
+    },
+      err => {
+        switch (err.status) {
+          case 401:
+            this.errorMessage = 'no hay cabecera de autenticación'
+            break;
+          case 403:
+            this.errorMessage = 'ya existe usuaria con ese `email`'
+            break;
+          case 404:
+            this.errorMessage = 'usuario no encontrado'
+            break;
+          default:
+            this.errorMessage = 'se produjo un error, intente de nuevo'
+            break;
+        }
+
+      })
+  }
+  data:Subscription
+
+  constructor( private json: JsonApiService, public route: ActivatedRoute) {}
 
   ngOnInit(): void {
+//     this.json.refreshList$.
+//     subscribe(() => {
+//         this.receiveUsers();
+//         console.log('ngOnInit Subscribe!')
+//     });
 
-    this.json.refreshList$.
-    subscribe(() => {
-        this.receiveUsers();
-        console.log('ngOnInit Subscribe!')
-    });
+//     this.receiveUsers()
 
-    this.receiveUsers()
+  this.data= this.receiveUsers()
+
     // let id = +this.route.snapshot.paramMap.get('id');
     // console.log(id);
-
-    // lessEmployed(): void {
-    //   this.json.deleteEmployed('', this.id).subscribe((response: any) => {
-    //     console.log(this.id);
-    //   });
-    //   this.dataLocal = this.dataLocal.filter(e => e.id !== this.id)
-
   }
 
-  //modal
-
-  showModal = false;
-  toggleModal = () => {
-    this.showModal = !this.showModal;
-  }
 
   dataEmployee(selectedUser: User): any {
     console.log('Usuario seleccionado:', selectedUser)
@@ -155,18 +143,16 @@ export class StaffList implements OnInit {
     //    const userId = selectedUser.id;
     //   this.json.getUserById(userId).subscribe((data: User[]) => {
     //     console.log('data - employee', data);
-        
-    //     // if(data.status >= 200){
-    //     // console.log(data.status);
-    //   // }
-    // })
   }
 
-  // ngOnDestroy(): void {
-
-  //   // this.nombreSuscripcion.unsubscribe()
-  //   this.destroy$.next(true);
-  //   // Unsubscribe from the subject
-  //   this.destroy$.unsubscribe();console.log('this.ngOnDestroy')
-  // }
 }
+  ngOnDestroy(): void {
+
+    // this.nombreSuscripcion.unsubscribe()
+    // this.destroy$.next(true);
+    // Unsubscribe from the subject
+    // this.destroy$.unsubscribe();console.log('this.ngOnDestroy')
+    console.log('ondestroy');
+    this.data.unsubscribe()
+    // this.receiveUsers()
+  }

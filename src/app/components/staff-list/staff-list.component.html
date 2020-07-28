@@ -3,20 +3,26 @@
   <!-- <section>
     <div class="form" >
       <h2>Agregar Empleado</h2>
+  <section>
+    <div class="form">
+      <h2>Agregar Usuario</h2>
+
       <input class="" type="email" placeholder="Email" [formControl]="emailCtrl">
       <input type="password" placeholder="Contraseña" [formControl]="passwordCtrl">
-      <button type="submit" (click)= "addUser()">
+      <button type="submit" (click)="addUser()">
         <img src="assets/images/icon-white/add.png" alt="">
         Agregar</button>
     </div>
+  </section> 
+  <!-- End </form> 
   </section> -->
-  <!-- End </form>  -->
+<!--  <app-form-new-item></app-form-new-item> -->
+
   <table class="table" *ngIf="errorMessage == 'default'; else errorView">
     <thead>
       <tr class="titles">
         <th class="num">N°</th>
         <th>Email</th>
-        <th>Contraseña</th>
         <th>opciones</th>
       </tr>
     </thead>
@@ -24,15 +30,18 @@
       <tr *ngFor="let details of users; index as i">
         <td>{{i+1}}</td>
         <td>{{details.email}}</td>
-        <td>{{details.password}}</td>
         <td class="edit-delete">
           <button class="edit" (click)="toggleModal()" (click)="dataEmployee(details)" class="edit">
             <img src="assets/images/edit.png" alt=""> <a [routerLink]="['/admin/staff', details.id]">Editar</a>
           </button>
-          <button class="delete" class="delete">
-            <!-- (click)="lessEmployed()"  -->
+          <button class="delete" mwlConfirmationPopover [popoverTitle]="popoverTitle" [popoverMessage]="popoverMessage"
+            placement="left" (confirm)="lessUser(details.id,valor)"  (cancel)="cancelClicked = true"
+            popoverClass="popup"
+            >
             <img src="assets/images/delete.png" alt="">
-            Eliminar</button>
+            Eliminar
+          </button>
+          <!-- <button (click)="less(valor.textContent)">4214</button> -->
         </td>
         <!-- <div class="app">
           <app-modal

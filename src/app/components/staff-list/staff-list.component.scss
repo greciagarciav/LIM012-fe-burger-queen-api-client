@@ -88,8 +88,9 @@ section {
       background: #F6F1ED;
 
       td.edit-delete {
+        width: 38%;
         button {
-          height: 20px;
+          height: 28px;
           width: 80px;
           border-radius: 5px;
           margin: 10px;
@@ -110,12 +111,13 @@ section {
         button.delete {
           background: map-get($colors, 'error');
           color: map-get($colors, 'secundary');
-
+          width: 37%;
           img {
             width: 12px;
             margin-right: 5px;
           }
         }
+       
       }
     }
   }
@@ -139,3 +141,4 @@ section {
     font-size: 19px;
   }
 }
+

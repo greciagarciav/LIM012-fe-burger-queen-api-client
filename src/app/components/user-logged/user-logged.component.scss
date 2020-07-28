@@ -3,7 +3,7 @@
 div {
     @include size(247px, 100%);
     @include flex(center,center);
-    // justify-content: center;
+    width: 326px;
     font-family: FontLight;
 
     .container-img {
@@ -19,7 +19,7 @@ div {
     }
 
     .div-admin-content {
-        @include size(60%, 105px);
+        @include size(_, 105px);
         @include flex(flex-start,_);
         flex-direction: column;
     }

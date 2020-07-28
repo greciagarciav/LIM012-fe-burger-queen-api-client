@@ -1,5 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
+import { ConfirmationPopoverModule } from 'angular-confirmation-popover';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -21,6 +22,8 @@ import { EditUser } from './components/edit-user/edit-user.component';
 import {HttpClientModule}  from '@angular/common/http';
 import { JsonApiService } from "./JsonApiService.service";
 import { ReactiveFormsModule, FormsModule } from '@angular/forms';
+import { FormNewItemComponent } from './components/form-new-item/form-new-item.component';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -38,14 +41,18 @@ import { ReactiveFormsModule, FormsModule } from '@angular/forms';
     ViewStaffComponent,
     UserLoggedComponent,
     ModalComponent,
-    EditUser
+    EditUser,
+    FormNewItemComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
     ReactiveFormsModule,
-    FormsModule
+    FormsModule,
+    ConfirmationPopoverModule.forRoot({
+      confirmButtonType: 'danger', // set defaults here
+    }),
   ],
   providers: [JsonApiService],
   bootstrap: [AppComponent]

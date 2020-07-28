@@ -5,6 +5,6 @@ export class User {
         "roles": {
           "admin":boolean
         };
-        "password":string
+        // "password":string
       
 }

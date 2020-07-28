@@ -1,6 +1,5 @@
 @import '../../app.component.scss';
 
-
 section {
   width: 100%;
   
@@ -44,6 +43,7 @@ section {
 
 .table-staff {
   width: 100%;
+  overflow-y: scroll;
 
   .table {
     text-align: center;

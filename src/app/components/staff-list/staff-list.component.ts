@@ -1,8 +1,8 @@
 
 import { Component, OnInit, Input, Output, OnDestroy } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
-import { JsonApiService } from '../../JsonApiService.service'
-import { User } from 'src/app/model/user';
+import { JsonApiService } from '../../JsonApiService.service';
+import { User } from '../../model/user';
 import { Subscription, Subject, Observable, SubscriptionLike } from 'rxjs';
 import { FormControl, Validators, FormGroup, FormBuilder } from '@angular/forms';
 import { retry } from 'rxjs/operators';
@@ -15,7 +15,7 @@ import { retry } from 'rxjs/operators';
 export class StaffList implements OnInit, OnDestroy {
 
   // destroy$: Subject<boolean> = new Subject<boolean>()
-  // nombreSuscripcion: Subscription// .pipe(takeUntil(this.destroy$))
+  // .pipe(takeUntil(this.destroy$))
   users: User[];
   //modal
   showModal = false;
@@ -27,6 +27,7 @@ export class StaffList implements OnInit, OnDestroy {
   popoverMessage = 'Desea eliminar este usuario?';
   confirmClicked = false;
   cancelClicked = false;
+
 
   // controladores de los input de formulario
   emailCtrl = new FormControl('');
@@ -44,9 +45,9 @@ export class StaffList implements OnInit, OnDestroy {
   receiveUsers() {
    return this.json.getUser().subscribe((data: User[]) => {
      console.log('onsuscribe');
-     
         this.users = data.filter(this.findEmployer)
-      }, err => {
+      },
+        err => {
           switch (err.status) {
             case 401:
               this.errorMessage = 'no hay cabecera de autenticación'
@@ -62,32 +63,32 @@ export class StaffList implements OnInit, OnDestroy {
   }
 
   //agregar nuevo usuario
-  addUser(): any {
-    const newUser: object = {
-      "email": this.emailCtrl.value, "roles": { "admin": false }, "password": this.passwordCtrl.value,
-    }
-    this.json.postUser(newUser).subscribe((data: any) => {
-      // if(data.status >= 200){// this.users.push(data.body)// }
-      this.receiveUsers()
-    },
-      err => {
-        switch (err.status) {
-          case 400:
-            this.errorMessage = 'no hay no se proveen `email` o `password` o ninguno de los dos'
-            break;
-          case 401:
-            this.errorMessage = 'no hay cabecera de autenticación'
-            break;
-          case 403:
-            this.errorMessage = 'ya existe usuaria con ese `email`'
-            break;
-          default:
-            this.errorMessage = 'se produjo un error, intente de nuevo'
-            break;
-        }
+//   addUser(): any {
+//     const newUser: object = {
+//       "email": this.emailCtrl.value, "roles": { "admin": false }, "password": this.passwordCtrl.value,
+//     }
+//     this.json.postUser(newUser).subscribe((data: any) => {
+//       // if(data.status >= 200){// this.users.push(data.body)// }
+//       this.receiveUsers()
+//     },
+//       err => {
+//         switch (err.status) {
+//           case 400:
+//             this.errorMessage = 'no hay no se proveen `email` o `password` o ninguno de los dos'
+//             break;
+//           case 401:
+//             this.errorMessage = 'no hay cabecera de autenticación'
+//             break;
+//           case 403:
+//             this.errorMessage = 'ya existe usuaria con ese `email`'
+//             break;
+//           default:
+//             this.errorMessage = 'se produjo un error, intente de nuevo'
+//             break;
+//         }
 
-      })
-  }
+//       })
+//   }
 
   //eliminar un usuario
   lessUser(idUser): void {
@@ -119,11 +120,32 @@ export class StaffList implements OnInit, OnDestroy {
   constructor( private json: JsonApiService, public route: ActivatedRoute) {}
 
   ngOnInit(): void {
+//     this.json.refreshList$.
+//     subscribe(() => {
+//         this.receiveUsers();
+//         console.log('ngOnInit Subscribe!')
+//     });
+
+//     this.receiveUsers()
+
   this.data= this.receiveUsers()
+
     // let id = +this.route.snapshot.paramMap.get('id');
     // console.log(id);
   }
 
+
+  dataEmployee(selectedUser: User): any {
+    console.log('Usuario seleccionado:', selectedUser)
+    this.json.userFormData = selectedUser;
+    console.log("Set UserFormData", this.json.userFormData);
+    // const userId = "bPkvR8t";
+    //    const userId = selectedUser.id;
+    //   this.json.getUserById(userId).subscribe((data: User[]) => {
+    //     console.log('data - employee', data);
+  }
+
+}
   ngOnDestroy(): void {
 
     // this.nombreSuscripcion.unsubscribe()
@@ -134,4 +156,3 @@ export class StaffList implements OnInit, OnDestroy {
     this.data.unsubscribe()
     // this.receiveUsers()
   }
-}

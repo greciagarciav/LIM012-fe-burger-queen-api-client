@@ -1,0 +1,10 @@
+<div class="form-add-employee" >
+    <h2>Agregar Empleado</h2>
+    <div class="add-employee">
+        <input type="email" placeholder="Email" [formControl]="emailCtrl" required>
+        <input type="password" placeholder="Contraseña" [formControl]="passwordCtrl" required>
+        <button type="submit" (click)= "addUser()">
+        <img src="assets/images/icon-white/add.png" alt="">
+        Agregar</button>
+    </div>
+</div>

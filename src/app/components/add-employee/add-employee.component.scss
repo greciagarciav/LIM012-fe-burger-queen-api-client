@@ -1,0 +1,60 @@
+@import '../../app.component.scss';
+
+.form-add-employee {
+    width: 100%;
+    background: #F6F1ED;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 15px;
+    border-radius: 10px;
+
+    h2 {
+        color: map-get($colors, 'letter');
+        margin-left: 40px;
+        margin-top: 15px;
+        align-self: flex-start;
+        font-size: 20px;
+    }
+
+    div.add-employee {
+        width: 95%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        margin: 10px 0 20px;
+
+        input {
+        border-radius: 8px;
+        @include size(300px, 41px);
+        margin:1%;
+        border: 1px solid map-get($colors, 'letter');
+    }
+    
+        ::placeholder {
+        padding: 10px;
+        background: #F6F1ED;
+        font-size: 16px;
+        }
+    
+        button {
+        @include size(200px, 41px);
+        background: map-get($colors, 'add');
+        border: none;
+        color: map-get($colors, 'secundary');
+        border-radius: 9px;
+        margin: 0 10px;
+        font-size: 17px;
+        font-weight: 600;
+    
+            img {
+                width: 15px;
+                margin-right: 10px;
+            }
+    
+        }
+    }
+    
+}
+

@@ -2,15 +2,19 @@
   <div class="img-container">
     <img src="assets/images/BQ.png" alt="">
   </div>
-  <form class="form" action="">
+  <form class="form" action="" #form="ngForm">
     <div class="inputs">
-      <input type="text" placeholder="Email">
-      <input type="text" placeholder="Contraseña">
+      <!-- <input type="text" placeholder="Email" [title]="email"  value={{email}} [formControl]="emailCtrl">
+      <input type="text" placeholder="Contraseña" [formControl]="passwordCtrl" value={{password}}> -->
+      <input type="text" placeholder="Email" 
+        name="email" 
+>
+      <!-- <input type="text" placeholder="Contraseña" > -->
     </div>
-    <p>{{datoHijo}}</p>
+    <!-- <p>{{datoHijo}}</p> -->
     <div class="cancel-save">
       <button type='button' class="cancel" (click)="closeCallback()">Cancelar</button>
-      <button type='button' class="save">Guardar</button>
+      <button type='button' class="save" (click)="editUser()">Guardar</button>
     </div>
   </form>
 </div>

@@ -1,13 +1,12 @@
 div.container-staff-section {
   width: 100%;
-  margin-top: 20px;
+  margin-top: 10px;
   display: flex;
   justify-content: center;
   flex-direction: column;
   align-items: center;
 
     div.container-staff-list-component {
-      overflow-y: scroll;
       width: 90%;
 
       .staff-list-component {

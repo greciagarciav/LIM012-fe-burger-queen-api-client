@@ -19,7 +19,8 @@ import { ViewStaffComponent } from './views/admin/view-staff/view-staff.componen
 import { UserLoggedComponent } from './components/user-logged/user-logged.component';
 import { ModalComponent } from './components/modal/modal.component';
 import { EditUser } from './components/edit-user/edit-user.component';
-import {HttpClientModule}  from '@angular/common/http';
+import { AddEmployee } from './components/add-employee/add-employee.component';
+import { HttpClientModule }  from '@angular/common/http';
 import { JsonApiService } from "./JsonApiService.service";
 import { ReactiveFormsModule, FormsModule } from '@angular/forms';
 import { FormNewItemComponent } from './components/form-new-item/form-new-item.component';
@@ -42,6 +43,7 @@ import { FormNewItemComponent } from './components/form-new-item/form-new-item.c
     UserLoggedComponent,
     ModalComponent,
     EditUser,
+    AddEmployee,
     FormNewItemComponent
   ],
   imports: [

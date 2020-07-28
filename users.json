@@ -1,11 +1,20 @@
 {
   "users": [
     {
-      "id": "u_admin1",
-      "email": "paula@gmail.com",
+      "email": "espencer11@gmail.com",
+      "password": "12345617",
       "roles": {
-        "admin": true
-      }
+        "admin": false
+      },
+      "id": "bPkvR8t"
+    },
+    {
+      "email": "",
+      "password": "",
+      "roles": {
+        "admin": false
+      },
+      "id": "VoNxx-g"
     },
     {
       "email": "miliiii",
@@ -22,14 +31,6 @@
       },
       "password": "123456789",
       "id": "uFU5lNs"
-    },
-    {
-      "email": "dgf",
-      "roles": {
-        "admin": false
-      },
-      "password": "fgg",
-      "id": "xgwxTdx"
     }
   ]
 }

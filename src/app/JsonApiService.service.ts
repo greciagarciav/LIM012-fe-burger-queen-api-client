@@ -4,11 +4,12 @@ import {
 } from '@angular/common/http';
 import { User } from './model/user'
 import { catchError, tap, map } from 'rxjs/operators';
-import { throwError, Observable } from 'rxjs';
+import { throwError, Observable, Subject } from 'rxjs';
 
-@Injectable({
-  providedIn: 'root'
-})
+// @Injectable({
+//   providedIn: 'root'
+// })
+@Injectable()
 export class JsonApiService {
 
   headers = new HttpHeaders(
@@ -17,7 +18,15 @@ export class JsonApiService {
       'Content-Type': 'application/json'
     })
 
-  url: string = 'http://localhost:3000/users'
+  url: string = 'http://localhost:3000/users/'
+
+//   private _refreshList$ = new Subject<void>();
+//   userFormData: User;
+
+//   get refreshList$(){
+//     return this._refreshList$;
+// }
+//   refreshList$ = this._refreshList$.asObservable();
 
   constructor(private http: HttpClient) { }
 
@@ -28,11 +37,29 @@ export class JsonApiService {
       )
   }
 
+  getUserById(id:string): Observable<any> {
+    return this.http.get(this.url + id, { headers: this.headers})
+    .pipe(
+      catchError(this.handleError)
+    )
+  }
+
+  putUser(user: any, userId: any) {
+    return this.http.put(this.url + userId, (user), { headers: this.headers, observe: 'response' })
+//     .pipe(
+//       tap(() => {
+//         this._refreshList$.next();
+//       })
+    );
+    
   postUser(body) {
     return this.http.post(this.url, (body), { headers: this.headers, observe: 'response' })
       .pipe(
         map(resp => resp),//tap(resp => resp),
-        catchError(this.handleError)  
+        catchError(this.handleError),
+//       tap(() => {
+//           this._refreshList$.next();
+//       })
       )
   }
 
@@ -42,6 +69,7 @@ export class JsonApiService {
         tap(resp => resp),
         catchError(this.handleError)
       )
+
   }
 
   handleError(errorRes: HttpErrorResponse) {

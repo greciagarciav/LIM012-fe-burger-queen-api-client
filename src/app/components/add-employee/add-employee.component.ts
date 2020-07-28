@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Output, EventEmitter } from '@angular/core';
 import { FormControl } from '@angular/forms';
 import { User } from '../../model/user';
 import { ActivatedRoute, Router } from '@angular/router';
@@ -14,6 +14,8 @@ export class AddEmployee implements OnInit {
   users: User[];
   emailCtrl = new FormControl('');
   passwordCtrl = new FormControl('');
+
+
 
   constructor(
     private json: JsonApiService,
@@ -33,10 +35,17 @@ export class AddEmployee implements OnInit {
       "password": this.passwordCtrl.value
     }
     this.json.postUser(newUser).subscribe((data: any) => {
-      console.log('data - add-employee', data);
-      if(data.status >= 200){
-      console.log(data.status);
-    }},
+      // console.log('data - add-employee', );
+      //  content =
+      // this.users.push(data.body)
+      // console.log(this.users);
+      
+    //   if(data.status >= 200){
+    //   console.log(data.status);
+    // }
+    // console.log();
+    console.log('data - add-employee', data);
+  },
       err => {
         switch (err.status) {
           case 400:

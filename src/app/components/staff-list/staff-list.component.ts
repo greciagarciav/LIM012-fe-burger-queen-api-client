@@ -14,6 +14,7 @@ import { retry } from 'rxjs/operators';
 })
 export class StaffList implements OnInit, OnDestroy {
 
+  
   // destroy$: Subject<boolean> = new Subject<boolean>()
   // .pipe(takeUntil(this.destroy$))
   users: User[];
@@ -120,32 +121,27 @@ export class StaffList implements OnInit, OnDestroy {
   constructor( private json: JsonApiService, public route: ActivatedRoute) {}
 
   ngOnInit(): void {
-//     this.json.refreshList$.
-//     subscribe(() => {
-//         this.receiveUsers();
-//         console.log('ngOnInit Subscribe!')
-//     });
-
-//     this.receiveUsers()
-
+    this.json.refreshList$.
+    subscribe(() => {
+        this.receiveUsers();
+        console.log('ngOnInit Subscribe!')
+    });
   this.data= this.receiveUsers()
-
-    // let id = +this.route.snapshot.paramMap.get('id');
-    // console.log(id);
   }
-
+  userFormData: User;
 
   dataEmployee(selectedUser: User): any {
     console.log('Usuario seleccionado:', selectedUser)
-    this.json.userFormData = selectedUser;
-    console.log("Set UserFormData", this.json.userFormData);
+    this.userFormData = selectedUser;
+    console.log("Set UserFormData", this.userFormData);
     // const userId = "bPkvR8t";
     //    const userId = selectedUser.id;
     //   this.json.getUserById(userId).subscribe((data: User[]) => {
     //     console.log('data - employee', data);
   }
 
-}
+
+
   ngOnDestroy(): void {
 
     // this.nombreSuscripcion.unsubscribe()
@@ -153,6 +149,7 @@ export class StaffList implements OnInit, OnDestroy {
     // Unsubscribe from the subject
     // this.destroy$.unsubscribe();console.log('this.ngOnDestroy')
     console.log('ondestroy');
-    this.data.unsubscribe()
+    this.data.unsubscribe();
     // this.receiveUsers()
   }
+}

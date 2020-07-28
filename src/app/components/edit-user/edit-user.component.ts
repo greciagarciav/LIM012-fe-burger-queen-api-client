@@ -15,13 +15,13 @@ export class EditUser implements OnInit, OnChanges {
   @Input() email: string;
   @Input() password: string;
 
-  datoHijo:string='sinDato';
+  // datoHijo:User;
 
   users: User[];
 
   constructor(private json: JsonApiService) { 
-    console.log("Constructor edit-user");
-    console.log("Constructor User",json.userFormData);
+    // console.log("Constructor edit-user");
+    // console.log("Constructor User",this.datoHijo);
   }
 
   emailCtrl = new FormControl('');
@@ -56,6 +56,5 @@ export class EditUser implements OnInit, OnChanges {
 
 funcambiarDatos(e){
      console.log(e)
- this.datoHijo=e
    }
 }

@@ -47,7 +47,7 @@ contacto:null
      
         this.users = data.filter(this.findEmployer)
         // if( typeof(this.userReceived )){
-          console.log(typeof(this.userReceived ));
+          // console.log(typeof(this.userReceived ));
           
         // }
       },

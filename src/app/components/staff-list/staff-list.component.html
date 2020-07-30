@@ -1,6 +1,6 @@
 <div class="table-staff">
-  <h2>{{us}}</h2>
-  <h2>{{userReceived}}</h2>
+  <!-- <h2>{{us}}</h2>
+  <h2>{{userReceived}}</h2> -->
   <table class="table" *ngIf="errorMessage == 'default'; else errorView">
     <thead>
       <tr class="titles">
@@ -19,7 +19,7 @@
           (click)="dataEmployee(details)" 
          (click)="onEditar(details)" >
 
-            <img src="assets/images/edit.png" alt=""> <a [routerLink]="['/admin/staff', details.id]">
+            <img src="assets/images/edit.png" alt=""> <a [routerLink]="">
           Editar</a>
           </button>
           <button class="delete" mwlConfirmationPopover [popoverTitle]="popoverTitle" [popoverMessage]="popoverMessage"

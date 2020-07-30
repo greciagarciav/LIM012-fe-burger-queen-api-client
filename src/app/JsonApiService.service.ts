@@ -37,20 +37,14 @@ export class JsonApiService {
       )
   }
 
-  getUserById(id:string): Observable<any> {
-    return this.http.get(this.url + id, { headers: this.headers})
-    .pipe(
-      catchError(this.handleError)
-    )
-  }
-
   putUser(user: any, userId: any) {
     return this.http.put(this.url + userId, (user), { headers: this.headers, observe: 'response' })
-//     .pipe(
-//       tap(() => {
-//         this._refreshList$.next();
-//       })
-  };
+    .pipe(
+      tap(() => {
+        this._refreshList$.next();
+      })
+    )
+  }
     
   postUser(body) {
     return this.http.post(this.url, (body), { headers: this.headers, observe: 'response' })

@@ -1,36 +1,36 @@
 {
   "users": [
     {
-      "email": "juanguillermo",
-      "password": "123123223123",
+      "email": "juanguillermo@gmail.com",
+      "password": "123456",
       "roles": {
         "admin": false
       },
       "id": "uFU5lNs"
     },
     {
-      "email": "fvfd@ew",
+      "email": "fvfd@ew.com",
+      "password": "123456",
       "roles": {
         "admin": false
       },
-      "password": "344",
       "id": "NFhM4i6"
     },
     {
-      "email": "erf@e",
-      "password": "ff",
+      "email": "erf@e.com",
+      "password": "123456",
       "roles": {
         "admin": false
       },
       "id": "pT9XVqr"
     },
     {
-      "email": "rgeg",
+      "email": "grecia@gmail.com",
+      "password": "123456",
       "roles": {
         "admin": false
       },
-      "password": "",
-      "id": "hyYLiK-"
+      "id": "-KEjY91"
     }
   ]
 }

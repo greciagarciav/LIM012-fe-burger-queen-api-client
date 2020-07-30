@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { JsonApiService } from '../../../JsonApiService.service'
+import { User } from 'src/app/model/user';
 
 
 @Component({
@@ -8,19 +9,13 @@ import { JsonApiService } from '../../../JsonApiService.service'
   styleUrls: ['./view-staff.component.scss']
 })
 export class ViewStaffComponent implements OnInit {
-
+  userCreated:User;
   data: any;
-  // url: string = 'http://localhost:3000/users#'
-
   constructor(public json: JsonApiService) {
 
   }
 
   ngOnInit(): void {
-    // this.json.getEmployed(this.url).subscribe((response: any) => {
-    //   this.data = response.filter((employer: any): any => employer.roles.admin === false)
-    //   console.log(JSON.stringify(this.data) + 'desde waiters')
-    // })
   }
 
 }

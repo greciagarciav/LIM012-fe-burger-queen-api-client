@@ -1,23 +1,6 @@
 <div class="table-staff">
-  <!-- <form class="form" [formGroup]="form" (ngSubmit)="send($event)"> -->  
-  <!-- <section>
-    <div class="form" >
-      <h2>Agregar Empleado</h2>
-  <section>
-    <div class="form">
-      <h2>Agregar Usuario</h2>
-
-      <input class="" type="email" placeholder="Email" [formControl]="emailCtrl">
-      <input type="password" placeholder="Contraseña" [formControl]="passwordCtrl">
-      <button type="submit" (click)="addUser()">
-        <img src="assets/images/icon-white/add.png" alt="">
-        Agregar</button>
-    </div>
-  </section> 
-  <!-- End </form> 
-  </section> -->
-<!--  <app-form-new-item></app-form-new-item> -->
-
+  <h2>{{us}}</h2>
+  <h2>{{userReceived}}</h2>
   <table class="table" *ngIf="errorMessage == 'default'; else errorView">
     <thead>
       <tr class="titles">
@@ -29,34 +12,37 @@
     <tbody>
       <tr *ngFor="let details of users; index as i">
         <td>{{i+1}}</td>
-        <td>{{details.email}}</td>
+        <td #valor>{{details.email}}</td>
         <td class="edit-delete">
-          <button class="edit" (click)="toggleModal()" (click)="dataEmployee(details)" class="edit">
-            <img src="assets/images/edit.png" alt=""> <a [routerLink]="['/admin/staff', details.id]">Editar</a>
+          <button class="edit" 
+          (click)="toggleModal()" 
+          (click)="dataEmployee(details)" 
+         (click)="onEditar(details)" >
+
+            <img src="assets/images/edit.png" alt=""> <a [routerLink]="['/admin/staff', details.id]">
+          Editar</a>
           </button>
           <button class="delete" mwlConfirmationPopover [popoverTitle]="popoverTitle" [popoverMessage]="popoverMessage"
-            placement="left" (confirm)="lessUser(details.id,valor)"  (cancel)="cancelClicked = true"
-            popoverClass="popup"
-            >
+            placement="left" (confirm)="lessUser(details.id,valor)" (cancel)="cancelClicked = true"
+            popoverClass="popup">
             <img src="assets/images/delete.png" alt="">
             Eliminar
           </button>
-          <!-- <button (click)="less(valor.textContent)">4214</button> -->
         </td>
-        <!-- <div class="app">
-          <app-modal
-            [show]="showModal"
-            [customClass]="'custom_modal_class'"
-            [closeCallback]="toggleModal">
-              <app-edit-user [closeCallback]="toggleModal" [email]="details.email" [password]="details.password">
-              </app-edit-user>
-          </app-modal>
-        </div> -->
+
       </tr>
     </tbody>
   </table>
 </div>
+<div class="app">
+  <app-modal [show]="showModal" 
+  [customClass]="'custom_modal_class'" 
+  [closeCallback]="toggleModal"
+  [contacto]="contactoeditar" >
 
+
+  </app-modal>
+</div>
 <ng-template #errorView>
   <div class="squareError">
     <h3>{{errorMessage}}</h3>

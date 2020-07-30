@@ -14,7 +14,12 @@ import { retry } from 'rxjs/operators';
 })
 export class StaffList implements OnInit, OnDestroy {
 
-  
+@Input() userReceived:User;
+
+
+contactoeditar:null;
+contacto:null
+
   // destroy$: Subject<boolean> = new Subject<boolean>()
   // .pipe(takeUntil(this.destroy$))
   users: User[];
@@ -29,24 +34,22 @@ export class StaffList implements OnInit, OnDestroy {
   confirmClicked = false;
   cancelClicked = false;
 
-
-  // controladores de los input de formulario
-  emailCtrl = new FormControl('');
-  passwordCtrl = new FormControl('');
-
   //variable que almacena errores
   errorMessage: string = 'default'
 
   // encontrar solo empleados
   findEmployer = (employer: User): boolean => employer.roles.admin === false;
-
-  
-
   //traer usuarios
-  receiveUsers() {
+ receiveUsers() {
    return this.json.getUser().subscribe((data: User[]) => {
      console.log('onsuscribe');
+    //  console.log(this.userReceived);
+     
         this.users = data.filter(this.findEmployer)
+        // if( typeof(this.userReceived )){
+          console.log(typeof(this.userReceived ));
+          
+        // }
       },
         err => {
           switch (err.status) {
@@ -118,7 +121,7 @@ export class StaffList implements OnInit, OnDestroy {
   }
   data:Subscription
 
-  constructor( private json: JsonApiService, public route: ActivatedRoute) {}
+  constructor( private json: JsonApiService) {}
 
   ngOnInit(): void {
     this.json.refreshList$.
@@ -130,18 +133,31 @@ export class StaffList implements OnInit, OnDestroy {
   }
   userFormData: User;
 
-  dataEmployee(selectedUser: User): any {
-    console.log('Usuario seleccionado:', selectedUser)
-    this.userFormData = selectedUser;
-    console.log("Set UserFormData", this.userFormData);
+  dataEmployee(i): any {
+    // console.log('Usuario seleccionado:', selectedUser)
+    // this.userFormData = selectedUser;
+    // console.log("Set UserFormData", this.userFormData);
     // const userId = "bPkvR8t";
     //    const userId = selectedUser.id;
     //   this.json.getUserById(userId).subscribe((data: User[]) => {
-    //     console.log('data - employee', data);
+        console.log('data - employee', i);
+        this.userFormData=i
   }
+us:any
+
+onEditar(cont){
+  this.contactoeditar=cont
+}
 
 
 
+
+
+ngOnChange(){
+  this.us = JSON.stringify(this.userReceived)
+  console.log(this.us);
+  
+}
   ngOnDestroy(): void {
 
     // this.nombreSuscripcion.unsubscribe()

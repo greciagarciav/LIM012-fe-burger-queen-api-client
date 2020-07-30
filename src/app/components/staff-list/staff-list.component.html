@@ -13,7 +13,7 @@
         <img src="assets/images/icon-white/add.png" alt="">
         Agregar</button>
     </div>
-  </section> 
+  </section> -->
   <!-- End </form> 
   </section> -->
 <!--  <app-form-new-item></app-form-new-item> -->
@@ -32,7 +32,7 @@
         <td>{{details.email}}</td>
         <td class="edit-delete">
           <button class="edit" (click)="toggleModal()" (click)="dataEmployee(details)" class="edit">
-            <img src="assets/images/edit.png" alt=""> <a [routerLink]="['/admin/staff', details.id]">Editar</a>
+            <img src="assets/images/edit.png" alt=""> <a [routerLink]="">Editar</a>
           </button>
           <button class="delete" mwlConfirmationPopover [popoverTitle]="popoverTitle" [popoverMessage]="popoverMessage"
             placement="left" (confirm)="lessUser(details.id,valor)"  (cancel)="cancelClicked = true"

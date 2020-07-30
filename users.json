@@ -9,14 +9,6 @@
       "id": "bPkvR8t"
     },
     {
-      "email": "",
-      "password": "",
-      "roles": {
-        "admin": false
-      },
-      "id": "VoNxx-g"
-    },
-    {
       "email": "juanguillermo",
       "roles": {
         "admin": false

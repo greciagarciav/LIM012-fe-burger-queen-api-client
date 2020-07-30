@@ -24,6 +24,7 @@ import { HttpClientModule }  from '@angular/common/http';
 import { JsonApiService } from "./JsonApiService.service";
 import { ReactiveFormsModule, FormsModule } from '@angular/forms';
 import { FormNewItemComponent } from './components/form-new-item/form-new-item.component';
+import { AddNewUserComponent } from './components/add-new-user/add-new-user.component';
 
 @NgModule({
   declarations: [
@@ -44,7 +45,8 @@ import { FormNewItemComponent } from './components/form-new-item/form-new-item.c
     ModalComponent,
     EditUser,
     AddEmployee,
-    FormNewItemComponent
+    FormNewItemComponent,
+    AddNewUserComponent
   ],
   imports: [
     BrowserModule,

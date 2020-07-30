@@ -1,0 +1,67 @@
+@import '../../app.component.scss';
+
+
+h2 {
+    color: map-get($colors, 'letter');
+    margin-left: 40px;
+    margin-top: 15px;
+    align-self: flex-start;
+    font-size: 20px;
+}
+
+.add-employee {
+    width: 100%;
+    background: map-get($colors, 'less-contrast');
+    @include flex(center, center);
+    margin-bottom: 15px;
+    border-radius: 10px;
+
+    &-data {
+        flex-direction: column;
+
+        .add-employee-input {
+            @include flex(center, center);
+            flex-direction: row;
+
+            input {
+                border-radius: 8px;
+                @include size(300px, 41px);
+                margin: 1%;
+                padding: 1%;
+                border: 1px solid map-get($colors, 'letter');
+
+            }
+
+        }
+
+        .add-employee-validations {
+            @include flex(center, space-around);
+
+            div {
+                font-size: 1em;
+                color: map-get($colors, 'error');
+            }
+        }
+    }
+
+    button {
+        @include size(200px, 41px);
+        background: map-get($colors, 'add');
+        border: none;
+        color: map-get($colors, 'secundary');
+        border-radius: 9px;
+        margin: 0 10px;
+        font-size: 17px;
+        font-weight: 600;
+
+        img {
+            width: 15px;
+            margin-right: 10px;
+        }
+    }
+
+    button[type=button] {
+        @extend button;
+        background: map-get($colors, 'error');
+    }
+}

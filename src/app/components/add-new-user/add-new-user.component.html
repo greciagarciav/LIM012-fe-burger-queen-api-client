@@ -1,0 +1,25 @@
+<h2>Agregar Empleado</h2>
+<form class="add-employee" [formGroup]="addForm">
+   <div class="add-employee-data">
+        <div class="add-employee-input">
+            <input type="email" placeholder="Email" formControlName="email">
+            <input type="password" placeholder="Contraseña" formControlName="password">
+       
+        </div>
+        <div class="add-employee-validations">
+            <div *ngIf="getEmail().errors && getEmail().touched">
+                <p *ngIf="getEmail().hasError('email')">
+                    No es un email valido
+                </p>
+            </div>
+            <div *ngIf="getPassword().errors && getPassword().touched">
+                <p *ngIf="getPassword().hasError('required')">
+                    Contraseña requerida
+                </p>
+            </div>
+        </div>
+   </div>
+
+    <button type="submit" (click)="addUser()">Agregar</button>
+    <button type="button" (click)="addForm.reset()">Cancelar</button>
+</form>

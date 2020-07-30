@@ -6,10 +6,10 @@ import { User } from './model/user'
 import { catchError, tap, map } from 'rxjs/operators';
 import { throwError, Observable, Subject } from 'rxjs';
 
-// @Injectable({
-//   providedIn: 'root'
-// })
-@Injectable()
+@Injectable({
+  providedIn: 'root'
+})
+// @Injectable()
 export class JsonApiService {
 
   headers = new HttpHeaders(

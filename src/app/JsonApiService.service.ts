@@ -9,7 +9,7 @@ import { throwError, Observable, Subject } from 'rxjs';
 @Injectable({
   providedIn: 'root'
 })
-// @Injectable()
+
 export class JsonApiService {
 
   headers = new HttpHeaders(
@@ -18,35 +18,31 @@ export class JsonApiService {
       'Content-Type': 'application/json'
     })
 
-  url: string = 'http://localhost:3000/users/'
-
+  public url: string = 'http://localhost:3000/users/';
   private _refreshList$ = new Subject<void>();
- 
+  public refreshList$ = this._refreshList$.asObservable();
 
-//   get refreshList$(){
-//     return this._refreshList$;
-// }
-  refreshList$ = this._refreshList$.asObservable();
+  constructor(public http: HttpClient) { 
 
-  constructor(private http: HttpClient) { }
+  }
 
   getUser(){
     return this.http.get(this.url, { headers: this.headers })
-      .pipe(
-        catchError(this.handleError)
-      )
+      // .pipe(
+      //   catchError(this.handleError)
+      // )
   }
 
   putUser(user: any, userId: any) {
     return this.http.put(this.url + userId, (user), { headers: this.headers, observe: 'response' })
-    .pipe(
-      tap(() => {
-        this._refreshList$.next();
-      })
-    )
+    // .pipe(
+    //   tap(() => {
+    //     this._refreshList$.next();
+    //   })
+    // )
   }
     
-  postUser(body) {
+  postUser(body: any) {
     return this.http.post(this.url, (body), { headers: this.headers, observe: 'response' })
       .pipe(
         // map(resp => resp),//tap(resp => resp),
@@ -57,7 +53,7 @@ export class JsonApiService {
       )
   }
 
-  deleteUser(id) {
+  deleteUser(id: any) {
     return this.http.delete(this.url + '/' + id, { headers: this.headers })
       .pipe(
         tap(resp => resp),

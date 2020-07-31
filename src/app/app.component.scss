@@ -3,12 +3,10 @@ $colors: (
   secundary: #FFF,
   letter: #47382B,
   add:#00A355,
+  error: #e35151,
+  less-contrast:#F6F1ED,
 );
 
-// @mixin flex($align-items) {
-//   display: flex;
-//   align-items: $align-items;
-// }
 
 @mixin size($width, $height) {
   width: $width;
@@ -32,7 +30,6 @@ html {
 
 body {
   background-position: top;
-  // background-repeat:repeat-x;
   margin: 0;
 }
 

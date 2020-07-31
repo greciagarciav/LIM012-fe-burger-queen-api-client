@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-
+import { Router, ActivatedRouteSnapshot, ActivatedRoute,NavigationEnd } from '@angular/router';
+import {filter} from 'rxjs/operators';
 @Component({
   selector: 'app-vertical-menu',
   templateUrl: './vertical-menu.component.html',
@@ -8,44 +9,50 @@ import { Component, OnInit } from '@angular/core';
 export class VerticalMenuComponent implements OnInit {
 menuAdmin:any[] = [
 {
-  title: 'Home',
-  icon:'assets/images/icon-yellow/home.png',
-  href: '/home'
+  title: 'Admin',
+  icon:'fas fa-user-cog',
+  href: '/admin/staff'
 },
 {
-  title: 'Meseros',
-  icon:'assets/images/icon-white/waiter.png',
-  href: '/waiters-list'
+  title: 'Mesero',
+  icon:'fas fa-user-tie',
+  href: '/mesero'
 },
 {
-  title: 'Cocineros',
-  icon:'assets/images/icon-white/chef.png',
-  href: '/chefs-list'
-},
-{
-  title: 'Inventario',
-  icon:'assets/images/icon-white/inventory.png',
-  href: '/inventary'
+  title: 'Jefe de cocina',
+  icon:'fas fa-bread-slice',
+  href: '/cocinero'
 },
 {
   title: 'Salir',
-  icon:'assets/images/icon-white/logout.png',
+  icon:'fa fa-sign-out',
   href: '/logout'
 }
 ]
+currentUrl: any;
+desactivado:boolean=false;
+changeImage(){
+    this.desactivado = !this.desactivado
 
-  constructor() { }
-
-  changeImage(){
-    // this.menuAdmin[0].icon='assets/images/icon-yellow/waiter.png'
-    this.menuAdmin[1].icon='assets/images/icon-yellow/waiter.png'
-    // this.menuAdmin[2].icon='assets/images/icon-yellow/chef.png'
-    // this.menuAdmin[3].icon='assets/images/icon-yellow/inventary.png'
-    // this.menuAdmin[4].icon='assets/images/icon-yellow/logout.png'
-    
   }
 
-  ngOnInit(): void {
+  constructor(public router: Router) { 
+   router.events.pipe(filter(event => event instanceof NavigationEnd))
+        .subscribe(event => {
+            this.currentUrl = Object.values(event)[1];
+            
+            // this.menuAdmin.forEach(i=>{
+            //   if(this.currentUrl===i.href){
+            //     console.log(i.icon)
+            //     i.icon =i.iconSelect;
+            //     i.iconSelect= i.icon;
+            //     console.log(i.icon)
+            // }
+          // })
+        });  
+} ;
+
+  ngOnInit(): void { 
   }
 
 }

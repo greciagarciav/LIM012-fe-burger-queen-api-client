@@ -1,9 +1,29 @@
-<div [ngClass]="customClass || ''" class="modal" [ngStyle]="{display: show ? 'block' : 'none'}">
+<div  [ngClass]="customClass || ''" class="modal" [ngStyle]="{display: show ? 'block' : 'none'}">
   <div class="overlay" (click)="closeCallback()"></div>
   <div class="modal_content">
-    <ng-content></ng-content>
-    <button title="Close" class="close_modal" (click)="closeCallback()">
-      <i class="fas fa-times"></i>
-    </button>
+    <!-- <ng-content></ng-content> -->
+    <!-- <app-edit-user ></app-edit-user> -->
+
+  <div class="ctn-edit-user" >
+      <!-- <div class="img-container">
+        <img src="assets/images/BQ.png" alt="">
+      </div> -->
+      <!-- #form="ngForm"  -->
+      <form class="form" [formGroup]="form" (ngSubmit)="onGuardar()">
+        <div class="inputs">
+          <input type="text" placeholder="email"name="email" formControlName="email">
+        </div>
+        <div class="inputs">
+          <input type="text" placeholder="constraseña"name="constraseña" formControlName="constraseña">
+        </div>
+        <div class="cancel-save">
+          <button type='button' class="cancel" (click)="closeCallback()">Cancelar</button>
+          <button type='submit' class="save" (click)="closeCallback()">Guardar</button>
+        </div>
+      </form>
   </div>
+    
+
+  </div>
+  
 </div>

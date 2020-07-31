@@ -1,0 +1,18 @@
+div.container-staff-section {
+  width: 100%;
+  margin-top: 10px;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+
+    div.container-staff-list-component {
+      width: 90%;
+
+      .staff-list-component {
+        display: flex;
+        justify-content: center;
+        width: 100%;
+      }
+  }
+}

@@ -1,27 +1,51 @@
-<section class="conteiner-staff">
-    <h2>{{listElement}}</h2>
-    <div class="conteiner-staff-cards-list">
-        <div class="card-staff">
-            <div>
-                <app-user-logged [nombreHijo]='nombre' [rolHijo]='rol'></app-user-logged>
-            </div>
-            <div class="turn">
-                <svg version="1.1" xmlns="http://www.w3.org/2000/svg" width="30" height="30" viewBox="0 0 120 120">
-                    <circle cx="60" cy="60" r="17" fill='#00A355'/>
-                </svg>
-               <h4>En turno</h4>
-            </div>
-        </div>
-        <div class="card-staff">
-            <div>
-                <app-user-logged [nombreHijo]='nombre' [rolHijo]='rol'></app-user-logged>
-            </div>
-            <div class="turn">
-                <svg version="1.1" xmlns="http://www.w3.org/2000/svg" width="30" height="30" viewBox="0 0 120 120">
-                    <circle cx="60" cy="60" r="17" fill='#00A355'/>
-                </svg>
-               <h4>En turno</h4>
-            </div>
-        </div>
-    </div>
-</section>
+<div class="table-staff">
+  <!-- <h2>{{us}}</h2>
+  <h2>{{userReceived}}</h2> -->
+  <table class="table" *ngIf="errorMessage == 'default'; else errorView">
+    <thead>
+      <tr class="titles">
+        <th class="num">N°</th>
+        <th>Email</th>
+        <th>opciones</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let details of users; index as i">
+        <td>{{i+1}}</td>
+        <td #valor>{{details.email}}</td>
+        <td class="edit-delete">
+          <button class="edit" 
+          (click)="toggleModal()" 
+          (click)="dataEmployee(details)" 
+         (click)="onEditar(details)" >
+
+            <img src="assets/images/edit.png" alt=""> <a [routerLink]="">
+          Editar</a>
+          </button>
+          <button class="delete" mwlConfirmationPopover [popoverTitle]="popoverTitle" [popoverMessage]="popoverMessage"
+            placement="left" (confirm)="lessUser(details.id,valor)" (cancel)="cancelClicked = true"
+            popoverClass="popup">
+            <img src="assets/images/delete.png" alt="">
+            Eliminar
+          </button>
+        </td>
+
+      </tr>
+    </tbody>
+  </table>
+</div>
+<div class="app">
+  <app-modal [show]="showModal" 
+  [customClass]="'custom_modal_class'" 
+  [closeCallback]="toggleModal"
+  [contacto]="contactoeditar" >
+
+
+  </app-modal>
+</div>
+<ng-template #errorView>
+  <div class="squareError">
+    <h3>{{errorMessage}}</h3>
+    <button (click)="errorMessage = 'default'">Regresar</button>
+  </div>
+</ng-template>

@@ -1,135 +1,36 @@
 {
   "users": [
     {
-      "id": "u_admin1",
-      "photo": "stringAdmin.png",
-      "email": "paula@gmail.com",
-      "roles": {
-        "admin": true
-      },
-      "name": "Admin",
-      "password": "sdkmc#3"
-    },
-    {
-      "id": "1",
-      "email": "logan@gmail.com",
+      "email": "juanguillerm@gmail.com",
+      "password": "123456",
       "roles": {
         "admin": false
       },
-      "photo": "assets/images/person.png",
-      "name": "Logan Mitchell",
-      "dateBirth": "01/10/1996",
-      "cellphone": "911111111"
+      "id": "uFU5lNs"
     },
     {
-      "id": "2",
-      "email": "james@gmail.com",
+      "email": "fvfvfvfvfvfvf@ew.com",
+      "password": "123456",
       "roles": {
         "admin": false
       },
-      "photo": "assets/images/person.png",
-      "name": "James Diamond",
-      "dateBirth": "02/10/1996",
-      "cellphone": "92222222"
+      "id": "NFhM4i6"
     },
     {
-      "id": "3",
-      "email": "kendall@gmail.com",
+      "email": "greciagarciav@gmail.com",
+      "password": "123456",
       "roles": {
         "admin": false
       },
-      "photo": "assets/images/person.png",
-      "name": "Kendall Night",
-      "dateBirth": "03/10/1996",
-      "cellphone": "933333333"
+      "id": "Xyy7L2H"
     },
     {
-      "id": "4",
-      "email": "carlos@gmail.com",
+      "email": "grecia@mailmania.com",
       "roles": {
         "admin": false
       },
-      "photo": "assets/images/person.png",
-      "name": "Carlos Garcia",
-      "dateBirth": "04/10/1996",
-      "cellphone": "944444444"
-    },
-    {
-      "id": "5",
-      "email": "jhon@gmail.com",
-      "roles": {
-        "admin": false
-      },
-      "photo": "assets/images/person.png",
-      "name": "Jhon Spencer",
-      "dateBirth": "05/10/1996",
-      "cellphone": "95555555"
-    },
-    {
-      "id": "6",
-      "email": "austin12gmail.com",
-      "roles": {
-        "admin": false
-      },
-      "photo": "assets/images/person.png",
-      "name": "Austin Perez",
-      "dateBirth": "05/10/1996",
-      "cellphone": "95555555"
-    },
-    {
-      "id": "52",
-      "email": "carlos@gmail.com",
-      "roles": {
-        "admin": false
-      },
-      "photo": "string.png",
-      "name": "Carlos Garcia",
-      "dateBirth": "04/10/1996",
-      "cellphone": "944444444"
-    },
-    {
-      "id": "85",
-      "email": "carlos@gmail.com",
-      "roles": {
-        "admin": false
-      },
-      "photo": "string.png",
-      "name": " jhon",
-      "dateBirth": "04/10/1996",
-      "cellphone": "944444444"
-    },
-    {
-      "id": "844",
-      "email": "carlos@gmail.com",
-      "roles": {
-        "admin": false
-      },
-      "photo": "string.png",
-      "name": " Garcia",
-      "dateBirth": "04/10/1996",
-      "cellphone": "944444444"
-    },
-    {
-      "id": "8445",
-      "email": "carlos@gmail.com",
-      "roles": {
-        "admin": false
-      },
-      "photo": "string.png",
-      "name": " Garcia",
-      "dateBirth": "04/10/1996",
-      "cellphone": "944444444"
-    },
-    {
-      "id": "845",
-      "email": "carlos@gmail.com",
-      "roles": {
-        "admin": false
-      },
-      "photo": "string.png",
-      "name": " Garcia",
-      "dateBirth": "04/10/1996",
-      "cellphone": "944444444"
+      "password": "abcde",
+      "id": "TVOBfGn"
     }
   ]
 }

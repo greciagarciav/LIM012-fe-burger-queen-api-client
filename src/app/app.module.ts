@@ -1,65 +1,64 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
+import { ConfirmationPopoverModule } from 'angular-confirmation-popover';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
+import { AdminComponent } from './views/admin/admin.component';
 import { HeaderComponent } from './components/header/header.component';
 import { VerticalMenuComponent } from './components/vertical-menu/vertical-menu.component';
-import { EstadisticsComponent } from './components/estadistics/estadistics.component';
-import { ViewHomeComponent } from './views/admin/view-home/view-home.component';
-import { StaffListComponent } from './components/staff-list/staff-list.component';
-import { FormNewWaiterComponent } from './components/form-new-waiter/form-new-waiter.component';
 import { NavSearchComponent } from './components/nav-search/nav-search.component';
-import { CardDetailsComponent } from './components/card-details/card-details.component';
+import { StaffList } from './components/staff-list/staff-list.component';
 import { ConteinerListCardsComponent } from './components/conteiner-list-cards/conteiner-list-cards.component';
 import { MenuCardComponent } from './components/menu-card/menu-card.component';
-import { ButtonAddComponent } from './components/button-add/button-add.component';
 import { MenuListCardsComponent } from './components/menu-list-cards/menu-list-cards.component';
 import { MenuContainerComponent } from './components/menu-container/menu-container.component';
-import { ButtonChangeStateComponent } from './components/button-change-state/button-change-state.component';
 import { InventaryContainerComponent } from './components/inventary-container/inventary-container.component';
-import { ButtonReportComponent } from './components/button-report/button-report.component';
 import { ViewInventaryComponent } from './views/admin/view-inventary/view-inventary.component';
-import { ViewChefsComponent } from './views/admin/view-chefs/view-chefs.component';
-import { ViewWaitersComponent } from './views/admin/view-waiters/view-waiters.component';
+import { ViewStaffComponent } from './views/admin/view-staff/view-staff.component';
 import { UserLoggedComponent } from './components/user-logged/user-logged.component';
 import { ModalComponent } from './components/modal/modal.component';
 import { EditUser } from './components/edit-user/edit-user.component';
-import {HttpClientModule}  from '@angular/common/http';
-
+import { AddEmployee } from './components/add-employee/add-employee.component';
+import { HttpClientModule }  from '@angular/common/http';
+import { JsonApiService } from "./JsonApiService.service";
+import { ReactiveFormsModule, FormsModule } from '@angular/forms';
+import { FormNewItemComponent } from './components/form-new-item/form-new-item.component';
+import { AddNewUserComponent } from './components/add-new-user/add-new-user.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     HeaderComponent,
     VerticalMenuComponent,
-    EstadisticsComponent,
-    ViewHomeComponent,
-    StaffListComponent,
-    FormNewWaiterComponent,
+    AdminComponent,
     NavSearchComponent,
-    CardDetailsComponent,
+    StaffList,
     ConteinerListCardsComponent,
     MenuCardComponent,
-    ButtonAddComponent,
     MenuListCardsComponent,
     MenuContainerComponent,
-    ButtonChangeStateComponent,
     InventaryContainerComponent,
-    ButtonReportComponent,
     ViewInventaryComponent,
-    ViewChefsComponent,
-    ViewWaitersComponent,
+    ViewStaffComponent,
     UserLoggedComponent,
     ModalComponent,
-    EditUser
+    EditUser,
+    AddEmployee,
+    FormNewItemComponent,
+    AddNewUserComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
+    ReactiveFormsModule,
+    FormsModule,
+    ConfirmationPopoverModule.forRoot({
+      confirmButtonType: 'danger', // set defaults here
+    }),
   ],
-  providers: [],
+  providers: [JsonApiService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

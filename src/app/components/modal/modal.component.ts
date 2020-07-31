@@ -1,4 +1,7 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Input , Output} from '@angular/core';
+import { JsonApiService } from 'src/app/JsonApiService.service';
+import { FormBuilder, FormGroup } from '@angular/forms';
+import { ReactiveFormsModule  } from  '@angular/forms';
 
 @Component({
   selector: 'app-modal',
@@ -10,9 +13,44 @@ export class ModalComponent implements OnInit {
   @Input() customClass = '';
   @Input() closeCallback = () => (false);
 
-  constructor() { }
+@Input() set contacto(valor){
+  this.crearForm()
+  if(valor){
+    this.contactOriginal = valor
+    this.form.patchValue({
+      email: valor.email,
+      constraseña:'',
+    })
+    console.log(valor);
+    
+  }
+}
+
+
+form:FormGroup
+contactOriginal:any
+  constructor(private json:JsonApiService,private fb:FormBuilder) { }
 
   ngOnInit() {
   }
+crearForm(){
+  this.form = this.fb.group({
+    email:'',
+    constraseña:'',
+  })
+}
+ onGuardar(){
+  console.log(this.contactOriginal,this.form.value);
+  const user={
+    "email": this.form.value.email,
+    "password": this.form.value.constraseña,
+    "roles": {
+      "admin": false
+    }
+  }
+  this.json.putUser(user,this.contactOriginal.id).subscribe((data: any) => {
+    console.log('data - edit-employee', data);
+  })
+ }
 
 }

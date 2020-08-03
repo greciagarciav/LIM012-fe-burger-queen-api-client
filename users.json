@@ -2,7 +2,7 @@
   "users": [
     {
       "email": "juanguillermo",
-      "password": "123123223123",
+      "password": "",
       "roles": {
         "admin": false
       },

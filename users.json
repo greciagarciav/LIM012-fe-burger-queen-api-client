@@ -1,24 +1,8 @@
 {
   "users": [
     {
-      "email": "juanguillerm@gmail.com",
-      "password": "123456",
-      "roles": {
-        "admin": false
-      },
-      "id": "uFU5lNs"
-    },
-    {
-      "email": "fvfvfvfvfvfvf@ew.com",
-      "password": "123456",
-      "roles": {
-        "admin": false
-      },
-      "id": "NFhM4i6"
-    },
-    {
       "email": "greciagarciav@gmail.com",
-      "password": "123456",
+      "password": "412",
       "roles": {
         "admin": false
       },
@@ -31,6 +15,22 @@
       },
       "password": "abcde",
       "id": "TVOBfGn"
+    },
+    {
+      "email": "mili@mdko.com",
+      "password": "123",
+      "roles": {
+        "admin": false
+      },
+      "id": "rv_1pow"
+    },
+    {
+      "email": "vb@mi.com",
+      "roles": {
+        "admin": false
+      },
+      "password": "333333",
+      "id": "5pBQobE"
     }
   ]
 }

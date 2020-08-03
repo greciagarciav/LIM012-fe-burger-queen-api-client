@@ -1,23 +1,16 @@
 <div  [ngClass]="customClass || ''" class="modal" [ngStyle]="{display: show ? 'block' : 'none'}">
   <div class="overlay" (click)="closeCallback()"></div>
   <div class="modal_content">
-    <!-- <ng-content></ng-content> -->
-    <!-- <app-edit-user ></app-edit-user> -->
-
   <div class="ctn-edit-user" >
-      <!-- <div class="img-container">
+      <div class="img-container">
         <img src="assets/images/BQ.png" alt="">
-      </div> -->
-      <!-- #form="ngForm"  -->
+      </div>
+      <h2>Editar Usuario</h2>
       <form class="form" [formGroup]="form" (ngSubmit)="onGuardar()">
-        <div class="inputs">
           <input type="text" placeholder="email"name="email" formControlName="email">
-        </div>
-        <div class="inputs">
-          <input type="text" placeholder="constraseña"name="constraseña" formControlName="constraseña">
-        </div>
+          <input type="text" placeholder="constraseña" #passw formControlName="constraseña">
         <div class="cancel-save">
-          <button type='button' class="cancel" (click)="closeCallback()">Cancelar</button>
+          <button type='button' class="cancel" (click)="passw.value=''" (click)="closeCallback()">Cancelar</button>
           <button type='submit' class="save" (click)="closeCallback()">Guardar</button>
         </div>
       </form>

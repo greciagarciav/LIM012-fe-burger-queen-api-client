@@ -2,7 +2,6 @@ import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import { AdminComponent } from "../app/views/admin/admin.component";
 import { ModalComponent } from "../app/components/modal/modal.component";
-import { EditUser } from "../app/components/edit-user/edit-user.component";
 
 const routes: Routes = [
   { path: 'cocinero', component: AdminComponent },

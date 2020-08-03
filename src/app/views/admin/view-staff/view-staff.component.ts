@@ -9,9 +9,8 @@ import { User } from 'src/app/model/user';
   styleUrls: ['./view-staff.component.scss']
 })
 export class ViewStaffComponent implements OnInit {
-  userCreated:User;
-  data: any;
-  constructor(public json: JsonApiService) {
+
+  constructor() {
 
   }
 

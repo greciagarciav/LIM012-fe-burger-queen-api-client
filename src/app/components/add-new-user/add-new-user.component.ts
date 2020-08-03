@@ -4,6 +4,7 @@ import { JsonApiService } from 'src/app/JsonApiService.service';
 import { User } from 'src/app/model/user';
 import { Subscription } from 'rxjs';
 import { StaffList } from "../staff-list/staff-list.component";
+
 @Component({
   selector: 'app-add-new-user',
   templateUrl: './add-new-user.component.html',
@@ -12,14 +13,15 @@ import { StaffList } from "../staff-list/staff-list.component";
 export class AddNewUserComponent implements OnInit {
 
   addForm: FormGroup
+  errorMessage: string = 'default'
 
-  constructor(private formBuilder: FormBuilder,private json: JsonApiService) {
-    this.buildForm()
+  constructor(private formBuilder: FormBuilder, private json: JsonApiService) {
+    
   }
 
   ngOnInit(): void {
-  }
-
+  this.buildForm()
+}
   buildForm() {
     this.addForm = this.formBuilder.group({
       email: ['', [Validators.required, Validators.email]],
@@ -35,30 +37,33 @@ export class AddNewUserComponent implements OnInit {
     return this.addForm.get('password')
   }
 
-  data$:Subscription;
-@Output() 
-addUserMethod:EventEmitter<any> = new EventEmitter();
 
-
-enviarDatos(user){
-  this.addUserMethod.emit(user)
-}
-
-  addUser(){
+//agregar nuevo usuario
+  addUser() {
     const value = this.addForm.value;
     const newUser: object = {
-    "email": value.email, "roles": { "admin": false }, "password": value.password,
+      "email": value.email, "roles": { "admin": false }, "password": value.password,
     };
-   this.json.postUser(newUser).subscribe((data: any) => {
-console.log(data.body);
-     this.enviarDatos(data.body)
-    // const staff = new StaffList(this.json)
-    // staff.users.push(data.body);
-    
-    
-    // staff.receiveUsers()
-  })
-      
-}
+    this.json.postUser(newUser).subscribe((data: any) => {
+      console.log(data.body);
+    },
+          err => {
+            switch (err.status) {
+              case 400:
+                this.errorMessage = 'no hay no se proveen `email` o `password` o ninguno de los dos'
+                break;
+              case 401:
+                this.errorMessage = 'no hay cabecera de autenticación'
+                break;
+              case 403:
+                this.errorMessage = 'ya existe usuaria con ese `email`'
+                break;
+              default:
+                this.errorMessage = 'se produjo un error, intente de nuevo'
+                break;
+            }
+  
+          })
 
+  }
 }

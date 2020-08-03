@@ -5,7 +5,6 @@ import { ViewStaffComponent } from "../app/views/admin/view-staff/view-staff.com
 import { ViewInventaryComponent } from "../app/views/admin/view-inventary/view-inventary.component";
 import { StaffList } from "../app/components/staff-list/staff-list.component";
 import { ModalComponent } from "../app/components/modal/modal.component";
-import { EditUser } from "../app/components/edit-user/edit-user.component";
 
 
 const routes: Routes = [

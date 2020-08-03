@@ -10,10 +10,10 @@
     },
     {
       "email": "fvfd@ew",
+      "password": "123",
       "roles": {
         "admin": false
       },
-      "password": "344",
       "id": "NFhM4i6"
     },
     {
@@ -23,14 +23,6 @@
         "admin": false
       },
       "id": "pT9XVqr"
-    },
-    {
-      "email": "rgeg",
-      "roles": {
-        "admin": false
-      },
-      "password": "",
-      "id": "hyYLiK-"
     }
   ]
 }

@@ -1,6 +1,4 @@
 <div class="table-staff">
-  <h2>{{us}}</h2>
-  <h2>{{userReceived}}</h2>
   <table class="table" *ngIf="errorMessage == 'default'; else errorView">
     <thead>
       <tr class="titles">
@@ -16,11 +14,9 @@
         <td class="edit-delete">
           <button class="edit" 
           (click)="toggleModal()" 
-          (click)="dataEmployee(details)" 
          (click)="onEditar(details)" >
-
-            <img src="assets/images/edit.png" alt=""> <a [routerLink]="['/admin/staff', details.id]">
-          Editar</a>
+            <img src="assets/images/edit.png" alt="">
+          Editar
           </button>
           <button class="delete" mwlConfirmationPopover [popoverTitle]="popoverTitle" [popoverMessage]="popoverMessage"
             placement="left" (confirm)="lessUser(details.id,valor)" (cancel)="cancelClicked = true"
@@ -35,12 +31,7 @@
   </table>
 </div>
 <div class="app">
-  <app-modal [show]="showModal" 
-  [customClass]="'custom_modal_class'" 
-  [closeCallback]="toggleModal"
-  [contacto]="contactoeditar" >
-
-
+  <app-modal [show]="showModal" [customClass]="'custom_modal_class'" [closeCallback]="toggleModal" [contacto]="contactoeditar" >
   </app-modal>
 </div>
 <ng-template #errorView>

@@ -22,6 +22,7 @@ import { HttpClientModule }  from '@angular/common/http';
 import { JsonApiService } from "./JsonApiService.service";
 import { ReactiveFormsModule, FormsModule } from '@angular/forms';
 import { AddNewUserComponent } from './components/add-new-user/add-new-user.component';
+import { CardInventaryComponent } from './components/card-inventary/card-inventary.component';
 
 @NgModule({
   declarations: [
@@ -40,7 +41,8 @@ import { AddNewUserComponent } from './components/add-new-user/add-new-user.comp
     ViewStaffComponent,
     UserLoggedComponent,
     ModalComponent,
-    AddNewUserComponent
+    AddNewUserComponent,
+    CardInventaryComponent
   ],
   imports: [
     BrowserModule,

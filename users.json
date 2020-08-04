@@ -1,14 +1,6 @@
 {
   "users": [
     {
-      "email": "greciagarciav@gmail.com",
-      "password": "412",
-      "roles": {
-        "admin": false
-      },
-      "id": "Xyy7L2H"
-    },
-    {
       "email": "grecia@mailmania.com",
       "roles": {
         "admin": false
@@ -18,7 +10,7 @@
     },
     {
       "email": "mili@mdko.com",
-      "password": "123",
+      "password": "1233",
       "roles": {
         "admin": false
       },

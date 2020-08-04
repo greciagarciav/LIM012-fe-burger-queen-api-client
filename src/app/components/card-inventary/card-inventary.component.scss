@@ -1,0 +1,13 @@
+.card-product {
+    margin: 2%;
+    background: brown;
+    .card-img {
+        background: white;
+        img {
+            width: 200px;
+        }
+    }
+    .card-text{
+        color: yellowgreen;
+    }
+}

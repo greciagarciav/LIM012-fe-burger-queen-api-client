@@ -11,7 +11,7 @@
           <input type="text" placeholder="constraseña" #passw formControlName="constraseña">
         <div class="cancel-save">
           <button type='button' class="cancel" (click)="passw.value=''" (click)="closeCallback()">Cancelar</button>
-          <button type='submit' class="save" (click)="closeCallback()">Guardar</button>
+          <button type='submit' class="save" (click)="passw.value=''" (click)="closeCallback()">Guardar</button>
         </div>
       </form>
   </div>

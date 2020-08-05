@@ -24,6 +24,18 @@ $colors: (
   background: $color;
 }
 
+@mixin button ($width,$color){
+  @include size($width, 41px);
+  background: map-get($colors, $color);
+  border: none;
+  color: map-get($colors, 'secundary');
+  border-radius: 9px;
+  margin: 0 10px;
+  font-size: 17px;
+  font-weight: 600;
+
+}
+
 html {
   height: 100%;
 }

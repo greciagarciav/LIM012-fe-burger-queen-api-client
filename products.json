@@ -1,0 +1,68 @@
+{
+    "products": [
+        {
+            "_id": "123",
+            "name": "Hamburguesa simple",
+            "price": "10",
+            "image": "",
+            "type": "Hamburguesas",
+            "dateEntry": "09/01/2020"
+        },
+        {
+            "_id": "123",
+            "name": "Hamburguesa doble",
+            "price": "15",
+            "image": "",
+            "type": "Hamburguesas",
+            "dateEntry": "28/07/2020"
+        },
+        {
+            "_id": "123",
+            "name": "Papas fritas",
+            "price": "5",
+            "image": "",
+            "type": "Acompañamientos",
+            "dateEntry": ""
+        },
+        {
+            "_id": "123",
+            "name": "Aros de cebolla",
+            "price": "5",
+            "image": "",
+            "type": "Papas fritas",
+            "dateEntry": "03/07/2020"
+        },
+        {
+            "_id": "123",
+            "name": "Agua 500ml",
+            "price": "5",
+            "image": "",
+            "type": "Para tomar",
+            "dateEntry": "04/05/2020"
+        },
+        {
+            "_id": "123",
+            "name": "Agua 750ml",
+            "price": "7",
+            "image": "",
+            "type": "Para tomar",
+            "dateEntry": "04/05/2020"
+        },
+        {
+            "_id": "123",
+            "name": "Bebida/gaseosa 500ml",
+            "price": "7",
+            "image": "",
+            "type": "Para tomar",
+            "dateEntry": "04/05/2020"
+        },
+        {
+            "_id": "123",
+            "name": "Bebida/gaseosa 750ml",
+            "price": "10",
+            "image": "",
+            "type": "Para tomar",
+            "dateEntry": "04/05/2020"
+        }
+    ]
+}

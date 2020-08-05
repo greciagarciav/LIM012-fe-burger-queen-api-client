@@ -10,17 +10,39 @@
                 <div class="card-text">
                     <h3>{{item.nombre}}</h3>
                     <h4>{{item.precio}}</h4>
+                </div> 
+                
+                <div class="btn-options">
+                    <button class="edit" ><img src="assets/images/edit.png" alt="">
+                        <a [routerLink]="">Editar</a>
+                    </button>
+                    <button class="delete"><img src="assets/images/delete.png" alt="">
+                        Eliminar
+                    </button>
                 </div>
             </div>
+           
         </div>
 
     </div>
     <div class="container-add">
         <div class="container-form">
-            <input type="text">
-            <input type="text">
-            <input type="file" name="" id="">
-            <button>Agregar Producto</button>
+            <h3>Agregar Producto</h3>
+            <div class="input_text">
+                <h4>Nombre del Producto</h4>
+                <input type="text">
+                <h4>Precio en soles</h4>
+                <input type="text">
+                <h4>Imagen del Producto</h4>
+                <div class="div_file">
+                <img src="../../../../assets/images/icon-white/pic.png" alt="">
+                <input type="file" name="" id="">
+            </div>
+            </div>
+            
+            <button class="add-product" type="submit" >Agregar Producto</button>
+            <!-- (click)="addForm.reset()" -->
+            <button class="cancel-product" type="button" >Cancelar</button>
         </div>
     </div>
 </section>

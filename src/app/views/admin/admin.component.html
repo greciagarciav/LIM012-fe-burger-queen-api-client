@@ -1,7 +1,7 @@
 <div class="main-container">
-<div class="container-admin-options">
-  <div class="admin-options">
-      <div class="option"> 
+  <div class="container-admin-options">
+    <div class="admin-options">
+      <div class="option">
         <a [routerLink]="['/admin/staff']" routerLinkActive="active">
           <i class="fas fa-users"></i>
           <h2>Staff</h2>
@@ -13,10 +13,10 @@
           <h2>Inventario</h2>
         </a>
       </div>
+    </div>
+
   </div>
 
-</div>
+  <router-outlet></router-outlet>
 
-<app-view-staff></app-view-staff>
-<!-- <app-view-inventary></app-view-inventary> -->
 </div>

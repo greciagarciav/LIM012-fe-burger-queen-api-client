@@ -1,14 +1,6 @@
 {
   "users": [
     {
-      "email": "grecia@mailmania.com",
-      "roles": {
-        "admin": false
-      },
-      "password": "abcde",
-      "id": "TVOBfGn"
-    },
-    {
       "email": "mili@mdko.com",
       "password": "1233",
       "roles": {
@@ -17,12 +9,36 @@
       "id": "rv_1pow"
     },
     {
-      "email": "vb@mi.com",
+      "email": "javier@mi.com",
       "roles": {
         "admin": false
       },
       "password": "333333",
       "id": "5pBQobE"
+    },
+    {
+      "email": "pablo@gmail.com",
+      "roles": {
+        "admin": false
+      },
+      "password": "234",
+      "id": "ZmFkYiR"
+    },
+    {
+      "email": "harvie@gmail.com",
+      "roles": {
+        "admin": false
+      },
+      "password": "234",
+      "id": "ZmFkYiR"
+    },
+    {
+      "email": "miliafsf@frg",
+      "roles": {
+        "admin": false
+      },
+      "password": "123424",
+      "id": "TNjOwdX"
     }
   ]
 }

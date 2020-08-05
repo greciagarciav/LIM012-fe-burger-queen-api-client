@@ -45,14 +45,7 @@ h2 {
     }
 
     button {
-        @include size(200px, 41px);
-        background: map-get($colors, 'add');
-        border: none;
-        color: map-get($colors, 'secundary');
-        border-radius: 9px;
-        margin: 0 10px;
-        font-size: 17px;
-        font-weight: 600;
+        @include button(200px,'add');
 
         img {
             width: 15px;

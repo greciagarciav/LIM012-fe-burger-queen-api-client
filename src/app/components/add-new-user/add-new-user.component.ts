@@ -16,12 +16,13 @@ export class AddNewUserComponent implements OnInit {
   errorMessage: string = 'default'
 
   constructor(private formBuilder: FormBuilder, private json: JsonApiService) {
-    
+    this.buildForm()
+
   }
 
   ngOnInit(): void {
-  this.buildForm()
-}
+
+  }
   buildForm() {
     this.addForm = this.formBuilder.group({
       email: ['', [Validators.required, Validators.email]],
@@ -38,32 +39,39 @@ export class AddNewUserComponent implements OnInit {
   }
 
 
-//agregar nuevo usuario
+  //agregar nuevo usuario
   addUser() {
-    const value = this.addForm.value;
-    const newUser: object = {
-      "email": value.email, "roles": { "admin": false }, "password": value.password,
-    };
-    this.json.postUser(newUser).subscribe((data: any) => {
-      console.log(data.body);
-    },
-          err => {
-            switch (err.status) {
-              case 400:
-                this.errorMessage = 'no hay no se proveen `email` o `password` o ninguno de los dos'
-                break;
-              case 401:
-                this.errorMessage = 'no hay cabecera de autenticación'
-                break;
-              case 403:
-                this.errorMessage = 'ya existe usuaria con ese `email`'
-                break;
-              default:
-                this.errorMessage = 'se produjo un error, intente de nuevo'
-                break;
-            }
-  
-          })
+    if (this.addForm.valid) {
+      const value = this.addForm.value;
+      console.log(value);
+      const newUser: object = {
+        "email": value.email, "roles": { "admin": false }, "password": value.password,
+      };
+      this.json.postUser(newUser).subscribe((data: any) => {
+        console.log(data.body);
+      },
+        err => {
+          switch (err.status) {
+            case 400:
+              this.errorMessage = 'no hay no se proveen `email` o `password` o ninguno de los dos'
+              break;
+            case 401:
+              this.errorMessage = 'no hay cabecera de autenticación'
+              break;
+            case 403:
+              this.errorMessage = 'ya existe usuaria con ese `email`'
+              break;
+            default:
+              this.errorMessage = 'se produjo un error, intente de nuevo'
+              break;
+          }
 
+        })
+    } else {
+      this.addForm.markAllAsTouched();
+    }
   }
+
+
+
 }

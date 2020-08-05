@@ -32,21 +32,6 @@ export class ViewInventaryComponent implements OnInit {
       "img": "../../../assets/images/jugoFrutas.png",
       "nombre": "Jugo de frutas natural",
       "precio": "S/.7"
-    },
-    {
-      "img": "../../../assets/images/jugoFrutas.png",
-      "nombre": "Jugo de frutas natural",
-      "precio": "S/.7"
-    },
-    {
-      "img": "../../../assets/images/jugoFrutas.png",
-      "nombre": "Jugo de frutas natural",
-      "precio": "S/.7"
-    },
-    {
-      "img": "../../../assets/images/jugoFrutas.png",
-      "nombre": "Jugo de frutas natural",
-      "precio": "S/.7"
     }
   ]
 

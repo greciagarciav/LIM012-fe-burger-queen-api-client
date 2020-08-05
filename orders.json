@@ -1,0 +1,32 @@
+{
+    "orders": [
+        {
+            "userId": "123",
+            "client": "Olga Ríos",
+            "products": [
+                {
+                    "productId": "",
+                    "qty": ""
+                },
+                {
+                    "productId": "",
+                    "qty": ""
+                }
+            ]
+        },
+        {
+            "userId": "456",
+            "client": "Mariana Costa",
+            "products": [
+                {
+                    "productId": "",
+                    "qty": ""
+                },
+                {
+                    "productId": "",
+                    "qty": ""
+                }
+            ]
+        }
+    ]
+}

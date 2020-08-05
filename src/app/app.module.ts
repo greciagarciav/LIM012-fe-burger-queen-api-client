@@ -23,6 +23,8 @@ import { JsonApiService } from "./JsonApiService.service";
 import { ReactiveFormsModule, FormsModule } from '@angular/forms';
 import { AddNewUserComponent } from './components/add-new-user/add-new-user.component';
 import { CardInventaryComponent } from './components/card-inventary/card-inventary.component';
+import { CheffComponent } from './views/cheff/cheff.component';
+import { ViewOrderStatusComponent } from './views/cheff/view-order-status/view-order-status.component';
 
 @NgModule({
   declarations: [
@@ -42,7 +44,9 @@ import { CardInventaryComponent } from './components/card-inventary/card-inventa
     UserLoggedComponent,
     ModalComponent,
     AddNewUserComponent,
-    CardInventaryComponent
+    CardInventaryComponent,
+    CheffComponent,
+    ViewOrderStatusComponent,
   ],
   imports: [
     BrowserModule,

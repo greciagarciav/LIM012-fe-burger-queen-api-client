@@ -49,6 +49,7 @@ export class AddNewUserComponent implements OnInit {
       };
       this.json.postUser(newUser).subscribe((data: any) => {
         console.log(data.body);
+        this.addForm.reset()
       },
         err => {
           switch (err.status) {

@@ -25,7 +25,7 @@ import { AddNewUserComponent } from './components/add-new-user/add-new-user.comp
 import { CardInventaryComponent } from './components/card-inventary/card-inventary.component';
 import { CheffComponent } from './views/cheff/cheff.component';
 import { ViewOrderStatusComponent } from './views/cheff/view-order-status/view-order-status.component';
-import { OrderComponent } from './components/order/order.component';
+import { OrderListComponent } from './components/order-list/order-list.component';
 
 @NgModule({
   declarations: [
@@ -48,7 +48,7 @@ import { OrderComponent } from './components/order/order.component';
     CardInventaryComponent,
     CheffComponent,
     ViewOrderStatusComponent,
-    OrderComponent,
+    OrderListComponent,
   ],
   imports: [
     BrowserModule,

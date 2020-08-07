@@ -1,0 +1,43 @@
+div.container-order-status {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    div.order-status {
+        width: 95%;
+        display: flex;
+        div {
+            height: 570px;
+            width: 40%;
+            display: flex;
+            justify-content: center;
+            border-radius: 8px;
+            div.title {
+                display: flex;
+                justify-content: flex-start;
+                align-items: center;
+                height: 50px;
+                width: 100%;
+                font-size: 24px;
+                color: #FAF7F4;
+                border-bottom: solid 1px #FAF7F4;
+                i {
+                    margin: 0 10px;
+                }
+                p {
+                    margin: 0;
+                }
+            }
+        }
+        div.order-pending {
+            background: #C1AA98;
+        }
+        div.order-cooking {
+            background: #FC9631;
+            margin: 0 10px;
+        }
+        div.order-ready {
+            background: #36AF5A;
+        }
+    } 
+}

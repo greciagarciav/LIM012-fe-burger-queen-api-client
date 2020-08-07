@@ -21,6 +21,10 @@ import { HttpClientModule }  from '@angular/common/http';
 import { JsonApiService } from "./JsonApiService.service";
 import { ReactiveFormsModule, FormsModule } from '@angular/forms';
 import { AddNewUserComponent } from './components/add-new-user/add-new-user.component';
+import { CheffComponent } from './views/cheff/cheff.component';
+import { ViewOrderStatusComponent } from './views/cheff/view-order-status/view-order-status.component';
+import { OrderListComponent } from './components/order-list/order-list.component';
+import { RouterModule } from '@angular/router';
 import { ProductsListComponent } from './components/products-list/products-list.component';
 
 @NgModule({
@@ -40,9 +44,13 @@ import { ProductsListComponent } from './components/products-list/products-list.
     UserLoggedComponent,
     ModalComponent,
     AddNewUserComponent,
+    CheffComponent,
+    ViewOrderStatusComponent,
+    OrderListComponent,
     ProductsListComponent,
   ],
   imports: [
+    RouterModule,
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,

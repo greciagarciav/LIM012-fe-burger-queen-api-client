@@ -1,11 +1,8 @@
 
-import { Component, OnInit, Input, Output, OnDestroy } from '@angular/core';
-import { ActivatedRoute, Router } from '@angular/router';
+import { Component, OnInit, OnDestroy } from '@angular/core';
 import { JsonApiService } from '../../JsonApiService.service';
 import { User } from '../../model/user';
-import { Subscription, Subject, Observable, SubscriptionLike } from 'rxjs';
-import { FormControl, Validators, FormGroup, FormBuilder } from '@angular/forms';
-import { retry } from 'rxjs/operators';
+import { Subscription } from 'rxjs';
 
 @Component({
   selector: 'app-staff-list',

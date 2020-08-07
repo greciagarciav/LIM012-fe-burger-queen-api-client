@@ -27,7 +27,7 @@ export class JsonApiService {
   }
 
   getUser(){
-    return this.http.get(this.url, { headers: this.headers })
+    return this.http.get<User[]>(this.url, { headers: this.headers })
       // .pipe(
       //   catchError(this.handleError)
       // )

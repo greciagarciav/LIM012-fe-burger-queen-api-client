@@ -15,66 +15,7 @@ section {
             align-items: center;
             height: 90%;
 
-            .card-product {
-                width: 30%;
-                margin: 1%;
-                height: 300px;
-                background: map-get($colors, 'letter');
-                border: 1px solid map-get($colors, 'letter');
-                border-radius: 9px;
-                display: flex;
-                justify-content: center;
-                flex-direction: column;
-                align-items: center;
-
-                .card-img {
-                    background: white;
-                    box-sizing: border-box;
-                    border-radius: 9px;
-                    width: 90%;
-                    height: 39%;
-                    margin: 2%;
-                    display: flex;
-
-                    img {
-                        margin: auto;
-                        width: 70%;
-                    }
-                }
-
-                .card-text {
-                    text-align: center;
-                    line-height: 22px;
-                    color: white;
-                    height: 30%;
-
-                    h3 {
-                        font-size: 1em;
-                    }
-                }
-
-                .btn-options {
-                    height: 26%;
-align-content: center;
-                    .edit {
-                        
-                        @include button(80%, _);
-                        height: 41%;
-                        background-color: #d2eaf8;
-
-                        img {
-                            width: 12px;
-                            margin-right: 5px;
-                        }
-                    }
-
-                    .delete {
-                        @extend .edit;
-                        background: map-get($colors, 'error');
-                        ;
-
-                    }
-                }
+            
 
             }
         }
@@ -158,5 +99,5 @@ align-content: center;
                 background: map-get($colors, 'error');
             }
         }
-    }
+    
 }

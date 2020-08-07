@@ -9,7 +9,6 @@ import { HeaderComponent } from './components/header/header.component';
 import { VerticalMenuComponent } from './components/vertical-menu/vertical-menu.component';
 import { NavSearchComponent } from './components/nav-search/nav-search.component';
 import { StaffList } from './components/staff-list/staff-list.component';
-import { ConteinerListCardsComponent } from './components/conteiner-list-cards/conteiner-list-cards.component';
 import { MenuCardComponent } from './components/menu-card/menu-card.component';
 import { MenuListCardsComponent } from './components/menu-list-cards/menu-list-cards.component';
 import { MenuContainerComponent } from './components/menu-container/menu-container.component';
@@ -22,11 +21,11 @@ import { HttpClientModule }  from '@angular/common/http';
 import { JsonApiService } from "./JsonApiService.service";
 import { ReactiveFormsModule, FormsModule } from '@angular/forms';
 import { AddNewUserComponent } from './components/add-new-user/add-new-user.component';
-import { CardInventaryComponent } from './components/card-inventary/card-inventary.component';
 import { CheffComponent } from './views/cheff/cheff.component';
 import { ViewOrderStatusComponent } from './views/cheff/view-order-status/view-order-status.component';
 import { OrderListComponent } from './components/order-list/order-list.component';
 import { RouterModule } from '@angular/router';
+import { ProductsListComponent } from './components/products-list/products-list.component';
 
 @NgModule({
   declarations: [
@@ -36,7 +35,6 @@ import { RouterModule } from '@angular/router';
     AdminComponent,
     NavSearchComponent,
     StaffList,
-    ConteinerListCardsComponent,
     MenuCardComponent,
     MenuListCardsComponent,
     MenuContainerComponent,
@@ -46,10 +44,10 @@ import { RouterModule } from '@angular/router';
     UserLoggedComponent,
     ModalComponent,
     AddNewUserComponent,
-    CardInventaryComponent,
     CheffComponent,
     ViewOrderStatusComponent,
     OrderListComponent,
+    ProductsListComponent,
   ],
   imports: [
     RouterModule,

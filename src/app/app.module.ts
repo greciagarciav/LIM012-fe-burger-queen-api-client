@@ -26,6 +26,7 @@ import { CardInventaryComponent } from './components/card-inventary/card-inventa
 import { CheffComponent } from './views/cheff/cheff.component';
 import { ViewOrderStatusComponent } from './views/cheff/view-order-status/view-order-status.component';
 import { OrderListComponent } from './components/order-list/order-list.component';
+import { RouterModule } from '@angular/router';
 
 @NgModule({
   declarations: [
@@ -51,6 +52,7 @@ import { OrderListComponent } from './components/order-list/order-list.component
     OrderListComponent,
   ],
   imports: [
+    RouterModule,
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,

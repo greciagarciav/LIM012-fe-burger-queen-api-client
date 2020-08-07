@@ -9,7 +9,6 @@ import { HeaderComponent } from './components/header/header.component';
 import { VerticalMenuComponent } from './components/vertical-menu/vertical-menu.component';
 import { NavSearchComponent } from './components/nav-search/nav-search.component';
 import { StaffList } from './components/staff-list/staff-list.component';
-import { ConteinerListCardsComponent } from './components/conteiner-list-cards/conteiner-list-cards.component';
 import { MenuCardComponent } from './components/menu-card/menu-card.component';
 import { MenuListCardsComponent } from './components/menu-list-cards/menu-list-cards.component';
 import { MenuContainerComponent } from './components/menu-container/menu-container.component';
@@ -22,7 +21,7 @@ import { HttpClientModule }  from '@angular/common/http';
 import { JsonApiService } from "./JsonApiService.service";
 import { ReactiveFormsModule, FormsModule } from '@angular/forms';
 import { AddNewUserComponent } from './components/add-new-user/add-new-user.component';
-import { CardInventaryComponent } from './components/card-inventary/card-inventary.component';
+import { ProductsListComponent } from './components/products-list/products-list.component';
 
 @NgModule({
   declarations: [
@@ -32,7 +31,6 @@ import { CardInventaryComponent } from './components/card-inventary/card-inventa
     AdminComponent,
     NavSearchComponent,
     StaffList,
-    ConteinerListCardsComponent,
     MenuCardComponent,
     MenuListCardsComponent,
     MenuContainerComponent,
@@ -42,7 +40,7 @@ import { CardInventaryComponent } from './components/card-inventary/card-inventa
     UserLoggedComponent,
     ModalComponent,
     AddNewUserComponent,
-    CardInventaryComponent
+    ProductsListComponent,
   ],
   imports: [
     BrowserModule,

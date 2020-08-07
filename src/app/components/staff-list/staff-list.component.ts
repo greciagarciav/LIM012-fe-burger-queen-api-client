@@ -17,7 +17,7 @@ export class StaffList implements OnInit, OnDestroy {
 
   contactoeditar: null;
   contacto: null;
-  data: Subscription;
+  data: Subscription=null;
   users: User[];
   // destroy$: Subject<boolean> = new Subject<boolean>()
   // .pipe(takeUntil(this.destroy$))
@@ -43,6 +43,7 @@ export class StaffList implements OnInit, OnDestroy {
   receiveUsers() {
     return this.json.getUser().subscribe((data: User[]) => {
       console.log('onsuscribe');
+      
       this.users = data.filter(this.findEmployer)
     },
       err => {
@@ -64,6 +65,8 @@ export class StaffList implements OnInit, OnDestroy {
   lessUser(idUser): void {
     this.json.deleteUser(idUser).subscribe((response: any) => {
       this.users = this.users.filter(e => e.id !== idUser)
+      console.log(response.status);
+
     },
       err => {
         switch (err.status) {
@@ -87,8 +90,7 @@ export class StaffList implements OnInit, OnDestroy {
   constructor(private json: JsonApiService) { }
 
   ngOnInit(): void {
-    this.json.refreshList$.
-      subscribe(() => {
+    this.data = this.json.refreshList$.subscribe(() => {
         this.receiveUsers();
         console.log('ngOnInit Subscribe!')
       });

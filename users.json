@@ -9,22 +9,6 @@
       "id": "rv_1pow"
     },
     {
-      "email": "javier@mi.com",
-      "roles": {
-        "admin": false
-      },
-      "password": "333333",
-      "id": "5pBQobE"
-    },
-    {
-      "email": "pablo@gmail.com",
-      "roles": {
-        "admin": false
-      },
-      "password": "234",
-      "id": "ZmFkYiR"
-    },
-    {
       "email": "harvie@gmail.com",
       "roles": {
         "admin": false
@@ -33,12 +17,140 @@
       "id": "ZmFkYiR"
     },
     {
-      "email": "miliafsf@frg",
+      "email": "nngj@jnfjr.com",
       "roles": {
         "admin": false
       },
-      "password": "123424",
-      "id": "TNjOwdX"
+      "password": "23453",
+      "id": "gZ0oIWi"
+    },
+    {
+      "email": "vnfuu@emef.com",
+      "password": "121",
+      "roles": {
+        "admin": false
+      },
+      "id": "IJWpwQr"
+    }
+  ],
+  "products": [
+    {
+      "_id": "1111",
+      "name": "Hamburguesa simple",
+      "price": "10",
+      "image": "https://raw.githubusercontent.com/MilagrosRn/LIM012-fe-burger-queen-api-client/bugfixes/src/assets/images/hamburguesa.png",
+      "type": "Hamburguesas",
+      "dateEntry": "09/01/2020"
+    },
+    {
+      "_id": "22222",
+      "name": "Hamburguesa doble",
+      "price": "15",
+      "image": "https://github.com/MilagrosRn/LIM012-fe-burger-queen-api-client/blob/bugfixes/src/assets/images/doble.png",
+      "type": "Hamburguesas",
+      "dateEntry": "28/07/2020"
+    },
+    {
+      "_id": "33333",
+      "name": "Papas fritas",
+      "price": "5",
+      "image": "https://github.com/MilagrosRn/LIM012-fe-burger-queen-api-client/blob/bugfixes/src/assets/images/papas.png",
+      "type": "Acompañamientos",
+      "dateEntry": ""
+    },
+    {
+      "_id": "4444",
+      "name": "Aros de cebolla",
+      "price": "5",
+      "image": "https://github.com/MilagrosRn/LIM012-fe-burger-queen-api-client/blob/bugfixes/src/assets/images/cebolla.png",
+      "type": "Papas fritas",
+      "dateEntry": "03/07/2020"
+    },
+    {
+      "_id": "555",
+      "name": "Agua 500ml",
+      "price": "5",
+      "image": "https://github.com/MilagrosRn/LIM012-fe-burger-queen-api-client/blob/bugfixes/src/assets/images/cafeAm.png",
+      "type": "Para tomar",
+      "dateEntry": "04/05/2020"
+    },
+    {
+      "_id": "6666",
+      "name": "Agua 750ml",
+      "price": "7",
+      "image": "https://github.com/MilagrosRn/LIM012-fe-burger-queen-api-client/blob/bugfixes/src/assets/images/cafeAm.png",
+      "type": "Para tomar",
+      "dateEntry": "04/05/2020"
+    },
+    {
+      "_id": "7777",
+      "name": "Bebida/gaseosa 500ml",
+      "price": "7",
+      "image": "https://github.com/MilagrosRn/LIM012-fe-burger-queen-api-client/blob/bugfixes/src/assets/images/cafeAm.png",
+      "type": "Para tomar",
+      "dateEntry": "04/05/2020"
+    },
+    {
+      "id": "252",
+      "name": "Hamburguesa simple",
+      "price": "10",
+      "image": "htburguesa.png",
+      "type": "Hamburguesas",
+      "dateEntry": "09/01/2020"
+    },
+    {
+      "_id": "1111757",
+      "name": "string",
+      "price": 1,
+      "image": "string",
+      "type": "k",
+      "dateEntry": "Date",
+      "id": "hnwJs6U"
+    },
+    {
+      "_id": "1111757",
+      "name": "string",
+      "price": 1,
+      "image": "string",
+      "type": "k",
+      "dateEntry": "Date",
+      "id": "KNWXrKG"
+    },
+    {
+      "_id": "141",
+      "name": "string",
+      "price": 1,
+      "image": "string",
+      "type": "k",
+      "dateEntry": "Date",
+      "id": "eKlu0Uj"
+    },
+    {
+      "_id": "141",
+      "name": "string",
+      "price": 1,
+      "image": "string",
+      "type": "k",
+      "dateEntry": "Date",
+      "id": "Wq8RBWl"
+    },
+    {
+      "_id": "141",
+      "name": "string",
+      "price": 1,
+      "image": "string",
+      "type": "k",
+      "dateEntry": "Date",
+      "id": "LG8nP_1"
+    },
+    {
+      "_id": "141",
+      "name": "string",
+      "price": 1,
+      "image": "string",
+      "type": "k",
+      "dateEntry": "Date",
+      "id": "1l-OdFb"
     }
   ]
 }

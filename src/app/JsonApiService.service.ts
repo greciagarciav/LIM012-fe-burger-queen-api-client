@@ -18,7 +18,7 @@ export class JsonApiService {
       'Content-Type': 'application/json'
     })
 
-  public   url:string= environment.apiUrl+'users/';
+  public url:string= environment.apiUrl+'users/';
   private _refreshList$ = new Subject<void>();
   public refreshList$ = this._refreshList$.asObservable();
     
@@ -27,8 +27,6 @@ export class JsonApiService {
   }
 
   getUser(){
-    return this.http.get<User[]>(this.url, { headers: this.headers })
-
     return this.http.get(this.url, { headers: this.headers })
       .pipe(
         catchError(this.handleError)

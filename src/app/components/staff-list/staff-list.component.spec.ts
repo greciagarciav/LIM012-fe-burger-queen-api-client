@@ -31,7 +31,7 @@ describe('StaffList component', () => {
     const usersService = TestBed.inject(JsonApiService);
     const http = TestBed.inject(HttpTestingController);
     usersService.getUser().subscribe((response) => {
-      component.users = response;
+      // component.users = response;
     });
     http.expectOne('http://localhost:3000/users/').flush(['user1', 'user2']);
     component.receiveUsers();

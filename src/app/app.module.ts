@@ -18,7 +18,7 @@ import { ViewStaffComponent } from './views/admin/view-staff/view-staff.componen
 import { UserLoggedComponent } from './components/user-logged/user-logged.component';
 import { ModalComponent } from './components/modal/modal.component';
 import { HttpClientModule }  from '@angular/common/http';
-import { JsonApiService } from "./JsonApiService.service";
+import { JsonApiService } from "./services/JsonApiService.service";
 import { ReactiveFormsModule, FormsModule } from '@angular/forms';
 import { AddNewUserComponent } from './components/add-new-user/add-new-user.component';
 import { CheffComponent } from './views/cheff/cheff.component';

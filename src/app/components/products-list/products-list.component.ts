@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Output, EventEmitter } from '@angular/core';
 import { ProductsService } from "../../services/products.service";
 import { Product } from 'src/app/model/products';
 
@@ -8,41 +8,38 @@ import { Product } from 'src/app/model/products';
   styleUrls: ['./products-list.component.scss']
 })
 export class ProductsListComponent implements OnInit {
-  products: Product[]
 
-  constructor(private product$:ProductsService) { }
+  products: Product[]
+  popoverTitle = 'Eliminar';
+  popoverMessage = '¿Desea eliminar este producto?';
+  showModal = false;
+  toggleModal = () => {
+    this.showModal = !this.showModal;
+  }
+
+@Output () editar = new EventEmitter<object>()
+
+  constructor(private product$: ProductsService) { }
 
   ngOnInit(): void {
-    this.getProducts() 
+    this.getProducts()
   }
 
-  getProducts(){
-    this.product$.getListProducts().subscribe((data)=>{
+  getProducts() {
+    this.product$.getListProducts().subscribe((data) => {
       console.log(data);
-     this.products=  data;
+      this.products = data;
     })
   }
-  deleteProduct(product) {
-    this.product$.deleteProduct(product._id).subscribe((response: any) => {
-      this.products = this.products.filter(e => e._id !== product)
-      console.log(response.status);
-    })
+  lessProduct(product) {
     console.log(product);
+    this.product$.deleteProduct(product).subscribe()
   }
 
-  addProduct(){
-    const newUser: object = {
-      "_id": '141',
-    "name": 'string',
-    "price": 1,
-    "image": 'string',
-    "type":'k',
-    "dateEntry": 'Date',
-    };
-    this.product$.postProduct(newUser).subscribe((data: any) => {
-      console.log(data);
-      
-    })
+  editProduct(product: any) {
+    console.log(product);
+    this.editar.emit(product)
+  
   }
 
 }

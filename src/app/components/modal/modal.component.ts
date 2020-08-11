@@ -1,7 +1,8 @@
 import { Component, OnInit, Input, Output } from '@angular/core';
-import { JsonApiService } from 'src/app/JsonApiService.service';
+import { JsonApiService } from 'src/app/services/JsonApiService.service';
 import { FormBuilder, FormGroup } from '@angular/forms';
 import { ReactiveFormsModule } from '@angular/forms';
+import { ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-modal',
@@ -29,8 +30,10 @@ export class ModalComponent implements OnInit {
 
   form: FormGroup
   contactOriginal: any
-  constructor(private json: JsonApiService, private fb: FormBuilder) { }
-
+  constructor(private json: JsonApiService, private fb: FormBuilder,private route: ActivatedRoute)
+ {
+    console.log(route.snapshot)  ; 
+  }
   ngOnInit() {
   }
   crearForm() {
@@ -48,9 +51,12 @@ export class ModalComponent implements OnInit {
         "admin": false
       }
     }
-    this.json.putUser(user, this.contactOriginal.id).subscribe((data: any) => {
+    if(this.form.valid){
+      this.json.putUser(user, this.contactOriginal.id).subscribe((data: any) => {
       console.log('data - edit-employee', data);
     })
+    }
+    
   }
   closeEdition() {
 

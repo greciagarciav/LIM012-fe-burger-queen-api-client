@@ -1,9 +1,6 @@
 import { Component, OnInit, EventEmitter, Output } from '@angular/core';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
-import { JsonApiService } from 'src/app/JsonApiService.service';
-import { User } from 'src/app/model/user';
-import { Subscription } from 'rxjs';
-import { StaffList } from "../staff-list/staff-list.component";
+import { JsonApiService } from 'src/app/services/JsonApiService.service';
 
 @Component({
   selector: 'app-add-new-user',

@@ -1,7 +1,7 @@
 
 import { Component, OnInit, OnDestroy } from '@angular/core';
-import { JsonApiService } from '../../JsonApiService.service';
-import { User } from '../../model/user';
+import { JsonApiService } from '../../services/JsonApiService.service';
+import { User } from '../../model/user'
 import { Subscription } from 'rxjs';
 
 @Component({
@@ -40,19 +40,14 @@ export class StaffList implements OnInit, OnDestroy {
   receiveUsers() {
     return this.json.getUser().subscribe((data: User[]) => {
       console.log('onsuscribe');
-      
       this.users = data.filter(this.findEmployer)
-    },
-      err => {
+    }, err => {
         switch (err.status) {
-          case 401:
-            this.errorMessage = 'no hay cabecera de autenticación'
+          case 401: this.errorMessage = 'no hay cabecera de autenticación'
             break;
-          case 403:
-            this.errorMessage = 'no es admin'
+          case 403: this.errorMessage = 'no es admin'
             break;
-          default:
-            this.errorMessage = 'se produjo un error, intente de nuevo'
+          default: this.errorMessage = 'se produjo un error, intente de nuevo'
             break;
         }
       })

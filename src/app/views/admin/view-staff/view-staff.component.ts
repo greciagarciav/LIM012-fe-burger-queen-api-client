@@ -1,7 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import { JsonApiService } from '../../../JsonApiService.service'
-import { User } from 'src/app/model/user';
-
 
 @Component({
   selector: 'app-view-staff',

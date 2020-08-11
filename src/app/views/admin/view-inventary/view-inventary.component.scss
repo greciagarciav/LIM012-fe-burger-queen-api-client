@@ -6,98 +6,85 @@ section {
 
     .container-card {
         width: 60%;
-        display: flex;
+        @include flex(center, center);
 
         .all-cards {
             overflow-y: scroll;
-            display: flex;
             flex-wrap: wrap;
-            align-items: center;
-            height: 90%;
+            @include size(_, 90%);
+            @include flex(center, center);
 
-            
-
+            .container-cards {
+                display: flex;
+                flex-wrap: wrap;
             }
         }
     }
+}
 
-    .container-add {
-        width: 30%;
-        text-align: center;
-        background: #C1AA98;
+.container-add {
+    width: 30%;
+    text-align: center;
+    background: #C1AA98;
 
-        .container-form {
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
+    .container-form {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
 
-            h3 {
-                font-size: 2em;
-                margin: 8%;
-            }
-
-            .input_text {
-                display: flex;
-                text-align: left;
-                flex-direction: column;
-                font-size: 1.2rem;
-                padding: 7%;
-
-                h4 {
-                    font-size: 1.2em;
-                }
-
-
-                input[type=text] {
-
-                    border-radius: 8px;
-                    @include size(85%, _);
-                    margin: 1%;
-                    padding: 1%;
-                    border: 1px solid map-get($colors, 'letter');
-                }
-
-                .div_file {
-                    display: flex;
-                    flex-direction: column;
-                    width: 80%;
-                    align-items: center;
-                    background: map-get($colors, 'primary');
-                    border-radius: 5px;
-                    box-shadow: 0px 3px 0px map-get($colors, 'less-contrast');
-
-                    img {
-                        width: 43%;
-
-                    }
-
-                    input[type=file] {
-                        // position:absolute;
-                        top: 0px;
-                        // opacity: 0;
-                        // left: 0px;
-                        // right: 0px;
-                        bottom: 0px;
-                        width: 100%;
-                        height: 100%;
-                    }
-                }
-            }
-
-            button {
-                align-self: center;
-
-            }
-
-            .add-product {
-                @include button(200px, 'add');
-                margin-top: 3%;
-            }
-
-            .cancel-product {
-                @extend .add-product;
-                background: map-get($colors, 'error');
-            }
+        .error {
+            color: map-get($colors, 'error');
+            font-size: 1em;
         }
-    
+
+        h3 {
+            font-size: 2em;
+            margin: 2%;
+        }
+
+        .input_text {
+            display: flex;
+            text-align: left;
+            flex-direction: column;
+            font-size: 1.2rem;
+            padding: 7%;
+
+            h4 {
+                font-size: 1.2em;
+            }
+
+
+            input[type=text] {
+
+                border-radius: 8px;
+                @include size(85%, _);
+                margin: 1%;
+                padding: 1%;
+                border: 1px solid map-get($colors, 'letter');
+            }
+
+
+            input[type=file] {
+                top: 0px;
+                bottom: 0px;
+                @include size(100%, 100);
+            }
+
+        }
+
+        button {
+            align-self: center;
+        }
+
+        .add-product {
+            @include button(200px, 'add');
+            margin-top: 3%;
+        }
+
+        .cancel-product {
+            @extend .add-product;
+            background: map-get($colors, 'error');
+        }
+    }
+
 }

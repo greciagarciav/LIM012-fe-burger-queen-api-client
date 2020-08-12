@@ -1,1 +1,18 @@
-<p>order works!</p>
+<div class="container-order-list" >
+  <div class="order-card" *ngFor="let order of orders; index as i">
+    <div class="users">
+      <div class="client-date">
+        <span class="client">{{order.client}}</span>
+        <span class="date"><i class="far fa-clock"></i> 15:22</span>
+      </div>
+      <span>{{order.userId}}</span>
+    </div>
+    <div class="products">
+      <span class="name">{{order.client}}</span>
+      <span class="qty">{{order.client}}</span>
+      <span class="price">{{order.client}}</span>
+    </div>
+    <button class="move"><i class="fas fa-angle-double-right"></i> Mover pedido</button>
+    <button class="cancel"><img src="assets/images/delete.png" alt=""> Cancelar pedido</button>
+  </div>
+</div>

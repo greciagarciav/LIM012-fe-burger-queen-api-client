@@ -18,13 +18,13 @@ export class StaffList implements OnInit, OnDestroy {
   users: User[];
   // destroy$: Subject<boolean> = new Subject<boolean>()
   // .pipe(takeUntil(this.destroy$))
- 
+
   //modal
   showModal = false;
   toggleModal = () => {
     this.showModal = !this.showModal;
   }
-  // confirmacion de eliminar 
+  // confirmacion de eliminar
   popoverTitle = 'Eliminar';
   popoverMessage = 'Desea eliminar este usuario?';
   confirmClicked = false;
@@ -40,7 +40,7 @@ export class StaffList implements OnInit, OnDestroy {
   receiveUsers() {
     return this.json.getUser().subscribe((data: User[]) => {
       console.log('onsuscribe');
-      
+
       this.users = data.filter(this.findEmployer)
     },
       err => {

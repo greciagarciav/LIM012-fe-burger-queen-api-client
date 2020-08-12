@@ -151,6 +151,101 @@
       "type": "k",
       "dateEntry": "Date",
       "id": "1l-OdFb"
+    },
+    {
+      "_id": "141",
+      "name": "string",
+      "price": 1,
+      "image": "string",
+      "type": "k",
+      "dateEntry": "Date",
+      "id": "j1ud_38"
+    },
+    {
+      "_id": "141",
+      "name": "string",
+      "price": 1,
+      "image": "string",
+      "type": "k",
+      "dateEntry": "Date",
+      "id": "7mISVcA"
+    }
+  ],
+  "orders": [
+    {
+      "id": "123",
+      "userId": "456",
+      "client": "Alba",
+      "products": [
+        {
+          "qty": 1,
+          "product": {
+            "_id": "141",
+            "name": "sandwich",
+            "price": 10,
+            "image": "string",
+            "type": "k",
+            "dateEntry": "Date",
+            "id": "7mISVcA"
+          }
+        },
+        {
+          "qty": 1,
+          "product": {
+            "_id": "141",
+            "name": "sandwich",
+            "price": 10,
+            "image": "string",
+            "type": "k",
+            "dateEntry": "Date",
+            "id": "7mISVcA"
+          }
+        }
+      ],
+      "status": "pending",
+      "dateEntry": "Date"
+    },
+    {
+      "id": "123",
+      "userId": "456",
+      "client": "Alba",
+      "products": [
+        {
+          "qty": 1,
+          "product": {
+            "_id": "141",
+            "name": "string",
+            "price": 1,
+            "image": "string",
+            "type": "k",
+            "dateEntry": "Date",
+            "id": "7mISVcA"
+          }
+        }
+      ],
+      "status": "canceled",
+      "dateEntry": "Date"
+    },
+    {
+      "id": "123",
+      "userId": "456",
+      "client": "Alba",
+      "products": [
+        {
+          "qty": 1,
+          "product": {
+            "_id": "141",
+            "name": "string",
+            "price": 1,
+            "image": "string",
+            "type": "k",
+            "dateEntry": "Date",
+            "id": "7mISVcA"
+          }
+        }
+      ],
+      "status": "delivered",
+      "dateEntry": "Date"
     }
   ]
 }

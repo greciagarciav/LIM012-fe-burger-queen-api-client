@@ -1,0 +1,66 @@
+.container-order-list {
+  height: 520px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  .order-card {
+    display: flex;
+    flex-direction: column;
+    width: 90%;
+    background: #ffffff;
+    margin: 10px;
+    border-radius: 5px;
+    div.users {
+      display: flex;
+      justify-content: space-between;
+      div.client-date {
+        display: flex;
+        flex-direction: column;
+        margin: 0 5px;
+        .client {
+        font-size: 20px;
+        color: #000000;
+        line-height: 20px;
+        margin-top: 5px;
+        }
+        .date {
+          font-size: 16px;
+          color: #6c6c6c;
+          line-height: 10px;
+        }
+      }
+      span {
+        font-size: 18px;
+        margin: 0 10px;
+      }
+    }
+    div.products {
+      display: flex;
+      justify-content: space-between;
+      margin: 15px 10px;
+      color: #000000;
+      span.name {
+        width: 45%;
+        line-height: 12px;
+      }
+    }
+    button {
+      width: 70%;
+      color: #ffffff;
+      border: none;
+      border-radius: 8px;
+      margin: 0 5px 10px 0 ;
+      align-self: center;
+    }
+    button.move {
+      background: #d2eaf8;
+      color: #47382b;
+    }
+    button.cancel {
+      background: #e35151;
+      img {
+        width: 15px;
+      }
+    }
+  }
+}

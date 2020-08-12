@@ -31,10 +31,10 @@ describe('StaffList component', () => {
     const usersService = TestBed.inject(JsonApiService);
     const http = TestBed.inject(HttpTestingController);
     usersService.getUser().subscribe((response) => {
-      // component.users = response;
+      component.users = response;
     });
-    http.expectOne('http://localhost:3000/users/').flush(['user1', 'user2']);
+    http.expectOne('http://localhost:3000/users/').flush(['rv_1pow', 'ZmFkYiR']);
     component.receiveUsers();
-    expect(component.users).toEqual(component.users);
+    expect(component.users).toEqual(['rv_1pow', 'ZmFkYiR']);
   });
 });

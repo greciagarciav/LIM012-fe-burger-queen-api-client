@@ -21,8 +21,8 @@ export class JsonApiService {
   public url:string= environment.apiUrl+'users/';
   private _refreshList$ = new Subject<void>();
   public refreshList$ = this._refreshList$.asObservable();
-    
-  constructor(public http: HttpClient) { 
+
+  constructor(public http: HttpClient) {
 
   }
 
@@ -41,7 +41,7 @@ export class JsonApiService {
     //   })
     // )
   }
-    
+
   postUser(body: object) {
     return this.http.post(this.url, (body), { headers: this.headers, observe: 'response' })
       .pipe(

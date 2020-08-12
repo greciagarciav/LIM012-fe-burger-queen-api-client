@@ -26,6 +26,7 @@ import { ViewOrderStatusComponent } from './views/cheff/view-order-status/view-o
 import { OrderListComponent } from './components/order-list/order-list.component';
 import { RouterModule } from '@angular/router';
 import { ProductsListComponent } from './components/products-list/products-list.component';
+import { OrdersService } from './services/orders/orders.service';
 
 @NgModule({
   declarations: [
@@ -60,7 +61,7 @@ import { ProductsListComponent } from './components/products-list/products-list.
       confirmButtonType: 'danger', // set defaults here
     }),
   ],
-  providers: [JsonApiService],
+  providers: [JsonApiService, OrdersService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

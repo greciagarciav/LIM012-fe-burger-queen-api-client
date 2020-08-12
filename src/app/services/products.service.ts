@@ -4,6 +4,7 @@ import { environment } from "../../environments/environment";
 import { BehaviorSubject, Observable, throwError, Subject } from 'rxjs';
 import { Product } from '../model/products';
 import { catchError, tap } from 'rxjs/operators';
+import { renderFlagCheckIfStmt } from '@angular/compiler/src/render3/view/template';
 
 @Injectable({
   providedIn: 'root'
@@ -14,15 +15,19 @@ export class ProductsService {
   constructor(public http: HttpClient) { }
 
   public url: string = environment.apiUrl + 'products/';
-  private subjectSource = new BehaviorSubject<any>(Product);
+  private subjectSource = new Subject<void>();
   public countdown$ = this.subjectSource.asObservable();
-
 
   headers = new HttpHeaders(
     {
       'Authorization': 'Bearer 2635645',
       'Content-Type': 'application/json'
     })
+
+get refresh$(){
+  return this.subjectSource
+}
+
 
   getListProducts(): Observable<any> {
     return this.http.get(this.url, { headers: this.headers });
@@ -31,7 +36,9 @@ export class ProductsService {
   postProduct(product: object): Observable<any> {
     return this.http.post(this.url, product, { headers: this.headers })
       .pipe(
-        tap((dat) => dat),
+        tap(() => {
+          this.refresh$.next()
+        }),
         catchError(this.handleError),
       )
   }
@@ -40,9 +47,9 @@ export class ProductsService {
     return this.http.put(this.url + id, body, { headers: this.headers, observe: 'response' })
       .pipe(
         tap(data => data),
-        // tap(() => {
-        //   this.subjectSource.next()
-        // }),
+        tap(() => {
+          this.refresh$.next()
+        }),
       catchError(this.handleError),
       )
   }

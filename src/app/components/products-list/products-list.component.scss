@@ -1,62 +1,111 @@
 @import '../../app.component.scss';
 
-.card-product {
-    width: 30%;
-    margin: 1%;
-    height: 300px;
-    background: map-get($colors, 'letter');
-    border: 1px solid map-get($colors, 'letter');
-    border-radius: 9px;
-    display: flex;
-    justify-content: center;
-    flex-direction: column;
-    align-items: center;
-
-    .card-img {
-        background: white;
-        box-sizing: border-box;
-        border-radius: 9px;
-        width: 90%;
-        height: 39%;
-        margin: 2%;
-        display: flex;
-
-        img {
-            margin: auto;
-            width: 70%;
-        }
+@mixin space-vertical(){
+    margin: {
+        top: 1.5%;
+        bottom: 1.5%
     }
+}
+.selected{
+    background: map-get($colors, 'letter') !important;
 
-    .card-text {
-        text-align: center;
-        line-height: 22px;
-        color: white;
-        height: 30%;
+}
+.no-selected{
+background:  map-get($colors, 'primary');
+}
+.row {
+    width: 100%;
+    padding: 2%;
+    @include flex(center,center);
+    .buttons {
+        display: block;
+        width: 100%;
 
-        h3 {
-            font-size: 1em;
+        button {
+            margin-left: 0.5%;
         }
-    }
 
-    .btn-options {
-        height: 26%;
-align-content: center;
-        .edit {
-            
-            @include button(80%, _);
-            height: 41%;
-            background-color: #d2eaf8;
+        .container-menu-main {
+            display: flex;
 
-            img {
-                width: 12px;
-                margin-right: 5px;
+            .menu-main {
+                @include button(48%, _);
             }
         }
 
-        .delete {
-            @extend .edit;
-            background: map-get($colors, 'error');
-            ;
+        div {
+            display: flex;
+@include space-vertical();
+            .menu-child {
 
+                @include button(32%, _);
+            }
         }
-    }}
+
+    }
+
+    .panel-cards {
+        @include size (100%,80vh);
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+
+        .card-product {
+            @include button(29.2%, 'letter');
+            @include size (_, 49%);
+            border: 1px solid map-get($colors, 'letter');
+            flex-direction: column;
+            @include space-vertical();
+            @include flex(center, center);
+
+            .card-img {
+                background: white;
+                box-sizing: border-box;
+                border-radius: 9px;
+                width: 90%;
+                height: 39%;
+                margin: 2%;
+                display: flex;
+
+                img {
+                    margin: auto;
+                    width: 70%;
+                }
+            }
+
+            .card-text {
+                text-align: center;
+                line-height: 22px;
+                color: white;
+                height: 30%;
+
+                h3 {
+                    font-size: 1em;
+                }
+            }
+
+            .btn-options {
+                height: 26%;
+                align-content: center;
+
+                .edit {
+
+                    @include button(80%, _);
+                    height: 41%;
+                    background-color: #d2eaf8;
+
+                    img {
+                        width: 12px;
+                        margin-right: 5px;
+                    }
+                }
+
+                .delete {
+                    @extend .edit;
+                    background: map-get($colors, 'error');
+
+                }
+            }
+        }
+    }
+}

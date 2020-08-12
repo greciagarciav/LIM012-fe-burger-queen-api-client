@@ -1,0 +1,74 @@
+@import '../../../app.component.scss';
+
+div {
+    display: flex;
+
+    section {
+        width: 60%;
+height: 80vh;
+        .menu {
+position: relative;
+            .products {}
+        }
+    }
+
+    aside {
+        width: 40%;
+        background: map-get($colors, 'less-contrast');
+
+        .date {}
+
+        .order {
+            display: flex;
+            flex-direction: column;
+
+            .head {
+                height: 120px;
+
+                background: linear-gradient(270deg, #FC9631 0%, #C1AA98 111.21%);
+                border-radius: 23px 23px 0px 0px;
+            }
+
+            .body-order {
+                height: 300px;
+                background: #F6F1ED;
+
+                .each-order {
+                    height: 100px;
+
+                    img {
+                        width: 26px;
+                        height: 26px;
+                    }
+
+                    .count {
+                        input {
+                            width: 46px;
+                            height: 34px;
+
+                        }
+                    }
+                }
+            }
+
+            .total {
+                height: 201px;
+display: flex;
+flex-direction: column;
+                background: #FFFFFF;
+                .buttons{
+                    height: 78px;
+                    button{
+@include button(45%,_)
+                    }
+                    .order-action{
+                        background: #00A355 !important;
+                    }
+                    .delete{
+                        background: #e35151 !important;
+                    }
+                }
+            }
+        }
+    }
+}

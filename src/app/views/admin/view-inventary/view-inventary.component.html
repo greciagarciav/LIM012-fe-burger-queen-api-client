@@ -1,9 +1,7 @@
 <!-- <app-vertical-menu></app-vertical-menu> -->
 <section>
     <div class="container-card">
-        <div class="all-cards">
-            <app-products-list class="container-cards"  (editar)=" editProduct($event)"></app-products-list>
-        </div>
+        <app-products-list class="container-cards"  (editar)=" editProduct($event)"></app-products-list>
     </div>
     <div class="container-add">
         <div class="container-form" [style.background]="editProp==true? '#FC9631':'#C1AA98'">

@@ -26,6 +26,10 @@ import { ViewOrderStatusComponent } from './views/cheff/view-order-status/view-o
 import { OrderListComponent } from './components/order-list/order-list.component';
 import { RouterModule } from '@angular/router';
 import { ProductsListComponent } from './components/products-list/products-list.component';
+import { filterPipe } from './pipes/filter.pipe';
+import { WaiterComponent } from './views/waiter/waiter.component';
+import { ViewOrdersComponent } from './views/waiter/view-orders/view-orders.component';
+import { ViewStatesComponent } from './views/waiter/view-states/view-states.component';
 
 @NgModule({
   declarations: [
@@ -48,6 +52,10 @@ import { ProductsListComponent } from './components/products-list/products-list.
     ViewOrderStatusComponent,
     OrderListComponent,
     ProductsListComponent,
+    filterPipe,
+    WaiterComponent,
+    ViewOrdersComponent,
+    ViewStatesComponent,
   ],
   imports: [
     RouterModule,

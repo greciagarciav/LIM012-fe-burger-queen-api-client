@@ -27,13 +27,11 @@ export class ModalComponent implements OnInit {
     }
   }
 
-
   form: FormGroup
   contactOriginal: any
-  constructor(private json: JsonApiService, private fb: FormBuilder,private route: ActivatedRoute)
- {
-    console.log(route.snapshot)  ; 
-  }
+
+  constructor(private json: JsonApiService, private fb: FormBuilder){}
+
   ngOnInit() {
   }
   crearForm() {

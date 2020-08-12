@@ -1,0 +1,23 @@
+
+<div class="main-container">
+    <div class="container-admin-options">
+      <div class="admin-options">
+        <div class="option">
+          <a [routerLink]="['/mesero/orders']" routerLinkActive="active">
+            <i class="fas fa-users"></i>
+            <h2>Tomar orden</h2>
+          </a>
+        </div>
+        <div class="option">
+          <a [routerLink]="['/mesero/states']" routerLinkActive="active">
+            <i class="fas fa-clipboard-list"></i>
+            <h2>Pedidos</h2>
+          </a>
+        </div>
+      </div>
+  
+    </div>
+  
+    <router-outlet></router-outlet>
+  
+  </div>

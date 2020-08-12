@@ -7,17 +7,15 @@ section {
     .container-card {
         width: 60%;
         @include flex(center, center);
+        align-items: start;
+        overflow-y: scroll;
+        flex-wrap: wrap;
+        height: 80vh;
 
-        .all-cards {
-            overflow-y: scroll;
+        .container-cards {
+            display: flex;
             flex-wrap: wrap;
-            @include size(_, 90%);
-            @include flex(center, center);
 
-            .container-cards {
-                display: flex;
-                flex-wrap: wrap;
-            }
         }
     }
 }
@@ -26,11 +24,13 @@ section {
     width: 30%;
     text-align: center;
     background: #C1AA98;
+    height: 80vh;
 
     .container-form {
         display: flex;
         flex-direction: column;
         justify-content: center;
+        height: 100%;
 
         .error {
             color: map-get($colors, 'error');

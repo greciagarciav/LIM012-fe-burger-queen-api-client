@@ -15,64 +15,120 @@
         "admin": false
       },
       "id": "IJWpwQr"
-    },
-    {
-      "email": "miln@g",
-      "password": "12313",
-      "roles": {
-        "admin": false
-      },
-      "id": "MPG7gdw"
     }
   ],
   "products": [
     {
-      "_id": "1111",
-      "name": "Hamburguesa simple",
-      "price": "10",
-      "image": "./../assets/images/hamburguesa.png",
-      "type": "Hamburguesas",
-      "dateEntry": "09/01/2020"
-    },
-    {
-      "_id": "22222",
-      "name": "Hamburguesa doble",
-      "price": "15",
-      "image": "./../assets/images/doble.png",
-      "type": "Hamburguesas",
-      "dateEntry": "28/07/2020"
-    },
-    {
-      "_id": "33333",
-      "name": "Papas fritas",
-      "price": "5",
-      "image": "./../assets/images/papas.png",
-      "type": "Acompañamientos",
-      "dateEntry": ""
-    },
-    {
-      "_id": "4444",
-      "name": "Aros de cebolla",
-      "price": "5",
-      "image": "./../assets/images/cebolla.png",
-      "type": "Papas fritas",
-      "dateEntry": "03/07/2020"
-    },
-    {
-      "_id": "555",
-      "name": "Agua 500ml",
+      "id": "122112",
+      "name": "Café americano",
       "price": "5",
       "image": "./../assets/images/cafeAm.png",
-      "type": "Para tomar",
+      "type": "breakfast",
       "dateEntry": "04/05/2020"
     },
     {
-      "name": "2344hi",
-      "price": 21314,
+      "id": "56456",
+      "name": "Café con leche",
+      "price": "7",
+      "image": "./../assets/images/cafeLec.png",
+      "type": "breakfast",
+      "dateEntry": "09/01/2020"
+    },
+    {
+      "name": "Jugo de frutas natural",
+      "price": "7",
       "image": "assets/images/BQ.png",
+      "type": "breakfast",
+      "dateEntry": "2020-08-12",
+      "id": "12333"
+    },
+    {
+      "id": "33445",
+      "name": "Sandwich de jamón y queso",
+      "price": "10",
+      "image": "./../assets/images/sandwich.png",
+      "type": "breakfast",
+      "dateEntry": "09/01/2020"
+    },
+    {
+      "id": "1111",
+      "name": "Hamburguesa simple",
+      "price": "10",
+      "image": "./../assets/images/hamburguesa.png",
       "type": "hamburguer",
-      "dateEntry": "2020-08-13",
-      "id": "U7vj7El"
+      "dateEntry": "09/01/2020"
+    },
+    {
+      "id": "22222",
+      "name": "Hamburguesa doble",
+      "price": "15",
+      "image": "./../assets/images/doble.png",
+      "type": "hamburguer",
+      "dateEntry": "28/07/2020"
+    },
+    {
+      "id": "33333",
+      "name": "Papas fritas",
+      "price": "5",
+      "image": "./../assets/images/papas.png",
+      "type": "accompaniment",
+      "dateEntry": ""
+    },
+    {
+      "id": "4444",
+      "name": "Aros de cebolla",
+      "price": "5",
+      "image": "./../assets/images/cebolla.png",
+      "type": "accompaniment",
+      "dateEntry": "03/07/2020"
+    },
+    {
+      "id": "555",
+      "name": "Agua 500ml",
+      "price": "5",
+      "image": "./../assets/images/agua.png",
+      "type": "drink",
+      "dateEntry": "04/05/2020"
+    },
+    {
+      "id": "555",
+      "name": "Agua 750ml",
+      "price": "7",
+      "image": "./../assets/images/agua.png",
+      "type": "drink",
+      "dateEntry": "04/05/2020"
+    },
+    {
+      "id": "2337",
+      "name": "Bebida/gaseosa 500ml",
+      "price": "5",
+      "image": "./../assets/images/gaseosa.png",
+      "type": "drink",
+      "dateEntry": "04/05/2020"
+    },
+    {
+      "id": "2333247",
+      "name": "Bebida/gaseosa 750ml",
+      "price": "7",
+      "image": "./../assets/images/gaseosa.png",
+      "type": "drink",
+      "dateEntry": "04/05/2020"
+    },
+    {
+      "name": "fdgdfg",
+      "price": 123,
+      "image": "assets/images/BQ.png",
+      "type": "breakfast",
+      "dateEntry": "2020-08-18",
+      "id": "VssTok8"
+    },
+    {
+      "name": "grtbr",
+      "price": 12123,
+      "image": "assets/images/BQ.png",
+      "type": "breakfast",
+      "dateEntry": "2020-08-25",
+      "id": "gEuEgIA"
     }
   ]
 }

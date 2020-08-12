@@ -31,6 +31,8 @@ div.container-order-status {
         }
         div.order-pending {
             background: #C1AA98;
+            display: flex;
+            flex-direction: column;
         }
         div.order-cooking {
             background: #FC9631;
@@ -39,5 +41,5 @@ div.container-order-status {
         div.order-ready {
             background: #36AF5A;
         }
-    } 
+    }
 }

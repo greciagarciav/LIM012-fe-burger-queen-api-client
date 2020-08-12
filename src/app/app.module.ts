@@ -30,6 +30,7 @@ import { filterPipe } from './pipes/filter.pipe';
 import { WaiterComponent } from './views/waiter/waiter.component';
 import { ViewOrdersComponent } from './views/waiter/view-orders/view-orders.component';
 import { ViewStatesComponent } from './views/waiter/view-states/view-states.component';
+import { OrdersService } from './services/orders/orders.service';
 
 @NgModule({
   declarations: [
@@ -68,7 +69,7 @@ import { ViewStatesComponent } from './views/waiter/view-states/view-states.comp
       confirmButtonType: 'danger', // set defaults here
     }),
   ],
-  providers: [JsonApiService],
+  providers: [JsonApiService, OrdersService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

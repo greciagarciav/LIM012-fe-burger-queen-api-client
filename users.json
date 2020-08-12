@@ -130,5 +130,82 @@
       "dateEntry": "2020-08-25",
       "id": "gEuEgIA"
     }
+  ],
+  "orders": [
+    {
+      "id": "123",
+      "userId": "456",
+      "client": "Alba",
+      "products": [
+        {
+          "qty": 1,
+          "product": {
+            "_id": "141",
+            "name": "sandwich",
+            "price": 10,
+            "image": "string",
+            "type": "k",
+            "dateEntry": "Date",
+            "id": "7mISVcA"
+          }
+        },
+        {
+          "qty": 1,
+          "product": {
+            "_id": "141",
+            "name": "sandwich",
+            "price": 10,
+            "image": "string",
+            "type": "k",
+            "dateEntry": "Date",
+            "id": "7mISVcA"
+          }
+        }
+      ],
+      "status": "pending",
+      "dateEntry": "Date"
+    },
+    {
+      "id": "123",
+      "userId": "456",
+      "client": "Alba",
+      "products": [
+        {
+          "qty": 1,
+          "product": {
+            "_id": "141",
+            "name": "string",
+            "price": 1,
+            "image": "string",
+            "type": "k",
+            "dateEntry": "Date",
+            "id": "7mISVcA"
+          }
+        }
+      ],
+      "status": "deliveringx",
+      "dateEntry": "Date"
+    },
+    {
+      "id": "123",
+      "userId": "456",
+      "client": "Alba",
+      "products": [
+        {
+          "qty": 1,
+          "product": {
+            "_id": "141",
+            "name": "string",
+            "price": 1,
+            "image": "string",
+            "type": "k",
+            "dateEntry": "Date",
+            "id": "7mISVcA"
+          }
+        }
+      ],
+      "status": "delivered",
+      "dateEntry": "Date"
+    }
   ]
 }

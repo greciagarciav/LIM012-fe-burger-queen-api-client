@@ -37,4 +37,14 @@ describe('StaffList component', () => {
   //   component.receiveUsers();
   //   expect(component.users).toEqual(component.users);
   // });
+  // it('should get list of users', () => {
+  //   const usersService = TestBed.inject(JsonApiService);
+  //   const http = TestBed.inject(HttpTestingController);
+  //   usersService.getUser().subscribe((response) => {
+  //     component.users = response;
+  //   });
+  //   http.expectOne('http://localhost:3000/users/').flush(['rv_1pow', 'ZmFkYiR']);
+  //   component.receiveUsers();
+  //   expect(component.users).toEqual(['rv_1pow', 'ZmFkYiR']);
+  // });
 });

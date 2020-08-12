@@ -20,7 +20,7 @@ export class OrderListComponent implements OnInit {
   }
 
   moveOrder(order) {
-    
+
     this.orders$.updateOrder(order).subscribe((data: any) => {
       console.log('data - edit-order', data);
     })

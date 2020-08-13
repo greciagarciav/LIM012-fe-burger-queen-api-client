@@ -10,50 +10,31 @@ import { Order } from 'src/app/model/order';
 export class OrderListComponent implements OnInit {
   orders: Order[];
  @Input() statusOrder: string;
-  // filterStatus: string = this.statusOrder;
 
   constructor(private orders$:OrdersService) { }
 
   getOrders() {
     this.orders$.getListOrders().subscribe((data: Order[])=>{
-      console.log(data);
-     this.orders =  data;
-    })
+     this.orders = data;
+    });
   }
 
-  moveOrder(order) {
+  ngOnInit(): void {
+    this.orders$.refresh$.subscribe(() => {
+      this.getOrders();
+    });
+    this.getOrders();
+  }
 
+  changeStatus(order:any) {
+    console.log('1', order.status);
+    if (order.status == 'pending') {
+      order.status = 'delivering';
+    } else if (order.status == 'delivering') {
+      order.status = 'delivered';
+    }
     this.orders$.updateOrder(order).subscribe((data: any) => {
       console.log('data - edit-order', data);
     })
   }
-
-  removeOrder(order) {
-    this.orders$.deleteOrder(order.id).subscribe((response: any) => {
-      this.orders = this.orders.filter(e => e.id !== order);
-      console.log(response.status);
-    })
-    console.log(order);
-  }
-
-  ngOnInit(): void {
-    this.getOrders();
-  }
-
-  // filterStatus(status: string) {
-  //   switch (status) {
-  //     case 'pending':
-  //       this.filterOrder = 'pending';
-  //       break;
-  //     case 'delivering':
-  //       this.filterOrder = 'delivering';
-  //       break;
-  //     case 'delivered':
-  //       this.filterOrder = 'delivered';
-  //       break;
-  //     default:
-  //       this.filterOrder = status;
-  //       break;
-  //   }
-  // }
 }

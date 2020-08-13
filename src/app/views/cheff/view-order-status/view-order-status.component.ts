@@ -6,10 +6,14 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./view-order-status.component.scss']
 })
 export class ViewOrderStatusComponent implements OnInit {
+statusPending = 'pending';
+statusDelivering = 'delivering';
+statusDelivered = 'delivered';
 
   constructor() { }
 
   ngOnInit(): void {
+
   }
 
 }

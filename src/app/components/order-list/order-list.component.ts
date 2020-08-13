@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 import { OrdersService } from "../../services/orders/orders.service";
 import { Order } from 'src/app/model/order';
 
@@ -9,6 +9,8 @@ import { Order } from 'src/app/model/order';
 })
 export class OrderListComponent implements OnInit {
   orders: Order[];
+ @Input() statusOrder: string;
+  // filterStatus: string = this.statusOrder;
 
   constructor(private orders$:OrdersService) { }
 
@@ -38,4 +40,20 @@ export class OrderListComponent implements OnInit {
     this.getOrders();
   }
 
+  // filterStatus(status: string) {
+  //   switch (status) {
+  //     case 'pending':
+  //       this.filterOrder = 'pending';
+  //       break;
+  //     case 'delivering':
+  //       this.filterOrder = 'delivering';
+  //       break;
+  //     case 'delivered':
+  //       this.filterOrder = 'delivered';
+  //       break;
+  //     default:
+  //       this.filterOrder = status;
+  //       break;
+  //   }
+  // }
 }

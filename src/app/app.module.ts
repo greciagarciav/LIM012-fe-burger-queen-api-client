@@ -19,7 +19,8 @@ import { UserLoggedComponent } from './components/user-logged/user-logged.compon
 import { ModalComponent } from './components/modal/modal.component';
 import { HttpClientModule }  from '@angular/common/http';
 import { JsonApiService } from "./services/JsonApiService.service";
-import { ReactiveFormsModule, FormsModule } from '@angular/forms';
+import { ReactiveFormsModule} from '@angular/forms';
+import { FormsModule } from '@angular/forms';
 import { AddNewUserComponent } from './components/add-new-user/add-new-user.component';
 import { CheffComponent } from './views/cheff/cheff.component';
 import { ViewOrderStatusComponent } from './views/cheff/view-order-status/view-order-status.component';

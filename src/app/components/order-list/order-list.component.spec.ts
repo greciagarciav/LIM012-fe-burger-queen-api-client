@@ -22,4 +22,10 @@ describe('OrderListComponent', () => {
   it('should create', () => {
     expect(component).toBeTruthy();
   });
+
+  // it('should get list of orders', () => {
+  //   let orderListComponent: OrderListComponent = new OrderListComponent();
+
+  //   const getListOrder = orderListComponent.getOrders();
+  // });
 });

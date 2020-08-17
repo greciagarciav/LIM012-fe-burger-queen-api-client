@@ -1,22 +1,22 @@
 <div class="row">
    <div class="buttons">
         <div class="container-menu-main">
-            <button class="menu-main no-selected"  
+            <button class="menu-main no-selected"
 
             (click)="filterType('breakfast')"
             >Desayunos</button>
             <button class="menu-main no-selected" (click)="filterType('lunch')" >Almuerzo/Cena</button>
-            
+
         </div>
         <div *ngIf="show=='lunch'">
-            <button class="menu-child no-selected" 
-            
+            <button class="menu-child no-selected"
+
             (click)="filterType('hamburguer')">Hamburguesas</button>
-            <button class="menu-child no-selected" 
-            
+            <button class="menu-child no-selected"
+
             (click)="filterType('accompaniment')">Acompañamientos</button>
-            <button class="menu-child no-selected" 
-            
+            <button class="menu-child no-selected"
+
             (click)="filterType('drink')">Para tomar</button>
         </div>
    </div>

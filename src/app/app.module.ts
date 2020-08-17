@@ -19,7 +19,8 @@ import { UserLoggedComponent } from './components/user-logged/user-logged.compon
 import { ModalComponent } from './components/modal/modal.component';
 import { HttpClientModule }  from '@angular/common/http';
 import { JsonApiService } from "./services/JsonApiService.service";
-import { ReactiveFormsModule, FormsModule } from '@angular/forms';
+import { ReactiveFormsModule} from '@angular/forms';
+import { FormsModule } from '@angular/forms';
 import { AddNewUserComponent } from './components/add-new-user/add-new-user.component';
 import { CheffComponent } from './views/cheff/cheff.component';
 import { ViewOrderStatusComponent } from './views/cheff/view-order-status/view-order-status.component';
@@ -31,6 +32,7 @@ import { WaiterComponent } from './views/waiter/waiter.component';
 import { ViewOrdersComponent } from './views/waiter/view-orders/view-orders.component';
 import { ViewStatesComponent } from './views/waiter/view-states/view-states.component';
 import { OrdersService } from './services/orders/orders.service';
+import { FilterOrderStatusPipe } from './pipes/filter-order-status.pipe';
 
 @NgModule({
   declarations: [
@@ -57,6 +59,7 @@ import { OrdersService } from './services/orders/orders.service';
     WaiterComponent,
     ViewOrdersComponent,
     ViewStatesComponent,
+    FilterOrderStatusPipe,
   ],
   imports: [
     RouterModule,

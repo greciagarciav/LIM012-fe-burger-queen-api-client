@@ -22,11 +22,11 @@ describe('AddNewUserComponent', () => {
   });
 });
 
-// describe('dom elements',()=>{
-//   it('should find the <p> with fixture.debugElement.nativeElement)', () => {
-//     const bannerDe: DebugElement = fixture.debugElement;
-//     const bannerEl: HTMLElement = bannerDe.nativeElement;
-//     const div = bannerEl.querySelector('div');
-// // console.log(div.firstChild);
-//   });
-// })
+describe('dom elements',()=>{
+  it('should find the <p> with fixture.debugElement.nativeElement)', () => {
+    const bannerDe: DebugElement = fixture.debugElement;
+    const bannerEl: HTMLElement = bannerDe.nativeElement;
+    const div = bannerEl.querySelector('div');
+// console.log(div.firstChild);
+  });
+})

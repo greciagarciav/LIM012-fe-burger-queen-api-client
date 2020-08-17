@@ -115,97 +115,21 @@
       "dateEntry": "04/05/2020"
     },
     {
-      "name": "fdgdfg",
-      "price": 123,
+      "name": "bbbbt",
+      "price": 1231,
       "image": "assets/images/BQ.png",
       "type": "breakfast",
-      "dateEntry": "2020-08-18",
+      "dateEntry": "2020-08-07",
       "id": "VssTok8"
     },
     {
-      "name": "grtbr",
-      "price": 12123,
+      "name": "nhmj",
+      "price": 12321,
       "image": "assets/images/BQ.png",
       "type": "breakfast",
-      "dateEntry": "2020-08-25",
-      "id": "gEuEgIA"
+      "dateEntry": "2020-08-12",
+      "id": "rWqAErG"
     }
   ],
-  "orders": [
-    {
-      "id": "123",
-      "userId": "456",
-      "client": "Alba",
-      "products": [
-        {
-          "qty": 1,
-          "product": {
-            "_id": "141",
-            "name": "sandwich",
-            "price": 10,
-            "image": "string",
-            "type": "k",
-            "dateEntry": "Date",
-            "id": "7mISVcA"
-          }
-        },
-        {
-          "qty": 1,
-          "product": {
-            "_id": "141",
-            "name": "sandwich",
-            "price": 10,
-            "image": "string",
-            "type": "k",
-            "dateEntry": "Date",
-            "id": "7mISVcA"
-          }
-        }
-      ],
-      "status": "pending",
-      "dateEntry": "Date"
-    },
-    {
-      "id": "123",
-      "userId": "456",
-      "client": "Alba",
-      "products": [
-        {
-          "qty": 1,
-          "product": {
-            "_id": "141",
-            "name": "string",
-            "price": 1,
-            "image": "string",
-            "type": "k",
-            "dateEntry": "Date",
-            "id": "7mISVcA"
-          }
-        }
-      ],
-      "status": "deliveringx",
-      "dateEntry": "Date"
-    },
-    {
-      "id": "123",
-      "userId": "456",
-      "client": "Alba",
-      "products": [
-        {
-          "qty": 1,
-          "product": {
-            "_id": "141",
-            "name": "string",
-            "price": 1,
-            "image": "string",
-            "type": "k",
-            "dateEntry": "Date",
-            "id": "7mISVcA"
-          }
-        }
-      ],
-      "status": "delivered",
-      "dateEntry": "Date"
-    }
-  ]
+  "orders": []
 }

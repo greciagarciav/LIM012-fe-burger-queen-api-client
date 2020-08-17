@@ -162,7 +162,7 @@
           }
         }
       ],
-      "status": "pending",
+      "status": "delivered",
       "dateEntry": "Date"
     },
     {
@@ -183,7 +183,7 @@
           }
         }
       ],
-      "status": "delivering",
+      "status": "delivered",
       "dateEntry": "Date"
     },
     {

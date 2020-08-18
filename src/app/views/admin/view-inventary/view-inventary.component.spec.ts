@@ -1,6 +1,8 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { ViewInventaryComponent } from './view-inventary.component';
+import { HttpClientTestingModule } from '@angular/common/http/testing';
+import { ProductsService } from 'src/app/services/products.service';
 
 describe('ViewInventaryComponent', () => {
   let component: ViewInventaryComponent;
@@ -8,6 +10,10 @@ describe('ViewInventaryComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
+      imports: [
+        HttpClientTestingModule
+      ],
+      providers:[ProductsService],
       declarations: [ ViewInventaryComponent ]
     })
     .compileComponents();

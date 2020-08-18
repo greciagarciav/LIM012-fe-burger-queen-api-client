@@ -1,5 +1,5 @@
 import { BrowserModule } from '@angular/platform-browser';
-import { NgModule } from '@angular/core';
+import { NgModule, CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
 import { ConfirmationPopoverModule } from 'angular-confirmation-popover';
 
 import { AppRoutingModule } from './app-routing.module';
@@ -72,6 +72,8 @@ import { FilterOrderStatusPipe } from './pipes/filter-order-status.pipe';
       confirmButtonType: 'danger', // set defaults here
     }),
   ],
+  exports: [AddNewUserComponent],
+  schemas: [ CUSTOM_ELEMENTS_SCHEMA ],
   providers: [JsonApiService, OrdersService],
   bootstrap: [AppComponent]
 })

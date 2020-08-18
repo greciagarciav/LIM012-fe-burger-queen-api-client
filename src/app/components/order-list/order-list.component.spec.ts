@@ -1,4 +1,5 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
+import { CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
 
 import { OrderListComponent } from './order-list.component';
 import { HttpClientTestingModule } from '@angular/common/http/testing';
@@ -14,6 +15,9 @@ describe('OrderListComponent', () => {
         HttpClientTestingModule
       ],
       declarations: [ OrderListComponent ],
+      schemas: [
+        CUSTOM_ELEMENTS_SCHEMA
+      ],
       providers:[OrdersService]
     })
     .compileComponents();

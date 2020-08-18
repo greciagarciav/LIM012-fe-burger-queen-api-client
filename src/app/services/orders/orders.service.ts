@@ -39,4 +39,18 @@ export class OrdersService {
       })
     )
   }
+
+  postOrder(order: object) {
+    return this.http.post(this.url + order, { headers: this.headers })
+      .pipe(
+        tap(()=> {
+          this.refresh$.next();
+        })
+      )
+  }
+
+  deleteOrder(order: any) {
+    return this.http.delete(this.url + order.id)
+      .pipe()
+  }
 }

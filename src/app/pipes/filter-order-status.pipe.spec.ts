@@ -1,4 +1,4 @@
-import { FilterOrderStatusPipe } from './filter-order-status.pipe';
+import { FilterOrderStatusPipe } from './filterstatus.pipe';
 
 describe('FilterOrderStatusPipe', () => {
   it('create an instance', () => {

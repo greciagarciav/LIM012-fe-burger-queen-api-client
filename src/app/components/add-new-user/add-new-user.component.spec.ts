@@ -2,6 +2,7 @@ import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { AddNewUserComponent } from './add-new-user.component';
 import { ReactiveFormsModule, FormsModule } from '@angular/forms';
+import { HttpTestingController, HttpClientTestingModule } from '@angular/common/http/testing';
 
 describe('AddNewUserComponent', () => {
   let component: AddNewUserComponent;
@@ -12,6 +13,7 @@ describe('AddNewUserComponent', () => {
       imports: [
         FormsModule,
         ReactiveFormsModule,
+        HttpClientTestingModule
       ],
       declarations: [ AddNewUserComponent ]
     })

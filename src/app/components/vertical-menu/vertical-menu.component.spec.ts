@@ -1,6 +1,7 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { VerticalMenuComponent } from './vertical-menu.component';
+import { RouterTestingModule } from '@angular/router/testing';
 
 describe('VerticalMenuComponent', () => {
   let component: VerticalMenuComponent;
@@ -8,6 +9,9 @@ describe('VerticalMenuComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
+      imports: [
+        RouterTestingModule,
+      ],
       declarations: [ VerticalMenuComponent ]
     })
     .compileComponents();

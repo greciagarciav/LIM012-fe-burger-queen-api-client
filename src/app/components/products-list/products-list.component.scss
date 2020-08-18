@@ -15,7 +15,8 @@ background:  map-get($colors, 'primary');
 }
 .row {
     width: 100%;
-    padding: 2%;
+    padding: 1%;
+    margin: 0;
     @include flex(center,center);
     .buttons {
         display: block;
@@ -49,7 +50,6 @@ background:  map-get($colors, 'primary');
         display: flex;
         flex-wrap: wrap;
         justify-content: center;
-
         .card-product {
             @include button(29.2%, 'letter');
             @include size (_, 49%);

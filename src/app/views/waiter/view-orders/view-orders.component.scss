@@ -4,29 +4,38 @@ div {
     display: flex;
 
     section {
-        width: 60%;
-height: 80vh;
+        width: 65%;
+        height: 80vh;
+        overflow-y: scroll;
         .menu {
-position: relative;
+          position: relative;
             .products {}
         }
     }
 
     aside {
-        width: 40%;
+        width: 33%;
         background: map-get($colors, 'less-contrast');
 
-        .date {}
+        .date {
+          p {
+            margin: 0;
+            font-size: 20px;
+            align-self: flex-end;
+          }
+        }
 
         .order {
             display: flex;
             flex-direction: column;
 
             .head {
-                height: 120px;
-
+                height: 60px;
                 background: linear-gradient(270deg, #FC9631 0%, #C1AA98 111.21%);
                 border-radius: 23px 23px 0px 0px;
+                .table {
+                  margin: 5px;
+                }
             }
 
             .body-order {

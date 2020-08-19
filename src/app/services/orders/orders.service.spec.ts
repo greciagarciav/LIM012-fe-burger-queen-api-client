@@ -1,12 +1,15 @@
 import { TestBed } from '@angular/core/testing';
 import { of } from 'rxjs';
-import { HttpClientTestingModule } from '@angular/common/http/testing';
+import { HttpClientTestingModule, HttpTestingController } from '@angular/common/http/testing';
 
 import { OrdersService } from './orders.service';
+import { Order } from '../../model/order';
+import { environment } from 'src/environments/environment';
 
 describe('OrdersService', () => {
   let service: OrdersService;
-
+  let httpMock: HttpTestingController;
+  
   beforeEach(() => {
     TestBed.configureTestingModule({
       providers: [OrdersService],
@@ -17,18 +20,6 @@ describe('OrdersService', () => {
 
   it('should be created', () => {
     expect(service).toBeTruthy();
-  });
-
-  describe('OrderService call http', () => {
-    let service: OrdersService;
-
-    beforeEach(() => {
-      TestBed.configureTestingModule({
-        providers: [OrdersService],
-        imports: [HttpClientTestingModule]
-       });
-      service = TestBed.inject(OrdersService);
-    });
   });
 
   afterEach(() => {
@@ -49,7 +40,7 @@ describe('OrdersService', () => {
             "price": 10,
             "image": "string",
             "type": "k",
-            "dateEntry": "Date",
+            "dateEntry": new Date,
             "id": "7mISVcA"
           }
         },
@@ -67,28 +58,7 @@ describe('OrdersService', () => {
         }
       ],
       "status": "pending",
-      "dateEntry": "Date"
-    },
-    {
-      "id": "234",
-      "userId": "456",
-      "client": "Alba2",
-      "products": [
-        {
-          "qty": 1,
-          "product": {
-            "_id": "141",
-            "name": "string",
-            "price": 1,
-            "image": "string",
-            "type": "k",
-            "dateEntry": "Date",
-            "id": "7mISVcA"
-          }
-        }
-      ],
-      "status": "delivering",
-      "dateEntry": "Date"
+      "dateEntry":  new Date
     },
     {
       "id": "456",
@@ -103,13 +73,13 @@ describe('OrdersService', () => {
             "price": 1,
             "image": "string",
             "type": "k",
-            "dateEntry": "Date",
+            "dateEntry":  new Date,
             "id": "7mISVcA"
           }
         }
       ],
       "status": "delivered",
-      "dateEntry": "Date"
+      "dateEntry":  new Date
     }
   ];
 
@@ -122,5 +92,88 @@ describe('OrdersService', () => {
       expect(resp).toEqual(data);
     });
   });
+ 
 
+  // it('should update a product', (done: DoneFn) => {
+  //   const initial= [
+  //     {
+  //       "id": "123",
+  //         "userId": "456",
+  //         "client": "Alba1",
+  //         "products": [
+  //           {
+  //             "qty": 1,
+  //             "product": {
+  //               "_id": "141",
+  //               "name": "sandwich",
+  //               "price": 10,
+  //               "image": "string",
+  //               "type": "k",
+  //               "dateEntry": new Date,
+  //               "id": "7mISVcA"
+  //             }
+  //           },
+  //           {
+  //             "qty": 1,
+  //             "product": {
+  //               "_id": "141",
+  //               "name": "sandwich",
+  //               "price": 10,
+  //               "image": "string",
+  //               "type": "k",
+  //               "dateEntry": "Date",
+  //               "id": "7mISVcA"
+  //             }
+  //           }
+  //         ],
+  //         "status": "pending",
+  //         "dateEntry": "Date"
+  //       }
+  //     ]
+  //   const update = [
+  //     {
+  //       "id": "123",
+  //         "userId": "456",
+  //         "client": "wendi",
+  //         "products": [
+  //           {
+  //             "qty": 1,
+  //             "product": {
+  //               "_id": "141",
+  //               "name": "sandwich",
+  //               "price": 10,
+  //               "image": "string",
+  //               "type": "k",
+  //               "dateEntry": new Date,
+  //               "id": "7mISVcA"
+  //             }
+  //           },
+  //           {
+  //             "qty": 1,
+  //             "product": {
+  //               "_id": "141",
+  //               "name": "sandwich",
+  //               "price": 10,
+  //               "image": "string",
+  //               "type": "k",
+  //               "dateEntry": "Date",
+  //               "id": "7mISVcA"
+  //             }
+  //           }
+  //         ],
+  //         "status": "delivered",
+  //         "dateEntry": "Date"
+  //       }
+  //   ]
+  //     service.updateOrder(initial).subscribe(list => {
+  //       expect(list.body).toBe(update)
+  //       done()
+  //     });
+  
+  //     const method = httpMock.expectOne(environment.apiUrl + 'orders/123');
+  //     expect(method.request.method).toContain('PUT')
+  //     method.flush(update)
+  // });
+
+  
 });

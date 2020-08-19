@@ -82,7 +82,7 @@ export class StaffList implements OnInit, OnDestroy {
   constructor(private json: JsonApiService) { }
 
   ngOnInit(): void {
-    this.data = this.json.refreshList$.subscribe(() => {
+    this.json.refreshList$.subscribe(() => {
         this.receiveUsers();
         console.log('ngOnInit Subscribe!')
       });

@@ -12,7 +12,7 @@ export class OrdersService {
 
   constructor(public http: HttpClient) { }
 
-  url: string = environment.apiUrl;
+  url: string = environment.apiUrl + 'orders/';
   private subjectSource = new Subject<void>();
   public countdown$ = this.subjectSource.asObservable();
 
@@ -28,11 +28,11 @@ export class OrdersService {
   }
 
   getListOrders(){
-    return this.http.get(`${this.url}orders`, { headers: this.headers });
+    return this.http.get(`${this.url}`, { headers: this.headers });
   }
 
   updateOrder(order: any) {
-    return this.http.put(`${this.url}orders/${order.id}`, order, { headers: this.headers, observe : 'response' })
+    return this.http.put(`${this.url}${order.id}`, order, { headers: this.headers, observe : 'response' })
     .pipe(
       tap(() => {
         this.refresh$.next();
@@ -50,7 +50,7 @@ export class OrdersService {
   }
 
   deleteOrder(order: any) {
-    return this.http.delete(this.url + order.id)
-      .pipe()
+    console.log(order);
+    return this.http.delete('');
   }
 }

@@ -1,6 +1,7 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { OrdersService } from "../../services/orders/orders.service";
 import { Order } from 'src/app/model/order';
+import { Router} from '@angular/router';
 
 @Component({
   selector: 'app-order-list',
@@ -9,9 +10,11 @@ import { Order } from 'src/app/model/order';
 })
 export class OrderListComponent implements OnInit {
   orders: Order[];
+  showMoveButton: boolean = false;
+  showCancelButton: boolean = false;
  @Input() statusOrder: string;
 
-  constructor(private orders$:OrdersService) { }
+  constructor(private orders$:OrdersService, private router: Router) { }
 
   getOrders() {
     this.orders$.getListOrders().subscribe((data: Order[])=>{
@@ -24,10 +27,15 @@ export class OrderListComponent implements OnInit {
       this.getOrders();
     });
     this.getOrders();
+    this.showHideButtons();
+  }
+
+  showHideButtons(){
+    this.showMoveButton = this.router.url == '/cocinero' && ( this.statusOrder == 'pending'|| this.statusOrder == 'delivering');
+    this.showCancelButton = this.router.url == '/mesero/states' && this.statusOrder == 'pending';
   }
 
   changeStatus(order:any) {
-    console.log('1', order.status);
     if (order.status == 'pending') {
       order.status = 'delivering';
     } else if (order.status == 'delivering') {
@@ -35,6 +43,11 @@ export class OrderListComponent implements OnInit {
     }
     this.orders$.updateOrder(order).subscribe((data: any) => {
       console.log('data - edit-order', data);
+    })
+  }
+
+  removeOrder(order: any) {
+    this.orders$.deleteOrder(order).subscribe((data: any) => {
     })
   }
 }

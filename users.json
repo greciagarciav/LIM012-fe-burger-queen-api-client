@@ -162,7 +162,40 @@
           }
         }
       ],
-      "status": "delivered",
+      "status": "pending",
+      "dateEntry": "Date"
+    },
+    {
+      "id": "127",
+      "userId": "456",
+      "client": "Alba1",
+      "products": [
+        {
+          "qty": 1,
+          "product": {
+            "_id": "141",
+            "name": "sandwich",
+            "price": 10,
+            "image": "string",
+            "type": "k",
+            "dateEntry": "Date",
+            "id": "7mISVcA"
+          }
+        },
+        {
+          "qty": 1,
+          "product": {
+            "_id": "141",
+            "name": "sandwich",
+            "price": 10,
+            "image": "string",
+            "type": "k",
+            "dateEntry": "Date",
+            "id": "7mISVcA"
+          }
+        }
+      ],
+      "status": "pending",
       "dateEntry": "Date"
     },
     {
@@ -183,7 +216,7 @@
           }
         }
       ],
-      "status": "delivered",
+      "status": "delivering",
       "dateEntry": "Date"
     },
     {

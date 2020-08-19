@@ -3,7 +3,7 @@ import { Component, OnInit } from '@angular/core';
 @Component({
   selector: 'app-view-states',
   templateUrl: './view-states.component.html',
-  styleUrls: ['./view-states.component.css']
+  styleUrls: ['./view-states.component.scss']
 })
 export class ViewStatesComponent implements OnInit {
 

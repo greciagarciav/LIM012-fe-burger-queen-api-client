@@ -47,7 +47,7 @@ export class OrderListComponent implements OnInit {
   }
 
   removeOrder(order: any) {
-    this.orders$.deleteOrder(order).subscribe((data: any) => {
+    this.orders$.deleteOrder(order.id).subscribe(() => {
     })
   }
 }

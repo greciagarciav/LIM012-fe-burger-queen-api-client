@@ -14,7 +14,7 @@
       "roles": {
         "admin": false
       },
-      "id": "IJWpwQr"
+      "id": "123"
     }
   ],
   "products": [
@@ -133,74 +133,7 @@
   ],
   "orders": [
     {
-      "id": "123",
-      "userId": "456",
-      "client": "Alba1",
-      "products": [
-        {
-          "qty": 1,
-          "product": {
-            "_id": "141",
-            "name": "sandwich",
-            "price": 10,
-            "image": "string",
-            "type": "k",
-            "dateEntry": "Date",
-            "id": "7mISVcA"
-          }
-        },
-        {
-          "qty": 1,
-          "product": {
-            "_id": "141",
-            "name": "sandwich",
-            "price": 10,
-            "image": "string",
-            "type": "k",
-            "dateEntry": "Date",
-            "id": "7mISVcA"
-          }
-        }
-      ],
-      "status": "pending",
-      "dateEntry": "Date"
-    },
-    {
-      "id": "127",
-      "userId": "456",
-      "client": "Alba1",
-      "products": [
-        {
-          "qty": 1,
-          "product": {
-            "_id": "141",
-            "name": "sandwich",
-            "price": 10,
-            "image": "string",
-            "type": "k",
-            "dateEntry": "Date",
-            "id": "7mISVcA"
-          }
-        },
-        {
-          "qty": 1,
-          "product": {
-            "_id": "141",
-            "name": "sandwich",
-            "price": 10,
-            "image": "string",
-            "type": "k",
-            "dateEntry": "Date",
-            "id": "7mISVcA"
-          }
-        }
-      ],
-      "status": "pending",
-      "dateEntry": "Date"
-    },
-    {
       "id": "234",
-      "userId": "456",
       "client": "Alba2",
       "products": [
         {
@@ -216,12 +149,11 @@
           }
         }
       ],
-      "status": "delivering",
+      "status": "delivered",
       "dateEntry": "Date"
     },
     {
       "id": "456",
-      "userId": "456",
       "client": "Alba3",
       "products": [
         {

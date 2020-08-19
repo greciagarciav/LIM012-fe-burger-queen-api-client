@@ -49,8 +49,11 @@ export class OrdersService {
       )
   }
 
-  deleteOrder(order: any) {
-    console.log(order);
-    return this.http.delete('');
+  deleteOrder(id: string) {
+    return this.http.delete(`${this.url}${id}`, { headers: this.headers }).pipe(
+      tap(() => {
+        this.refresh$.next();
+      })
+    )
   }
 }

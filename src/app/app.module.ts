@@ -11,7 +11,6 @@ import { HeaderComponent } from './components/header/header.component';
 import { VerticalMenuComponent } from './components/vertical-menu/vertical-menu.component';
 import { NavSearchComponent } from './components/nav-search/nav-search.component';
 import { StaffList } from './components/staff-list/staff-list.component';
-import { MenuListCardsComponent } from './components/menu-list-cards/menu-list-cards.component';
 import { ViewInventaryComponent } from './views/admin/view-inventary/view-inventary.component';
 import { ViewStaffComponent } from './views/admin/view-staff/view-staff.component';
 import { UserLoggedComponent } from './components/user-logged/user-logged.component';
@@ -42,7 +41,6 @@ import { ProductsService } from './services/products.service';
     AdminComponent,
     NavSearchComponent,
     StaffList,
-    MenuListCardsComponent,
     ViewInventaryComponent,
     ViewStaffComponent,
     UserLoggedComponent,

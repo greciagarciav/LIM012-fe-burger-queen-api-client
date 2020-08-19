@@ -9,12 +9,20 @@
       "id": "ZmFkYiR"
     },
     {
-      "email": "vnfuu@emef.com",
-      "password": "121",
+      "email": "won@emef.com",
+      "password": "122",
       "roles": {
         "admin": false
       },
       "id": "123"
+    },
+    {
+      "email": "carlos@emef.com",
+      "password": "152525",
+      "roles": {
+        "admin": false
+      },
+      "id": "IJWp222"
     }
   ],
   "products": [
@@ -123,12 +131,20 @@
       "id": "VssTok8"
     },
     {
-      "name": "nhmj",
-      "price": 12321,
+      "name": "h4i4543534",
+      "price": 5,
       "image": "assets/images/BQ.png",
-      "type": "breakfast",
-      "dateEntry": "2020-08-12",
-      "id": "rWqAErG"
+      "type": "hi",
+      "dateEntry": "hi",
+      "id": "CyBDAoD"
+    },
+    {
+      "name": "h1222",
+      "price": 22,
+      "image": "assets/images/BQ.png",
+      "type": "hi",
+      "dateEntry": "hi",
+      "id": "KzA3f5H"
     }
   ],
   "orders": [

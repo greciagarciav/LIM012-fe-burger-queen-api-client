@@ -1,58 +1,86 @@
-/* tslint:disable:no-unused-variable */
-
 import { TestBed, async, inject, tick } from '@angular/core/testing';
 import { JsonApiService } from './JsonApiService.service';
-import { HttpClientTestingModule } from '@angular/common/http/testing';
-import { HttpClient } from '@angular/common/http';
+import { HttpClientTestingModule, HttpTestingController } from '@angular/common/http/testing';
 import { of } from 'rxjs';
+import { environment } from 'src/environments/environment';
 
 describe('Service: JsonApiService', () => {
-  let masterService: JsonApiService;
-  let valueServiceSpy
-  // let valueServiceSpy: jasmine.SpyObj<HttpClient>; // simulación con múltiples espías
-const spy = jasmine.createSpyObj('JsonApiService', ['usersService']);
-  let data={
-    email: "harvie@gmail.com", roles: {
-      admin: false
-    }, password: "234", id: "ZmFkYiR"}
-
-
-    valueServiceSpy=spy.usersService.and.returnValue(of(data))
-
+  let service: JsonApiService;
+  let httpMock: HttpTestingController;
   beforeEach(() => {
-    
-    TestBed.configureTestingModule({ //toma un obj con propiedzdes de ngModule
-      imports: [
-        HttpClientTestingModule
-      ],
-      providers: [
-        { provide: JsonApiService, useValue: spy }
-      ]
+    TestBed.configureTestingModule({
+      providers: [JsonApiService],
+      imports: [HttpClientTestingModule]
     });
-    // masterService = TestBed.inject(JsonApiService);
-    // valueServiceSpy = TestBed.inject(HttpClient) as jasmine.SpyObj<HttpClient>
+    service = TestBed.inject(JsonApiService);
+    httpMock = TestBed.inject(HttpTestingController);
+  });
 
+  it('should be created', () => {
+    expect(service).toBeTruthy();
+  });
+
+  afterEach(() => {
+    service = null;
+    httpMock.verify()
+  });
+
+  it('should get all users', () => {
+    let serviceSpy: any;
+
+    const usersData = [
+      { "email": "won@emef.com", "roles": { "admin": false }, "id": "IJWpwQr" },
+      { "email": "carlos@emef.com", "roles": { "admin": false }, "id": "IJWp222" }
+    ]
+    serviceSpy = spyOn(service, 'getUser').and.returnValue(of(usersData));
+    service.getUser()
+      .subscribe((resp: any) => {
+        expect(resp).toEqual(usersData);
+
+      });
 
   });
-  // it('should return data users from JsonApiService', () => {
-  //   // service = TestBed.inject(JsonApiService);
-  //   // expect(service.getUser()).toHaveBeenCalled();
-  //   const stubValue = 'stub value';
-  //   // valueServiceSpy.get.and.returnValue(stubValue);
-  //   // expect(masterService.getUser())
-  //   //   .toBe(stubValue, 'service returned stub value');
-  //   tick(1);
-  //   expect(valueServiceSpy.get.calls.mostRecent().returnValue).toBe(stubValue);
+  it('should get add a new user', (done: DoneFn) => {
+    const dataPost: Array<any> = [
+      { "email": "carlos@emef.com", "roles": { "admin": false }, "id": "IJWp222" },
+      { "email": "min@emef.com", "roles": { "admin": false }, "id": "IJWpwQ2" }
+    ]
+    const addData = { "email": "min@emef.com", "roles": { "admin": false }, "id": "IJWpwQ2" }
 
-  // });
-  it('retrieves all the cars', inject([JsonApiService], (service: JsonApiService) => {
-    return service.getUser().subscribe((result) => {
-    //   expect(result).toBeGreaterThan(0);
-      expect(typeof result).toBe('object');
-    // service.getUser().subscribe(result => expect(result).toBeGreaterThan(0)); 
-      expect(service).toBeTruthy();
+    service.postUser(addData).subscribe(list => {
+      expect(list.body).toEqual(dataPost)
+      done()
     });
-// });
-  // }));
-}));
+
+    const method = httpMock.expectOne(environment.apiUrl + 'users/');
+    expect(method.request.method).toContain('POST')
+    method.flush(dataPost)
+
+  });
+
+  it('should update a user', (done: DoneFn) => {
+    const initial = [{ "email": "carlos@emef.com", "roles": { "admin": false }, "id": "IJWp222" }]
+    const update = [{ "email": "juan@emef.com", "roles": { "admin": false }, "id": "IJWp222" }]
+    service.putUser(initial, 'IJWp222').subscribe(list => {
+      expect(list.body).toBe(update)
+      done()
+    });
+
+    const method = httpMock.expectOne(environment.apiUrl + 'users/IJWp222');
+    expect(method.request.method).toContain('PUT')
+    method.flush(update)
+  });
+
+  it('should delete product of the list', () => {
+    let serviceSpy: any;
+    serviceSpy = spyOn(service, 'deleteUser').and.returnValue(of({}));
+    service.deleteUser('IJWp222')
+      .subscribe((resp: any) => {
+        expect(resp).toEqual({});
+      });
+  });
+
+
+
+
 });

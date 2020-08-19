@@ -4,6 +4,7 @@ import { StaffList } from './staff-list.component';
 import { JsonApiService } from '../../services/JsonApiService.service';
 import { RouterTestingModule } from '@angular/router/testing';
 import { HttpClientTestingModule, HttpTestingController } from '@angular/common/http/testing';
+import { CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
 
 describe('StaffList component', () => {
   let component: StaffList;
@@ -16,7 +17,8 @@ describe('StaffList component', () => {
         CUSTOM_ELEMENTS_SCHEMA
       ],
       imports: [RouterTestingModule, HttpClientTestingModule],
-      providers: [JsonApiService]
+      providers: [JsonApiService],
+      schemas:[CUSTOM_ELEMENTS_SCHEMA]
     })
     .compileComponents();
   }));

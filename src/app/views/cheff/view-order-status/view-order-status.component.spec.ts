@@ -1,6 +1,7 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { ViewOrderStatusComponent } from './view-order-status.component';
+import { CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
 
 describe('ViewOrderStatusComponent', () => {
   let component: ViewOrderStatusComponent;
@@ -8,7 +9,8 @@ describe('ViewOrderStatusComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ ViewOrderStatusComponent ]
+      declarations: [ ViewOrderStatusComponent ],
+      schemas:[CUSTOM_ELEMENTS_SCHEMA]
     })
     .compileComponents();
   }));

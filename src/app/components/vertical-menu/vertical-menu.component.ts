@@ -36,23 +36,14 @@ changeImage(){
 
   }
 
-  constructor(public router: Router) { 
+  constructor(public router: Router) {
    router.events.pipe(filter(event => event instanceof NavigationEnd))
         .subscribe(event => {
             this.currentUrl = Object.values(event)[1];
-            
-            // this.menuAdmin.forEach(i=>{
-            //   if(this.currentUrl===i.href){
-            //     console.log(i.icon)
-            //     i.icon =i.iconSelect;
-            //     i.iconSelect= i.icon;
-            //     console.log(i.icon)
-            // }
-          // })
-        });  
+        });
 } ;
 
-  ngOnInit(): void { 
+  ngOnInit(): void {
   }
 
 }

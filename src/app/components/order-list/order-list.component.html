@@ -13,8 +13,8 @@
         <span class="qty">{{product.qty}}</span>
         <span class="price">{{product.product.price}}</span>
       </div>
-      <button class="move" *ngIf="statusOrder==='pending' || statusOrder==='delivering'" (click)="changeStatus(order)"><i class="fas fa-angle-double-right"></i> Mover pedido</button>
-      <!-- <button class="cancel"><img src="assets/images/delete.png" alt=""> Cancelar pedido</button> -->
+      <button class="move" *ngIf="showMoveButton" (click)="changeStatus(order)"><i class="fas fa-angle-double-right"></i> Mover pedido</button>
+      <button class="cancel" *ngIf="showCancelButton" (click)="removeOrder(order)"><img src="assets/images/delete.png" alt=""> Cancelar pedido2</button>
     </div>
   </ng-container>
 

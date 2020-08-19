@@ -1,8 +1,10 @@
 import { BrowserModule } from '@angular/platform-browser';
-import { NgModule } from '@angular/core';
+import { NgModule, CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
+import { ConfirmationPopoverModule } from 'angular-confirmation-popover';
+
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { ConfirmationPopoverModule } from 'angular-confirmation-popover';
+// import { ConfirmationPopoverModule } from 'angular-confirmation-popover';
 
 import { AdminComponent } from './views/admin/admin.component';
 import { HeaderComponent } from './components/header/header.component';
@@ -28,7 +30,7 @@ import { WaiterComponent } from './views/waiter/waiter.component';
 import { ViewOrdersComponent } from './views/waiter/view-orders/view-orders.component';
 import { ViewStatesComponent } from './views/waiter/view-states/view-states.component';
 import { OrdersService } from './services/orders/orders.service';
-import { FilterOrderStatusPipe } from './pipes/filterstatus.pipe';
+import { FilterOrderStatusPipe } from './pipes/filter-order-status.pipe';
 import { ProductsService } from './services/products.service';
 
 @NgModule({
@@ -65,6 +67,8 @@ import { ProductsService } from './services/products.service';
       confirmButtonType: 'danger', // set defaults here
     }),
   ],
+//   exports: [AddNewUserComponent],
+  schemas: [ CUSTOM_ELEMENTS_SCHEMA ],
   providers: [JsonApiService, OrdersService,ProductsService],
   bootstrap: [AppComponent]
 })

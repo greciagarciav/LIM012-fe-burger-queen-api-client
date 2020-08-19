@@ -5,7 +5,7 @@ section {
     justify-content: center;
 
     .container-card {
-        width: 60%;
+        width: 65%;
         @include flex(center, center);
         align-items: start;
         overflow-y: scroll;
@@ -21,7 +21,7 @@ section {
 }
 
 .container-add {
-    width: 30%;
+    width: 33%;
     text-align: center;
     background: #C1AA98;
     height: 80vh;

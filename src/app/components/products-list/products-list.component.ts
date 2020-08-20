@@ -1,7 +1,7 @@
 import { Component, OnInit, Output, EventEmitter, TemplateRef, ViewChild, OnChanges } from '@angular/core';
 import { ProductsService } from "../../services/products.service";
 import { Product } from 'src/app/model/products';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 
 @Component({
   selector: 'app-products-list',
@@ -16,12 +16,13 @@ export class ProductsListComponent implements OnInit {
   popoverTitle = 'Eliminar';
   popoverMessage = '¿Desea eliminar este producto?';
   showModal = false;
+  showAddButton: boolean = false;
   filterProd: string = 'breakfast'
   show: string;
   path: any;
   buttons: boolean = null;
 
-  constructor(private product$: ProductsService, private route: ActivatedRoute) {
+  constructor(private product$: ProductsService, private route: ActivatedRoute, private router: Router) {
     this.path = route.snapshot.routeConfig.path;
     this.buttons = (this.path === 'inventario') ? true : false
   }
@@ -30,7 +31,12 @@ export class ProductsListComponent implements OnInit {
     this.product$.refresh$.subscribe(() => {
       this.getProducts()
     })
-    this.getProducts()
+    this.getProducts();
+    this.buttonAdd();
+  }
+
+  buttonAdd() {
+    this.showAddButton = this.router.url == '/mesero/orders';
   }
 
   getProducts() {

@@ -57,7 +57,15 @@ background:  map-get($colors, 'primary');
             flex-direction: column;
             @include space-vertical();
             @include flex(center, center);
-
+            position: relative;
+            i {
+              align-self: flex-end;
+              width: 83px;
+              position: absolute;
+              right: -47px;
+              top: 5px;
+              font-size: 30px;
+            }
             .card-img {
                 background: white;
                 box-sizing: border-box;
@@ -81,6 +89,7 @@ background:  map-get($colors, 'primary');
 
                 h3 {
                     font-size: 1em;
+                    margin: 5px;
                 }
             }
 

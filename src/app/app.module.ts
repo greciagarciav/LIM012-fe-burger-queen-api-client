@@ -32,6 +32,7 @@ import { ViewStatesComponent } from './views/waiter/view-states/view-states.comp
 import { OrdersService } from './services/orders/orders.service';
 import { FilterOrderStatusPipe } from './pipes/filter-order-status.pipe';
 import { ProductsService } from './services/products.service';
+import { OrderSendComponent } from './components/order-send/order-send.component';
 
 @NgModule({
   declarations: [
@@ -55,6 +56,7 @@ import { ProductsService } from './services/products.service';
     ViewOrdersComponent,
     ViewStatesComponent,
     FilterOrderStatusPipe,
+    OrderSendComponent,
   ],
   imports: [
     RouterModule,

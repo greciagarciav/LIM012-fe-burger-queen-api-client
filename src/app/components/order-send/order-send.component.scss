@@ -1,0 +1,81 @@
+@import '../../../app/app.component.scss';
+
+.date {
+  p {
+    margin: 0;
+    font-size: 20px;
+    align-self: flex-end;
+  }
+}
+
+.order {
+    display: flex;
+    flex-direction: column;
+
+    .head {
+        height: 60px;
+        background: linear-gradient(270deg, #FC9631 0%, #C1AA98 111.21%);
+        border-radius: 23px 23px 0px 0px;
+        .table {
+          margin: 5px;
+          display: flex;
+        }
+    }
+
+    .body-order {
+        height: 370px;
+        background: #F6F1ED;
+        overflow-y: scroll;
+        .each-order {
+            display: flex;
+            margin: 5px;
+            img {
+                width: 26px;
+                height: 26px;
+            }
+
+            .prod {
+              display: flex;
+            }
+            .count {
+                input {
+                    width: 46px;
+                    height: 34px;
+
+                }
+            }
+
+            .price {
+
+            }
+        }
+    }
+
+    .bill {
+        display: flex;
+        flex-direction: column;
+        background: #FFFFFF;
+        margin: 10px;
+        .sub-total {
+          display: flex;
+          justify-content: space-around;
+        }
+        .total {
+          display: flex;
+          justify-content: space-around;
+        }
+        .buttons{
+            height: 50px;
+            display: flex;
+            button{
+            @include button(45%,_)
+            }
+            .order-action{
+                background: #00A355 !important;
+            }
+            .delete{
+                background: #e35151 !important;
+            }
+        }
+    }
+}

@@ -13,40 +13,75 @@
     flex-direction: column;
 
     .head {
-        height: 60px;
         background: linear-gradient(270deg, #FC9631 0%, #C1AA98 111.21%);
         border-radius: 23px 23px 0px 0px;
         .table {
           margin: 5px;
           display: flex;
+          h2 {
+            font-size: 30px;
+            margin: 5px;
+          }
+          input {
+            width: 60%;
+            border-radius: 5px;
+          }
         }
     }
 
     .body-order {
-        height: 370px;
+        height: 410px;
         background: #F6F1ED;
         overflow-y: scroll;
         .each-order {
             display: flex;
-            margin: 5px;
-            img {
-                width: 26px;
-                height: 26px;
-            }
+            justify-content: center;
+            align-items: center;
+            margin-top: 10px;
+            width: 100%;
 
             .prod {
               display: flex;
+              flex-direction: column;
+              width: 55%;
+              h3 {
+                font-size: 25px;
+                font-weight: 700;
+                margin: 0;
+              }
+              .detail {
+                display: flex;
+                justify-content: space-around;
+                h4 {
+                  font-size: 20px;
+                  margin: 0;
+                }
+                h4.qty{
+                  font-weight: bold;
+                }
+              }
+
             }
             .count {
-                input {
-                    width: 46px;
-                    height: 34px;
-
+              width: 10%;
+                i {
+                    font-size: 20px;
+                    margin: 5px;
                 }
             }
 
             .price {
+              display: flex;
+              width: 20%;
+              h2 {
+                display: flex;
+                margin: 0;
+                font-size: 25px;
+              }
+            }
 
+              i {
+                font-size: 25px;
             }
         }
     }
@@ -63,6 +98,15 @@
         .total {
           display: flex;
           justify-content: space-around;
+          margin: 10px;
+          h3 {
+            font-size: 20px;
+            margin: 0;
+          }
+          h2 {
+            font-size: 25px;
+            margin: 0;
+          }
         }
         .buttons{
             height: 50px;

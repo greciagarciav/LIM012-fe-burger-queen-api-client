@@ -32,11 +32,16 @@ export class ProductsListComponent implements OnInit {
       this.getProducts()
     })
     this.getProducts();
-    this.buttonAdd();
+    this.showAddButton = this.router.url == '/mesero/orders';
   }
 
-  buttonAdd() {
-    this.showAddButton = this.router.url == '/mesero/orders';
+  buttonAdd(product: any) {
+    console.log('agregado');
+    console.log(product.id);
+    console.log(product);
+    // this.products.filter(prod => prod.id)
+    localStorage.setItem('productName', product.name);
+    localStorage.setItem('productPrice', product.price);
   }
 
   getProducts() {

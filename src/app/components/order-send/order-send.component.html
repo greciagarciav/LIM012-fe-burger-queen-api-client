@@ -9,36 +9,32 @@
     </div>
   </header>
     <div class="body-order">
-        <div class="each-order">
+        <div class="each-order" *ngFor="let product of products">
             <div class="prod">
-                <h3>Jugo de frutas</h3>
+                <h3>{{product.prod}}</h3>
                 <div class="detail">
-                  <h4>S/.7</h4>
-                  <h4 class="qty">x <span>2</span></h4>
+                  <h4>s/. <span>{{product.price}}</span></h4>
+                  <h4 class="qty">x <span>{{product.qty}}</span></h4>
                 </div>
             </div>
             <div class="count">
-                <i class="fas fa-plus-circle"></i>
-                <i class="fas fa-minus-circle"></i>
+                <i class="fas fa-plus-circle" (click)="plus(product.id)"></i>
+                <i class="fas fa-minus-circle" (click)="minus(product.id)"></i>
             </div>
             <div class="price">
-                <h2>s/. <span>14</span></h2>
+                <h2>s/. <span>{{product.price * product.qty}}</span></h2>
             </div>
-            <i class="fas fa-trash-alt"></i>
+            <i class="fas fa-trash-alt" (click)="trash(product.id)"></i>
           </div>
     </div>
     <div class="bill">
-        <!-- <div class="sub-total">
-            <h3>Subtotal</h3>
-            <h2>S/.14</h2>
-        </div> -->
         <div class="total">
             <h3>Total</h3>
-            <h2>S/.<span>14</span></h2>
+            <h2>S/.<span>{{total}}</span></h2>
         </div>
         <div class="buttons">
-            <button class="order-action">Ordenar</button>
-            <button class="delete">Eliminar</button>
+            <button class="order-action" (click)="sendOrder()">Ordenar</button>
+            <button class="delete" (click)="cleanList()">Eliminar</button>
         </div>
     </div>
 </div>

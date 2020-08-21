@@ -41,7 +41,8 @@ export class OrdersService {
   }
 
   postOrder(order: object) {
-    return this.http.post(this.url + order, { headers: this.headers })
+    console.log(order)
+    return this.http.post(this.url, (order), { headers: this.headers })
       .pipe(
         tap(()=> {
           this.refresh$.next();

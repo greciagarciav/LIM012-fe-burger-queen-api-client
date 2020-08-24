@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
 import { OrdersService } from '../../services/orders/orders.service';
-import { Product } from 'src/app/model/products';
 
 @Component({
   selector: 'app-order-send',
@@ -8,7 +7,7 @@ import { Product } from 'src/app/model/products';
   styleUrls: ['./order-send.component.scss']
 })
 export class OrderSendComponent implements OnInit {
-  // products: Product[];
+  products = [];
   total: number;
   public userId: string = '';
   public clientName: string = '';
@@ -17,29 +16,34 @@ export class OrderSendComponent implements OnInit {
   constructor(private orders$ : OrdersService) { }
 
   ngOnInit(): void {
-    this.totalBill();
     this.orders$.buttonAddClickEventTrack.subscribe(event => {
-    this.products.push(this.objProd = this.orders$.getObjectOrderProduct());
-    })
+      this.objProd = this.orders$.getObjectOrderProduct();
+      const objProduct = this.objProd;
+      if (objProduct.qty == undefined) { 
+      objProduct.qty = 1;
+      this.products.push(objProduct);
+      this.totalBill();
+      }
+    });
   }
 
   plus(id: string) {
-    console.log('agregar');
-    this.products.filter(obj => obj.id == id)[0].id += 1;
+    this.products.filter(obj => obj.id == id)[0].qty += 1;
+    this.totalBill();
   }
 
   minus( id: string) {
-    console.log('restar');
     const qtyActual = this.products.filter(obj => obj.id == id)[0].qty;
     if(qtyActual > 1) {
       this.products.filter(obj => obj.id == id)[0].qty -= 1;
     }
+    this.totalBill();
   }
 
   trash(id: string) {
-    console.log('borrar item');
     const index = this.products.findIndex(item => item.id == id);
     this.products.splice(index, 1);
+    this.totalBill();
   }
 
   createOrderFood() {
@@ -72,21 +76,14 @@ export class OrderSendComponent implements OnInit {
     console.log('enviar orden');
     this.orders$.postOrder(this.createOrderFood()).subscribe((data: any) => {
       console.log(data.body);
-    })
-    // this.products.push({id: '4', prod: localStorage.getItem('productName'), qty: 1, price: 3})
+    });
+    this.cleanList();
   }
 
   cleanList() {
     console.log('limpiar orden');
     this.products = [];
   }
-
-
-  products = [
-    // {id: '5', prod: 'jugo', qty: 1, price: 7},
-    // {id: '2', prod: 'sandwich', qty: 2, price: 14},
-    // {id: '3', prod: 'papas', qty: 3, price: 3},
-  ];
 
   totalBill() {
     this.total = this.products.reduce((acc, obj) => acc + (obj.price * obj.qty), 0);

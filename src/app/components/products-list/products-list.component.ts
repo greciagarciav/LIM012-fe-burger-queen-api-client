@@ -38,8 +38,6 @@ export class ProductsListComponent implements OnInit {
   }
 
   buttonAdd(product: any) {
-    console.log('agregar');
-    console.log(product);
     this.productOrder = product;
     this.sendObjProd(this.productOrder);
     this.order$.buttonAddClickEventTrack.next(event);

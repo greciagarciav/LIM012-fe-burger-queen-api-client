@@ -1,5 +1,6 @@
 import { Component, OnInit, Output, EventEmitter, TemplateRef, ViewChild, OnChanges } from '@angular/core';
 import { ProductsService } from "../../services/products.service";
+import { OrdersService } from '../../services/orders/orders.service';
 import { Product } from 'src/app/model/products';
 import { ActivatedRoute, Router } from '@angular/router';
 
@@ -21,8 +22,9 @@ export class ProductsListComponent implements OnInit {
   show: string;
   path: any;
   buttons: boolean = null;
+  public productOrder: object;
 
-  constructor(private product$: ProductsService, private route: ActivatedRoute, private router: Router) {
+  constructor(private product$: ProductsService, private order$: OrdersService, private route: ActivatedRoute, private router: Router) {
     this.path = route.snapshot.routeConfig.path;
     this.buttons = (this.path === 'inventario') ? true : false
   }
@@ -36,12 +38,15 @@ export class ProductsListComponent implements OnInit {
   }
 
   buttonAdd(product: any) {
-    console.log('agregado');
-    console.log(product.id);
+    console.log('agregar');
     console.log(product);
-    // this.products.filter(prod => prod.id)
-    localStorage.setItem('productName', product.name);
-    localStorage.setItem('productPrice', product.price);
+    this.productOrder = product;
+    this.sendObjProd(this.productOrder);
+    this.order$.buttonAddClickEventTrack.next(event);
+  }
+
+  sendObjProd (product: object) {
+    this.order$.setObjectOrderProduct(product);
   }
 
   getProducts() {

@@ -12,11 +12,15 @@ export class OrderSendComponent implements OnInit {
   total: number;
   public userId: string = '';
   public clientName: string = '';
+  public objProd: any;
 
   constructor(private orders$ : OrdersService) { }
 
   ngOnInit(): void {
     this.totalBill();
+    this.orders$.buttonAddClickEventTrack.subscribe(event => {
+    this.products.push(this.objProd = this.orders$.getObjectOrderProduct());
+    })
   }
 
   plus(id: string) {
@@ -40,7 +44,7 @@ export class OrderSendComponent implements OnInit {
 
   createOrderFood() {
     const arrayProducts = this.products.map(product => {
-      const productObj = { 
+      const productObj = {
         _id : product.id,
         price : product.price,
         name : product.prod
@@ -58,7 +62,7 @@ export class OrderSendComponent implements OnInit {
       client: this.clientName,
       products: arrayProducts,
       status: "pending",
-      
+
      };
 
     return orderTotal;
@@ -79,9 +83,9 @@ export class OrderSendComponent implements OnInit {
 
 
   products = [
-    {id: '5', prod: 'jugo', qty: 1, price: 7},
-    {id: '2', prod: 'sandwich', qty: 2, price: 14},
-    {id: '3', prod: 'papas', qty: 3, price: 3},
+    // {id: '5', prod: 'jugo', qty: 1, price: 7},
+    // {id: '2', prod: 'sandwich', qty: 2, price: 14},
+    // {id: '3', prod: 'papas', qty: 3, price: 3},
   ];
 
   totalBill() {

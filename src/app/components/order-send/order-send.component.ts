@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { OrdersService } from '../../services/orders/orders.service';
+import { FormGroup, FormControl, Validators } from '@angular/forms';
 
 @Component({
   selector: 'app-order-send',
@@ -9,20 +10,26 @@ import { OrdersService } from '../../services/orders/orders.service';
 export class OrderSendComponent implements OnInit {
   products = [];
   total: number;
+  form: FormGroup;
+  confirmation: boolean = false;
   public userId: string = '';
-  public clientName: string = '';
   public objProd: any;
 
   constructor(private orders$ : OrdersService) { }
 
   ngOnInit(): void {
+    this.listenAddProduct();
+    this.buildForm();
+  }
+
+  listenAddProduct() {
     this.orders$.buttonAddClickEventTrack.subscribe(event => {
       this.objProd = this.orders$.getObjectOrderProduct();
-      const objProduct = this.objProd;
-      if (objProduct.qty == undefined) { 
-      objProduct.qty = 1;
-      this.products.push(objProduct);
-      this.totalBill();
+      let exist = this.products.some(item => item.id == this.objProd.id);
+      if (!exist) { 
+        this.objProd.qty = 1;
+        this.products.push(this.objProd);
+        this.totalBill();
       }
     });
   }
@@ -40,6 +47,16 @@ export class OrderSendComponent implements OnInit {
     this.totalBill();
   }
 
+  private buildForm() {
+    this.form = new FormGroup({
+      client: new FormControl('', [Validators.required])
+    })
+  }
+
+  getClient() {
+    return this.form.get('client');
+  }
+
   trash(id: string) {
     const index = this.products.findIndex(item => item.id == id);
     this.products.splice(index, 1);
@@ -51,7 +68,7 @@ export class OrderSendComponent implements OnInit {
       const productObj = {
         _id : product.id,
         price : product.price,
-        name : product.prod
+        name : product.name
       };
 
       const arrayProduct = {
@@ -63,25 +80,28 @@ export class OrderSendComponent implements OnInit {
 
     const orderTotal = {
       userId: this.userId,
-      client: this.clientName,
+      client: this.form.value.client,
       products: arrayProducts,
       status: "pending",
-
      };
 
     return orderTotal;
   }
 
   sendOrder() {
-    console.log('enviar orden');
+    if(this.form.valid) {
     this.orders$.postOrder(this.createOrderFood()).subscribe((data: any) => {
-      console.log(data.body);
+      this.form.reset();
+      this.confirmation = false;
+      this.cleanList();
     });
-    this.cleanList();
+    } else {
+      this.confirmation = true;
+    }
   }
 
   cleanList() {
-    console.log('limpiar orden');
+    this.total = 0;
     this.products = [];
   }
 

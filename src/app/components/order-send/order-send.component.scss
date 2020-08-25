@@ -11,26 +11,42 @@
 .order {
     display: flex;
     flex-direction: column;
+    border-radius: 23px 23px 0px 0px;
 
     .head {
         background: linear-gradient(270deg, #FC9631 0%, #C1AA98 111.21%);
         border-radius: 23px 23px 0px 0px;
-        .table {
-          margin: 5px;
+        .ctn-table {
           display: flex;
+          flex-direction: row;
+          justify-content: center;
+          align-items: center;
+          margin: 5px;
           h2 {
-            font-size: 30px;
+            font-size: 25px;
             margin: 5px;
           }
-          input {
-            width: 60%;
-            border-radius: 5px;
+          .table {
+            margin: 5px;
+            display: flex;
+            flex-direction: column;
+            border-radius: 23px 23px 0px 0px;
+            input {
+              height: 30px;
+              border-radius: 5px;
+            }
+            p {
+              color: red;
+              font-size: 12px;
+              align-self: flex-start;
+              margin: 0;
+            }
           }
         }
     }
 
     .body-order {
-        height: 410px;
+        height: 420px;
         background: #F6F1ED;
         overflow-y: scroll;
         .each-order {
@@ -46,7 +62,7 @@
               flex-direction: column;
               width: 55%;
               h3 {
-                font-size: 25px;
+                font-size: 22px;
                 font-weight: 700;
                 margin: 0;
               }

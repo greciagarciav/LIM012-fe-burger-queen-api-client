@@ -1,12 +1,12 @@
-<div class="date">
-  <p>12/08/20</p>
-</div>
 <div class="order">
   <header class="head">
-    <div class="table">
+      <div class="ctn-table" [formGroup]="form">
         <h2>Cliente</h2>
-        <input type="text" name="" id="">
-    </div>
+        <div class="table">
+          <input type="client" placeholder="Ingresa nombre" formControlName="client">
+          <p *ngIf="confirmation"><span>Debes ingresar nombre</span></p>
+        </div>
+      </div>
   </header>
     <div class="body-order">
         <div class="each-order" *ngFor="let product of products">

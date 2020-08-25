@@ -22,8 +22,7 @@
    </div>
     <div class="panel-cards">
         <div class="card-product" *ngFor="let item of products | filter: filterProd ">
-            <i *ngIf="showAddButton" class="fas fa-plus-circle" (click)="buttonAdd(item)" [hidden]="hideplusbutton[item.id]" (click)="followCheckButton(item.id)"></i>
-            <i *ngIf="showCheckButton" class="fas fa-check-circle"></i>
+            <i *ngIf="showAddButton" class="fas fa-plus-circle" (click)="buttonAdd(item)"></i>
             <div class="card-img">
                 <img src={{item.image}} alt="">
             </div>

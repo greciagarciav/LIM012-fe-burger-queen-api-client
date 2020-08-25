@@ -1,6 +1,6 @@
 <div class="container-order-list">
   <ng-container>
-    <div class="order-card" *ngFor="let order of orders | filterOrderStatus: statusOrder; index as i">
+    <div class="order-card" *ngFor="let order of orders | filter: statusOrder; index as i">
       <div class="users">
         <div class="client-date">
           <span class="client">{{order.client}}</span>
@@ -14,7 +14,7 @@
         <span class="price">{{product.product.price}}</span>
       </div>
       <button class="move" *ngIf="showMoveButton" (click)="changeStatus(order)"><i class="fas fa-angle-double-right"></i> Mover pedido</button>
-      <button class="cancel" *ngIf="showCancelButton" (click)="removeOrder(order)"><img src="assets/images/delete.png" alt=""> Cancelar pedido2</button>
+      <button class="cancel" *ngIf="showCancelButton" (click)="removeOrder(order)"><img src="assets/images/delete.png" alt=""> Cancelar pedido</button>
     </div>
   </ng-container>
 

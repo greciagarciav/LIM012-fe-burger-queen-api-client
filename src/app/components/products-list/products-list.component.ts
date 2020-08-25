@@ -18,6 +18,8 @@ export class ProductsListComponent implements OnInit {
   popoverMessage = '¿Desea eliminar este producto?';
   showModal = false;
   showAddButton: boolean = false;
+  showCheckButton: boolean = false;
+  hideplusbutton: any[] = [];
   filterProd: string = 'breakfast'
   show: string;
   path: any;
@@ -41,6 +43,10 @@ export class ProductsListComponent implements OnInit {
     this.productOrder = product;
     this.sendObjProd(this.productOrder);
     this.order$.buttonAddClickEventTrack.next(event);
+  }
+
+  followCheckButton(productId: string) {
+    this.hideplusbutton[productId] = true;
   }
 
   sendObjProd (product: object) {

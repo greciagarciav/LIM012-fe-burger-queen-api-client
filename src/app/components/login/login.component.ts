@@ -11,7 +11,7 @@ import { JsonApiService } from 'src/app/services/JsonApiService.service';
   styleUrls: ['./login.component.scss']
 })
 export class LoginComponent implements OnInit {
-  errorMessage: string;
+  errorMessage: string=null;
 
   constructor(private router:Router, private auth: AuthService, private users:JsonApiService) {}
    
@@ -21,11 +21,18 @@ export class LoginComponent implements OnInit {
   });
 
   ngOnInit(): void {
+    
+  }
+
+  getEmail() {
+    return this.form.get('email')
+  }
+
+  getPassword() {
+    return this.form.get('password')
   }
 
   authUser(): void {
-    
-    
   if(this.form.valid){
     const objUser = {'email':this.form.value.email,'password':this.form.value.password};
     console.log(objUser);
@@ -34,20 +41,23 @@ export class LoginComponent implements OnInit {
       console.log(resp.body);
       
         if (resp.status >= 200) {
-          // localStorage.setItem('email',objUser.email);
-          // localStorage.setItem('password',objUser.password);
-          // localStorage.setItem('token', resp.body.email);
           const authUser = {
             'email':objUser.email,
             'password':objUser.password,
             'token':resp.body.token
           }
           localStorage.setItem('usuario', JSON.stringify(authUser));
-          console.log(resp.body);
-          this.router.navigate(['/admin']);
 
           this.users.getUserId(this.form.value.email).subscribe((resp: any) => {
-            console.log(resp);
+            if(resp != []){
+              const role = resp[0].roles.admin
+              console.log(role);
+              role ? this.router.navigate(['/admin']) : this.router.navigate(['/mesero'])
+              
+            }else{
+              this.errorMessage= 'este usuario no existe intente de nuevo'
+            }
+            
             
           })
         }

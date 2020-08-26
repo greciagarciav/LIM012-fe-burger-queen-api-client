@@ -12,9 +12,9 @@ describe('StaffList component', () => {
   beforeEach(async(() => {
     TestBed.configureTestingModule({
       declarations: [ StaffList ],
-      schemas: [
-        CUSTOM_ELEMENTS_SCHEMA
-      ],
+      // schemas: [
+      //   CUSTOM_ELEMENTS_SCHEMA
+      // ],
       imports: [RouterTestingModule, HttpClientTestingModule],
       providers: [JsonApiService],
     })

@@ -1,5 +1,5 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
-import { CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
+// import { CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
 import { StaffList } from './staff-list.component';
 import { JsonApiService } from '../../services/JsonApiService.service';
 import { RouterTestingModule } from '@angular/router/testing';
@@ -16,7 +16,7 @@ describe('StaffList component', () => {
         CUSTOM_ELEMENTS_SCHEMA
       ],
       imports: [RouterTestingModule, HttpClientTestingModule],
-      providers: [JsonApiService]
+      providers: [JsonApiService],
     })
     .compileComponents();
   }));

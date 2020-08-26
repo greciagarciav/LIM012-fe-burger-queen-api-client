@@ -40,6 +40,8 @@ export class StaffList implements OnInit, OnDestroy {
   receiveUsers() {
     return this.json.getUser().subscribe((data: User[]) => {
       console.log('onsuscribe');
+      console.log(data);
+      
       this.users = data.filter(this.findEmployer)
     }, err => {
         switch (err.status) {

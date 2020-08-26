@@ -22,19 +22,11 @@ menuAdmin:any[] = [
   title: 'Jefe de cocina',
   icon:'fas fa-bread-slice',
   href: '/cocinero'
-},
-{
-  title: 'Salir',
-  icon:'fa fa-sign-out',
-  href: '/logout'
 }
 ]
 currentUrl: any;
 desactivado:boolean=false;
-changeImage(){
-    this.desactivado = !this.desactivado
-
-  }
+  dato: string;
 
   constructor(public router: Router) {
    router.events.pipe(filter(event => event instanceof NavigationEnd))
@@ -46,4 +38,12 @@ changeImage(){
   ngOnInit(): void {
   }
 
+
+  changeImage(){
+    this.desactivado = !this.desactivado
+
+  }
+  onLogout(){
+    localStorage.clear();
+  }
 }

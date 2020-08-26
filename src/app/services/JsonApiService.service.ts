@@ -13,9 +13,10 @@ import { User } from '../model/user';
 
 export class JsonApiService {
 
+  token:string =JSON.parse(localStorage.getItem('usuario'));
   headers = new HttpHeaders(
     {
-      'Authorization': 'Bearer 2635645',
+      'Authorization': 'Bearer' + this.token,
       'Content-Type': 'application/json'
     })
 
@@ -27,6 +28,10 @@ export class JsonApiService {
 
   getUser() {
     return this.http.get(this.url, { headers: this.headers }).pipe(catchError(this.handleError))
+  }
+
+  getUserId(id:string) {
+    return this.http.get(this.url+ '?email='+ id, { headers: this.headers }).pipe(catchError(this.handleError))
   }
 
   putUser(user: any, userId: string) {

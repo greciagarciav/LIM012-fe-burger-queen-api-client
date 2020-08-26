@@ -38,7 +38,6 @@ describe('Service: JsonApiService', () => {
         expect(resp).toEqual(usersData);
 
       });
-
   });
   it('should get add a new user', (done: DoneFn) => {
     const dataPost: Array<any> = [

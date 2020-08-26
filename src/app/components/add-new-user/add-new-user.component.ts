@@ -40,13 +40,12 @@ export class AddNewUserComponent implements OnInit {
   addUser() {
     if (this.addForm.valid) {
       const value = this.addForm.value;
-      console.log(value);
       const newUser: object = {
         "email": value.email, "roles": { "admin": false }, "password": value.password,
       };
       this.json.postUser(newUser).subscribe((data: any) => {
-        console.log(data.body);
-        console.log(data.status);
+        // console.log(data.body);
+        // console.log(data.status);
         this.addForm.reset()
       },
         err => {

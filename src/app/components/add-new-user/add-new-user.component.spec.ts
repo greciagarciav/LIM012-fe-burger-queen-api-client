@@ -1,4 +1,4 @@
-import { async, ComponentFixture, TestBed } from '@angular/core/testing';
+import { async, ComponentFixture, TestBed, tick } from '@angular/core/testing';
 import { CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
 
 import { AddNewUserComponent } from './add-new-user.component';
@@ -28,7 +28,16 @@ describe('AddNewUserComponent', () => {
     fixture = TestBed.createComponent(AddNewUserComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
+
+component.ngOnInit()
+
   });
+
+it('should form invalid when empty',()=>{
+expect(component.addForm.valid).toBeFalsy()
+})
+
+
 
   it('should create', () => {
     expect(component).toBeTruthy();

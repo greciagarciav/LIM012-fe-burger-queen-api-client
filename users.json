@@ -1,4 +1,31 @@
 {
+  "auth": [
+    {
+      "id": 45,
+      "email": "token@gmail.com",
+      "password": "123456"
+    },
+    {
+      "email": "dvdsv@fr.com",
+      "password": "12324",
+      "id": 46
+    },
+    {
+      "email": "fgtrgt@fr.com",
+      "password": "234",
+      "id": 47
+    },
+    {
+      "email": "tbtgn@hyt.com",
+      "password": "32424",
+      "id": 48
+    },
+    {
+      "email": "tbtgn@hyt.com",
+      "password": "32424",
+      "id": 49
+    }
+  ],
   "users": [
     {
       "email": "harvie@gmail.com",
@@ -23,6 +50,22 @@
         "admin": false
       },
       "id": "IJWp222"
+    },
+    {
+      "email": "gm@bh.com",
+      "roles": {
+        "admin": false
+      },
+      "password": "244",
+      "id": "6xre9f3"
+    },
+    {
+      "email": "vsd@s.com",
+      "roles": {
+        "admin": false
+      },
+      "password": "123321",
+      "id": "8776zIW"
     }
   ],
   "products": [
@@ -155,7 +198,7 @@
         {
           "qty": 1,
           "product": {
-            "_id": "141",
+            "productId": "141",
             "name": "sandwich",
             "price": 10,
             "image": "string",
@@ -177,7 +220,7 @@
           }
         }
       ],
-      "status": "pending",
+      "status": "delivering",
       "dateEntry": "Date"
     },
     {
@@ -209,43 +252,11 @@
           }
         }
       ],
-      "status": "pending",
+      "status": "delivering",
       "dateEntry": "Date"
     },
     {
       "id": "170",
-      "client": "Alba1",
-      "products": [
-        {
-          "qty": 1,
-          "product": {
-            "_id": "141",
-            "name": "sandwich",
-            "price": 10,
-            "image": "string",
-            "type": "k",
-            "dateEntry": "Date",
-            "id": "7mISVcA"
-          }
-        },
-        {
-          "qty": 1,
-          "product": {
-            "_id": "141",
-            "name": "sandwich",
-            "price": 10,
-            "image": "string",
-            "type": "k",
-            "dateEntry": "Date",
-            "id": "7mISVcA"
-          }
-        }
-      ],
-      "status": "pending",
-      "dateEntry": "Date"
-    },
-    {
-      "id": "180",
       "client": "Alba1",
       "products": [
         {

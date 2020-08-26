@@ -9,9 +9,14 @@ import { ViewOrderStatusComponent } from './views/cheff/view-order-status/view-o
 import { ViewOrdersComponent } from "./views/waiter/view-orders/view-orders.component";
 import {  WaiterComponent } from "./views/waiter/waiter.component";
 import { ViewStatesComponent } from "./views/waiter//view-states/view-states.component";
+import { LoginComponent } from "../app/components/login/login.component";
+import { AuthGuard } from "./guards/auth.guard";
+
+
 const routes: Routes = [
 
-  { path: '', redirectTo: 'admin', pathMatch: 'full' },
+  // { path: '', redirectTo: 'admin', pathMatch: 'full' },
+  {path:'', component:LoginComponent},
   {
     path: 'admin', component: AdminComponent,
     children: [

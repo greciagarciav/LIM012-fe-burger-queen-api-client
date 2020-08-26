@@ -31,7 +31,7 @@ export class OrderListComponent implements OnInit {
   }
 
   showHideButtons(){
-    this.showMoveButton = this.router.url == '/cocinero' && ( this.statusOrder == 'pending'|| this.statusOrder == 'delivering');
+    this.showMoveButton = this.router.url == '/mesero/states' && (this.statusOrder == 'pending'|| this.statusOrder == 'delivering');
     this.showCancelButton = this.router.url == '/mesero/states' && this.statusOrder == 'pending';
   }
 

@@ -10,11 +10,23 @@ import { tap } from 'rxjs/operators';
 
 export class OrdersService {
 
+  public objectOrderProduct: object;
+
+  setObjectOrderProduct(product: object) {
+    this.objectOrderProduct = product;
+  }
+
+  getObjectOrderProduct() {
+    return this.objectOrderProduct;
+  }
+
   constructor(public http: HttpClient) { }
 
   url: string = environment.apiUrl + 'orders/';
   private subjectSource = new Subject<void>();
   public countdown$ = this.subjectSource.asObservable();
+
+  public buttonAddClickEventTrack = new Subject();
 
   headers = new HttpHeaders(
     {
@@ -41,7 +53,8 @@ export class OrdersService {
   }
 
   postOrder(order: object) {
-    return this.http.post(this.url + order, { headers: this.headers })
+    console.log(order)
+    return this.http.post(this.url, (order), { headers: this.headers })
       .pipe(
         tap(()=> {
           this.refresh$.next();

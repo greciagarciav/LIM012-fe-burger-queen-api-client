@@ -16,7 +16,7 @@ menuAdmin:any[] = [
 {
   title: 'Mesero',
   icon:'fas fa-user-tie',
-  href: '/mesero'
+  href: '/mesero/orders'
 },
 {
   title: 'Jefe de cocina',

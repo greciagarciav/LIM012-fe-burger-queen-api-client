@@ -1,0 +1,142 @@
+@import '../../../app/app.component.scss';
+
+.date {
+  p {
+    margin: 0;
+    font-size: 20px;
+    align-self: flex-end;
+  }
+}
+
+.order {
+    display: flex;
+    flex-direction: column;
+    border-radius: 23px 23px 0px 0px;
+
+    .head {
+        background: linear-gradient(270deg, #FC9631 0%, #C1AA98 111.21%);
+        border-radius: 23px 23px 0px 0px;
+        .ctn-table {
+          display: flex;
+          flex-direction: row;
+          justify-content: center;
+          align-items: center;
+          margin: 5px;
+          h2 {
+            font-size: 25px;
+            margin: 5px;
+          }
+          .table {
+            margin: 5px;
+            display: flex;
+            flex-direction: column;
+            border-radius: 23px 23px 0px 0px;
+            input {
+              height: 30px;
+              border-radius: 5px;
+            }
+            p {
+              color: red;
+              font-size: 12px;
+              align-self: flex-start;
+              margin: 0;
+            }
+          }
+        }
+    }
+
+    .body-order {
+        height: 420px;
+        background: #F6F1ED;
+        overflow-y: scroll;
+        .each-order {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin-top: 10px;
+            width: 100%;
+            border-bottom: solid 1px #c4c4c4;
+
+            .prod {
+              display: flex;
+              flex-direction: column;
+              width: 55%;
+              h3 {
+                font-size: 22px;
+                font-weight: 700;
+                margin: 0;
+              }
+              .detail {
+                display: flex;
+                justify-content: space-around;
+                h4 {
+                  font-size: 20px;
+                  margin: 0;
+                }
+                h4.qty{
+                  font-weight: bold;
+                }
+              }
+
+            }
+            .count {
+              width: 10%;
+                i {
+                    font-size: 20px;
+                    margin: 5px;
+                }
+            }
+
+            .price {
+              display: flex;
+              width: 20%;
+              h2 {
+                display: flex;
+                margin: 0;
+                font-size: 25px;
+              }
+            }
+
+              i {
+                font-size: 25px;
+            }
+        }
+    }
+
+    .bill {
+        display: flex;
+        flex-direction: column;
+        background: #FFFFFF;
+        margin: 10px;
+        .sub-total {
+          display: flex;
+          justify-content: space-around;
+        }
+        .total {
+          display: flex;
+          justify-content: space-around;
+          margin: 10px;
+          h3 {
+            font-size: 20px;
+            margin: 0;
+          }
+          h2 {
+            font-size: 25px;
+            margin: 0;
+          }
+        }
+        .buttons{
+            height: 50px;
+            display: flex;
+            button{
+            @include button(45%,_)
+            }
+            .order-action{
+                background: #00A355 !important;
+            }
+            .delete{
+                background: #e35151 !important;
+            }
+        }
+    }
+}

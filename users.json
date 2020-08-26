@@ -213,38 +213,6 @@
       "dateEntry": "Date"
     },
     {
-      "id": "170",
-      "client": "Alba1",
-      "products": [
-        {
-          "qty": 1,
-          "product": {
-            "_id": "141",
-            "name": "sandwich",
-            "price": 10,
-            "image": "string",
-            "type": "k",
-            "dateEntry": "Date",
-            "id": "7mISVcA"
-          }
-        },
-        {
-          "qty": 1,
-          "product": {
-            "_id": "141",
-            "name": "sandwich",
-            "price": 10,
-            "image": "string",
-            "type": "k",
-            "dateEntry": "Date",
-            "id": "7mISVcA"
-          }
-        }
-      ],
-      "status": "pending",
-      "dateEntry": "Date"
-    },
-    {
       "id": "234",
       "client": "Alba2",
       "products": [
@@ -353,6 +321,45 @@
         }
       ],
       "id": "NbXC_Qy"
+    },
+    {
+      "client": "Gresh",
+      "products": [
+        {
+          "product": {
+            "_id": "12333",
+            "price": "7",
+            "name": "Jugo de frutas natural"
+          },
+          "qty": 1
+        },
+        {
+          "product": {
+            "_id": "56456",
+            "price": "7",
+            "name": "Café con leche"
+          },
+          "qty": 1
+        }
+      ],
+      "status": "pending",
+      "id": "iqwq48X"
+    },
+    {
+      "user": "",
+      "client": "Fresh",
+      "products": [
+        {
+          "product": {
+            "_id": "56456",
+            "price": "7",
+            "name": "Café con leche"
+          },
+          "qty": 1
+        }
+      ],
+      "status": "delivered",
+      "id": "vOxSliH"
     }
   ]
 }

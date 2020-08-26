@@ -79,7 +79,7 @@ export class OrderSendComponent implements OnInit {
     });
 
     const orderTotal = {
-      userId: this.userId,
+      user: this.userId,
       client: this.form.value.client,
       products: arrayProducts,
       status: "pending",

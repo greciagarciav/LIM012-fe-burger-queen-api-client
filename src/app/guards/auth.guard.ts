@@ -8,9 +8,9 @@ import { AuthService } from "../services/auth.service";
 })
 export class AuthGuard implements CanActivate {
 
-// constructor(private authSrv:AuthService){
+constructor(private authSrv:AuthService){
 
-// }
+}
 
   canActivate(
     next: ActivatedRouteSnapshot,

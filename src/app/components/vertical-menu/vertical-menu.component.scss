@@ -54,4 +54,28 @@ aside {
       }
     }
   }
+  .icon-logout{
+    margin-top: 15px;
+      @include size(70%, _);
+      @include flex(center, center);
+      border-radius: 10px;
+
+      a {
+        text-decoration: none;
+        text-align: center;
+        color: map-get($colors , 'secundary');
+        cursor: pointer;
+
+        i {
+          font-size: 35px;
+          margin: 10px 20px;
+        }
+
+        h2 {
+          font-size: 13px;
+
+          margin: 0 0 5px;
+        }
+      }
+  }
 }

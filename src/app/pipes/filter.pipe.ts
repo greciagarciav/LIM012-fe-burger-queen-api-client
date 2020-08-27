@@ -6,7 +6,6 @@ import { Pipe, PipeTransform } from '@angular/core';
 export class filterPipe implements PipeTransform {
 
   transform(value: Array<any>, arg: string): Array<any> {
-
     const result = [];
     if (value != undefined) {
       for (let item of value) {

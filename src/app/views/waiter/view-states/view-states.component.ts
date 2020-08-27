@@ -7,6 +7,9 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ViewStatesComponent implements OnInit {
 
+  statusPending: string = 'pending';
+  statusDelivering: string = 'delivering';
+  statusDelivered: string = 'delivered';
   constructor() { }
 
   ngOnInit(): void {

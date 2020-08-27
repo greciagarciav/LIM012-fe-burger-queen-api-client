@@ -18,11 +18,11 @@ menuAdmin:any[] = [
   icon:'fas fa-user-tie',
   href: '/mesero/orders'
 },
-{
-  title: 'Jefe de cocina',
-  icon:'fas fa-bread-slice',
-  href: '/cocinero'
-}
+// {
+//   title: 'Jefe de cocina',
+//   icon:'fas fa-bread-slice',
+//   href: '/cocinero'
+// }
 ]
 currentUrl: any;
 desactivado:boolean=false;

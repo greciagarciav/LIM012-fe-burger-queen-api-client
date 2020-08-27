@@ -345,7 +345,7 @@
           "qty": 1
         }
       ],
-      "status": "pending",
+      "status": "delivered",
       "id": "iqwq48X"
     },
     {
@@ -363,6 +363,30 @@
       ],
       "status": "delivered",
       "id": "vOxSliH"
+    },
+    {
+      "user": "",
+      "client": "grecia",
+      "products": [
+        {
+          "product": {
+            "_id": "12333",
+            "price": "7",
+            "name": "Jugo de frutas natural"
+          },
+          "qty": 1
+        },
+        {
+          "product": {
+            "_id": "56456",
+            "price": "7",
+            "name": "Café con leche"
+          },
+          "qty": 1
+        }
+      ],
+      "status": "pending",
+      "id": "_FDXS41"
     }
   ]
 }

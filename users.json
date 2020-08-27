@@ -54,7 +54,7 @@
     {
       "email": "gm@bh.com",
       "roles": {
-        "admin": false
+        "admin": true
       },
       "password": "244",
       "id": "6xre9f3"
@@ -256,7 +256,79 @@
       "dateEntry": "Date"
     },
     {
+      "id": "170",
+      "client": "Alba1",
+      "products": [
+        {
+          "qty": 1,
+          "product": {
+            "_id": "141",
+            "name": "sandwich",
+            "price": 10,
+            "image": "string",
+            "type": "k",
+            "dateEntry": "Date",
+            "id": "7mISVcA"
+          }
+        },
+        {
+          "qty": 1,
+          "product": {
+            "_id": "141",
+            "name": "sandwich",
+            "price": 10,
+            "image": "string",
+            "type": "k",
+            "dateEntry": "Date",
+            "id": "7mISVcA"
+          }
+        }
+      ],
+      "status": "delivering",
+      "dateEntry": "Date"
+    },
+    {
       "id": "234",
+      "client": "Alba2",
+      "products": [
+        {
+          "qty": 1,
+          "product": {
+            "_id": "141",
+            "name": "string",
+            "price": 1,
+            "image": "string",
+            "type": "k",
+            "dateEntry": "Date",
+            "id": "7mISVcA"
+          }
+        }
+      ],
+      "status": "delivering",
+      "dateEntry": "Date"
+    },
+    {
+      "id": "280",
+      "client": "Alba2",
+      "products": [
+        {
+          "qty": 1,
+          "product": {
+            "_id": "141",
+            "name": "string",
+            "price": 1,
+            "image": "string",
+            "type": "k",
+            "dateEntry": "Date",
+            "id": "7mISVcA"
+          }
+        }
+      ],
+      "status": "delivering",
+      "dateEntry": "Date"
+    },
+    {
+      "id": "290",
       "client": "Alba2",
       "products": [
         {
@@ -316,25 +388,16 @@
       "dateEntry": "Date"
     },
     {
-      "client": "Alba1",
-      "products": [
-        {
-          "qty": 1,
-          "productId": "56456"
-        }
-      ],
-      "id": "NbXC_Qy"
-    },
-    {
-      "client": "Gresh",
+      "user": "",
+      "client": "grecia",
       "products": [
         {
           "product": {
-            "_id": "12333",
-            "price": "7",
-            "name": "Jugo de frutas natural"
+            "_id": "122112",
+            "price": "5",
+            "name": "Café americano"
           },
-          "qty": 1
+          "qty": 3
         },
         {
           "product": {
@@ -342,6 +405,7 @@
             "price": "7",
             "name": "Café con leche"
           },
+<<<<<<< HEAD
           "qty": 1
         }
       ],
@@ -352,15 +416,20 @@
       "user": "",
       "client": "Fresh",
       "products": [
+=======
+          "qty": 3
+        },
+>>>>>>> 6f5a448841b7e5013af17d7323cc7a0312028155
         {
           "product": {
-            "_id": "56456",
+            "_id": "12333",
             "price": "7",
-            "name": "Café con leche"
+            "name": "Jugo de frutas natural"
           },
-          "qty": 1
+          "qty": 4
         }
       ],
+<<<<<<< HEAD
       "status": "delivered",
       "id": "vOxSliH"
     },
@@ -387,6 +456,10 @@
       ],
       "status": "pending",
       "id": "_FDXS41"
+=======
+      "status": "pending",
+      "id": "i6OTdFC"
+>>>>>>> 6f5a448841b7e5013af17d7323cc7a0312028155
     }
   ]
 }

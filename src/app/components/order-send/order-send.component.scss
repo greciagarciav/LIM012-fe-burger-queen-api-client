@@ -140,3 +140,28 @@
         }
     }
 }
+
+@media only screen and (max-width: 768px) {
+  .order {
+    .head {
+      .ctn-table {
+        flex-direction: column;
+      }
+    }
+    .body-order {
+      height: 60vh;
+      .prod {
+        width: 48% !important;
+        .detail {
+          width: 80px;
+        }
+      }
+      .count {
+        width: 12% !important;
+      }
+      .price {
+        width: 25% !important;
+      }
+    }
+  }
+}

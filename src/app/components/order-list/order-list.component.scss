@@ -67,3 +67,15 @@
     }
   }
 }
+
+@media only screen and (max-width: 768px) {
+  .container-order-list {
+    height: 75vh;
+    .order-card {
+      button {
+        width: 83%;
+        border-radius: 5px;
+      }
+    }
+  }
+}

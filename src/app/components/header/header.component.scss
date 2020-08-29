@@ -17,3 +17,11 @@ header {
     margin-left: 25px;
   }
 }
+
+@media only screen and (max-width: 768px) {
+header {
+  div.header-title h1{
+    font-size: 2.0rem;
+  }
+}
+ }

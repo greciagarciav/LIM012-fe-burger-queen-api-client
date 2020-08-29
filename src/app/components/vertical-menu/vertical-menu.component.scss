@@ -79,3 +79,9 @@ aside {
       }
   }
 }
+
+@media only screen and (max-width: 768px) {
+  aside {
+    height: 100vh;
+  }
+}

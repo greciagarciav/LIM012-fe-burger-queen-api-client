@@ -6,15 +6,15 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./header.component.scss']
 })
 export class HeaderComponent implements OnInit {
-  show:boolean;
-  constructor() { 
+  show: boolean;
 
-    const currentUser=JSON.parse(localStorage.getItem('usuario'))
-if(currentUser){
-  this.show = true;
-}else{
-  this.show = false;
-}
+  constructor() {
+    const currentUser = JSON.parse(localStorage.getItem('usuario'))
+    if (currentUser) {
+      this.show = true;
+    } else {
+      this.show = false;
+    }
   }
 
   ngOnInit(): void {

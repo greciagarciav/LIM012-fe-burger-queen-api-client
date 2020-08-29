@@ -44,7 +44,6 @@ export class ViewInventaryComponent implements OnInit {
         "dateEntry": this.form.value.dateEntry,
       };
       this.product$.postProduct(newUser).subscribe((data: any) => {
-        console.log(data);
         this.form.reset();
         this.confirmation = false
       })
@@ -55,7 +54,6 @@ export class ViewInventaryComponent implements OnInit {
 
   editProduct(product: any) {
     this.editProp = true
-    console.log(product.id, 'desde view');
     this.productId = product.id;
     this.productImg = product.image
     this.form.patchValue({
@@ -76,7 +74,6 @@ export class ViewInventaryComponent implements OnInit {
 
       if (this.form.valid) {
         this.product$.updateProduct(newProduct, this.productId).subscribe((dat) => {
-          console.log(dat);
           this.editProp = false;
           this.form.reset();
           this.confirmation = false;

@@ -22,7 +22,6 @@ export class ModalComponent implements OnInit {
         email: valor.email,
         constraseña: '',
       })
-      console.log(valor);
 
     }
   }
@@ -41,7 +40,6 @@ export class ModalComponent implements OnInit {
     })
   }
   onGuardar() {
-    console.log(this.contactOriginal, this.form.value);
     const user = {
       "email": this.form.value.email,
       "password": this.form.value.constraseña,
@@ -50,9 +48,7 @@ export class ModalComponent implements OnInit {
       }
     }
     if(this.form.valid){
-      this.json.putUser(user, this.contactOriginal.id).subscribe((data: any) => {
-      console.log('data - edit-employee', data);
-    })
+      this.json.putUser(user, this.contactOriginal.id).subscribe()
     }
     
   }

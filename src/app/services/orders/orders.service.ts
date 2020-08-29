@@ -54,7 +54,6 @@ export class OrdersService {
   }
 
   postOrder(order: object) {
-    console.log(order)
     return this.http.post(this.url, (order), { headers: this.headers })
       .pipe(
         tap(()=> {

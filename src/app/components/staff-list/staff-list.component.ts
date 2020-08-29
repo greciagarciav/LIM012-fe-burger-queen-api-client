@@ -11,13 +11,10 @@ import { Subscription } from 'rxjs';
 })
 export class StaffList implements OnInit, OnDestroy {
 
-
   contactoeditar: null;
   contacto: null;
   data: Subscription=null;
   users: User[];
-  // destroy$: Subject<boolean> = new Subject<boolean>()
-  // .pipe(takeUntil(this.destroy$))
 
   //modal
   showModal = false;
@@ -39,8 +36,6 @@ export class StaffList implements OnInit, OnDestroy {
   //traer usuarios
   receiveUsers() {
     return this.json.getUser().subscribe((data: User[]) => {
-      console.log('onsuscribe');
-      console.log(data);
       
       this.users = data.filter(this.findEmployer)
     }, err => {
@@ -59,8 +54,6 @@ export class StaffList implements OnInit, OnDestroy {
   lessUser(idUser): void {
     this.json.deleteUser(idUser).subscribe((response: any) => {
       this.users = this.users.filter(e => e.id !== idUser)
-      console.log(response.status);
-
     },
       err => {
         switch (err.status) {
@@ -96,13 +89,7 @@ export class StaffList implements OnInit, OnDestroy {
   }
 
   ngOnDestroy(): void {
-
-    // this.nombreSuscripcion.unsubscribe()
-    // this.destroy$.next(true);
-    // Unsubscribe from the subject
-    // this.destroy$.unsubscribe();console.log('this.ngOnDestroy')
     console.log('ondestroy');
     this.data.unsubscribe();
-    // this.receiveUsers()
   }
 }

@@ -4,13 +4,9 @@ const router = jsonServer.router('users.json')
 const middlewares = jsonServer.defaults()
 
 server.use(middlewares)
-// server.get('/users/:email', (req, res) => {
-//     res.jsonp(req.body.next)
-// })
 server.use((req, res, next) => {
     if (req.method === 'POST' && req.url === '/auth') {
         if (req.body !== '') {
-            console.log(res.body);
             res.status(200).jsonp({
                 token: '12345.abcde.fdgfdg'
             })

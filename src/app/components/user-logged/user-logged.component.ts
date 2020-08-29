@@ -7,23 +7,20 @@ import { Component, OnInit, Input } from '@angular/core';
 })
 export class UserLoggedComponent implements OnInit {
 
-nombreHijo:string='Paulina Sail';
-rolHijo:string='admin';
+  nombreHijo: string = 'Paulina Sail';
+  rolHijo: string = 'admin';
 
-currentUser:any;
-
-
+  currentUser: any;
 
 
-  constructor() { 
-  this.currentUser=JSON.parse(localStorage.getItem('usuario'))
-  console.log(this.currentUser);
-    this.nombreHijo= this.currentUser.email;
-    this.rolHijo=(this.currentUser.role)?'admin':'staff';
-    }
+  constructor() {
+    this.currentUser = JSON.parse(localStorage.getItem('usuario'))
+    this.nombreHijo = this.currentUser.email;
+    this.rolHijo = (this.currentUser.role) ? 'admin' : 'staff';
+  }
 
   ngOnInit(): void {
-    
+
   }
 
 }

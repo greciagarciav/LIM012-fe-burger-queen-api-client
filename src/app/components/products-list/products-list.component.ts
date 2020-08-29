@@ -49,19 +49,16 @@ export class ProductsListComponent implements OnInit {
 
   getProducts() {
     this.product$.getListProducts().subscribe((data) => {
-      console.log(data);
       this.products = data;
     })
   }
   lessProduct(product) {
     this.product$.deleteProduct(product).subscribe(dat => {
-      console.log(dat);
       this.products = this.products.filter(prod => prod.id != product.id)
     })
   }
 
   editProduct(product: any) {
-    console.log(product);
     this.editar.emit(product)
   }
 

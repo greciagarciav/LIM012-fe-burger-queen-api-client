@@ -41,13 +41,10 @@ export class OrderListComponent implements OnInit {
     } else if (order.status == 'delivering') {
       order.status = 'delivered';
     }
-    this.orders$.updateOrder(order).subscribe((data: any) => {
-      console.log('data - edit-order', data);
-    })
+    this.orders$.updateOrder(order).subscribe()
   }
 
   removeOrder(order: any) {
-    this.orders$.deleteOrder(order.id).subscribe(() => {
-    })
+    this.orders$.deleteOrder(order.id).subscribe()
   }
 }

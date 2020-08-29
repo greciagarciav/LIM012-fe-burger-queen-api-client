@@ -41,7 +41,6 @@ token:string;
          this.token = resp.body.token
 
           this.users.getUserId(this.form.value.email).subscribe((resp: any) => {
-            console.log(resp);
             if(resp.length > 0){
               const role = resp[0].roles.admin;
               const emailAuth = resp[0].email;
@@ -59,18 +58,15 @@ token:string;
               
             }else{
               this.errorMessage= 'este usuario no existe intente de nuevo'
-              console.log(this.errorMessage);
             }
             
           })
         }
-        // console.log(resp);
         else{
-          console.log(resp.body);
+          this.errorMessage= 'ocurrio un error intente de nuevo'
         }
         
       }, error => {
-        console.log(error.status);
         this.errorMessage = 'no hay no se proveen `email` o `password` o ninguno de los dos'
       });
     

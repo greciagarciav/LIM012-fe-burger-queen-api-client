@@ -13,7 +13,7 @@
             <div class="prod">
                 <h3>{{product.name}}</h3>
                 <div class="detail">
-                  <h4>s/. <span>{{product.price}}</span></h4>
+                  <h4>s/ <span>{{product.price}}</span></h4>
                   <h4 class="qty">x <span>{{product.qty}}</span></h4>
                 </div>
             </div>
@@ -22,7 +22,7 @@
                 <i class="fas fa-minus-circle" (click)="minus(product.id)"></i>
             </div>
             <div class="price">
-                <h2>s/. <span>{{product.price * product.qty}}</span></h2>
+                <h2>s/ <span>{{product.price * product.qty}}</span></h2>
             </div>
             <i class="fas fa-trash-alt" (click)="trash(product.id)"></i>
           </div>
@@ -30,7 +30,7 @@
     <div class="bill">
         <div class="total">
             <h3>Total</h3>
-            <h2>S/.<span>{{total}}</span></h2>
+            <h2>S/<span>{{total}}</span></h2>
         </div>
         <div class="buttons">
             <button class="order-action" (click)="sendOrder()">Ordenar</button>

@@ -9,28 +9,28 @@ import {  WaiterComponent } from "./views/waiter/waiter.component";
 import { ViewStatesComponent } from "./views/waiter//view-states/view-states.component";
 import { LoginComponent } from "../app/components/login/login.component";
 import { AuthGuard } from "./guards/auth.guard";
+import { RoleGuard } from "./guards/role.guard";
 
 
 const routes: Routes = [
 
-  // { path: '', redirectTo: 'admin', pathMatch: 'full' },
   {path:'', component:LoginComponent},
   {
-    path: 'admin', component: AdminComponent,
+    path: 'admin', component: AdminComponent, canActivate: [AuthGuard],
     children: [
-      { path: '', component: ViewStaffComponent },
-      { path: 'staff', component: ViewStaffComponent },
-      { path: 'inventario', component: ViewInventaryComponent },
+      { path: '', component: ViewStaffComponent, canActivate: [RoleGuard], data: { expectedRole: true } },
+      { path: 'staff', component: ViewStaffComponent, canActivate: [RoleGuard], data: { expectedRole: true } },
+      { path: 'inventario', component: ViewInventaryComponent, canActivate: [RoleGuard], data: { expectedRole: true } },
     ]
   },
-  { path: 'mesero', component:  WaiterComponent ,
+  { path: 'mesero', component:  WaiterComponent, canActivate: [AuthGuard],
   children: [
     { path: '', component: ViewOrdersComponent },
     { path: 'orders', component: ViewOrdersComponent },
     { path: 'states', component:ViewStatesComponent },
   ]
 },
-  
+
 ];
 
 @NgModule({

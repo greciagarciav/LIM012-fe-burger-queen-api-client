@@ -118,3 +118,12 @@ background:  map-get($colors, 'primary');
         }
     }
 }
+
+@media only screen and (min-width: 768px) {
+  .panel-cards {
+    .card-product {
+      width: 42% !important;
+      height: 32% !important;
+    }
+  }
+}

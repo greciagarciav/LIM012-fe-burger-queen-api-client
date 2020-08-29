@@ -88,3 +88,19 @@ section {
     }
 
 }
+
+@media only screen and (min-width: 768px) {
+  .container-add{
+    .container-form {
+      height: auto;
+      .input_text {
+        input[type=text] {
+          @include size(auto, _);
+        }
+      }
+      p {
+        margin-bottom: 0;
+      }
+    }
+  }
+}

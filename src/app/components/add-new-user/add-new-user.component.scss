@@ -58,3 +58,22 @@ h2 {
         background: map-get($colors, 'error');
     }
 }
+
+@media only screen and (min-width: 768px) {
+  .add-employee {
+    margin-left: 5px;
+    width: 98%;
+    .add-employee-data {
+      .add-employee-input {
+        input {
+          width: auto;
+        }
+      }
+    }
+    button {
+      margin: 0;
+      margin-left: 5px;
+      width: 180px;
+    }
+  }
+}

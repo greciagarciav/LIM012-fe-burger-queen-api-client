@@ -1,21 +1,31 @@
 import { Injectable } from '@angular/core';
-import { environment } from 'src/environments/environment';
 import { HttpClient } from '@angular/common/http';
-import { Observable, Subject } from 'rxjs';
+import { Observable, BehaviorSubject } from 'rxjs';
+import { map } from 'rxjs/operators';
+import { environment } from 'src/environments/environment';
+
 
 @Injectable({
   providedIn: 'root'
 })
 export class AuthService {
-  public url: string = environment.apiUrl;
-  private _refresh$ = new Subject<void>();
-  public refresh$ = this._refresh$.asObservable();
+  private userSubject : BehaviorSubject<any>;
+  public user : Observable<any>;
+  public url: string;
 
   constructor(private http: HttpClient) {
+    this.url = environment.apiUrl;
+    this.userSubject = new BehaviorSubject<any>(sessionStorage.getItem('usuario'));
+    this.user = this.userSubject.asObservable();
   }
 
-  postUserLogin(body: object): Observable<Object> {
-    return this.http.post(`${this.url}auth`, body, { observe: 'response' });
+  postUserLogin(body: object): Observable<any> {
+    return this.http.post(`${this.url}auth`, body, { observe: 'response' })
+      .pipe(map(userLogged => {
+        sessionStorage.setItem('usuario', userLogged['token']);
+        this.userSubject.next(body);
+          return userLogged;
+      }))
   }
 
 }

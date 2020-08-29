@@ -15,9 +15,15 @@ constructor(private authSrv:AuthService){
   canActivate(
     next: ActivatedRouteSnapshot,
     state: RouterStateSnapshot): Observable<boolean | UrlTree> | Promise<boolean | UrlTree> | boolean | UrlTree {
-    return false;
+   
 
 // return this.authSrv.url.pipe
-  }
+const user = JSON.parse(localStorage.getItem('usuario'));
+  // if(user.role){
+  //   return true
+  // }
+
+ return false;
   
+}
 }

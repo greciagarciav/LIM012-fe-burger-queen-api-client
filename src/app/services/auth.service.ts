@@ -7,9 +7,8 @@ import { Observable, Subject } from 'rxjs';
   providedIn: 'root'
 })
 export class AuthService {
+  
   public url: string = environment.apiUrl;
-  private _refresh$ = new Subject<void>();
-  public refresh$ = this._refresh$.asObservable();
 
   constructor(private http: HttpClient) {
   }

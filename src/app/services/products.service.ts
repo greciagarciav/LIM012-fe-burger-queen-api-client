@@ -11,6 +11,7 @@ import { renderFlagCheckIfStmt } from '@angular/compiler/src/render3/view/templa
 })
 export class ProductsService {
 
+  token:string =JSON.parse(localStorage.getItem('usuario'));
 
   constructor(public http: HttpClient) { }
 
@@ -20,7 +21,7 @@ export class ProductsService {
 
   headers = new HttpHeaders(
     {
-      'Authorization': 'Bearer 2635645',
+      'Authorization': 'Bearer '+ this.token,
       'Content-Type': 'application/json'
     })
 

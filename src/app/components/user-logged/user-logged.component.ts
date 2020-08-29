@@ -7,13 +7,23 @@ import { Component, OnInit, Input } from '@angular/core';
 })
 export class UserLoggedComponent implements OnInit {
 
-img:string="../assets/images/admin.png";
- @Input() nombreHijo:string='Paulina Sail';
- @Input() rolHijo:string='admin';
+nombreHijo:string='Paulina Sail';
+rolHijo:string='admin';
 
-  constructor() { }
+currentUser:any;
+
+
+
+
+  constructor() { 
+  this.currentUser=JSON.parse(localStorage.getItem('usuario'))
+  console.log(this.currentUser);
+    this.nombreHijo= this.currentUser.email;
+    this.rolHijo=(this.currentUser.role)?'admin':'staff';
+    }
 
   ngOnInit(): void {
+    
   }
 
 }

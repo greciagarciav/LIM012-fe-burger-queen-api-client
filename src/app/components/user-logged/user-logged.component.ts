@@ -7,8 +7,8 @@ import { Component, OnInit, Input } from '@angular/core';
 })
 export class UserLoggedComponent implements OnInit {
 
-  nombreHijo: string = 'Paulina Sail';
-  rolHijo: string = 'admin';
+  nombreHijo: string;
+  rolHijo: string;
 
   currentUser: any;
 

@@ -1,5 +1,78 @@
-form{
-    .validations{
-        color:red;
+@import '../../app.component.scss';
+
+$head:17vh;
+
+.container-login {
+
+    background: map-get($colors, 'soft');
+    @include size(100%, 100vh - $head);
+    @include flex(center, center);
+    flex-direction: column;
+    margin-top: $head;
+
+    h2 {
+        text-align: center;
+        margin-bottom: 5%;
+    }
+
+    &-form {
+
+        background: map-get($colors, 'secundary');
+        margin-top: 0;
+        box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.25);
+        border-radius: 10px;
+        width: 46%;
+        padding: 4%;
+       
+        form {
+            
+            label {
+                background: map-get($colors, 'secundary');
+                font-size: 1.2em;
+                position: absolute;
+                height: 2em;
+                margin-top: -1.5%;
+                margin-left: 2%;
+            }
+
+            .container-login-form-input {
+                margin-bottom: 7%;
+                height: 3.8em;
+                margin-bottom: 5%;
+                border: 1px solid #000000;
+                box-sizing: border-box;
+                border-radius: 15px;
+
+                input {
+                    border-radius: 15px;
+                    border: none;
+                    margin-top: 5.3%;
+                    margin-left: 1%;
+                    width: 98%;
+
+                    &:focus {
+                        outline: none !important;
+                        outline-width: 0 !important;
+                        box-shadow: none;
+                    }
+                }
+            }
+
+            .validations {
+                color: map-get($colors, 'error');
+            }
+        }
+
+      .button-confirm{  
+        @include flex(center, center);
+
+          button {
+            
+            background: rgba(252, 150, 49, 0.93);
+            border-radius: 8px;
+            @include size(50%, 61px);
+            font-size: 1.5em;
+        }
+    }
     }
 }

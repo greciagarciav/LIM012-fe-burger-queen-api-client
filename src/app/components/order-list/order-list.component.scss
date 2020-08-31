@@ -1,3 +1,5 @@
+
+
 .container-order-list {
   height: 520px;
   display: flex;
@@ -58,9 +60,11 @@
     button.move {
       background: #d2eaf8;
       color: #47382b;
+      height: 2.5em;
     }
     button.cancel {
       background: #e35151;
+      height: 2.5em;
       img {
         width: 15px;
       }

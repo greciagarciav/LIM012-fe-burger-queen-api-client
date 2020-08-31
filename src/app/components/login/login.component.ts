@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, OnDestroy } from '@angular/core';
 import { AuthService } from "../../services/auth.service";
 import { error } from '@angular/compiler/src/util';
 import { Validators, FormGroup, FormControl } from '@angular/forms';
@@ -11,12 +11,12 @@ import { Subscription } from 'rxjs';
   templateUrl: './login.component.html',
   styleUrls: ['./login.component.scss']
 })
-export class LoginComponent implements OnInit {
+export class LoginComponent implements OnInit,OnDestroy {
   errorMessage: string = null;
   token: string;
-  // auth: Subscription = null;
+  auth: Subscription = null;
 
-  constructor(private router: Router, private auth: AuthService, private users: JsonApiService) { }
+  constructor(private router: Router, private auth$: AuthService, private users: JsonApiService) { }
 
   form = new FormGroup({
     email: new FormControl('', [Validators.required, Validators.email]),
@@ -39,7 +39,7 @@ export class LoginComponent implements OnInit {
     if (this.form.valid) {
       const objUser = { 'email': this.form.value.email, 'password': this.form.value.password };
 
-      this.auth.postUserLogin(objUser).subscribe((resp: any) => {
+      this.auth = this.auth$.postUserLogin(objUser).subscribe((resp: any) => {
         if (resp.status >= 200) {
           this.token = resp.body.token
 
@@ -81,9 +81,9 @@ export class LoginComponent implements OnInit {
 
 
 
-  // ngOnDestroy(): void {
-  //   console.log('ondestroy');
-  //   this.auth.unsubscribe();
-  // }
+  ngOnDestroy(): void {
+    console.log('ondestroy');
+    this.auth.unsubscribe();
+  }
 
 }

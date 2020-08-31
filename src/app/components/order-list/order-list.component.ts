@@ -1,23 +1,27 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Input, OnDestroy } from '@angular/core';
 import { OrdersService } from "../../services/orders/orders.service";
 import { Order } from 'src/app/model/order';
 import { Router} from '@angular/router';
+import { Subscription } from 'rxjs';
 
 @Component({
   selector: 'app-order-list',
   templateUrl: './order-list.component.html',
   styleUrls: ['./order-list.component.scss']
 })
-export class OrderListComponent implements OnInit {
+export class OrderListComponent implements OnInit,OnDestroy {
   orders: Order[];
   showMoveButton: boolean = false;
   showCancelButton: boolean = false;
  @Input() statusOrder: string;
+  orderSuscription: Subscription;
+  orderUpdateSuscription: Subscription;
+  orderDeleteSuscription: Subscription;
 
   constructor(private orders$:OrdersService, private router: Router) { }
 
   getOrders() {
-    this.orders$.getListOrders().subscribe((data: Order[])=>{
+   this.orderSuscription= this.orders$.getListOrders().subscribe((data: Order[])=>{
      this.orders = data;
     });
   }
@@ -35,16 +39,26 @@ export class OrderListComponent implements OnInit {
     this.showCancelButton = this.router.url == '/mesero/states' && this.statusOrder == 'pending';
   }
 
-  changeStatus(order:any) {
+  changeStatus(order:Order) {
     if (order.status == 'pending') {
       order.status = 'delivering';
     } else if (order.status == 'delivering') {
       order.status = 'delivered';
     }
-    this.orders$.updateOrder(order).subscribe()
+    this.orderUpdateSuscription= this.orders$.updateOrder(order).subscribe()
   }
 
-  removeOrder(order: any) {
-    this.orders$.deleteOrder(order.id).subscribe()
+  removeOrder(order: Order) {
+    this.orderDeleteSuscription= this.orders$.deleteOrder(order.id).subscribe()
   }
+
+  ngOnDestroy(): void {
+    console.log('ondestroy');
+    
+    this.orderSuscription.unsubscribe();
+
+    (this.orderUpdateSuscription)?this.orderUpdateSuscription.unsubscribe():null;
+    (this.orderDeleteSuscription)?this.orderDeleteSuscription.unsubscribe():null
+  }
+
 }

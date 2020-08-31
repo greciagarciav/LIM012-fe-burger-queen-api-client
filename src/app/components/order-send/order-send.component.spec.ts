@@ -44,50 +44,46 @@ describe('OrderSendComponent', () => {
     expect(component.products).toEqual([ ]);
   });
 
-  // it('should send order', () => {
-  //   const ordersService = TestBed.inject(OrdersService);
-  //   const http = TestBed.inject(HttpTestingController);
-  //   let orderPosted;
-  //   const objectOrder = {
-  //     "user": "",
-  //     "client": "grecia",
-  //     "products": [
-  //       {
-  //         "product": {
-  //           "_id": "122112",
-  //           "price": "5",
-  //           "name": "Café americano"
-  //         },
-  //         "qty": 3
-  //       },
-  //       {
-  //         "product": {
-  //           "_id": "56456",
-  //           "price": "7",
-  //           "name": "Café con leche"
-  //         },
-  //         "qty": 3
-  //       },
-  //       {
-  //         "product": {
-  //           "_id": "12333",
-  //           "price": "7",
-  //           "name": "Jugo de frutas natural"
-  //         },
-  //         "qty": 4
-  //       }
-  //     ],
-  //     "status": "pending",
-  //   };
+  it('createOrderFood, build upd the order', () => {
+    component.products = [{ id: "1", name: "café", price: 7, qty: 1 }, { id: "2", name: "leche", price: 7, qty: 1 }]
+    component.productsProduct = {_id: '1', price: 7, name: 'café'};
+    component.productQty = {product: component.productsProduct, qty: 1}
+    component.userId = 'test@test.com';
+    component.form.controls['client'].setValue('grecia');
+    component.createOrderFood();
+    const objOrder = {
+      user: component.userId,
+      client: 'grecia',
+      products: component.arrayProducts,
+      status: 'pending'
+    };
+    expect(component.orderTotal).toEqual(objOrder);
+  });
 
-  //   ordersService.postOrder(objectOrder).subscribe((response) => {
-  //     orderPosted = response;
-  //   });
+  it('should send order', () => {
+    const ordersService = TestBed.inject(OrdersService);
+    const http = TestBed.inject(HttpTestingController);
+    component.form.controls['client'].setValue('grecia');
+    component.products = [{ id: "1", name: "café", price: 7, qty: 1 }, { id: "2", name: "leche", price: 7, qty: 1 }]
+    component.productsProduct = {_id: '1', price: 7, name: 'café'};
+    component.productQty = {product: component.productsProduct, qty: 1}
+    component.userId = 'test@test.com';
+    component.createOrderFood();
+    let OrderPosted;
+    const objOrder = {
+      user: component.userId,
+      client: 'grecia',
+      products: component.arrayProducts,
+      status: 'pending'
+    };
+    ordersService.postOrder(objOrder).subscribe((response) => {
+      OrderPosted = response;
+    });
+    // http.expectOne('http://localhost:3000/orders').flush('postOrder');
+    component.sendOrder();
+    // expect(OrderPosted).toEqual('postOrder');
+  });
 
-  //   http.expectOne('http://localhost:3000/orders').flush('postOrder');
-  //   component.sendOrder();
-  //   expect(orderPosted).toEqual('postOrder');
-  // });
   it('trash, should delete product from list', () => {
     component.products = [{id: '1', price: 7, qty: 2}, {id: '2', price: 5, qty: 1}, {id: '3', price: 3, qty: 2}];
     component.total = 25;

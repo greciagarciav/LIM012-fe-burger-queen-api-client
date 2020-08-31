@@ -423,6 +423,22 @@
       ],
       "status": "pending",
       "id": "i6OTdFC"
+    },
+    {
+      "user": "",
+      "client": "grrrrr",
+      "products": [
+        {
+          "product": {
+            "_id": "56456",
+            "price": "7",
+            "name": "Café con leche"
+          },
+          "qty": 3
+        }
+      ],
+      "status": "pending",
+      "id": "LhJVKLy"
     }
   ]
 }

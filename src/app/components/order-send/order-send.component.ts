@@ -14,6 +14,10 @@ export class OrderSendComponent implements OnInit {
   confirmation: boolean = false;
   public userId: string = '';
   public objProd: any;
+  public orderTotal: any;
+  public productsProduct: any;
+  public productQty: any;
+  public arrayProducts: any;
 
   constructor(private orders$ : OrdersService) { }
 
@@ -28,6 +32,7 @@ export class OrderSendComponent implements OnInit {
       let exist = this.products.some(item => item.id == this.objProd.id);
       if (!exist) {
         this.objProd.qty = 1;
+        console.log(this.objProd)
         this.products.push(this.objProd);
         this.totalBill();
       }
@@ -64,28 +69,28 @@ export class OrderSendComponent implements OnInit {
   }
 
   createOrderFood() {
-    const arrayProducts = this.products.map(product => {
-      const productObj = {
+    this.arrayProducts = this.products.map(product => {
+      this.productsProduct = {
         _id : product.id,
         price : product.price,
         name : product.name
       };
 
-      const arrayProduct = {
-        product: productObj,
+      this.productQty = {
+        product: this.productsProduct,
         qty: product.qty,
       };
-      return arrayProduct;
+      return this.productQty;
     });
 
-    const orderTotal = {
+    this.orderTotal = {
       user: this.userId,
       client: this.form.value.client,
-      products: arrayProducts,
+      products: this.arrayProducts,
       status: "pending",
      };
 
-    return orderTotal;
+    return this.orderTotal;
   }
 
   sendOrder() {

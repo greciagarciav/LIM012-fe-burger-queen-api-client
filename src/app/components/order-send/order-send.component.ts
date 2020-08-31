@@ -26,7 +26,7 @@ export class OrderSendComponent implements OnInit {
     this.orders$.buttonAddClickEventTrack.subscribe(event => {
       this.objProd = this.orders$.getObjectOrderProduct();
       let exist = this.products.some(item => item.id == this.objProd.id);
-      if (!exist) { 
+      if (!exist) {
         this.objProd.qty = 1;
         this.products.push(this.objProd);
         this.totalBill();

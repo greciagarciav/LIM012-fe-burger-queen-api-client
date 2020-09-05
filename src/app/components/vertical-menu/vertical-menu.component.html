@@ -1,21 +1,21 @@
 <aside>
-    <div class='logo'>
-        <img src="../../../assets/images/BQ.png" alt="logoBQ">
-    </div>
-    <div class='icons' *ngFor="let option of menuAdmin">
-       <div class='each-icon' (click)='changeImage()'>
-            <a routerLink={{option.href}} routerLinkActive="active">
-                <i class={{option.icon}}></i>
-                <h2>{{option.title}}</h2>
-            </a>
-       </div>
-      
-   </div> 
-   <div class='icon-logout' (click)='onLogout()'>
-        <a routerLink='/' routerLinkActive="">
-            <i class='fa fa-sign-out'></i>
-            <h2>Salir</h2>
-        </a>
-    </div>
+  <div class='logo'>
+      <img src="../../../assets/images/BQ.png" alt="logoBQ">
+  </div>
+  <div class='icons' *ngFor="let option of menuAdmin">
+     <div class='each-icon' (click)='changeImage()'>
+          <a routerLink={{option.href}} routerLinkActive="active">
+              <i class={{option.icon}}></i>
+              <h2>{{option.title}}</h2>
+          </a>
+     </div>
+
+ </div>
+ <div class='icon-logout' (click)='onLogout()'>
+      <a routerLink='/' routerLinkActive="">
+          <i class='fa fa-sign-out'></i>
+          <h2>Salir</h2>
+      </a>
+  </div>
 
 </aside>

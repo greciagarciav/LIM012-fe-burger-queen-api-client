@@ -5,13 +5,17 @@ import { AddNewUserComponent } from './add-new-user.component';
 import { User } from '../../model/user'
 import { ReactiveFormsModule, FormsModule } from '@angular/forms';
 import { HttpTestingController, HttpClientTestingModule } from '@angular/common/http/testing';
+import { JsonApiService } from '../../services/JsonApiService.service';
+import { of } from 'rxjs';
 
 describe('AddNewUserComponent', () => {
   let component: AddNewUserComponent;
   let fixture: ComponentFixture<AddNewUserComponent>;
+  let service: JsonApiService;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
+      providers: [JsonApiService],
       imports: [
         FormsModule,
         ReactiveFormsModule,
@@ -28,10 +32,9 @@ describe('AddNewUserComponent', () => {
   beforeEach(() => {
     fixture = TestBed.createComponent(AddNewUserComponent);
     component = fixture.componentInstance;
+    service = TestBed.inject(JsonApiService);
     fixture.detectChanges();
-
     component.ngOnInit()
-
   });
 
   it('should form invalid when empty',()=>{
@@ -63,8 +66,24 @@ describe('AddNewUserComponent', () => {
     expect(userAdded.password).toBe('123456789');
   });
 
+  // it('addUser, should call service.postUser', () => {
+  //   spyOn(service, 'postUser');
+  //   component.addUser();
+
+  //   expect(service.postUser).toHaveBeenCalled();
+  // });
+
+  it('addUser, should send success response to addUser', () => {
+    spyOn(component, 'addUser');
+    component.addUser();
+
+    expect(component.addUser).toHaveBeenCalled();
+  });
+
   it('should create', () => {
     expect(component).toBeTruthy();
   });
+
+
 });
 

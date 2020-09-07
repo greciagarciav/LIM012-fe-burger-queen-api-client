@@ -14,14 +14,14 @@ export class LoginComponent implements OnInit {
   errorMessage: string=null;
 token:string;
   constructor(private router:Router, private auth: AuthService, private users:JsonApiService) {}
-   
+
    form = new FormGroup({
     email: new FormControl('', [Validators.required, Validators.email]),
     password: new FormControl('', [Validators.required])
   });
 
   ngOnInit(): void {
-    
+
   }
 
   getEmail() {
@@ -35,7 +35,7 @@ token:string;
   authUser(): void {
   if(this.form.valid){
     const objUser = {'email':this.form.value.email,'password':this.form.value.password};
-  
+
     this.auth.postUserLogin(objUser).subscribe((resp: any) => {
         if (resp.status >= 200) {
          this.token = resp.body.token
@@ -53,24 +53,25 @@ token:string;
               'token': this.token,
               }
 
-            localStorage.setItem('usuario', JSON.stringify(authUser));
-            role ? this.router.navigate(['/admin']) : this.router.navigate(['/mesero'])
-              
+              localStorage.setItem('usuario', JSON.stringify(authUser));
+              role ? this.router.navigate(['/admin']) : this.router.navigate(['/mesero'])
+
             }else{
+              localStorage.removeItem('usuario');
               this.errorMessage= 'este usuario no existe intente de nuevo'
             }
-            
+
           })
         }
         else{
           this.errorMessage= 'ocurrio un error intente de nuevo'
         }
-        
+
       }, error => {
         this.errorMessage = 'no hay no se proveen `email` o `password` o ninguno de los dos'
       });
-    
-    
+
+
     }else{
       this.form.markAllAsTouched()
     }

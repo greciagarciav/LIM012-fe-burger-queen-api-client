@@ -84,6 +84,11 @@
       "email": "carlos@emef.com",
       "password": "jhjdhfjd",
       "id": 61
+    },
+    {
+      "email": "gm@bh.com",
+      "password": "2332434",
+      "id": 62
     }
   ],
   "users": [
@@ -344,7 +349,7 @@
           }
         }
       ],
-      "status": "delivering",
+      "status": "delivered",
       "dateEntry": "Date"
     },
     {
@@ -424,7 +429,7 @@
           }
         }
       ],
-      "status": "delivering",
+      "status": "delivered",
       "dateEntry": "Date"
     },
     {
@@ -494,6 +499,23 @@
       ],
       "status": "pending",
       "id": "LhJVKLy"
+    },
+    {
+      "user": "",
+      "client": "gree",
+      "products": [
+        {
+          "product": {
+            "_id": "12333",
+            "price": "7",
+            "name": "Jugo de frutas natural"
+          },
+          "qty": 2
+        }
+      ],
+      "status": "pending",
+      "dateEntry": "2020-09-07T18:53:40.003Z",
+      "id": "oh3xcPt"
     }
   ]
 }

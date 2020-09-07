@@ -41,7 +41,7 @@ export class OrderListComponent implements OnInit {
     } else if (order.status == 'delivering') {
       order.status = 'delivered';
     }
-    this.orders$.updateOrder(order).subscribe()
+    this.orders$.updateOrder(order, order.id).subscribe()
   }
 
   removeOrder(order: any) {

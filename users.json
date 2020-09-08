@@ -21,66 +21,6 @@
       "id": 48
     },
     {
-      "email": "tbtgn@hyt.com",
-      "password": "32424",
-      "id": 49
-    },
-    {
-      "email": "gm@bh.com",
-      "password": "123",
-      "id": 50
-    },
-    {
-      "email": "gm@bh.com",
-      "password": "hjhkjhjhj",
-      "id": 51
-    },
-    {
-      "email": "ghjghjghj@fdfdf",
-      "password": "ghjghjgjg",
-      "id": 52
-    },
-    {
-      "email": "jkdjfkdjf@frddf",
-      "password": "123456",
-      "id": 53
-    },
-    {
-      "email": "juhjfdhfd@dfkdfd",
-      "password": "fdfdfdf",
-      "id": 54
-    },
-    {
-      "email": "dkjs@dfkd",
-      "password": "dsdsds",
-      "id": 55
-    },
-    {
-      "email": "fdfdsfdf@sdf",
-      "password": "fdfdfdf",
-      "id": 56
-    },
-    {
-      "email": "jhdsjhdjs@dksjd",
-      "password": "sdsds",
-      "id": 57
-    },
-    {
-      "email": "hgjgh@jhds",
-      "password": "dsdsds",
-      "id": 58
-    },
-    {
-      "email": "ghghg@fdgfg",
-      "password": "ytytyty",
-      "id": 59
-    },
-    {
-      "email": "gm@bh.com",
-      "password": "gfgddgf",
-      "id": 60
-    },
-    {
       "email": "carlos@emef.com",
       "password": "jhjdhfjd",
       "id": 61
@@ -91,9 +31,9 @@
       "id": 62
     },
     {
-      "email": "vsd@s.com",
-      "password": "12334556",
-      "id": 63
+      "email": "harvie@gmail.com",
+      "password": "3434",
+      "id": 51
     }
   ],
   "users": [
@@ -394,7 +334,7 @@
           }
         }
       ],
-      "status": "delivering",
+      "status": "delivered",
       "dateEntry": "Date"
     },
     {

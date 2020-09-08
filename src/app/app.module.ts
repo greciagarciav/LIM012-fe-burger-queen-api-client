@@ -6,6 +6,8 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 // import { ConfirmationPopoverModule } from 'angular-confirmation-popover';
 
+// import { MatCardModule } from '@angular/material/card';
+
 import { AdminComponent } from './views/admin/admin.component';
 import { HeaderComponent } from './components/header/header.component';
 import { VerticalMenuComponent } from './components/vertical-menu/vertical-menu.component';
@@ -61,6 +63,7 @@ import { LoginComponent } from './components/login/login.component';
     HttpClientModule,
     ReactiveFormsModule,
     FormsModule,
+    // MatCardModule,
     ConfirmationPopoverModule.forRoot({
       confirmButtonType: 'danger', // set defaults here
     }),

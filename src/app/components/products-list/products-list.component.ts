@@ -3,6 +3,7 @@ import { ProductsService } from "../../services/products.service";
 import { OrdersService } from '../../services/orders/orders.service';
 import { Product } from 'src/app/model/products';
 import { ActivatedRoute, Router } from '@angular/router';
+import { Subscription } from 'rxjs';
 
 @Component({
   selector: 'app-products-list',
@@ -23,6 +24,7 @@ export class ProductsListComponent implements OnInit {
   path: any;
   buttons: boolean = null;
   public productOrder: object;
+  productsSuscription: Subscription=null;
 
   constructor(private product$: ProductsService, private order$: OrdersService, private route: ActivatedRoute, private router: Router) {
     this.path = route.snapshot.routeConfig.path;
@@ -30,10 +32,10 @@ export class ProductsListComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    this.product$.refresh$.subscribe(() => {
+    this.productsSuscription =this.product$.refresh$.subscribe(() => {
       this.getProducts()
     })
-    this.getProducts();
+   this.getProducts();
     this.showAddButton = this.router.url == '/mesero/orders';
   }
 
@@ -78,6 +80,11 @@ export class ProductsListComponent implements OnInit {
         this.filterProd = type
         break;
     }
+  }
+
+  ngOnDestroy(): void {
+    console.log('ondestroy');
+    this.productsSuscription.unsubscribe();
   }
 
 }

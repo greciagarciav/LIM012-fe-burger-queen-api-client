@@ -1,13 +1,13 @@
 @import '../../app.component';
 
 header {
-    @include size(88%, 105px);
+    @include size(88%, 17vh);
     @include flex(center,space-between);
     color: map-get($colors, 'letter');
+    z-index: -2;
     position: absolute;
     top: 0;
     font-family: FonBold;
-    // justify-content: space-between;
 
   &-title {
       display: flex;

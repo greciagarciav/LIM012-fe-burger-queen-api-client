@@ -1,13 +1,14 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, OnDestroy } from '@angular/core';
 import { OrdersService } from '../../services/orders/orders.service';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
+import { Subscription } from 'rxjs';
 
 @Component({
   selector: 'app-order-send',
   templateUrl: './order-send.component.html',
   styleUrls: ['./order-send.component.scss']
 })
-export class OrderSendComponent implements OnInit {
+export class OrderSendComponent implements OnInit,OnDestroy {
   products = [];
   total: number;
   form: FormGroup;
@@ -18,6 +19,8 @@ export class OrderSendComponent implements OnInit {
   public productsProduct: any;
   public productQty: any;
   public arrayProducts: any;
+  orderSuscription: Subscription=null;
+  orderSendSuscription: Subscription=null;
 
   constructor(private orders$ : OrdersService) { }
 
@@ -27,7 +30,7 @@ export class OrderSendComponent implements OnInit {
   }
 
   listenAddProduct() {
-    this.orders$.buttonAddClickEventTrack.subscribe(event => {
+    this.orderSuscription = this.orders$.buttonAddClickEventTrack.subscribe(event => {
       this.objProd = this.orders$.getObjectOrderProduct();
       let exist = this.products.some(item => item.id == this.objProd.id);
       if (!exist) {
@@ -95,7 +98,7 @@ export class OrderSendComponent implements OnInit {
 
   sendOrder() {
     if(this.form.valid) {
-    this.orders$.postOrder(this.createOrderFood()).subscribe((data: any) => {
+      this.orderSendSuscription = this.orders$.postOrder(this.createOrderFood()).subscribe((data: any) => {
       this.form.reset();
       this.confirmation = false;
       this.cleanList();
@@ -113,4 +116,13 @@ export class OrderSendComponent implements OnInit {
   totalBill() {
     this.total = this.products.reduce((acc, obj) => acc + (obj.price * obj.qty), 0);
   }
+
+  ngOnDestroy(): void {
+    console.log('ondestroy');
+    this.orderSuscription.unsubscribe();
+    if( this.orderSendSuscription){
+      this.orderSendSuscription.unsubscribe();
+     } 
+  }
+
 }

@@ -4,14 +4,9 @@ import { ConfirmationPopoverModule } from 'angular-confirmation-popover';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-// import { ConfirmationPopoverModule } from 'angular-confirmation-popover';
-
-// import { MatCardModule } from '@angular/material/card';
-
 import { AdminComponent } from './views/admin/admin.component';
 import { HeaderComponent } from './components/header/header.component';
 import { VerticalMenuComponent } from './components/vertical-menu/vertical-menu.component';
-import { NavSearchComponent } from './components/nav-search/nav-search.component';
 import { StaffList } from './components/staff-list/staff-list.component';
 import { ViewInventaryComponent } from './views/admin/view-inventary/view-inventary.component';
 import { ViewStaffComponent } from './views/admin/view-staff/view-staff.component';
@@ -40,7 +35,6 @@ import { LoginComponent } from './components/login/login.component';
     HeaderComponent,
     VerticalMenuComponent,
     AdminComponent,
-    NavSearchComponent,
     StaffList,
     ViewInventaryComponent,
     ViewStaffComponent,

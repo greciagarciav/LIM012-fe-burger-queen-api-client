@@ -45,7 +45,10 @@ export class OrderListComponent implements OnInit,OnDestroy {
     } else if (order.status == 'delivering') {
       order.status = 'delivered';
     }
+    
+    this.orders$.updateOrder(order, order.id).subscribe()
     this.orderUpdateSuscription= this.orders$.updateOrder(order).subscribe()
+
   }
 
   removeOrder(order: Order) {

@@ -13,8 +13,7 @@ export class AddNewUserComponent implements OnInit {
   errorMessage: string = 'default'
 
   constructor(private formBuilder: FormBuilder, private json: JsonApiService) {
-    this.buildForm()
-
+    this.buildForm();
   }
 
   ngOnInit(): void {

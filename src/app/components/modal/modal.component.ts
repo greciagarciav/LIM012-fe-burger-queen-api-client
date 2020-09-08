@@ -1,8 +1,8 @@
 import { Component, OnInit, Input, Output } from '@angular/core';
 import { JsonApiService } from 'src/app/services/JsonApiService.service';
-import { FormBuilder, FormGroup } from '@angular/forms';
-import { ReactiveFormsModule } from '@angular/forms';
-import { ActivatedRoute } from '@angular/router';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+// import { ReactiveFormsModule } from '@angular/forms';
+// import { ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-modal',
@@ -15,45 +15,42 @@ export class ModalComponent implements OnInit {
   @Input() closeCallback = () => (false);
 
   @Input() set contacto(valor) {
-    this.crearForm()
+    this.crearForm();
     if (valor) {
-      this.contactOriginal = valor
-      this.form.patchValue({
+      this.contactOriginal = valor;
+      this.editForm.patchValue({
         email: valor.email,
-        constraseña: '',
-      })
-
+        password: '',
+      });
     }
   }
 
-  form: FormGroup
-  contactOriginal: any
+  editForm: FormGroup;
+  contactOriginal: any;
 
-  constructor(private json: JsonApiService, private fb: FormBuilder){}
+  constructor(private json: JsonApiService, private fb: FormBuilder){
+    this.crearForm();
+  }
 
   ngOnInit() {
   }
   crearForm() {
-    this.form = this.fb.group({
-      email: '',
-      constraseña: '',
+    this.editForm = this.fb.group({
+      email: ['', [Validators.required, Validators.email]],
+      password: ['', [Validators.required]],
     })
   }
   onGuardar() {
     const user = {
-      "email": this.form.value.email,
-      "password": this.form.value.constraseña,
+      "email": this.editForm.value.email,
+      "password": this.editForm.value.password,
       "roles": {
         "admin": false
       }
     }
-    if(this.form.valid){
+    if(this.editForm.valid){
       this.json.putUser(user, this.contactOriginal.id).subscribe()
     }
-    
-  }
-  closeEdition() {
 
   }
-
 }

@@ -6,17 +6,17 @@
         <img src="assets/images/BQ.png" alt="">
       </div>
       <h2>Editar Usuario</h2>
-      <form class="form" [formGroup]="form" (ngSubmit)="onGuardar()">
-          <input type="text" placeholder="email"name="email" formControlName="email">
-          <input type="text" placeholder="constraseña" #passw formControlName="constraseña">
+      <form class="form" [formGroup]="editForm" (ngSubmit)="onGuardar()">
+          <input type="text" placeholder="email" name="email" formControlName="email">
+          <input type="text" placeholder="constraseña" #passw formControlName="password">
         <div class="cancel-save">
           <button type='button' class="cancel" (click)="passw.value=''" (click)="closeCallback()">Cancelar</button>
           <button type='submit' class="save" (click)="passw.value=''" (click)="closeCallback()">Guardar</button>
         </div>
       </form>
   </div>
-    
+
 
   </div>
-  
+
 </div>

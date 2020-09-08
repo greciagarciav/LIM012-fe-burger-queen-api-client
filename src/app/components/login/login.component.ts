@@ -11,18 +11,21 @@ import { Subscription } from 'rxjs';
   templateUrl: './login.component.html',
   styleUrls: ['./login.component.scss']
 })
+
 export class LoginComponent implements OnInit,OnDestroy {
-  errorMessage: string = null;
-  token: string;
-  auth: Subscription = null;
-
-  constructor(private router: Router, private auth$: AuthService, private users: JsonApiService) { }
-
+  errorMessage: string=null;
+token:string;
+   auth: Subscription = null;
+  constructor(private router:Router, private auth: AuthService, private users:JsonApiService) {}
+  
   form = new FormGroup({
     email: new FormControl('', [Validators.required, Validators.email]),
     password: new FormControl('', [Validators.required])
   });
 
+  ngOnInit(): void {
+
+  }
   getEmail() {
     return this.form.get('email')
   }
@@ -31,15 +34,13 @@ export class LoginComponent implements OnInit,OnDestroy {
     return this.form.get('password')
   }
 
-  ngOnInit(): void {
-    
-  }
-
   authUser(): void {
+
     if (this.form.valid) {
       const objUser = { 'email': this.form.value.email, 'password': this.form.value.password };
 
       this.auth = this.auth$.postUserLogin(objUser).subscribe((resp: any) => {
+
         if (resp.status >= 200) {
           this.token = resp.body.token
 
@@ -59,9 +60,10 @@ export class LoginComponent implements OnInit,OnDestroy {
               localStorage.setItem('usuario', JSON.stringify(authUser));
               role ? this.router.navigate(['/admin']) : this.router.navigate(['/mesero'])
 
-            } else {
-              this.errorMessage = 'este usuario no existe intente de nuevo'
-            }
+            }else{
+              localStorage.removeItem('usuario');
+              this.errorMessage= 'este usuario no existe intente de nuevo'
+            } 
 
           })
         }
@@ -72,9 +74,9 @@ export class LoginComponent implements OnInit,OnDestroy {
       }, error => {
         this.errorMessage = 'no hay no se proveen `email` o `password` o ninguno de los dos'
       });
-
-
-    } else {
+      
+    }else{
+      
       this.form.markAllAsTouched()
     }
   }

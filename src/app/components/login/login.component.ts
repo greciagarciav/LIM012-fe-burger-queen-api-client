@@ -16,7 +16,7 @@ export class LoginComponent implements OnInit,OnDestroy {
   errorMessage: string=null;
 token:string;
    auth: Subscription = null;
-  constructor(private router:Router, private auth: AuthService, private users:JsonApiService) {}
+  constructor(private router:Router, private auth$: AuthService, private users:JsonApiService) {}
   
   form = new FormGroup({
     email: new FormControl('', [Validators.required, Validators.email]),

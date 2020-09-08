@@ -34,6 +34,16 @@
       "email": "harvie@gmail.com",
       "password": "3434",
       "id": 51
+    },
+    {
+      "email": "harvie@gmail.com",
+      "password": "234234",
+      "id": 63
+    },
+    {
+      "email": "gm@bh.com",
+      "password": "1234",
+      "id": 64
     }
   ],
   "users": [
@@ -70,12 +80,12 @@
       "id": "6xre9f3"
     },
     {
-      "email": "vsd@s.com",
+      "email": "jhon@vr.com",
       "roles": {
         "admin": false
       },
-      "password": "123321",
-      "id": "8776zIW"
+      "password": "123456",
+      "id": "iDPG14R"
     }
   ],
   "products": [
@@ -174,14 +184,6 @@
       "image": "./../assets/images/gaseosa.png",
       "type": "drink",
       "dateEntry": "04/05/2020"
-    },
-    {
-      "name": "bbbbt",
-      "price": 1231,
-      "image": "assets/images/BQ.png",
-      "type": "breakfast",
-      "dateEntry": "2020-08-07",
-      "id": "VssTok8"
     },
     {
       "name": "h4i4543534",
@@ -399,54 +401,6 @@
     },
     {
       "user": "",
-      "client": "grecia",
-      "products": [
-        {
-          "product": {
-            "_id": "122112",
-            "price": "5",
-            "name": "Café americano"
-          },
-          "qty": 3
-        },
-        {
-          "product": {
-            "_id": "56456",
-            "price": "7",
-            "name": "Café con leche"
-          },
-          "qty": 3
-        },
-        {
-          "product": {
-            "_id": "12333",
-            "price": "7",
-            "name": "Jugo de frutas natural"
-          },
-          "qty": 4
-        }
-      ],
-      "status": "pending",
-      "id": "i6OTdFC"
-    },
-    {
-      "user": "",
-      "client": "grrrrr",
-      "products": [
-        {
-          "product": {
-            "_id": "56456",
-            "price": "7",
-            "name": "Café con leche"
-          },
-          "qty": 3
-        }
-      ],
-      "status": "pending",
-      "id": "LhJVKLy"
-    },
-    {
-      "user": "",
       "client": "gree",
       "products": [
         {
@@ -461,6 +415,30 @@
       "status": "pending",
       "dateEntry": "2020-09-07T18:53:40.003Z",
       "id": "oh3xcPt"
+    },
+    {
+      "user": "",
+      "client": "Grecia",
+      "products": [
+        {
+          "product": {
+            "_id": "122112",
+            "price": "5",
+            "name": "Café americano"
+          },
+          "qty": 1
+        },
+        {
+          "product": {
+            "_id": "33445",
+            "price": "10",
+            "name": "Sandwich de jamón y queso"
+          },
+          "qty": 1
+        }
+      ],
+      "status": "delivering",
+      "id": "jDiKmkc"
     }
   ]
 }

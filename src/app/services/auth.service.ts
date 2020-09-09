@@ -14,12 +14,19 @@ export class AuthService {
   public user : Observable<any>;
   public url: string;
 
-
   constructor(private http: HttpClient) {
     this.url = environment.apiUrl;
     this.userSubject = new BehaviorSubject<any>(localStorage.getItem('usuario'));
     this.user = this.userSubject.asObservable();
   }
+
+  getToken(data: any) {
+    return this.http.post<any>(`${this.url}auth`, data , { observe: 'response' });
+  };
+
+  getUser(email:string, token: string) {
+    return this.http.get<any>(`${this.url}users/${email}`, { headers: { Authorization: `Bearer ${token}` } });
+  };
 
   postUserLogin(body: object): Observable<any> {
     return this.http.post(`${this.url}auth`, body, { observe: 'response' })

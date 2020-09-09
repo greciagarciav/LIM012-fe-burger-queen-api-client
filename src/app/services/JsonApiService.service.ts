@@ -12,12 +12,13 @@ import { User } from '../model/user';
 })
 
 export class JsonApiService {
+  user = JSON.parse(localStorage.getItem(('usuario')));
 
-  token:string =JSON.parse(localStorage.getItem('usuario'));
+  token:string = this.user.token;
   headers = new HttpHeaders(
     {
-      'Authorization': 'Bearer' + this.token,
-      'Content-Type': 'application/json'
+      'Authorization': 'Bearer ' + this.token,
+      // 'Content-Type': 'application/json'
     })
 
   public url: string = environment.apiUrl + 'users/';

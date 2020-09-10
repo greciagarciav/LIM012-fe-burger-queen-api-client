@@ -22,35 +22,22 @@ export class UserLoggedComponent implements OnInit {
   }
 
 
-  showUser() {
-  return this.auth.user.subscribe((datauser)=>{
-    if (datauser !== null) {
-    this.currentUser = datauser
-    this.nombreHijo=this.currentUser.email
-    this.rolHijo = (this.currentUser.role) ? 'admin' : 'staff';
-    this.show = true
-    }else{
+  // showUser() {
+  // return this.auth.user.subscribe((datauser)=>{
+  //   if (datauser !== null) {
+  //   this.currentUser = datauser
+  //   this.nombreHijo=this.currentUser.email
+  //   this.rolHijo = (this.currentUser.role) ? 'admin' : 'staff';
+  //   this.show = true
+  //   }else{
 
-      this.show = false;
-    }
-  })
-  }
+  //     this.show = false;
+  //   }
+  // })
+  // }
 
   ngOnInit(): void {
-
-    this.auth.refresh$.subscribe(() => {
-     this.showUser()
-
-    })
-   
-    this.subj= this.showUser()
-
   }
 
-  ngOnDestroy(): void {
-if(this.router.url !== ''){
-   this.subj.unsubscribe()
-}
-   
-  }
+  
 }

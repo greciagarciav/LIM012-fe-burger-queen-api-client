@@ -48,11 +48,11 @@ describe('OrderSendComponent', () => {
     component.products = [{ id: "1", name: "café", price: 7, qty: 1 }, { id: "2", name: "leche", price: 7, qty: 1 }]
     component.productsProduct = {_id: '1', price: 7, name: 'café'};
     component.productQty = {product: component.productsProduct, qty: 1}
-    component.userId = 'test@test.com';
+    component.user = 'test@test.com';
     component.form.controls['client'].setValue('grecia');
     component.createOrderFood();
     const objOrder = {
-      user: component.userId,
+      user: component.user,
       client: 'grecia',
       products: component.arrayProducts,
       status: 'pending'
@@ -67,11 +67,11 @@ describe('OrderSendComponent', () => {
     component.products = [{ id: "1", name: "café", price: 7, qty: 1 }, { id: "2", name: "leche", price: 7, qty: 1 }]
     component.productsProduct = {_id: '1', price: 7, name: 'café'};
     component.productQty = {product: component.productsProduct, qty: 1}
-    component.userId = 'test@test.com';
+    component.user = 'test@test.com';
     component.createOrderFood();
     let OrderPosted;
     const objOrder = {
-      user: component.userId,
+      user: component.user,
       client: 'grecia',
       products: component.arrayProducts,
       status: 'pending'

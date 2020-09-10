@@ -21,12 +21,12 @@ export class HeaderComponent implements OnInit {
 
   ngOnInit(): void {
     const subj = new Subject<number>();
- 
+
     subj.subscribe({
       next: (n) => console.log(n)
     })
 
     subj.next(4);
- 
+
   }
 }

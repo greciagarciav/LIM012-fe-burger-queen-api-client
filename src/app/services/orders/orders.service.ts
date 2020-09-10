@@ -9,7 +9,7 @@ import { tap } from 'rxjs/operators';
 })
 
 export class OrdersService {
-
+  user = JSON.parse(localStorage.getItem(('usuario')));
   public objectOrderProduct: object;
   token:string =JSON.parse(localStorage.getItem('usuario'));
 
@@ -41,11 +41,11 @@ export class OrdersService {
   }
 
   getListOrders(){
-    return this.http.get(`${this.url}`, { headers: this.headers });
+    return this.http.get(`${this.url}`, { headers: { Authorization: `Bearer ${this.user.token}` } });
   }
 
   updateOrder(order: any, id: string) {
-    return this.http.put(this.url + id, order, { headers: this.headers, observe : 'response' })
+    return this.http.put(this.url + id, order, { headers: { Authorization: `Bearer ${this.user.token}` }})
     .pipe(
       tap(data => data),
       tap(() => {
@@ -55,7 +55,7 @@ export class OrdersService {
   }
 
   postOrder(order: object): Observable<any> {
-    return this.http.post(this.url, (order), { headers: this.headers })
+    return this.http.post(this.url, (order), { headers: { Authorization: `Bearer ${this.user.token}` } })
       .pipe(
         tap(()=> {
           this.refresh$.next();
@@ -64,7 +64,7 @@ export class OrdersService {
   }
 
   deleteOrder(id: string) {
-    return this.http.delete(`${this.url}${id}`, { headers: this.headers }).pipe(
+    return this.http.delete(`${this.url}${id}`, { headers: { Authorization: `Bearer ${this.user.token}` } }).pipe(
       tap(() => {
         this.refresh$.next();
       })

@@ -1,9 +1,9 @@
 export class Product {
-    "id": string;
-    "name": string;
-    "price": number;
-    "image": string;
-    "type": string;
-    "dateEntry": Date;
+  "_id": string;
+  "name": string;
+  "price": number;
+  "image": string;
+  "type": string;
+  "dateEntry": Date;
 //   id: any;
 }

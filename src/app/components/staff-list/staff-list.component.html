@@ -12,15 +12,15 @@
         <td>{{i+1}}</td>
         <td #valor>{{details.email}}</td>
         <td class="edit-delete">
-          <button class="edit" 
-          (click)="toggleModal()" 
+          <button class="edit"
+          (click)="toggleModal()"
          (click)="onEditar(details)" >
 
             <img src="assets/images/edit.png" alt=""> <a>
           Editar</a>
           </button>
           <button class="delete" mwlConfirmationPopover [popoverTitle]="popoverTitle" [popoverMessage]="popoverMessage"
-            placement="left" (confirm)="lessUser(details.id,valor)" (cancel)="cancelClicked = true"
+            placement="left" (confirm)="lessUser(details.email,valor)" (cancel)="cancelClicked = true"
             popoverClass="popup">
             <img src="assets/images/delete.png" alt="">
             Eliminar

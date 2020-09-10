@@ -56,7 +56,7 @@ export class ProductsListComponent implements OnInit {
   }
   lessProduct(product) {
     this.product$.deleteProduct(product).subscribe(dat => {
-      this.products = this.products.filter(prod => prod.id != product.id)
+      this.products = this.products.filter(prod => prod._id != product.id)
     })
   }
 

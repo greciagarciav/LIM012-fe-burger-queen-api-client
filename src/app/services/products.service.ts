@@ -10,8 +10,9 @@ import { renderFlagCheckIfStmt } from '@angular/compiler/src/render3/view/templa
   providedIn: 'root'
 })
 export class ProductsService {
+  user = JSON.parse(localStorage.getItem(('usuario')));
 
-  token:string =JSON.parse(localStorage.getItem('usuario'));
+  // token:string =JSON.parse(localStorage.getItem('usuario'));
 
   constructor(public http: HttpClient) { }
 
@@ -19,23 +20,23 @@ export class ProductsService {
   private subjectSource = new Subject<void>();
   public countdown$ = this.subjectSource.asObservable();
 
-  headers = new HttpHeaders(
-    {
-      'Authorization': 'Bearer '+ this.token,
-      'Content-Type': 'application/json'
-    })
+  // headers = new HttpHeaders(
+  //   {
+  //     'Authorization': 'Bearer '+ this.token,
+  //     'Content-Type': 'application/json'
+  //   })
 
-get refresh$(){
-  return this.subjectSource
-}
+  get refresh$(){
+    return this.subjectSource
+  }
 
 
   getListProducts(): Observable<any> {
-    return this.http.get(this.url, { headers: this.headers });
+    return this.http.get(this.url, { headers: { Authorization: `Bearer ${this.user.token}` } });
   }
 
   postProduct(product: object): Observable<any> {
-    return this.http.post(this.url, product, { headers: this.headers })
+    return this.http.post(this.url, product, { headers: { Authorization: `Bearer ${this.user.token}` } })
       .pipe(
         tap(() => {
           this.refresh$.next()
@@ -45,7 +46,7 @@ get refresh$(){
   }
 
   updateProduct(body: any, id: string) {
-    return this.http.put(this.url + id, body, { headers: this.headers, observe: 'response' })
+    return this.http.put(this.url + id, body, { headers: { Authorization: `Bearer ${this.user.token}` } })
       .pipe(
         tap(data => data),
         tap(() => {
@@ -56,10 +57,12 @@ get refresh$(){
   }
 
   deleteProduct(product: any) {
-    return this.http.delete(this.url + product.id)
+    return this.http.delete(this.url + product._id, { headers: { Authorization: `Bearer ${this.user.token}` } })
       .pipe(
         catchError(this.handleError),
-
+        tap(() => {
+          this.refresh$.next()
+        })
       )
   }
 

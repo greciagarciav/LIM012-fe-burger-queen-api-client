@@ -1,46 +1,46 @@
 <div class="row">
-   <div class="buttons">
-        <div class="container-menu-main">
-            <button class="menu-main no-selected"
+  <div class="buttons">
+       <div class="container-menu-main">
+           <button class="menu-main no-selected"
 
-            (click)="filterType('breakfast')"
-            >Desayunos</button>
-            <button class="menu-main no-selected" (click)="filterType('lunch')" >Almuerzo/Cena</button>
+           (click)="filterType('breakfast')"
+           >Desayunos</button>
+           <button class="menu-main no-selected" (click)="filterType('lunch')" >Almuerzo/Cena</button>
 
-        </div>
-        <div *ngIf="show=='lunch'">
-            <button class="menu-child no-selected"
+       </div>
+       <div *ngIf="show=='lunch'">
+           <button class="menu-child no-selected"
 
-            (click)="filterType('hamburguer')">Hamburguesas</button>
-            <button class="menu-child no-selected"
+           (click)="filterType('hamburguer')">Hamburguesas</button>
+           <button class="menu-child no-selected"
 
-            (click)="filterType('accompaniment')">Acompañamientos</button>
-            <button class="menu-child no-selected"
+           (click)="filterType('accompaniment')">Acompañamientos</button>
+           <button class="menu-child no-selected"
 
-            (click)="filterType('drink')">Para tomar</button>
-        </div>
+           (click)="filterType('drink')">Para tomar</button>
+       </div>
+  </div>
+   <div class="panel-cards">
+       <div class="card-product" *ngFor="let item of products | filter: filterProd ">
+           <i *ngIf="showAddButton" class="fas fa-plus-circle" (click)="buttonAdd(item)"></i>
+           <div class="card-img">
+               <img src={{item.image}} alt="">
+           </div>
+           <div class="card-text">
+               <h3>{{item.name}}</h3>
+               <h4>S/ {{item.price}}</h4>
+           </div>
+           <div class="btn-options" *ngIf="buttons">
+               <button class="edit"(click)="editProduct(item)" (click)="editProp=true">
+                   <img src="assets/images/edit.png" alt="">Editar
+               </button>
+
+               <button class="delete" mwlConfirmationPopover [popoverTitle]="popoverTitle"
+                   [popoverMessage]="popoverMessage" placement="left" (confirm)="lessProduct(item)"
+                   (cancel)="cancelClicked = true" popoverClass="popup"> Eliminar
+               </button>
+           </div>
+       </div>
    </div>
-    <div class="panel-cards">
-        <div class="card-product" *ngFor="let item of products | filter: filterProd ">
-            <i *ngIf="showAddButton" class="fas fa-plus-circle" (click)="buttonAdd(item)"></i>
-            <div class="card-img">
-                <img src={{item.image}} alt="">
-            </div>
-            <div class="card-text">
-                <h3>{{item.name}}</h3>
-                <h4>S/ {{item.price}}</h4>
-            </div>
-            <div class="btn-options" *ngIf="buttons">
-                <button class="edit"(click)="editProduct(item)" (click)="editProp=true">
-                    <img src="assets/images/edit.png" alt="">Editar
-                </button>
-
-                <button class="delete" mwlConfirmationPopover [popoverTitle]="popoverTitle"
-                    [popoverMessage]="popoverMessage" placement="left" (confirm)="lessProduct(item)"
-                    (cancel)="cancelClicked = true" popoverClass="popup"> Eliminar
-                </button>
-            </div>
-        </div>
-    </div>
 
 </div>

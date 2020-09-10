@@ -2,13 +2,13 @@
 
 section {
   width: 100%;
-  
+
   h2 {
     color: map-get($colors, 'letter')
   }
 
   .form {
-    
+
     background: #F6F1ED;
 
     input {
@@ -117,7 +117,7 @@ section {
             margin-right: 5px;
           }
         }
-       
+
       }
     }
   }

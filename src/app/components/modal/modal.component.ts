@@ -48,8 +48,9 @@ export class ModalComponent implements OnInit {
         "admin": false
       }
     }
+
     if(this.editForm.valid){
-      this.json.putUser(user, this.contactOriginal.id).subscribe()
+      this.json.putUser(user, this.contactOriginal.email).subscribe()
     }
 
   }

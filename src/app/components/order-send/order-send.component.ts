@@ -110,7 +110,6 @@ export class OrderSendComponent implements OnInit,OnDestroy {
   }
 
   ngOnDestroy(): void {
-    console.log('ondestroy');
     this.orderSuscription.unsubscribe();
     if( this.orderSendSuscription){
       this.orderSendSuscription.unsubscribe();

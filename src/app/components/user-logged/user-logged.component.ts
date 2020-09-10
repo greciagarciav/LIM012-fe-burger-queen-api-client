@@ -1,43 +1,56 @@
 import { Component, OnInit, OnDestroy } from '@angular/core';
-import { Subject } from 'rxjs';
-import { IfStmt } from '@angular/compiler';
+import { Subject, BehaviorSubject, Subscription } from 'rxjs';
+import { Router, Routes } from '@angular/router';
+import { AuthService } from 'src/app/services/auth.service';
 
 @Component({
   selector: 'app-user-logged',
   templateUrl: './user-logged.component.html',
   styleUrls: ['./user-logged.component.scss']
 })
-export class UserLoggedComponent implements OnInit, OnDestroy {
+export class UserLoggedComponent implements OnInit {
 
   nombreHijo: string;
   rolHijo: string;
-show:boolean=true;
-  public currentUser = JSON.parse(localStorage.getItem('usuario'))
-  public subj: Subject<any> = new Subject<any>();
+  show: boolean
 
-  constructor() {
+  public currentUser
+  subj:Subscription=null;
+
+
+  constructor(private auth:AuthService,private router:Router) {
+  }
+
+
+  showUser() {
+  return this.auth.user.subscribe((datauser)=>{
+    if (datauser !== null) {
+    this.currentUser = datauser
+    this.nombreHijo=this.currentUser.email
+    this.rolHijo = (this.currentUser.role) ? 'admin' : 'staff';
+    this.show = true
+    }else{
+
+      this.show = false;
+    }
+  })
   }
 
   ngOnInit(): void {
 
+    this.auth.refresh$.subscribe(() => {
+     this.showUser()
 
-    this.subj.subscribe({
-      next: (user) => {
-
-        console.log(user);
-        this.nombreHijo = user.email;
-        this.rolHijo = (user.role) ? 'admin' : 'staff';
-      },
-      complete: () => {
-        localStorage.clear()
-      }
     })
-    if (this.currentUser !== null) {
-      this.subj.next(this.currentUser);
-    }
+   
+    this.subj= this.showUser()
+
   }
 
   ngOnDestroy(): void {
-    this.subj.complete()
+if(this.router.url !== ''){
+   this.subj.unsubscribe()
+}
+   
   }
 }

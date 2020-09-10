@@ -66,8 +66,6 @@ export class OrderListComponent implements OnInit,OnDestroy {
     }
 
     this.orderUpdateSuscription =  this.orders$.updateOrder(this.orderEdit, order._id).subscribe()
-  //  this.orders$.updateOrder(order).subscribe()
-
   }
 
   removeOrder(order: Order) {
@@ -75,8 +73,6 @@ export class OrderListComponent implements OnInit,OnDestroy {
   }
 
   ngOnDestroy(): void {
-    console.log('ondestroy');
-
     this.orderSuscription.unsubscribe();
 
     (this.orderUpdateSuscription)?this.orderUpdateSuscription.unsubscribe():null;

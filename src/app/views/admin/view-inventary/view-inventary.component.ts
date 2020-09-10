@@ -54,7 +54,7 @@ export class ViewInventaryComponent implements OnInit {
 
   editProduct(product: any) {
     this.editProp = true
-    this.productId = product.id;
+    this.productId = product._id
     this.productImg = product.image
     this.form.patchValue({
       name: product.name,

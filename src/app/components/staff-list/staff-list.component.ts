@@ -80,8 +80,7 @@ export class StaffList implements OnInit, OnDestroy {
 
   ngOnInit(): void {
     this.json.refreshList$.subscribe(() => {
-        this.receiveUsers();
-        console.log('ngOnInit Subscribe!')
+        this.receiveUsers();  
       });
     this.data = this.receiveUsers()
   }
@@ -91,7 +90,6 @@ export class StaffList implements OnInit, OnDestroy {
   }
 
   ngOnDestroy(): void {
-    console.log('ondestroy');
     this.data.unsubscribe();
   }
 }

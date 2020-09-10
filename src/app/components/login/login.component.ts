@@ -46,23 +46,22 @@ export class LoginComponent implements OnInit,OnDestroy {
           this.tok = resp.body.token;
 
             this.auth$.getUser(mail, this.tok).subscribe((resp) => {
+              const role = resp.roles.admin;
+              const authUser = {
+                'token': this.tok,
+                'email': resp.email,
+                'role': role,
+                'id': resp._id
+                };
+              localStorage.setItem('usuario', JSON.stringify(authUser));
               if (resp != undefined) {
-                const role = resp.roles.admin;
-                const authUser = {
-                  'email': resp.email,
-                  'role': role,
-                  'token': this.tok,
-                  };
-                  console.log(authUser.token)
-                localStorage.setItem('usuario', JSON.stringify(authUser));
                 role ? this.router.navigate(['/admin']) : this.router.navigate(['/mesero']);
-
               } else {
                 localStorage.removeItem('usuario');
                 this.errorMessage= 'este usuario no existe';
               }
             });
-        } 
+        }
       }, err => {
         if(err.status === 403) {
           return this.errorMessage = 'La contraseña es incorrecta';

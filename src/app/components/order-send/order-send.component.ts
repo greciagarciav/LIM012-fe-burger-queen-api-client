@@ -13,7 +13,7 @@ export class OrderSendComponent implements OnInit,OnDestroy {
   total: number;
   form: FormGroup;
   confirmation: boolean = false;
-  public userId: string = '';
+  public user: any = JSON.parse(localStorage.getItem(('usuario')));
   public objProd: any;
   public orderTotal: any;
   public productsProduct: any;
@@ -32,10 +32,9 @@ export class OrderSendComponent implements OnInit,OnDestroy {
   listenAddProduct() {
     this.orderSuscription = this.orders$.buttonAddClickEventTrack.subscribe(event => {
       this.objProd = this.orders$.getObjectOrderProduct();
-      let exist = this.products.some(item => item.id == this.objProd.id);
+      let exist = this.products.some(item => item._id == this.objProd._id);
       if (!exist) {
         this.objProd.qty = 1;
-        console.log(this.objProd)
         this.products.push(this.objProd);
         this.totalBill();
       }
@@ -74,23 +73,16 @@ export class OrderSendComponent implements OnInit,OnDestroy {
   createOrderFood() {
     this.arrayProducts = this.products.map(product => {
       this.productsProduct = {
-        _id : product.id,
-        price : product.price,
-        name : product.name
-      };
-
-      this.productQty = {
-        product: this.productsProduct,
+        productId : product._id,
         qty: product.qty,
       };
-      return this.productQty;
+      return this.productsProduct;
     });
 
     this.orderTotal = {
-      user: this.userId,
+      userId: this.user.id,
       client: this.form.value.client,
       products: this.arrayProducts,
-      status: "pending",
      };
 
     return this.orderTotal;
@@ -122,7 +114,7 @@ export class OrderSendComponent implements OnInit,OnDestroy {
     this.orderSuscription.unsubscribe();
     if( this.orderSendSuscription){
       this.orderSendSuscription.unsubscribe();
-     } 
+     }
   }
 
 }

@@ -15,6 +15,7 @@ export class StaffList implements OnInit, OnDestroy {
   contacto: null;
   data: Subscription=null;
   users: User[];
+  email: string;
 
   //modal
   showModal = false;
@@ -26,6 +27,7 @@ export class StaffList implements OnInit, OnDestroy {
   popoverMessage = 'Desea eliminar este usuario?';
   confirmClicked = false;
   cancelClicked = false;
+  user = JSON.parse(localStorage.getItem(('usuario')));
 
   //variable que almacena errores
   errorMessage: string = 'default'
@@ -36,7 +38,7 @@ export class StaffList implements OnInit, OnDestroy {
   //traer usuarios
   receiveUsers() {
     return this.json.getUser().subscribe((data: User[]) => {
-      
+
       this.users = data.filter(this.findEmployer)
     }, err => {
         switch (err.status) {
@@ -51,9 +53,9 @@ export class StaffList implements OnInit, OnDestroy {
   }
 
   //eliminar un usuario
-  lessUser(idUser): void {
-    this.json.deleteUser(idUser).subscribe((response: any) => {
-      this.users = this.users.filter(e => e.id !== idUser)
+  lessUser(email): void {
+    this.json.deleteUser(email).subscribe((response: any) => {
+      this.users = this.users.filter(e => e.email !== email);
     },
       err => {
         switch (err.status) {

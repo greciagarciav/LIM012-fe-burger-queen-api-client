@@ -14,12 +14,12 @@ import { User } from '../model/user';
 export class JsonApiService {
   user = JSON.parse(localStorage.getItem(('usuario')));
 
-  token:string = this.user.token;
-  headers = new HttpHeaders(
-    {
-      'Authorization': 'Bearer ' + this.token,
-      // 'Content-Type': 'application/json'
-    })
+  // token:string = this.user;
+  // headers = new HttpHeaders(
+  //   {
+  //     'Authorization': 'Bearer ' + this.token,
+  //     // 'Content-Type': 'application/json'
+  //   })
 
   public url: string = environment.apiUrl + 'users/';
   private _refreshList$ = new Subject<void>();
@@ -28,15 +28,15 @@ export class JsonApiService {
   constructor(public http: HttpClient) { }
 
   getUser() {
-    return this.http.get(this.url, { headers: this.headers }).pipe(catchError(this.handleError))
+    return this.http.get(this.url, { headers: { Authorization: `Bearer ${this.user.token}` } }).pipe(catchError(this.handleError))
   }
 
   getUserId(id:string) {
-    return this.http.get(this.url+ '?email='+ id, { headers: this.headers }).pipe(catchError(this.handleError))
+    return this.http.get(this.url + id, { headers: { Authorization: `Bearer ${this.user.token}` }}).pipe(catchError(this.handleError))
   }
 
-  putUser(user: any, userId: string) {
-    return this.http.put(this.url + userId, (user), { headers: this.headers, observe: 'response' }).pipe(
+  putUser(user: any, email: string) {
+    return this.http.put(this.url + email, (user), { headers: { Authorization: `Bearer ${this.user.token}` }, observe: 'response' }).pipe(
         tap(() => {
           this._refreshList$.next();
         })
@@ -44,7 +44,7 @@ export class JsonApiService {
   }
 
   postUser(body: object) {
-    return this.http.post(this.url, (body), { headers: this.headers, observe: 'response' }).pipe(
+    return this.http.post(this.url, (body), { headers: { Authorization: `Bearer ${this.user.token}` }, observe: 'response' }).pipe(
         catchError(this.handleError),
         tap(() => {
           this._refreshList$.next();
@@ -52,12 +52,14 @@ export class JsonApiService {
       )
   }
 
-  deleteUser(id: string) {
-    return this.http.delete(this.url + '/' + id, { headers: this.headers }).pipe(
+  deleteUser(email: string) {
+    return this.http.delete(this.url + email, { headers: { Authorization: `Bearer ${this.user.token}` } }).pipe(
         tap(resp => resp),
-        catchError(this.handleError)
+        catchError(this.handleError),
+        tap(() => {
+          this._refreshList$.next();
+        })
       )
-
   }
 
   handleError(errorRes: HttpErrorResponse) {

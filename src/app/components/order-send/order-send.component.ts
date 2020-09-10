@@ -35,7 +35,6 @@ export class OrderSendComponent implements OnInit,OnDestroy {
       let exist = this.products.some(item => item.id == this.objProd.id);
       if (!exist) {
         this.objProd.qty = 1;
-        console.log(this.objProd)
         this.products.push(this.objProd);
         this.totalBill();
       }
@@ -118,7 +117,6 @@ export class OrderSendComponent implements OnInit,OnDestroy {
   }
 
   ngOnDestroy(): void {
-    console.log('ondestroy');
     this.orderSuscription.unsubscribe();
     if( this.orderSendSuscription){
       this.orderSendSuscription.unsubscribe();

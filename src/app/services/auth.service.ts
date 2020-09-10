@@ -10,15 +10,20 @@ import { environment } from 'src/environments/environment';
 })
 export class AuthService {
 
-  private userSubject : BehaviorSubject<any>;
-  public user : Observable<any>;
-  public url: string;
-
+ 
+  ;
+  public url: string = environment.apiUrl
+ private userSubject : BehaviorSubject<any> = new BehaviorSubject<any>(localStorage.getItem('usuario'));
+  user : Observable<any>= this.userSubject.asObservable();
 
   constructor(private http: HttpClient) {
-    this.url = environment.apiUrl;
-    this.userSubject = new BehaviorSubject<any>(localStorage.getItem('usuario'));
-    this.user = this.userSubject.asObservable();
+    // this.url = environment.apiUrl;
+    // this.userSubject = new BehaviorSubject<any>(localStorage.getItem('usuario'));
+    // this.user = this.userSubject.asObservable();
+  }
+
+  get refresh$() {
+    return this.userSubject;
   }
 
   postUserLogin(body: object): Observable<any> {

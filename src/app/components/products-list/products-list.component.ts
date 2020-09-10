@@ -83,7 +83,6 @@ export class ProductsListComponent implements OnInit {
   }
 
   ngOnDestroy(): void {
-    console.log('ondestroy');
     this.productsSuscription.unsubscribe();
   }
 

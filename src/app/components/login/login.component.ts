@@ -84,7 +84,6 @@ token:string;
 
 
   ngOnDestroy(): void {
-    console.log('ondestroy');
     this.auth.unsubscribe();
   }
 

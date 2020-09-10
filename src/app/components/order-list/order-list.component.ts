@@ -56,7 +56,6 @@ export class OrderListComponent implements OnInit,OnDestroy {
   }
 
   ngOnDestroy(): void {
-    console.log('ondestroy');
     
     this.orderSuscription.unsubscribe();
 

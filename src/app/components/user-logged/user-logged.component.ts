@@ -29,8 +29,10 @@ export class UserLoggedComponent implements OnInit {
     this.nombreHijo=this.currentUser.email
     this.rolHijo = (this.currentUser.role) ? 'admin' : 'staff';
     this.show = true
-    }else
-    {this.show = false;}
+    }else{
+
+      this.show = false;
+    }
   })
   }
 

@@ -45,5 +45,7 @@ desactivado:boolean=false;
   }
   onLogout(){
     localStorage.clear();
+    
+    window.location.reload()
   }
 }

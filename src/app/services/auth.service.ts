@@ -10,11 +10,10 @@ import { environment } from 'src/environments/environment';
 })
 export class AuthService {
 
- 
-  ;
   public url: string = environment.apiUrl
  private userSubject : BehaviorSubject<any> = new BehaviorSubject<any>(localStorage.getItem('usuario'));
   user : Observable<any>= this.userSubject.asObservable();
+
 
   constructor(private http: HttpClient) {
     // this.url = environment.apiUrl;
@@ -26,13 +25,13 @@ export class AuthService {
     return this.userSubject;
   }
 
-  postUserLogin(body: object): Observable<any> {
-    return this.http.post(`${this.url}auth`, body, { observe: 'response' })
-      .pipe(map(userLogged => {
-        localStorage.setItem('usuario', userLogged['token']);
-        this.userSubject.next(body);
-          return userLogged;
-      }))
-  }
+  getToken(data: any) {
+    return this.http.post<any>(`${this.url}auth`, data , { observe: 'response' });
+  };
+
+  getUser(email:string, token: string) {
+    return this.http.get<any>(`${this.url}users/${email}`, { headers: { Authorization: `Bearer ${token}` } });
+  };
+
 
 }

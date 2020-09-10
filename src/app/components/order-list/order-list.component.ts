@@ -17,6 +17,10 @@ export class OrderListComponent implements OnInit,OnDestroy {
   orderSuscription: Subscription;
   orderUpdateSuscription: Subscription;
   orderDeleteSuscription: Subscription;
+  public orderEdit: any;
+  public productsProduct: any;
+  public arrayProducts: any;
+  public productQty: any;
 
   constructor(private orders$:OrdersService, private router: Router) { }
 
@@ -40,23 +44,35 @@ export class OrderListComponent implements OnInit,OnDestroy {
   }
 
   changeStatus(order:Order) {
+    this.arrayProducts = order.products.map(product => {
+      this.productsProduct = {
+        productId : product.product._id,
+        qty: product.qty,
+      };
+      return this.productsProduct;
+    });
+
     if (order.status == 'pending') {
       order.status = 'delivering';
     } else if (order.status == 'delivering') {
       order.status = 'delivered';
     }
-    
-    this.orderUpdateSuscription=  this.orders$.updateOrder(order, order.id).subscribe()
-  //  this.orders$.updateOrder(order).subscribe()
 
+    this.orderEdit = {
+      userId: order.userId,
+      client: order.client,
+      products: this.arrayProducts,
+      status: order.status
+    }
+
+    this.orderUpdateSuscription =  this.orders$.updateOrder(this.orderEdit, order._id).subscribe()
   }
 
   removeOrder(order: Order) {
-    this.orderDeleteSuscription= this.orders$.deleteOrder(order.id).subscribe()
+    this.orderDeleteSuscription= this.orders$.deleteOrder(order._id).subscribe()
   }
 
   ngOnDestroy(): void {
-    
     this.orderSuscription.unsubscribe();
 
     (this.orderUpdateSuscription)?this.orderUpdateSuscription.unsubscribe():null;

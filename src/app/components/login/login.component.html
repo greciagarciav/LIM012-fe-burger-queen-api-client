@@ -20,6 +20,9 @@
                     <p *ngIf="getEmail().hasError('email')">
                         No es un email valido
                     </p>
+                    <p *ngIf="getEmail().hasError('required')">
+                      Email requerido
+                  </p>
                 </div>
                 <div *ngIf="getPassword().errors && getPassword().touched">
                     <p *ngIf="getPassword().hasError('required')">

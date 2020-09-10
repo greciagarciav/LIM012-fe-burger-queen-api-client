@@ -25,7 +25,7 @@ describe('ProductsListComponent', () => {
 //     TestBed.configureTestingModule({
 //       imports:[
 //         HttpClientTestingModule,
-//         RouterTestingModule.withRoutes([])      
+//         RouterTestingModule.withRoutes([])
 //     ],
 //       declarations: [ ProductsListComponent ],
 //       providers:[
@@ -37,7 +37,7 @@ describe('ProductsListComponent', () => {
 //                 routeConfig: {
 //                     path: 'inventario',
 //                 },
-               
+
 //               }
 //             }
 //           }

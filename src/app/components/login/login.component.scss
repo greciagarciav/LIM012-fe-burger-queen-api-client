@@ -23,9 +23,9 @@ $head:17vh;
         border-radius: 10px;
         width: 46%;
         padding: 4%;
-       
+
         form {
-            
+
             label {
                 background: map-get($colors, 'secundary');
                 font-size: 1.2em;
@@ -63,11 +63,11 @@ $head:17vh;
             }
         }
 
-      .button-confirm{  
+      .button-confirm{
         @include flex(center, center);
 
           button {
-            
+
             background: rgba(252, 150, 49, 0.93);
             border-radius: 8px;
             @include size(50%, 61px);

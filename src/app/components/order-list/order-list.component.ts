@@ -57,6 +57,15 @@ export class OrderListComponent implements OnInit,OnDestroy {
     } else if (order.status == 'delivering') {
       order.status = 'delivered';
     }
+    this.orderEdit = {
+      userId: order.userId,
+      client: order.client,
+      products: this.arrayProducts,
+      status: order.status
+    }
+
+    this.orderUpdateSuscription =  this.orders$.updateOrder(this.orderEdit, order._id).subscribe()
+
 
     this.orderEdit = {
       userId: order.userId,

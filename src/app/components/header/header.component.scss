@@ -1,7 +1,7 @@
 @import '../../app.component';
 
 header {
-    @include size(88%, 17vh);
+    @include size(88%, 13vh);
     @include flex(center,space-between);
     color: map-get($colors, 'letter');
     z-index: -2;

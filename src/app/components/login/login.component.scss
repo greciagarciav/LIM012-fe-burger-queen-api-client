@@ -1,14 +1,14 @@
 @import '../../app.component.scss';
 
-$head:17vh;
+// $head:17vh;
 
 .container-login {
 
     background: map-get($colors, 'soft');
-    @include size(100%, 100vh - $head);
+    @include size(100%, 100vh );
     @include flex(center, center);
     flex-direction: column;
-    margin-top: $head;
+    // margin-top: $head;
 
     h2 {
         text-align: center;

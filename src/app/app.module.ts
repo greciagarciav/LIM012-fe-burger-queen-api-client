@@ -27,6 +27,8 @@ import { OrdersService } from './services/orders/orders.service';
 import { ProductsService } from './services/products.service';
 import { OrderSendComponent } from './components/order-send/order-send.component';
 import { LoginComponent } from './components/login/login.component';
+import { ServiceWorkerModule } from '@angular/service-worker';
+import { environment } from '../environments/environment';
 
 @NgModule({
   declarations: [
@@ -59,6 +61,7 @@ import { LoginComponent } from './components/login/login.component';
     ConfirmationPopoverModule.forRoot({
       confirmButtonType: 'danger', // set defaults here
     }),
+    ServiceWorkerModule.register('ngsw-worker.js', { enabled: environment.production }),
   ],
 //   exports: [AddNewUserComponent],
   schemas: [ CUSTOM_ELEMENTS_SCHEMA ],

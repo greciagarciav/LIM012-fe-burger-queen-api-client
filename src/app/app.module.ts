@@ -10,7 +10,6 @@ import { VerticalMenuComponent } from './components/vertical-menu/vertical-menu.
 import { StaffList } from './components/staff-list/staff-list.component';
 import { ViewInventaryComponent } from './views/admin/view-inventary/view-inventary.component';
 import { ViewStaffComponent } from './views/admin/view-staff/view-staff.component';
-import { UserLoggedComponent } from './components/user-logged/user-logged.component';
 import { ModalComponent } from './components/modal/modal.component';
 import { HttpClientModule }  from '@angular/common/http';
 import { JsonApiService } from "./services/JsonApiService.service";
@@ -38,7 +37,6 @@ import { LoginComponent } from './components/login/login.component';
     StaffList,
     ViewInventaryComponent,
     ViewStaffComponent,
-    UserLoggedComponent,
     ModalComponent,
     AddNewUserComponent,
     OrderListComponent,

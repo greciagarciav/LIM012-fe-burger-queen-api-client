@@ -161,62 +161,62 @@ describe('OrdersService', () => {
     method.flush(data);
   });
 
-  it('should update a product', (done: DoneFn) => {
-    const initial = [
-      {
-        "id": "123",
-          "user": "456",
-          "client": "Alba1",
-          "products": [
-            {
-              "qty": 1,
-              "product": {
-                "_id": "141",
-                "name": "sandwich",
-                "price": 10,
-                "image": "string",
-                "type": "k",
-                "dateEntry": new Date(),
-                "id": "7mISVcA"
-              }
-            }
-          ],
-          "status": "pending",
-          "dateEntry": new Date()
-        }
-      ]
-    const update = [
-      {
-        "id": "123",
-          "user": "456",
-          "client": "Alba1",
-          "products": [
-            {
-              "qty": 1,
-              "product": {
-                "_id": "141",
-                "name": "sandwich",
-                "price": 10,
-                "image": "string",
-                "type": "k",
-                "dateEntry": new Date(),
-                "id": "7mISVcA"
-              }
-            }
-          ],
-          "status": "delivering",
-          "dateEntry": new Date()
-        }
-    ];
-    service.updateOrder(initial, '123').subscribe(list => {
-      expect(list.body).toBe(update)
-      done()
-    });
+  // it('should update a product', (done: DoneFn) => {
+  //   const initial = [
+  //     {
+  //       "id": "123",
+  //         "user": "456",
+  //         "client": "Alba1",
+  //         "products": [
+  //           {
+  //             "qty": 1,
+  //             "product": {
+  //               "_id": "141",
+  //               "name": "sandwich",
+  //               "price": 10,
+  //               "image": "string",
+  //               "type": "k",
+  //               "dateEntry": new Date(),
+  //               "id": "7mISVcA"
+  //             }
+  //           }
+  //         ],
+  //         "status": "pending",
+  //         "dateEntry": new Date()
+  //       }
+  //     ]
+  //   const update = [
+  //     {
+  //       "id": "123",
+  //         "user": "456",
+  //         "client": "Alba1",
+  //         "products": [
+  //           {
+  //             "qty": 1,
+  //             "product": {
+  //               "_id": "141",
+  //               "name": "sandwich",
+  //               "price": 10,
+  //               "image": "string",
+  //               "type": "k",
+  //               "dateEntry": new Date(),
+  //               "id": "7mISVcA"
+  //             }
+  //           }
+  //         ],
+  //         "status": "delivering",
+  //         "dateEntry": new Date()
+  //       }
+  //   ];
+  //   service.updateOrder(initial, '123').subscribe(list => {
+  //     expect(list.body).toBe(update)
+  //     done()
+  //   });
 
-    const method = httpMock.expectOne(environment.apiUrl + 'orders/123');
-    expect(method.request.method).toContain('PUT')
-    method.flush(update)
-  });
+  //   const method = httpMock.expectOne(environment.apiUrl + 'orders/123');
+  //   expect(method.request.method).toContain('PUT')
+  //   method.flush(update)
+  // });
 
   it('should delete an order from a list', () => {
     let serviceSpy: any;

@@ -61,7 +61,8 @@ import { environment } from '../environments/environment';
     ConfirmationPopoverModule.forRoot({
       confirmButtonType: 'danger', // set defaults here
     }),
-    ServiceWorkerModule.register('ngsw-worker.js', { enabled: environment.production }),
+    // ServiceWorkerModule.register('ngsw-worker.js', { enabled: environment.production }),
+    ServiceWorkerModule.register('ngsw-worker.js', { enabled: environment.production, scope: './', registrationStrategy: 'registerImmediately' })
   ],
 //   exports: [AddNewUserComponent],
   schemas: [ CUSTOM_ELEMENTS_SCHEMA ],

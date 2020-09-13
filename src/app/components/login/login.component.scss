@@ -76,3 +76,9 @@
     }
     }
 }
+
+@media only screen and (max-width: 400px) {
+  .container-login-form {
+    width: 90%;
+  }
+}

@@ -52,8 +52,8 @@ describe('ProductsService', () => {
         "dateEntry": new Date(),
       },
       {
-        "_id": '234',
-        "name": 'papitas',
+        "_id": '567',
+        "name": 'papas',
         "price": 3,
         "image": ' string',
         "type": 'string',
@@ -111,43 +111,55 @@ describe('ProductsService', () => {
 
   });
 
-  // it('should update a product', (done: DoneFn) => {
-  //   const initial: Product[] = [
-  //     {
-  //       "_id": '234',
-  //       "name": 'hamburguesa',
-  //       "price": 3,
-  //       "image": ' string',
-  //       "type": 'string',
-  //       "dateEntry": new Date(),
-  //     }]
-  //   const update: Product[] = [
-  //     {
-  //       "_id": '234',
-  //       "name": 'papitas',
-  //       "price": 3,
-  //       "image": ' string',
-  //       "type": 'string',
-  //       "dateEntry": new Date(),
-  //     }]
-  //     // service.updateProduct(initial,'234').subscribe((list:any) => {
-  //     //   expect(list.body).toBe(update)
+  it('should update a product', (done: DoneFn) => {
+    const initial: Product[] = [
+      {
+        "_id": '234',
+        "name": 'hamburguesa',
+        "price": 3,
+        "image": ' string',
+        "type": 'string',
+        "dateEntry": new Date(),
+      }]
+    const update: Product[] = [
+      {
+        "_id": '234',
+        "name": 'papitas',
+        "price": 3,
+        "image": ' string',
+        "type": 'string',
+        "dateEntry": new Date(),
+      }]
+      service.updateProduct(initial,'234').subscribe((list:any) => {
+        expect(list).toBe(update)
 
-  //     // });
-
-  //     const method = httpMock.expectOne(environment.apiUrl + 'products/234');
-  //     expect(method.request.method).toContain('PUT')
-  //     method.flush(update)
-  //     done()
-  // });
-
-  it('should delete product of the list', () => {
-    let serviceSpy: any;
-    serviceSpy = spyOn(service, 'deleteProduct').and.returnValue(of({}));
-    service.deleteProduct('234')
-      .subscribe((resp: any) => {
-        expect(resp).toEqual({});
       });
+
+      const method = httpMock.expectOne(environment.apiUrl + 'products/234');
+      expect(method.request.method).toContain('PUT')
+      method.flush(update)
+      done()
+  });
+
+  it('should delete product of the list', (done: DoneFn) => {
+    const product =
+      {
+        "_id": '123',
+        "name": 'papitas',
+        "price": 3,
+        "image": ' string',
+        "type": 'string',
+        "dateEntry": new Date(),
+      };
+    const final = [];
+    service.deleteProduct(product).subscribe((resp:any) => {
+      expect(resp).toBe(final);
+      done();
+    });
+
+    const method = httpMock.expectOne(environment.apiUrl + 'products/123');
+    expect(method.request.method).toContain('DELETE');
+    method.flush(final);
   });
 
 });

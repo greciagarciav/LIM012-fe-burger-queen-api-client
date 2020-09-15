@@ -14,13 +14,6 @@ import { User } from '../model/user';
 export class JsonApiService {
   user = JSON.parse(localStorage.getItem(('usuario')));
 
-  // token:string = this.user;
-  // headers = new HttpHeaders(
-  //   {
-  //     'Authorization': 'Bearer ' + this.token,
-  //     // 'Content-Type': 'application/json'
-  //   })
-
   public url: string = environment.apiUrl + 'users/';
   private _refreshList$ = new Subject<void>();
   public refreshList$ = this._refreshList$.asObservable();

@@ -31,12 +31,26 @@ describe('OrdersService', () => {
   });
 
   afterEach(() => {
-    // service = null;
     httpMock.verify();
   });
 
   it('should be created', () => {
     expect(service).toBeTruthy();
+  });
+
+  it('setObjectOrderProduct', () => {
+    const product =  {
+      "_id": "141",
+      "name": "sandwich",
+      "price": 10,
+      "image": "string",
+      "type": "k",
+      "dateEntry": new Date(),
+      "id": "7mISVcA"
+    };
+    service.setObjectOrderProduct(product);
+    const gety = service.getObjectOrderProduct();
+    expect(gety).toBe(product);
   });
 
   it('should return list of orders', () => {
@@ -172,70 +186,73 @@ describe('OrdersService', () => {
     method.flush(data);
   });
 
-  // it('should update a product', (done: DoneFn) => {
-  //   const initial = [
-  //     {
-  //       "id": "123",
-  //         "user": "456",
-  //         "client": "Alba1",
-  //         "products": [
-  //           {
-  //             "qty": 1,
-  //             "product": {
-  //               "_id": "141",
-  //               "name": "sandwich",
-  //               "price": 10,
-  //               "image": "string",
-  //               "type": "k",
-  //               "dateEntry": new Date(),
-  //               "id": "7mISVcA"
-  //             }
-  //           }
-  //         ],
-  //         "status": "pending",
-  //         "dateEntry": new Date()
-  //       }
-  //     ]
-  //   const update = [
-  //     {
-  //       "id": "123",
-  //         "user": "456",
-  //         "client": "Alba1",
-  //         "products": [
-  //           {
-  //             "qty": 1,
-  //             "product": {
-  //               "_id": "141",
-  //               "name": "sandwich",
-  //               "price": 10,
-  //               "image": "string",
-  //               "type": "k",
-  //               "dateEntry": new Date(),
-  //               "id": "7mISVcA"
-  //             }
-  //           }
-  //         ],
-  //         "status": "delivering",
-  //         "dateEntry": new Date()
-  //       }
-  //   ];
-  //   service.updateOrder(initial, '123').subscribe(list => {
-  //     expect(list.body).toBe(update)
-  //     done()
-  //   });
-
-  //   const method = httpMock.expectOne(environment.apiUrl + 'orders/123');
-  //   expect(method.request.method).toContain('PUT')
-  //   method.flush(update)
-  // });
-
-  it('should delete an order from a list', () => {
-    let serviceSpy: any;
-    serviceSpy = spyOn(service, 'deleteOrder').and.returnValue(of({}));
-    service.deleteOrder('123')
-      .subscribe((resp:any) => {
-        expect(resp).toEqual({});
+  it('should update a product', (done: DoneFn) => {
+    const initial = [
+      {
+        "id": "123",
+          "user": "456",
+          "client": "Alba1",
+          "products": [
+            {
+              "qty": 1,
+              "product": {
+                "_id": "141",
+                "name": "sandwich",
+                "price": 10,
+                "image": "string",
+                "type": "k",
+                "dateEntry": new Date(),
+                "id": "7mISVcA"
+              }
+            }
+          ],
+          "status": "pending",
+          "dateEntry": new Date()
+        }
+      ]
+    const update = [
+      {
+        "id": "123",
+          "user": "456",
+          "client": "Alba1",
+          "products": [
+            {
+              "qty": 1,
+              "product": {
+                "_id": "141",
+                "name": "sandwich",
+                "price": 10,
+                "image": "string",
+                "type": "k",
+                "dateEntry": new Date(),
+                "id": "7mISVcA"
+              }
+            }
+          ],
+          "status": "delivering",
+          "dateEntry": new Date()
+        }
+    ];
+    service.updateOrder(initial, '123').subscribe(list => {
+      expect(list).toBe(update)
+      done()
     });
+
+    const method = httpMock.expectOne(environment.apiUrl + 'orders/123');
+    expect(method.request.method).toContain('PUT');
+    method.flush(update);
+  });
+
+  it('should delete an order from a list', (done: DoneFn) => {
+    const final = [];
+    service.deleteOrder('123').subscribe((resp:any) => {
+      expect(resp).toBe(final);
+      done();
+    });
+
+    const method = httpMock.expectOne(environment.apiUrl + 'orders/123');
+    expect(method.request.method).toContain('DELETE');
+    method.flush(final);
   });
 
 });

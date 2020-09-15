@@ -12,19 +12,11 @@ import { renderFlagCheckIfStmt } from '@angular/compiler/src/render3/view/templa
 export class ProductsService {
   user = JSON.parse(localStorage.getItem(('usuario')));
 
-  // token:string =JSON.parse(localStorage.getItem('usuario'));
-
   constructor(public http: HttpClient) { }
 
   public url: string = environment.apiUrl + 'products/';
   private subjectSource = new Subject<void>();
   public countdown$ = this.subjectSource.asObservable();
-
-  // headers = new HttpHeaders(
-  //   {
-  //     'Authorization': 'Bearer '+ this.token,
-  //     'Content-Type': 'application/json'
-  //   })
 
   get refresh$(){
     return this.subjectSource

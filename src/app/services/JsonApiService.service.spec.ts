@@ -7,6 +7,18 @@ import { environment } from 'src/environments/environment';
 describe('Service: JsonApiService', () => {
   let service: JsonApiService;
   let httpMock: HttpTestingController;
+
+  beforeAll(() => {
+    const authUser = {
+      'token': 'abcdefghi123456789',
+      };
+    localStorage.setItem('usuario', JSON.stringify(authUser));
+  });
+
+  afterAll(() => {
+    localStorage.removeItem('usuario');
+  });
+
   beforeEach(() => {
     TestBed.configureTestingModule({
       providers: [JsonApiService],

@@ -11,6 +11,17 @@ describe('OrderSendComponent', () => {
   let component: OrderSendComponent;
   let fixture: ComponentFixture<OrderSendComponent>;
 
+  beforeAll(() => {
+    const authUser = {
+      'token': 'abcdefghi123456789',
+      };
+    localStorage.setItem('usuario', JSON.stringify(authUser));
+  });
+
+  afterAll(() => {
+    localStorage.removeItem('usuario');
+  });
+
   beforeEach(async(() => {
     TestBed.configureTestingModule({
       declarations: [ OrderSendComponent ],
@@ -45,17 +56,17 @@ describe('OrderSendComponent', () => {
   });
 
   it('createOrderFood, build upd the order', () => {
-    component.products = [{ id: "1", name: "café", price: 7, qty: 1 }, { id: "2", name: "leche", price: 7, qty: 1 }]
+    component.products = [{ _id: "1", name: "café", price: 7, qty: 1 }, { _id: "2", name: "leche", price: 7, qty: 1 }]
     component.productsProduct = {_id: '1', price: 7, name: 'café'};
     component.productQty = {product: component.productsProduct, qty: 1}
     component.user = 'test@test.com';
     component.form.controls['client'].setValue('grecia');
     component.createOrderFood();
     const objOrder = {
-      user: component.user,
+      userId: component.user.id,
       client: 'grecia',
       products: component.arrayProducts,
-      status: 'pending'
+      // status: 'pending'
     };
     expect(component.orderTotal).toEqual(objOrder);
   });
@@ -111,7 +122,6 @@ describe('OrderSendComponent', () => {
     component.form.controls['client'].setValue('grecia');
     expect(component.form.valid).toBeTruthy();
     const clientAdd = component.form.value;
-    component.createOrderFood();
     expect(clientAdd.client).toBe('grecia');
   });
 

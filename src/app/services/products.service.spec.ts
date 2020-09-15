@@ -10,6 +10,17 @@ describe('ProductsService', () => {
   let service: ProductsService;
   let httpMock: HttpTestingController;
 
+  beforeAll(() => {
+    const authUser = {
+      'token': 'abcdefghi123456789',
+      };
+    localStorage.setItem('usuario', JSON.stringify(authUser));
+  });
+
+  afterAll(() => {
+    localStorage.removeItem('usuario');
+  });
+
   beforeEach(() => {
     TestBed.configureTestingModule({
       imports: [
@@ -121,9 +132,9 @@ describe('ProductsService', () => {
   //     }]
   //     // service.updateProduct(initial,'234').subscribe((list:any) => {
   //     //   expect(list.body).toBe(update)
-        
+
   //     // });
-  
+
   //     const method = httpMock.expectOne(environment.apiUrl + 'products/234');
   //     expect(method.request.method).toContain('PUT')
   //     method.flush(update)
@@ -138,5 +149,5 @@ describe('ProductsService', () => {
         expect(resp).toEqual({});
       });
   });
-  
+
 });

@@ -25,8 +25,14 @@ describe('RoleGuard', () => {
   });
 
   // it('should redirect to /mesero when is not not an admin when login', () => {
-  //   guard.userObject = {email: "vsd@s.com", password: "123321", role: false}
-  //   expect(guard.userObject['role']).toBe(false);
-  //   expect(routerMock.navigate).toHaveBeenCalledWith('/mesero');
+  //   const authUser = {
+  //     'token': 'abcdefghi123456789',
+  //     'email': 'test@test',
+  //     'role': true,
+  //     'id': '12345'
+  //     };
+  //   localStorage.setItem('usuario', JSON.stringify(authUser));
+  //   expect(guard.canActivate(routeMock)).toBe(true);
+  //   localStorage.removeItem('usuario');
   // });
 });

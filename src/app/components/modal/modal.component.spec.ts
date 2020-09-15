@@ -12,6 +12,17 @@ describe('ModalComponent', () => {
   let component: ModalComponent;
   let fixture: ComponentFixture<ModalComponent>;
 
+  beforeAll(() => {
+    const authUser = {
+      'token': 'abcdefghi123456789',
+      };
+    localStorage.setItem('usuario', JSON.stringify(authUser));
+  });
+
+  afterAll(() => {
+    localStorage.removeItem('usuario');
+  });
+  
   beforeEach(async(() => {
     TestBed.configureTestingModule({
       imports: [

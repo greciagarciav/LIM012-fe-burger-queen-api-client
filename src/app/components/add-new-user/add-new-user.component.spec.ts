@@ -1,4 +1,4 @@
-import { async, ComponentFixture, TestBed, tick } from '@angular/core/testing';
+import { async, ComponentFixture, TestBed, tick, fakeAsync } from '@angular/core/testing';
 import { CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
 
 import { AddNewUserComponent } from './add-new-user.component';
@@ -7,11 +7,21 @@ import { ReactiveFormsModule, FormsModule } from '@angular/forms';
 import { HttpTestingController, HttpClientTestingModule } from '@angular/common/http/testing';
 import { JsonApiService } from '../../services/JsonApiService.service';
 import { of } from 'rxjs';
+import { HttpBackend, HttpResponse, HttpErrorResponse } from '@angular/common/http';
+import { error } from '@angular/compiler/src/util';
 
 describe('AddNewUserComponent', () => {
   let component: AddNewUserComponent;
   let fixture: ComponentFixture<AddNewUserComponent>;
   let service: JsonApiService;
+  let httpTestingController: HttpTestingController;
+
+  beforeAll(() => {
+    const authUser = {
+      'token': 'abcdefghi123456789',
+      };
+    localStorage.setItem('usuario', JSON.stringify(authUser));
+  });
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
@@ -27,6 +37,7 @@ describe('AddNewUserComponent', () => {
       ]
     })
     .compileComponents();
+    httpTestingController = TestBed.get(HttpTestingController);
   }));
 
   beforeEach(() => {
@@ -34,7 +45,7 @@ describe('AddNewUserComponent', () => {
     component = fixture.componentInstance;
     service = TestBed.inject(JsonApiService);
     fixture.detectChanges();
-    component.ngOnInit()
+    component.ngOnInit();
   });
 
   it('should create', () => {
@@ -61,7 +72,6 @@ describe('AddNewUserComponent', () => {
     expect(component.addForm.valid).toBeTruthy();
     let userAdded : User;
     userAdded = component.addForm.value;
-    component.addUser();
     expect(userAdded.email).toBe('test@test.com');
     expect(userAdded.password).toBe('123456789');
   });
@@ -81,6 +91,17 @@ describe('AddNewUserComponent', () => {
     spyOn(component, 'addUser');
     component.addUser();
     expect(component.addUser).toHaveBeenCalled();
+  });
+
+  it('should handle error response when add a user', () => {
+    component.addForm.controls['email'].setValue('test@test');
+    component.addForm.controls['password'].setValue('123456789');
+    const errMsg = component.errorMessage;
+    component.addUser();
+    spyOn(service, 'handleError').and.callThrough();
+    const urlString = 'http://ec2-13-58-43-131.us-east-2.compute.amazonaws.com/users/'
+    const req = httpTestingController.expectOne(urlString);
+    req.flush(errMsg, {status: 403, statusText: errMsg});
   });
 });
 

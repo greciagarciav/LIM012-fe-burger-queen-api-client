@@ -53,13 +53,8 @@ export class LoginComponent implements OnInit,OnDestroy {
               } else {
                 localStorage.removeItem('usuario');
                 this.errorMessage= 'este usuario no existe';
-              }
-            },
-            // (err) => console.log(err),
-            // () => {
-            //   console.log("observable complete")
-            // }
-            );
+                }
+            });
         }
       }, err => {
         if(err.status === 403) {

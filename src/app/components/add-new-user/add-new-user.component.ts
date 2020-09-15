@@ -47,12 +47,6 @@ export class AddNewUserComponent implements OnInit {
       },
         err => {
           switch (err.status) {
-            case 400:
-              this.errorMessage = 'no hay no se proveen `email` o `password` o ninguno de los dos'
-              break;
-            case 401:
-              this.errorMessage = 'no hay cabecera de autenticación'
-              break;
             case 403:
               this.errorMessage = 'ya existe usuaria con ese `email`'
               break;

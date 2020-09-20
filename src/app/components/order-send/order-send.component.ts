@@ -73,8 +73,8 @@ export class OrderSendComponent implements OnInit,OnDestroy {
   createOrderFood() {
     this.arrayProducts = this.products.map(product => {
       this.productsProduct = {
-        productId : product._id,
-        qty: product.qty,
+        productId: product._id,
+        qty: product.qty
       };
       return this.productsProduct;
     });

@@ -11,7 +11,7 @@
       <div class="products" *ngFor="let product of order.products">
         <span class="name">{{product.product.name}}</span>
         <span class="qty">{{product.qty}}</span>
-        <span class="price">{{product.product.price}}</span>
+        <span class="price">{{product.product.price * product.qty}}</span>
       </div>
       <button class="move" *ngIf="showMoveButton" (click)="changeStatus(order)"><i class="fas fa-angle-double-right"></i> Mover pedido</button>
       <button class="cancel" *ngIf="showCancelButton" (click)="removeOrder(order)"><img src="assets/images/delete.png" alt=""> Cancelar pedido</button>

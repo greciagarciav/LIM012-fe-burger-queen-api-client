@@ -46,7 +46,11 @@ export class OrderListComponent implements OnInit,OnDestroy {
   changeStatus(order:Order) {
     this.arrayProducts = order.products.map(product => {
       this.productsProduct = {
-        productId : product.product._id,
+        product: {
+          productId: product.product._id,
+          name: product.product.name,
+          price: product.product.price
+        },
         qty: product.qty,
       };
       return this.productsProduct;
@@ -57,6 +61,7 @@ export class OrderListComponent implements OnInit,OnDestroy {
     } else if (order.status == 'delivering') {
       order.status = 'delivered';
     }
+    
     this.orderEdit = {
       userId: order.userId,
       client: order.client,
@@ -65,7 +70,6 @@ export class OrderListComponent implements OnInit,OnDestroy {
     }
 
     this.orderUpdateSuscription =  this.orders$.updateOrder(this.orderEdit, order._id).subscribe()
-
 
     this.orderEdit = {
       userId: order.userId,

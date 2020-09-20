@@ -99,7 +99,7 @@ describe('AddNewUserComponent', () => {
     const errMsg = component.errorMessage;
     component.addUser();
     spyOn(service, 'handleError').and.callThrough();
-    const urlString = 'http://ec2-13-58-43-131.us-east-2.compute.amazonaws.com/users/'
+    const urlString = 'https://rest-burger-queen.herokuapp.com/users/'
     const req = httpTestingController.expectOne(urlString);
     req.flush(errMsg, {status: 403, statusText: errMsg});
   });

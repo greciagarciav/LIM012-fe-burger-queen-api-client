@@ -60,13 +60,13 @@ describe('LoginComponent', () => {
     component.form.controls['password'].setValue('123456789');
     component.form.valid;
     component.authUser();
-    const urlString = 'http://ec2-13-58-43-131.us-east-2.compute.amazonaws.com/auth';
+    const urlString = 'https://rest-burger-queen.herokuapp.com/auth';
     const req = httpTestingController.expectOne(urlString);
     req.flush({status: 200});
-    const urlStringUser = 'http://ec2-13-58-43-131.us-east-2.compute.amazonaws.com/users/test@test.com';
+    const urlStringUser = 'https://rest-burger-queen.herokuapp.com/users/test@test.com';
     const reqUs = httpTestingController.expectOne(urlStringUser);
     reqUs.flush({status: 200});
-    const urlStringUserPas = 'http://ec2-13-58-43-131.us-east-2.compute.amazonaws.com/users/test@test.com';
+    const urlStringUserPas = 'https://rest-burger-queen.herokuapp.com/users/test@test.com';
     const reqUsP = httpTestingController.expectNone(urlStringUserPas);
   });
 

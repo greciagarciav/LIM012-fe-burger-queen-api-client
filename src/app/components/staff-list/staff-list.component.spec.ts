@@ -49,7 +49,7 @@ describe('StaffList component', () => {
   it('receiveUsers, error status401', () => {
     const errMsg = component.errorMessage;
     spyOn(service, 'handleError').and.callThrough();
-    const urlString = 'http://ec2-13-58-43-131.us-east-2.compute.amazonaws.com/users/'
+    const urlString = 'https://rest-burger-queen.herokuapp.com/users/'
     const req = httpTestingController.expectOne(urlString);
     req.flush(errMsg, {status: 401, statusText: errMsg});
   });
@@ -57,7 +57,7 @@ describe('StaffList component', () => {
   it('receiveUsers, error status403', () => {
     const errMsg = component.errorMessage;
     spyOn(service, 'getUser').and.callThrough();
-    const urlString = 'http://ec2-13-58-43-131.us-east-2.compute.amazonaws.com/users/'
+    const urlString = 'https://rest-burger-queen.herokuapp.com/users/'
     const req = httpTestingController.expectOne(urlString);
     req.flush(errMsg, {status: 403, statusText: errMsg});
   });
@@ -67,7 +67,7 @@ describe('StaffList component', () => {
     const email = 'test@test';
     component.lessUser(email);
     spyOn(service, 'deleteUser').and.callThrough();
-    const urlString = 'http://ec2-13-58-43-131.us-east-2.compute.amazonaws.com/users/test@test'
+    const urlString = 'https://rest-burger-queen.herokuapp.com/users/test@test'
     const req = httpTestingController.expectOne(urlString);
     req.flush(errMsg, {status: 401, statusText: errMsg});
   });
@@ -77,7 +77,7 @@ describe('StaffList component', () => {
     const email = 'test@test';
     component.lessUser(email);
     spyOn(service, 'deleteUser').and.callThrough();
-    const urlString = 'http://ec2-13-58-43-131.us-east-2.compute.amazonaws.com/users/test@test'
+    const urlString = 'https://rest-burger-queen.herokuapp.com/users/test@test'
     const req = httpTestingController.expectOne(urlString);
     req.flush(errMsg, {status: 403, statusText: errMsg});
   });
@@ -87,7 +87,7 @@ describe('StaffList component', () => {
     const email = 'test@test';
     component.lessUser(email);
     spyOn(service, 'deleteUser').and.callThrough();
-    const urlString = 'http://ec2-13-58-43-131.us-east-2.compute.amazonaws.com/users/test@test'
+    const urlString = 'https://rest-burger-queen.herokuapp.com/users/test@test'
     const req = httpTestingController.expectOne(urlString);
     req.flush(errMsg, {status: 404, statusText: errMsg});
   });

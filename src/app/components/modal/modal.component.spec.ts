@@ -6,6 +6,7 @@ import { ModalComponent } from './modal.component';
 import { JsonApiService } from 'src/app/services/JsonApiService.service';
 import { HttpClientTestingModule } from '@angular/common/http/testing';
 import { User } from '../../model/user'
+import { By } from '@angular/platform-browser';
 
 
 describe('ModalComponent', () => {
@@ -22,7 +23,7 @@ describe('ModalComponent', () => {
   afterAll(() => {
     localStorage.removeItem('usuario');
   });
-  
+
   beforeEach(async(() => {
     TestBed.configureTestingModule({
       imports: [

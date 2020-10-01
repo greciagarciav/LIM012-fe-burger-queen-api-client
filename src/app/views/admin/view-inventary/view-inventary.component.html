@@ -13,17 +13,15 @@
                     <h3>Editar Producto</h3>
                 </div>
                 <div class="input_text">
-                    <h4>Nombre del Producto</h4><input type="text" formControlName="name">
+                    <input placeholder="Nombre del Producto" type="text" formControlName="name">
                     <div *ngIf="confirmation && form.controls.name.errors" class="error">
                         <p>Debe llenar el nombre</p>
                     </div>
-                    <h4>Precio en soles</h4><input type="number" formControlName="price">
+                    <input placeholder="Precio en soles" type="number" formControlName="price">
                     <div *ngIf="confirmation && form.controls.price.errors" class="error">
                         <p>Debe llenar el precio</p>
                     </div>
-                    <h4>Imagen del Producto</h4>
                     <div class="div_file"><input type="file" formControlName="image"></div>
-                    <h4>Tipo</h4>
                     <select id="type" formControlName="type">
                         <option value="breakfast">Desayuno</option>
                         <option value="hamburguer">Hamburguesa</option>
@@ -31,11 +29,11 @@
                         <option value="drink" selected>Para tomar</option>
                     </select>
                     <div *ngIf="confirmation && form.controls.type.errors" class="error">
-                        <p>Debe llenar el precio</p>
+                        <p>Debe llenar el tipo</p>
                     </div>
-                    <h4>Fecha</h4><input type="date" formControlName="dateEntry">
+                    <input type="date" formControlName="dateEntry">
                     <div *ngIf="confirmation && form.controls.dateEntry.errors" class="error">
-                        <p>Debe llenar la fecha en la que agrego el producto</p>
+                        <p>Debe llenar la fecha</p>
                     </div>
                 </div>
 
@@ -46,7 +44,7 @@
                 </div>
                 <ng-template class="buttons" #viewBtnEdit>
                     <button class="add-product" type="button" (click)="saveEdition()" >Guardar edición</button>
-                    <button class="cancel-product" type="button" 
+                    <button class="cancel-product" type="button"
                     (click)="confirmation=false"
                     (click)="form.reset()" (click)="editProp=false">Cancelar</button>
                 </ng-template>

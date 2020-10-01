@@ -37,7 +37,6 @@
 
             .container-login-form-input {
                 margin-bottom: 7%;
-                height: 3.8em;
                 margin-bottom: 5%;
                 border: 1px solid #000000;
                 box-sizing: border-box;
@@ -67,7 +66,12 @@
         @include flex(center, center);
 
           button {
-
+            font-size: 15px;
+            font-weight: 700;
+            margin: 0 0 5px;
+            line-height: 25px;
+            letter-spacing: 1px;
+            color: #ffffff;
             background: rgba(252, 150, 49, 0.93);
             border-radius: 8px;
             @include size(50%, 61px);

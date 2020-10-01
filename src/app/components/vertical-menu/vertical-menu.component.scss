@@ -27,6 +27,7 @@ aside {
       @include size(70%, _);
       @include flex(center, center);
       border-radius: 10px;
+      font-weight: 700;
 
       .active {
         background: map-get($colors , 'secundary');
@@ -47,9 +48,11 @@ aside {
         }
 
         h2 {
-          font-size: 13px;
-
+          font-size: 15px;
+          font-weight: 700;
           margin: 0 0 5px;
+          line-height: 25px;
+          letter-spacing: 1px;
         }
       }
     }
@@ -72,9 +75,11 @@ aside {
         }
 
         h2 {
-          font-size: 13px;
-
+          font-size: 15px;
+          font-weight: 700;
           margin: 0 0 5px;
+          line-height: 25px;
+          letter-spacing: 1px;
         }
       }
   }

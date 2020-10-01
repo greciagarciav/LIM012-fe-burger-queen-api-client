@@ -46,13 +46,14 @@ background:  map-get($colors, 'primary');
     }
 
     .panel-cards {
-        @include size (100%,80vh);
+        @include size (100%,55vh);
         display: flex;
         flex-wrap: wrap;
         justify-content: center;
+        overflow-y: scroll;
         .card-product {
             @include button(29.2%, 'letter');
-            @include size (_, 49%);
+            @include size (_, 300px);
             border: 1px solid map-get($colors, 'letter');
             flex-direction: column;
             @include space-vertical();
@@ -60,18 +61,19 @@ background:  map-get($colors, 'primary');
             position: relative;
             i {
               align-self: flex-end;
-              width: 83px;
+              width: 80px;
               position: absolute;
-              right: -47px;
-              top: 5px;
-              font-size: 30px;
+              right: -41px;
+              top: 25px;
+              font-size: 33px;
+              color: #FC9631;
             }
             .card-img {
                 background: white;
                 box-sizing: border-box;
                 border-radius: 9px;
                 width: 90%;
-                height: 39%;
+                height: auto;
                 margin: 2%;
                 display: flex;
 
@@ -99,10 +101,12 @@ background:  map-get($colors, 'primary');
 
                 .edit {
 
-                    @include button(80%, _);
-                    height: 41%;
+                    @include button(100%, _);
+                    height: 45%;
                     background-color: #d2eaf8;
-
+                    color: #47382B;
+                    margin: 0;
+                    padding: 5px 0;
                     img {
                         width: 12px;
                         margin-right: 5px;

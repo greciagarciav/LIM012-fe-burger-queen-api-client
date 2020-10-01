@@ -9,12 +9,12 @@ import {filter} from 'rxjs/operators';
 export class VerticalMenuComponent implements OnInit {
 menuAdmin:any[] = [
 {
-  title: 'Admin',
+  title: 'ADMIN',
   icon:'fas fa-user-cog',
   href: '/admin/staff'
 },
 {
-  title: 'Mesero',
+  title: 'STAFF',
   icon:'fas fa-user-tie',
   href: '/mesero/orders'
 },
@@ -45,7 +45,7 @@ desactivado:boolean=false;
   }
   onLogout(){
     localStorage.clear();
-    
+
     window.location.reload()
   }
 }

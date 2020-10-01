@@ -8,12 +8,10 @@
                   <div class="container-login-form-input">
                       <input formControlName="email" type="email" class="form-control" required>
                   </div>
-
-
                       <label for="password">Password</label>
-                       <div class="container-login-form-input">
-                      <input formControlName="password" type="password" class="form-control" required>
-                  </div>
+                      <div class="container-login-form-input">
+                        <input formControlName="password" type="password" class="form-control" required>
+                      </div>
 
               <div class="validations">
                   <div *ngIf="getEmail().errors && getEmail().touched">
@@ -37,8 +35,10 @@
                       </div>
               </div>
              <div class="button-confirm">
-                  <button class="btn" type="submit" (click)="authUser()">Ingresar</button>
+                  <button class="btn" type="submit" (click)="authUser()">INGRESAR</button>
              </div>
           </form>
   </article>
+  <p style="margin: 5px 0 0;">Email: admin@localhost</p>
+  <p style="margin: 5px 0 0;">Password: changeme</p>
   </section>

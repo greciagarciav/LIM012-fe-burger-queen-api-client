@@ -1,5 +1,17 @@
 ## Burger Queen (API Client) - Angular
 
+## Vistas finales Desktop y tablet (ipad)
+
+![bqapiclient1](https://user-images.githubusercontent.com/51206642/94889035-80c8e680-0440-11eb-8201-47b3c5868828.PNG)
+
+![bqapiclient2](https://user-images.githubusercontent.com/51206642/94889050-8a524e80-0440-11eb-81c4-57d257748351.PNG)
+
+![bqapiclient3](https://user-images.githubusercontent.com/51206642/94889055-8de5d580-0440-11eb-860c-06f8051990e9.PNG)
+
+![bqapiclient4](https://user-images.githubusercontent.com/51206642/94889059-90e0c600-0440-11eb-9f76-65ed0a56df2a.PNG)
+
+![bqapiclient5](https://user-images.githubusercontent.com/51206642/94889066-93dbb680-0440-11eb-92a7-ee55e2bd1da5.PNG)
+
 ## Índice
 
 * [1. Preámbulo](#1-preámbulo)
@@ -142,26 +154,18 @@ pendientes de tu proyecto anterior.
 ### Angular
 
 * [ ] [Uso de Components | Templates](https://angular.io/guide/architecture-components#introduction-to-components)
-* [ ] [Directivas estructurales (ngIf / ngFor)](https://angular.io/guide/template-syntax#built-in-structural-directives)
+* [ ] [Directivas estructurales (ngIf / ngFor)](https://angular.io/guidetemplate-syntax#built-in-structural-directives)
 * [ ] [@Input | @Ouput](https://angular.io/guide/component-interaction#component-interaction)
+* [ ] [Dependency Injection](https://angular.io/guide/dependency-injection)
 * [ ] [Creación y uso de servicios](https://angular.io/guide/architecture-services#providing-services)
 * [ ] [Manejos de rutas](https://angular.io/guide/router)
 * [ ] [Uso de Observables](https://angular.io/guide/observables-in-angular)
 * [ ] [Uso de HttpClient](https://angular.io/guide/http)
 * [ ] [Estilos de componentes (ngStyle / ngClass)](https://angular.io/guide/template-syntax#built-in-directives)
-
-### React
-
-* [ ] [`JSX`](https://es.reactjs.org/docs/introducing-jsx.html)
-* [ ] [Componentes `class` y componentes `function`](https://es.reactjs.org/docs/components-and-props.html#function-and-class-components)
-* [ ] `props`
-* [ ] [Manejo de eventos](https://es.reactjs.org/docs/handling-events.html)
-* [ ] [Listas y keys](https://es.reactjs.org/docs/lists-and-keys.html)
-* [ ] [Renderizado condicional](https://es.reactjs.org/docs/conditional-rendering.html)
-* [ ] [Levantamiento de estados](https://es.reactjs.org/docs/lifting-state-up.html)
-* [ ] [`hooks`](https://es.reactjs.org/docs/hooks-intro.html)
-* [ ] [`CSS` modules](https://create-react-app.dev/docs/adding-a-css-modules-stylesheet)
-* [ ] [React Router](https://reacttraining.com/react-router/web)
+* [ ] [Guards](https://angular.io/api/router/CanActivate)
+* [ ] [Pipes](https://angular.io/api/common#pipes)
+* [ ] [Forms](https://angular.io/guide/forms-overview)
+* [ ] [Service Worker](https://angular.io/guide/service-worker-intro)
 
 ### APIs REST
 
@@ -392,7 +396,6 @@ para mantener actualizado el menú.
 
 ### Frameworks / libraries
 
-* [React](https://reactjs.org/)
 * [Angular](https://angular.io/)
 
 ### Herramientas

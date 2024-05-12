@@ -4,7 +4,7 @@
 
 export const environment = {
   production: false,
-  apiUrl:'https://rest-burger-queen.herokuapp.com/'
+  apiUrl:'https://api-rest-burger-queen-e9d1014b3e87.herokuapp.com/'
   // apiUrl:'http://ec2-13-58-43-131.us-east-2.compute.amazonaws.com/'
   // apiUrl:'http://localhost:3000/',
 };
